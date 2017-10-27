@@ -1,0 +1,39 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "sites": [
+    {
+      "id": "ADM:BERKLEYSIG",
+      "etype": "ADM",
+      "codenbr": "BERKLEYSIG",
+      "name": "Berkley Southeast Insurance Group"
+    },
+    {
+      "id": "FTP:EHSC",
+      "etype": "FTP",
+      "codenbr": "EHSC",
+      "name": "EHSC"
+    },
+    {
+      "id": "ADM:NCLM",
+      "etype": "ADM",
+      "codenbr": "NCLM",
+      "name": "North Carolina League of Municipalities"
+    },
+    {
+      "id": "ADM:ADELANTO",
+      "etype": "ADM",
+      "codenbr": "ADELANTO",
+      "name": "Adelanto Correctional Facility"
+    },
+    {
+      "id": "ADM:AMERICASINO",
+      "etype": "ADM",
+      "codenbr": "AMERICASINO",
+      "name": "American Casino & Entertainment Properties"
+    }
+  ]
+}
