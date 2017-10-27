@@ -1,0 +1,15 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "site": {
+    "id": "ADM:BERKLEYSIG",
+    "etype": "ADM",
+    "codenbr": "BERKLEYSIG",
+    "name": "Berkley Southeast Insurance Group",
+    "address": "500 Rose Blvd, Concord",
+    "phone": "(925) 324-2222"
+  }
+}

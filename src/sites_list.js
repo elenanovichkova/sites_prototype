@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SiteItem from "./site_item";
+import SiteListItem from "./site_list_item";
 
 import sites from "./api/sites.json";
 
@@ -38,7 +38,7 @@ export default class SitesList extends Component {
   getSites() {
     return this.state.sites.map(site => {
       return (
-        <SiteItem
+        <SiteListItem
           name={site.name}
           codenbr={site.codenbr}
           selectSite={this.props.selectSite}

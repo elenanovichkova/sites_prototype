@@ -8,8 +8,8 @@ export default class SitesRootComponent extends Component {
     super();
     this.state = {
       isSiteSelected: false,
-      sites: [],
-      selectedSiteCodenbr: ""
+      selectedSiteCodenbr: "",
+      sites: []
     };
   }
 
@@ -25,10 +25,10 @@ export default class SitesRootComponent extends Component {
               }}
             />
           : <SitesList
-              selectSite={codenbr => {
+              selectSite={siteCodeNbr => {
                 this.setState({
                   isSiteSelected: true,
-                  selectedSiteCodenbr: codenbr
+                  selectedSiteCodenbr: siteCodeNbr
                 });
               }}
             />}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class SiteItem extends Component {
+export default class SiteListItem extends Component {
   constructor() {
     super();
   }

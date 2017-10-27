@@ -1,0 +1,15 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "site": {
+    "id": "ADM:NCLM",
+    "etype": "ADM",
+    "codenbr": "NCLM",
+    "name": "North Carolina League of Municipalities",
+    "address": "500 ForgetMeNot Blvd, Concord",
+    "phone": "(925) 324-6666"
+  }
+}
