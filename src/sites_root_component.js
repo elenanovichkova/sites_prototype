@@ -16,7 +16,7 @@ export default class SitesRootComponent extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Sites Root component</h1>
+        <h1>Hello Sites Root component!!!</h1>
         {this.state.isSiteSelected
           ? <SiteDetail
               siteCodeNbr={this.state.selectedSiteCodenbr}

@@ -27,7 +27,7 @@ export default class ConfigList extends Component {
     let configs = this.getConfigs();
     return (
       <div>
-        Config Lists
+        Config List
         <div>
           <div className="row">
             <div className="col-md-2">
