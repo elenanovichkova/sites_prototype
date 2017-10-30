@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import SiteHeader from "./site_header";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-import siteDetailBERKLEYSIG from "./api/siteDetailBerkley";
-import siteDetailEHSC from "./api/siteDetailEhsc";
-import siteDetailNCLM from "./api/siteDetailNclm";
-import siteDetailADELANTO from "./api/siteDetailAdelanto";
-import siteDetailAMERICASINO from "./api/siteDetailAmericasino";
+import SiteHeader from "./site_header";
+import EdiConfigsRootComponent from "./edi_configs_root_component";
+
+import siteDetailBERKLEYSIG from "./api/siteDetailBerkley.json";
+import siteDetailEHSC from "./api/siteDetailEhsc.json";
+import siteDetailNCLM from "./api/siteDetailNclm.json";
+import siteDetailADELANTO from "./api/siteDetailAdelanto.json";
+import siteDetailAMERICASINO from "./api/siteDetailAmericasino.json";
 
 export default class SiteDetail extends Component {
   componentWillMount() {
@@ -17,9 +19,8 @@ export default class SiteDetail extends Component {
   constructor() {
     super();
     this.state = {
-      site: {
-        tabIndex: 0
-      }
+      tabIndex: 0,
+      site: {}
     };
   }
 
@@ -81,7 +82,7 @@ export default class SiteDetail extends Component {
           </TabList>
 
           <TabPanel>
-            <h2>EDI configs</h2>
+            <EdiConfigsRootComponent site={this.state.site} />
           </TabPanel>
           <TabPanel>
             <h2>Bills Questionnaire content </h2>
