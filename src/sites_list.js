@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SiteListItem from "./site_list_item";
+import $ from "jquery";
 
-import sites from "./api/sites.json";
+import SiteListItem from "./site_list_item";
 
 export default class SitesList extends Component {
   componentWillMount() {
@@ -17,22 +17,18 @@ export default class SitesList extends Component {
   }
 
   fetchSites(site) {
-    this.setState({ sites: sites.sites });
-    console.log();
-    /*
-    replace with this when put on server
     $.ajax({
       method: "GET",
       dataType: "json",
       mimeType: "application/json",
-      url: `external/api/site${site.codenbr}.json`,
+      url: `external/api/sites.json`,
       success: data => {
         this.setState({ sites: data.sites });
       },
       error: (xhr, status, error) => {
         console.log(error);
       }
-    });*/
+    });
   }
 
   getSites() {

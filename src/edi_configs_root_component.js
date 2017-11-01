@@ -1,18 +1,17 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 import ConfigForm from "./config_form";
 import ConfigList from "./config_list";
 
-import configList from "./api/config_list.json";
-
 export default class EdiConfigsRootComponent extends Component {
   componentWillMount() {
-    console.log("Edi configurations for..." + this.props.site.codenbr);
-    this.fetchSiteConfigurations(this.props.site.codenbr);
+    console.log("Edi configurations for...", this.props.siteCodeNbr);
+    this.fetchSiteConfigurations(this.props.siteCodeNbr);
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showConfigForm: false,
       config: {},
@@ -21,35 +20,45 @@ export default class EdiConfigsRootComponent extends Component {
   }
 
   fetchSiteConfigurations(siteCodeNbr) {
-    this.setState({ configList: configList.data, showConfigForm: false });
-    //to do ajax
+    console.log("fetching configs for", siteCodeNbr);
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      mimeType: "application/json",
+      url: `external/api/configs${siteCodeNbr}.json`,
+      success: data => {
+        this.setState({ configList: data.data, showConfigForm: false });
+      },
+      error: (xhr, status, error) => {
+        console.log(error);
+      }
+    });
   }
 
   hideConfigForm() {
     console.log("show config form...");
-    this.setState({ showConfigForm: false });
+    this.setState({ showConfigForm: false, config: {} });
   }
 
-  showConfigForm() {
+  createNewConfig() {
     console.log("show config form...");
-    this.setState({ showConfigForm: true });
+    this.setState({ showConfigForm: true, config: {} });
   }
 
   handleUpdateConfigList() {
-    //to do ajax and then update state with new configList
-    this.setState({ configList: configList.data });
+    this.fetchSiteConfigurations(this.props.siteCodeNbr);
   }
 
   handleEditConfig(config) {
     console.log("handle edit config", config);
     //to do ajax to get config params and then show config form with prepopulated data
-    this.setState({ showConfigForm: true });
+    this.setState({ showConfigForm: true, config: config });
   }
 
   handleDuplicateConfig(config) {
     console.log("handle duplicate config", config);
     //to do ajax to get config params and then show config form with prepopulated data
-    this.setState({ showConfigForm: true });
+    this.setState({ showConfigForm: true, config: config });
   }
 
   handleDeleteConfig(config) {
@@ -64,6 +73,10 @@ export default class EdiConfigsRootComponent extends Component {
     this.setState({ configList: configs });
   }
 
+  updateConfigList() {
+    this.fetchSiteConfigurations(this.props.siteCodeNbr);
+  }
+
   render() {
     return (
       <div>
@@ -72,15 +85,18 @@ export default class EdiConfigsRootComponent extends Component {
               <button type="button" onClick={this.hideConfigForm.bind(this)}>
                 Go back to all configurations
               </button>
-              <ConfigForm />
+              <ConfigForm
+                edicntl={this.state.config}
+                onSave={this.updateConfigList.bind(this)}
+              />
             </div>
           : <div>
-              <button type="button" onClick={this.showConfigForm.bind(this)}>
+              <button type="button" onClick={this.createNewConfig.bind(this)}>
                 Add Configuration
               </button>
               <ConfigList
                 configList={this.state.configList}
-                updateList={this.handleUpdateConfigList}
+                updateList={this.updateConfigList.bind(this)}
                 editConfig={this.handleEditConfig.bind(this)}
                 duplicateConfig={this.handleDuplicateConfig.bind(this)}
                 deleteConfig={this.handleDeleteConfig.bind(this)}

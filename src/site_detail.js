@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import $ from "jquery";
 
 import SiteHeader from "./site_header";
 import EdiConfigsRootComponent from "./edi_configs_root_component";
-
-import siteDetailBERKLEYSIG from "./api/siteDetailBerkley.json";
-import siteDetailEHSC from "./api/siteDetailEhsc.json";
-import siteDetailNCLM from "./api/siteDetailNclm.json";
-import siteDetailADELANTO from "./api/siteDetailAdelanto.json";
-import siteDetailAMERICASINO from "./api/siteDetailAmericasino.json";
 
 export default class SiteDetail extends Component {
   componentWillMount() {
@@ -25,42 +20,22 @@ export default class SiteDetail extends Component {
   }
 
   fetchSiteDetail(siteCodeNbr) {
-    var site;
-    switch (siteCodeNbr) {
-      case "BERKLEYSIG":
-        this.setState({ site: siteDetailBERKLEYSIG.site });
-        break;
-      case "EHSC":
-        this.setState({ site: siteDetailEHSC.site });
-        break;
-      case "NCLM":
-        this.setState({ site: siteDetailNCLM.site });
-        break;
-      case "ADELANTO":
-        this.setState({ site: siteDetailADELANTO.site });
-        break;
-      case "AMERICASINO":
-        this.setState({ site: siteDetailAMERICASINO.site });
-        break;
-    }
-    console.log();
-    /*
-    replace with this when put on server
     $.ajax({
       method: "GET",
       dataType: "json",
       mimeType: "application/json",
-      url: `external/api/site${site.codenbr}.json`,
+      url: `external/api/siteDetail${siteCodeNbr}.json`,
       success: data => {
-        this.setState({ sites: data.sites });
+        this.setState({ site: data.site });
       },
       error: (xhr, status, error) => {
         console.log(error);
       }
-    });*/
+    });
   }
 
   render() {
+    console.log("render site detail...", this.state.site);
     return (
       <div>
         <button onClick={this.props.goBack}>Back to All sites</button>
@@ -82,7 +57,7 @@ export default class SiteDetail extends Component {
           </TabList>
 
           <TabPanel>
-            <EdiConfigsRootComponent site={this.state.site} />
+            <EdiConfigsRootComponent siteCodeNbr={this.props.siteCodeNbr} />
           </TabPanel>
           <TabPanel>
             <h2>Bills Questionnaire content </h2>

@@ -1,0 +1,23 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "JSI:AMERICASINO:EBIL",
+      "purpose": "EBIL",
+      "usage": "test",
+      "receiverId": "205367462",
+      "configName": "test config"
+    },
+    {
+      "id": "JSI:AMERICASINO:EBRV",
+      "purpose": "EBIL",
+      "usage": "production",
+      "receiverId": "205367462",
+      "configName": "production config"
+    }
+  ]
+}

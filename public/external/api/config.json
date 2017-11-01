@@ -1,0 +1,14 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "id": "ADM:ADELANTO:EBIL",
+    "name": "",
+    "purpose": "EBIL",
+    "usage": "T",
+    "fldsep": "*"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 import ConfigListItem from "./config_list_item";
 
