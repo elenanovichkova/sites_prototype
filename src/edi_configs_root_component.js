@@ -5,22 +5,21 @@ import ConfigForm from "./config_form";
 import ConfigList from "./config_list";
 
 export default class EdiConfigsRootComponent extends Component {
-  componentWillMount() {
-    console.log("Edi configurations for...", this.props.siteCodeNbr);
-    this.fetchSiteConfigurations(this.props.siteCodeNbr);
-  }
-
   constructor(props) {
     super(props);
     this.state = {
       showConfigForm: false,
       config: {},
-      configList: []
+      configList: [],
+      configFormState: "new"
     };
   }
 
+  componentWillMount() {
+    this.fetchSiteConfigurations(this.props.siteCodeNbr);
+  }
+
   fetchSiteConfigurations(siteCodeNbr) {
-    console.log("fetching configs for", siteCodeNbr);
     $.ajax({
       method: "GET",
       dataType: "json",
@@ -35,34 +34,41 @@ export default class EdiConfigsRootComponent extends Component {
     });
   }
 
-  hideConfigForm() {
-    console.log("show config form...");
+  hideConfigForm = () => {
     this.setState({ showConfigForm: false, config: {} });
-  }
+  };
 
-  createNewConfig() {
-    console.log("show config form...");
-    this.setState({ showConfigForm: true, config: {} });
-  }
+  createNewConfig = () => {
+    this.setState({
+      showConfigForm: true,
+      configFormState: "new",
+      config: {}
+    });
+  };
 
-  handleUpdateConfigList() {
+  handleUpdateConfigList = () => {
     this.fetchSiteConfigurations(this.props.siteCodeNbr);
-  }
+  };
 
-  handleEditConfig(config) {
-    console.log("handle edit config", config);
+  handleEditConfig = config => {
     //to do ajax to get config params and then show config form with prepopulated data
-    this.setState({ showConfigForm: true, config: config });
-  }
+    this.setState({
+      showConfigForm: true,
+      configFormState: "edit",
+      config: config
+    });
+  };
 
-  handleDuplicateConfig(config) {
-    console.log("handle duplicate config", config);
+  handleDuplicateConfig = config => {
     //to do ajax to get config params and then show config form with prepopulated data
-    this.setState({ showConfigForm: true, config: config });
-  }
+    this.setState({
+      showConfigForm: true,
+      configFormState: "dupl",
+      config: config
+    });
+  };
 
-  handleDeleteConfig(config) {
-    console.log("handle delete config", config);
+  handleDeleteConfig = config => {
     //to do ajax to remove config and then reload the list
 
     //here is optimistic delete
@@ -71,35 +77,37 @@ export default class EdiConfigsRootComponent extends Component {
     configs.splice(configIndex, 1); //removes config from array
 
     this.setState({ configList: configs });
-  }
+  };
 
-  updateConfigList() {
+  updateConfigList = () => {
     this.fetchSiteConfigurations(this.props.siteCodeNbr);
-  }
+  };
 
   render() {
+    console.log("Config form state", this.state.configFormState);
     return (
       <div>
         {this.state.showConfigForm
           ? <div>
-              <button type="button" onClick={this.hideConfigForm.bind(this)}>
+              <button type="button" onClick={this.hideConfigForm}>
                 Go back to all configurations
               </button>
               <ConfigForm
+                configFormState={this.state.configFormState}
                 edicntl={this.state.config}
-                onSave={this.updateConfigList.bind(this)}
+                onSave={this.updateConfigList}
               />
             </div>
           : <div>
-              <button type="button" onClick={this.createNewConfig.bind(this)}>
+              <button type="button" onClick={this.createNewConfig}>
                 Add Configuration
               </button>
               <ConfigList
                 configList={this.state.configList}
-                updateList={this.updateConfigList.bind(this)}
-                editConfig={this.handleEditConfig.bind(this)}
-                duplicateConfig={this.handleDuplicateConfig.bind(this)}
-                deleteConfig={this.handleDeleteConfig.bind(this)}
+                updateList={this.updateConfigList}
+                editConfig={this.handleEditConfig}
+                duplicateConfig={this.handleDuplicateConfig}
+                deleteConfig={this.handleDeleteConfig}
               />
             </div>}
       </div>

@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:2am-e$EDICntl",
+    "id": "JSI:AMERICASINO:EBRV",
+    "purpose": "EBIL",
+    "usage": "P",
+    "receiverId": "205367462",
+    "name": "production config for americasino ebrv",
+    "fldsep": "*",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": []
+  }
+}

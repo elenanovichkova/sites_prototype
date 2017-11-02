@@ -5,7 +5,6 @@ import SiteListItem from "./site_list_item";
 
 export default class SitesList extends Component {
   componentWillMount() {
-    console.log("Update site list...");
     this.fetchSites();
   }
 

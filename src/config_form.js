@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 import EDICntlTitle from "./edicntl_title";
-import EDICntlForm from "./edicntl_form";
+import EDICntlFormGroups from "./edicntl_form_groups";
 import EDICntlParamsTitle from "./edicntl_params_title";
 import EDICntlParamsAdminView from "./edicntl_params_admin_view";
 import EDICntlParamsSemanticView from "./edicntl_params_semantic_view";
@@ -11,28 +12,91 @@ export default class ConfigForm extends Component {
     super(props);
     this.state = {
       showAdminView: false,
-      edicntl: props.edicntl
+      configFormState: this.props.configFormState,
+      name: "",
+      purpose: "",
+      usage: "",
+      fldsep: "",
+      otherfldsep: "",
+      descr: "",
+      params: []
     };
-    console.log("Current EDICntl ", props.edicntl);
   }
+
+  componentWillMount() {
+    if (this.props.configFormState != "new") {
+      this.fetchEDICntl(this.props.edicntl.oid);
+    }
+  }
+
+  fetchEDICntl = () => {
+    console.log(this.props.edicntl.id.replace(/:/gi, ""));
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      mimeType: "application/json",
+      url: `external/api/edicntl${this.props.edicntl.id.replace(
+        /:/gi,
+        ""
+      )}.json`,
+      success: response => {
+        console.log(response);
+        let {
+          name,
+          purpose,
+          usage,
+          fldsep,
+          otherfldsep,
+          descr,
+          params
+        } = response.data;
+        this.setState({
+          name,
+          purpose,
+          usage,
+          fldsep,
+          otherfldsep,
+          descr,
+          params
+        });
+      },
+      error: (xhr, status, error) => {
+        console.log(error);
+      }
+    });
+  };
 
   handleSave(event) {
     event.preventDefault();
     console.log(this.props);
+    console.log("Form Data on Save", this.state.formData);
     this.props.onSave();
   }
 
+  handleEdiCntlFormGroupsChange = (name, value) => {
+    this.setState({
+      [name]: value
+    });
+  };
+
   render() {
+    console.log("Config form data", this.state);
     return (
       <div>
         <form>
-          <EDICntlTitle />
-          <div className="row">
-            <div className="col-md-6">
-              <EDICntlForm />
-            </div>
-          </div>
+          <EDICntlTitle configFormState={this.state.configFormState} />
+          <EDICntlFormGroups
+            configFormState={this.state.configFormState}
+            name={this.state.name}
+            purpose={this.state.purpose}
+            usage={this.state.usage}
+            fldsep={this.state.fldsep}
+            descr={this.state.descr}
+            otherfldsep={this.state.otherfldsep}
+            onChange={this.handleEdiCntlFormGroupsChange}
+          />
           <EDICntlParamsTitle
+            configFormState={this.state.configFormState}
             showAdminView={this.state.showAdminView}
             onShowAdminViewClick={() => {
               this.setState({ showAdminView: true });
@@ -42,8 +106,12 @@ export default class ConfigForm extends Component {
             }}
           />
           {this.state.showAdminView
-            ? <EDICntlParamsAdminView />
-            : <EDICntlParamsSemanticView />}
+            ? <EDICntlParamsAdminView
+                configFormState={this.state.configFormState}
+              />
+            : <EDICntlParamsSemanticView
+                configFormState={this.state.configFormState}
+              />}
           <button onClick={this.handleSave.bind(this)}>SAVE</button>
         </form>
       </div>

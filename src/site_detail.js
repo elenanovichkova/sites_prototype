@@ -7,7 +7,6 @@ import EdiConfigsRootComponent from "./edi_configs_root_component";
 
 export default class SiteDetail extends Component {
   componentWillMount() {
-    console.log("Site Detail..." + this.props.siteCodeNbr);
     this.fetchSiteDetail(this.props.siteCodeNbr);
   }
 
@@ -35,7 +34,6 @@ export default class SiteDetail extends Component {
   }
 
   render() {
-    console.log("render site detail...", this.state.site);
     return (
       <div>
         <button onClick={this.props.goBack}>Back to All sites</button>

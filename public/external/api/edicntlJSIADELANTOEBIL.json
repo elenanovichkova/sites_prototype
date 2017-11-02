@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:194-e$EDICntl",
+    "id": "JSI:ADELANTO:EBIL",
+    "purpose": "EBIL",
+    "usage": "T",
+    "receiverId": "205367462",
+    "name": "test config for Adelanto ebill",
+    "fldsep": "other",
+    "otherfldsep": "^",
+    "descr": "some description",
+    "params": []
+  }
+}

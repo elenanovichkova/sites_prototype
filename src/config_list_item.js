@@ -24,7 +24,7 @@ export default class ConfigListItem extends Component {
         <div className="row">
           <div className="col-md-2">
             <p>
-              {this.props.config.configName}
+              {this.props.config.name}
             </p>
           </div>
           <div className="col-md-2">

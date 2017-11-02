@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:1u-1x$EDICntl",
+    "id": "JSI:EHSC:EBRV",
+    "purpose": "EBIL",
+    "usage": "P",
+    "receiverId": "205367462",
+    "name": "production config",
+    "fldsep": "*",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": []
+  }
+}

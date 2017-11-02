@@ -6,18 +6,26 @@
   },
   "data": [
     {
+      "oid": "10:194-e$EDICntl",
       "id": "JSI:ADELANTO:EBIL",
       "purpose": "EBIL",
-      "usage": "test",
+      "usage": "T",
       "receiverId": "205367462",
-      "configName": "test config"
+      "name": "test config",
+      "fldsep": "other",
+      "otherfldsep": "^",
+      "descr": "some description"
     },
     {
+      "oid": "10:1pu-e$EDICntl",
       "id": "JSI:ADELANTO:EBRV",
       "purpose": "EBIL",
-      "usage": "production",
+      "usage": "P",
       "receiverId": "205367462",
-      "configName": "production config"
+      "name": "production config",
+      "fldsep": "other",
+      "otherfldsep": "^",
+      "descr": "some description"
     }
   ]
 }

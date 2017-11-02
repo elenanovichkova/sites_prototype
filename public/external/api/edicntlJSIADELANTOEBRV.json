@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:1pu-e$EDICntl",
+    "id": "JSI:ADELANTO:EBRV",
+    "purpose": "EBIL",
+    "usage": "P",
+    "receiverId": "205367462",
+    "name": "production config  for Adelanto ebrv",
+    "fldsep": "other",
+    "otherfldsep": "^",
+    "descr": "some description",
+    "params": []
+  }
+}

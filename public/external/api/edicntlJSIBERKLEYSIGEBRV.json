@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:d9-1h$EDICntl",
+    "id": "JSI:BERKLEYSIG:EBRV",
+    "purpose": "EBIL",
+    "usage": "P",
+    "receiverId": "205367462",
+    "name": "production config fro berkley ebrv",
+    "fldsep": ":",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": []
+  }
+}

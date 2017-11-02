@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:1v-e$EDICntl",
+    "id": "JSI:NCLM:EBIL",
+    "purpose": "EBIL",
+    "usage": "T",
+    "receiverId": "205367462",
+    "name": "test config",
+    "fldsep": "*",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": ""
+  }
+}

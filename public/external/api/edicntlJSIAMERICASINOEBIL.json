@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:28d-e$EDICntl",
+    "id": "JSI:AMERICASINO:EBIL",
+    "purpose": "EBIL",
+    "usage": "T",
+    "receiverId": "205367462",
+    "name": "test config for americasino ebill",
+    "fldsep": "*",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": []
+  }
+}

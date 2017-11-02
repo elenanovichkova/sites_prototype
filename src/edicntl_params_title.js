@@ -1,7 +1,6 @@
 import React from "react";
 
 const EDICntlParamsTitle = props => {
-  console.log(props);
   return (
     <div>
       <h3>Configuration Parameters</h3>

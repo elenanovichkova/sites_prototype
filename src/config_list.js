@@ -10,7 +10,6 @@ export default class ConfigList extends Component {
   }
 
   getConfigs() {
-    console.log(this.props);
     return this.props.configList.map(config => {
       return (
         <ConfigListItem

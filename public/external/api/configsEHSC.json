@@ -6,18 +6,24 @@
   },
   "data": [
     {
+      "oid": "10:1u-e$EDICntl",
       "id": "JSI:EHSC:EBIL",
       "purpose": "EBIL",
-      "usage": "test",
+      "usage": "T",
       "receiverId": "205367462",
-      "configName": "test config"
+      "name": "test config",
+      "fldsep": "*",
+      "descr": "some description"
     },
     {
+      "oid": "10:1u-1x$EDICntl",
       "id": "JSI:EHSC:EBRV",
       "purpose": "EBIL",
-      "usage": "production",
+      "usage": "P",
       "receiverId": "205367462",
-      "configName": "production config"
+      "name": "production config",
+      "fldsep": "*",
+      "descr": "some description"
     }
   ]
 }

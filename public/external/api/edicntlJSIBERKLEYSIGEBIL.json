@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "oid": "10:1m-e$EDICntl",
+    "id": "JSI:BERKLEYSIG:EBIL",
+    "purpose": "EBIL",
+    "usage": "T",
+    "receiverId": "205367462",
+    "name": "test config fro berkley ebill",
+    "fldsep": "~",
+    "otherfldsep": "",
+    "descr": "some description",
+    "params": []
+  }
+}
