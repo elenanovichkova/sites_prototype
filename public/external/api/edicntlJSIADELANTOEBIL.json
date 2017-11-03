@@ -14,6 +14,52 @@
     "fldsep": "other",
     "otherfldsep": "^",
     "descr": "some description",
-    "params": []
+    "params": [
+      {
+        "id": "10:103m-a$rtv",
+        "tag": "px12_do997",
+        "value": "N"
+      },
+      {
+        "id": "11:103m-a$rtv",
+        "tag": "px12_do824",
+        "value": "N"
+      },
+      {
+        "id": "12:103m-a$rtv",
+        "tag": "px12_do277u",
+        "value": "N"
+      },
+      {
+        "id": "13:103m-a$rtv",
+        "tag": "px12_allowtest",
+        "value": "Y"
+      },
+      {
+        "id": "14:103m-a$rtv",
+        "tag": "p837_lookupstlic",
+        "value": "N"
+      },
+      {
+        "id": "15:103m-a$rtv",
+        "tag": "p837_defssn",
+        "value": "999999999"
+      },
+      {
+        "id": "18:103m-a$rtv",
+        "tag": "p837_at",
+        "value": "Y"
+      },
+      {
+        "id": "16:103m-a$rtv",
+        "tag": "patt_autorej",
+        "value": "15"
+      },
+      {
+        "id": "17:103m-a$rtv",
+        "tag": "p837_imagedays",
+        "value": "15"
+      }
+    ]
   }
 }

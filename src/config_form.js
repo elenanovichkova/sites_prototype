@@ -13,6 +13,8 @@ export default class ConfigForm extends Component {
     this.state = {
       showAdminView: false,
       configFormState: this.props.configFormState,
+      oid: "",
+      id: "",
       name: "",
       purpose: "",
       usage: "",
@@ -42,6 +44,8 @@ export default class ConfigForm extends Component {
       success: response => {
         console.log(response);
         let {
+          oid,
+          id,
           name,
           purpose,
           usage,
@@ -51,6 +55,8 @@ export default class ConfigForm extends Component {
           params
         } = response.data;
         this.setState({
+          oid,
+          id,
           name,
           purpose,
           usage,
@@ -79,11 +85,22 @@ export default class ConfigForm extends Component {
     });
   };
 
+  handleDeleteParam = param => {
+    const params = [...this.state.params]; //clone array
+    const paramIndex = params.indexOf(param);
+    params.splice(paramIndex, 1); //removes config from array
+
+    this.setState({ params });
+  };
+
   render() {
     console.log("Config form data", this.state);
     return (
       <div>
         <form>
+          <div>
+            {JSON.stringify(this.state)}
+          </div>
           <EDICntlTitle configFormState={this.state.configFormState} />
           <EDICntlFormGroups
             configFormState={this.state.configFormState}
@@ -108,9 +125,12 @@ export default class ConfigForm extends Component {
           {this.state.showAdminView
             ? <EDICntlParamsAdminView
                 configFormState={this.state.configFormState}
+                handleDeleteParam={this.handleDeleteParam}
+                params={this.state.params}
               />
             : <EDICntlParamsSemanticView
                 configFormState={this.state.configFormState}
+                params={this.state.params}
               />}
           <button onClick={this.handleSave.bind(this)}>SAVE</button>
         </form>
