@@ -6,6 +6,7 @@
   },
   "data": [
     {
+      "id": "10:194-e$EDICntl",
       "id": "JSI:ADELANTO:EBIL",
       "purpose": "EBIL",
       "usage": "test",
@@ -13,6 +14,7 @@
       "configName": "test config"
     },
     {
+      "id": "10:1pu-e$EDICntl",
       "id": "JSI:ADELANTO:EBRV",
       "purpose": "EBIL",
       "usage": "production",

@@ -4,35 +4,40 @@
     "result": true,
     "reason": "OK"
   },
-  "sites": [
+  "data": [
     {
       "id": "ADM:BERKLEYSIG",
       "etype": "ADM",
       "codenbr": "BERKLEYSIG",
+      "taxid": "111111111",
       "name": "Berkley Southeast Insurance Group"
     },
     {
       "id": "FTP:EHSC",
       "etype": "FTP",
       "codenbr": "EHSC",
+      "taxid": "222222222",
       "name": "EHSC"
     },
     {
       "id": "ADM:NCLM",
       "etype": "ADM",
       "codenbr": "NCLM",
+      "taxid": "333333333",
       "name": "North Carolina League of Municipalities"
     },
     {
       "id": "ADM:ADELANTO",
       "etype": "ADM",
       "codenbr": "ADELANTO",
+      "taxid": "444444444",
       "name": "Adelanto Correctional Facility"
     },
     {
       "id": "ADM:AMERICASINO",
       "etype": "ADM",
       "codenbr": "AMERICASINO",
+      "taxid": "555555555",
       "name": "American Casino & Entertainment Properties"
     }
   ]

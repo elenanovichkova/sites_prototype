@@ -8,6 +8,7 @@
     {
       "oid": "10:194-e$EDICntl",
       "id": "JSI:ADELANTO:EBIL",
+      "isActive": true,
       "purpose": "EBIL",
       "usage": "T",
       "receiverId": "205367462",
@@ -18,10 +19,11 @@
     },
     {
       "oid": "10:1pu-e$EDICntl",
-      "id": "JSI:ADELANTO:EBRV",
+      "id": "sequenceId001",
+      "isActive": false,
       "purpose": "EBIL",
       "usage": "P",
-      "receiverId": "205367462",
+      "receiverId": "",
       "name": "production config",
       "fldsep": "other",
       "otherfldsep": "^",

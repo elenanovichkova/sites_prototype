@@ -21,8 +21,9 @@ export default class SitesList extends Component {
       dataType: "json",
       mimeType: "application/json",
       url: `external/api/sites.json`,
-      success: data => {
-        this.setState({ sites: data.sites });
+      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=searchSites`,
+      success: response => {
+        this.setState({ sites: response.data });
       },
       error: (xhr, status, error) => {
         console.log(error);
@@ -36,6 +37,7 @@ export default class SitesList extends Component {
         <SiteListItem
           name={site.name}
           codenbr={site.codenbr}
+          taxid={site.taxid}
           selectSite={this.props.selectSite}
           key={site.id}
         />

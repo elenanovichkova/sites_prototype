@@ -17,6 +17,7 @@ export default class ConfigList extends Component {
           onEdit={this.props.editConfig}
           onDuplicate={this.props.duplicateConfig}
           onDelete={this.props.deleteConfig}
+          onStateChange={this.props.changeConfigState}
           key={config.id}
         />
       );
@@ -34,13 +35,13 @@ export default class ConfigList extends Component {
               <p>Name</p>
             </div>
             <div className="col-md-2">
-              <p>ID</p>
+              <p>Status</p>
             </div>
             <div className="col-md-2">
               <p>purpose</p>
             </div>
             <div className="col-md-2">
-              <p>Template Used</p>
+              <p>Status</p>
             </div>
             <div className="col-md-2">
               <p>Usage</p>

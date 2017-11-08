@@ -54,6 +54,7 @@ export default class ConfigForm extends Component {
           descr,
           params
         } = response.data;
+
         this.setState({
           oid,
           id,
@@ -72,12 +73,12 @@ export default class ConfigForm extends Component {
     });
   };
 
-  handleSave(event) {
+  handleSave = event => {
     event.preventDefault();
     console.log(this.props);
     console.log("Form Data on Save", this.state.formData);
     this.props.onSave();
-  }
+  };
 
   handleEdiCntlFormGroupsChange = (name, value) => {
     this.setState({
@@ -132,7 +133,7 @@ export default class ConfigForm extends Component {
                 configFormState={this.state.configFormState}
                 params={this.state.params}
               />}
-          <button onClick={this.handleSave.bind(this)}>SAVE</button>
+          <button onClick={this.handleSave}>SAVE</button>
         </form>
       </div>
     );

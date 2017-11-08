@@ -79,12 +79,18 @@ export default class EdiConfigsRootComponent extends Component {
     this.setState({ configList: configs });
   };
 
-  updateConfigList = () => {
+  handleUpdateConfigList = () => {
     this.fetchSiteConfigurations(this.props.siteCodeNbr);
   };
 
+  handleChangeConfigState = (config, state) => {
+    console.log("changing config", config);
+    console.log("changing state", state);
+    this.fetchSiteConfigurations(this.props.siteCodeNbr + "R");
+  };
+
   render() {
-    console.log("Config form state", this.state.configFormState);
+    console.log("Config form state", this.state.configList);
     return (
       <div>
         {this.state.showConfigForm
@@ -95,7 +101,7 @@ export default class EdiConfigsRootComponent extends Component {
               <ConfigForm
                 configFormState={this.state.configFormState}
                 edicntl={this.state.config}
-                onSave={this.updateConfigList}
+                onSave={this.handleUpdateConfigList}
               />
             </div>
           : <div>
@@ -104,10 +110,11 @@ export default class EdiConfigsRootComponent extends Component {
               </button>
               <ConfigList
                 configList={this.state.configList}
-                updateList={this.updateConfigList}
+                updateList={this.handleUpdateConfigList}
                 editConfig={this.handleEditConfig}
                 duplicateConfig={this.handleDuplicateConfig}
                 deleteConfig={this.handleDeleteConfig}
+                changeConfigState={this.handleChangeConfigState}
               />
             </div>}
       </div>
