@@ -24,6 +24,7 @@ export default class SiteDetail extends Component {
       dataType: "json",
       mimeType: "application/json",
       url: `external/api/siteDetail${siteCodeNbr}.json`,
+      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=siteDetail&param.codenbr=${siteCodeNbr}`,
       success: data => {
         this.setState({ site: data.site });
       },

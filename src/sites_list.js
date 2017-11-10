@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import $ from "jquery";
 
 import SiteListItem from "./site_list_item";
+import SitesFilter from "./sites_filter";
 
 export default class SitesList extends Component {
   componentWillMount() {
@@ -11,6 +12,7 @@ export default class SitesList extends Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       sites: []
     };
   }
@@ -23,7 +25,7 @@ export default class SitesList extends Component {
       url: `external/api/sites.json`,
       //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=searchSites`,
       success: response => {
-        this.setState({ sites: response.data });
+        this.setState({ sites: response.data, loading: false });
       },
       error: (xhr, status, error) => {
         console.log(error);
@@ -50,9 +52,8 @@ export default class SitesList extends Component {
     return (
       <div>
         <h3>Site List</h3>
-        <div>
-          {sites}
-        </div>
+        <SitesFilter onSearch={this.fetchSites} />
+        <div>{!this.state.loading ? sites : <div>Loading...</div>}</div>
       </div>
     );
   }
