@@ -17,13 +17,16 @@ export default class SitesList extends Component {
     };
   }
 
-  fetchSites(site) {
+  fetchSites = ({ ...filter } = {}) => {
+    console.log(filter);
+    let { sitename = "", siteid = "", taxid = "", submitterid = "" } = filter;
+    this.setState({ loading: true });
     $.ajax({
       method: "GET",
       dataType: "json",
       mimeType: "application/json",
       url: `external/api/sites.json`,
-      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=searchSites`,
+      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=searchSites&param.id=${siteid}&param.name=${sitename}&param.taxid=${taxid}&param.submitterid=${submitterid}`,
       success: response => {
         this.setState({ sites: response.data, loading: false });
       },
@@ -31,7 +34,7 @@ export default class SitesList extends Component {
         console.log(error);
       }
     });
-  }
+  };
 
   getSites() {
     return this.state.sites.map(site => {
