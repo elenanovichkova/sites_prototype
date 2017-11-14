@@ -5,19 +5,17 @@ export default class SiteListItem extends Component {
     super();
   }
 
-  selectSite() {
-    this.props.selectSite(this.props.codenbr);
-  }
+  selectSite = () => {
+    this.props.onSelect(this.props.siteId);
+  };
 
   render() {
     return (
       <div>
-        <h2>
-          {this.props.codenbr} 
-        </h2>
+        <h2>{this.props.codenbr}</h2>
         <p>Name: {this.props.name}</p>
         <p>Tax ID: {this.props.taxid}</p>
-        <button type="button" onClick={this.selectSite.bind(this)}>
+        <button type="button" onClick={this.selectSite}>
           Select
         </button>
         <hr />

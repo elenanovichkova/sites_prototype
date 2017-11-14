@@ -7,6 +7,7 @@
   "data": [
     {
       "id": "ADM:BERKLEYSIG",
+      "siteId": "BERKLEYSIG",
       "etype": "ADM",
       "codenbr": "BERKLEYSIG",
       "taxid": "111111111",
@@ -14,6 +15,7 @@
     },
     {
       "id": "FTP:EHSC",
+      "siteId": "EHSC",
       "etype": "FTP",
       "codenbr": "EHSC",
       "taxid": "222222222",
@@ -21,6 +23,7 @@
     },
     {
       "id": "ADM:NCLM",
+      "siteId": "NCLM",
       "etype": "ADM",
       "codenbr": "NCLM",
       "taxid": "333333333",
@@ -28,6 +31,7 @@
     },
     {
       "id": "ADM:ADELANTO",
+      "siteId": "ADELANTO",
       "etype": "ADM",
       "codenbr": "ADELANTO",
       "taxid": "444444444",
@@ -35,6 +39,7 @@
     },
     {
       "id": "ADM:AMERICASINO",
+      "siteId": "AMERICASINO",
       "etype": "ADM",
       "codenbr": "AMERICASINO",
       "taxid": "555555555",

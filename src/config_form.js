@@ -32,7 +32,6 @@ export default class ConfigForm extends Component {
   }
 
   fetchEDICntl = () => {
-    console.log(this.props.edicntl.id.replace(/:/gi, ""));
     $.ajax({
       method: "GET",
       dataType: "json",
@@ -42,7 +41,6 @@ export default class ConfigForm extends Component {
         ""
       )}.json`,
       success: response => {
-        console.log(response);
         let {
           oid,
           id,
@@ -75,8 +73,6 @@ export default class ConfigForm extends Component {
 
   handleSave = event => {
     event.preventDefault();
-    console.log(this.props);
-    console.log("Form Data on Save", this.state.formData);
     this.props.onSave();
   };
 
@@ -95,7 +91,6 @@ export default class ConfigForm extends Component {
   };
 
   render() {
-    console.log("Config form data", this.state);
     return (
       <div>
         <form>

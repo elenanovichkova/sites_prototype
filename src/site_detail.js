@@ -7,24 +7,25 @@ import EdiConfigsRootComponent from "./edi_configs_root_component";
 
 export default class SiteDetail extends Component {
   componentWillMount() {
-    this.fetchSiteDetail(this.props.siteCodeNbr);
+    this.fetchSiteDetail();
   }
 
   constructor() {
     super();
     this.state = {
       tabIndex: 0,
+      siteId: "",
       site: {}
     };
   }
 
-  fetchSiteDetail(siteCodeNbr) {
+  fetchSiteDetail(siteId) {
     $.ajax({
       method: "GET",
       dataType: "json",
       mimeType: "application/json",
-      url: `external/api/siteDetail${siteCodeNbr}.json`,
-      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=siteDetail&param.codenbr=${siteCodeNbr}`,
+      url: `external/api/siteDetail${this.props.siteId}.json`,
+      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=siteDetail&param.codenbr=${this.props.siteId}`,
       success: data => {
         this.setState({ site: data.site });
       },
@@ -34,10 +35,14 @@ export default class SiteDetail extends Component {
     });
   }
 
+  handleGoBackClick = () => {
+    this.props.onGoBackClick();
+  };
+
   render() {
     return (
       <div>
-        <button onClick={this.props.goBack}>Back to All sites</button>
+        <button onClick={this.handleGoBackClick}>Back to All sites</button>
         <h3>Site Detail</h3>
         <SiteHeader site={this.state.site} />
         <Tabs

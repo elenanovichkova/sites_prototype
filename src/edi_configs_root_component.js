@@ -84,13 +84,10 @@ export default class EdiConfigsRootComponent extends Component {
   };
 
   handleChangeConfigState = (config, state) => {
-    console.log("changing config", config);
-    console.log("changing state", state);
     this.fetchSiteConfigurations(this.props.siteCodeNbr + "R");
   };
 
   render() {
-    console.log("Config form state", this.state.configList);
     return (
       <div>
         {this.state.showConfigForm
