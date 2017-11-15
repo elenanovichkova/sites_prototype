@@ -4,7 +4,7 @@
     "result": true,
     "reason": "OK"
   },
-  "data": {
+  "config": {
     "oid": "10:1pu-e$EDICntl",
     "id": "JSI:ADELANTO:EBRV",
     "purpose": "EBIL",

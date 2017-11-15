@@ -18,7 +18,7 @@ export default class ConfigList extends Component {
           onDuplicate={this.props.duplicateConfig}
           onDelete={this.props.deleteConfig}
           onStateChange={this.props.changeConfigState}
-          key={config.id}
+          key={config.oid}
         />
       );
     });
@@ -32,13 +32,13 @@ export default class ConfigList extends Component {
         <div>
           <div className="row">
             <div className="col-md-2">
-              <p>Name</p>
+              <p>Submitter ID</p>
             </div>
+            <div className="col-md-2">
+	            <p>ID</p>
+            </div>            
             <div className="col-md-2">
               <p>Status</p>
-            </div>
-            <div className="col-md-2">
-              <p>purpose</p>
             </div>
             <div className="col-md-2">
               <p>Status</p>

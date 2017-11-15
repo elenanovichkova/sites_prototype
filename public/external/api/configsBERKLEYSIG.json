@@ -7,20 +7,20 @@
   "data": [
     {
       "oid": "10:1m-e$EDICntl",
-      "id": "JSI:BERKLEYSIG:EBIL",
+      "ID": "JSI:BERKLEYSIG:EBIL",
       "purpose": "EBIL",
       "usage": "T",
-      "receiverId": "205367462",
+      "receiverID": "205367462",
       "name": "test config",
       "fldsep": "*",
       "descr": "some description"
     },
     {
       "oid": "10:d9-1h$EDICntl",
-      "id": "JSI:BERKLEYSIG:EBRV",
+      "ID": "JSI:BERKLEYSIG:EBRV",
       "purpose": "EBIL",
       "usage": "P",
-      "receiverId": "205367462",
+      "receiverID": "205367462",
       "name": "production config",
       "fldsep": "*",
       "descr": "some description"

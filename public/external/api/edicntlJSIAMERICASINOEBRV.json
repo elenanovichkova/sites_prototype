@@ -4,7 +4,7 @@
     "result": true,
     "reason": "OK"
   },
-  "data": {
+  "config": {
     "oid": "10:2am-e$EDICntl",
     "id": "JSI:AMERICASINO:EBRV",
     "purpose": "EBIL",

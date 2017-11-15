@@ -7,11 +7,11 @@
   "data": [
     {
       "oid": "10:194-e$EDICntl",
-      "id": "JSI:ADELANTO:EBIL",
+      "ID": "JSI:ADELANTO:EBIL",
       "isActive": true,
       "purpose": "EBIL",
       "usage": "T",
-      "receiverId": "205367462",
+      "receiverID": "205367462",
       "name": "test config",
       "fldsep": "other",
       "otherfldsep": "^",
@@ -19,11 +19,11 @@
     },
     {
       "oid": "10:1pu-e$EDICntl",
-      "id": "sequenceId001",
+      "ID": "sequenceId001",
       "isActive": false,
       "purpose": "EBIL",
       "usage": "P",
-      "receiverId": "",
+      "receiverID": "",
       "name": "production config",
       "fldsep": "other",
       "otherfldsep": "^",

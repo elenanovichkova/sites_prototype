@@ -6,7 +6,6 @@ import configList from "./api/config_list.json";
 
 export default class EdiConfigs extends Component {
   componentWillMount() {
-    console.log("Edi configurations for..." + this.props.site.codenbr);
     this.fetchSiteConfigurations(this.props.site.codenbr);
   }
 

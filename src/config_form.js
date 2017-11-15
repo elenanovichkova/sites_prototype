@@ -10,66 +10,13 @@ import EDICntlParamsSemanticView from "./edicntl_params_semantic_view";
 export default class ConfigForm extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
-      showAdminView: false,
+      view: "admin",
       configFormState: this.props.configFormState,
-      oid: "",
-      id: "",
-      name: "",
-      purpose: "",
-      usage: "",
-      fldsep: "",
-      otherfldsep: "",
-      descr: "",
-      params: []
+      edicntl: props.edicntl
     };
   }
-
-  componentWillMount() {
-    if (this.props.configFormState != "new") {
-      this.fetchEDICntl(this.props.edicntl.oid);
-    }
-  }
-
-  fetchEDICntl = () => {
-    $.ajax({
-      method: "GET",
-      dataType: "json",
-      mimeType: "application/json",
-      url: `external/api/edicntl${this.props.edicntl.id.replace(
-        /:/gi,
-        ""
-      )}.json`,
-      success: response => {
-        let {
-          oid,
-          id,
-          name,
-          purpose,
-          usage,
-          fldsep,
-          otherfldsep,
-          descr,
-          params
-        } = response.data;
-
-        this.setState({
-          oid,
-          id,
-          name,
-          purpose,
-          usage,
-          fldsep,
-          otherfldsep,
-          descr,
-          params
-        });
-      },
-      error: (xhr, status, error) => {
-        console.log(error);
-      }
-    });
-  };
 
   handleSave = event => {
     event.preventDefault();
@@ -94,40 +41,41 @@ export default class ConfigForm extends Component {
     return (
       <div>
         <form>
-          <div>
-            {JSON.stringify(this.state)}
-          </div>
+          <div>{JSON.stringify(this.state)}</div>
           <EDICntlTitle configFormState={this.state.configFormState} />
           <EDICntlFormGroups
-            configFormState={this.state.configFormState}
-            name={this.state.name}
-            purpose={this.state.purpose}
-            usage={this.state.usage}
-            fldsep={this.state.fldsep}
-            descr={this.state.descr}
-            otherfldsep={this.state.otherfldsep}
+            configFormState={this.state.edicntl.configFormState}
+            name={this.state.edicntl.name}
+            id={this.state.edicntl.id}
+            purpose={this.state.edicntl.purpose}
+            usage={this.state.edicntl.usage}
+            fldsep={this.state.edicntl.fldsep}
+            descr={this.state.edicntl.descr}
+            otherfldsep={this.state.edicntl.otherfldsep}
             onChange={this.handleEdiCntlFormGroupsChange}
           />
           <EDICntlParamsTitle
             configFormState={this.state.configFormState}
             showAdminView={this.state.showAdminView}
             onShowAdminViewClick={() => {
-              this.setState({ showAdminView: true });
+              this.setState({ view: "admin" });
             }}
             onShowSemanticViewClick={() => {
-              this.setState({ showAdminView: false });
+              this.setState({ view: "semantic" });
             }}
           />
-          {this.state.showAdminView
-            ? <EDICntlParamsAdminView
-                configFormState={this.state.configFormState}
-                handleDeleteParam={this.handleDeleteParam}
-                params={this.state.params}
-              />
-            : <EDICntlParamsSemanticView
-                configFormState={this.state.configFormState}
-                params={this.state.params}
-              />}
+          {this.state.view == "admin" ? (
+            <EDICntlParamsAdminView
+              configFormState={this.state.configFormState}
+              handleDeleteParam={this.handleDeleteParam}
+              params={this.state.edicntl.params}
+            />
+          ) : (
+            <EDICntlParamsSemanticView
+              configFormState={this.state.configFormState}
+              params={this.state.edicntl.params}
+            />
+          )}
           <button onClick={this.handleSave}>SAVE</button>
         </form>
       </div>

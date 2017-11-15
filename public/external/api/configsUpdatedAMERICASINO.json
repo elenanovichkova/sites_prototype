@@ -6,27 +6,25 @@
   },
   "data": [
     {
-      "oid": "10:194-e$EDICntl",
-      "id": "JSI:ADELANTO:EBIL",
-      "isActive": false,
+      "oid": "10:28d-e$EDICntl",
+      "ID": "JSI:AMERICASINO:EBIL",
+      "isActive": true,
       "purpose": "EBIL",
       "usage": "T",
-      "receiverId": "205367462",
+      "receiverID": "205367462",
       "name": "test config",
-      "fldsep": "other",
-      "otherfldsep": "^",
+      "fldsep": "*",
       "descr": "some description"
     },
     {
-      "oid": "10:1pu-e$EDICntl",
-      "id": "sequenceId001",
-      "isActive": true,
+      "oid": "10:2am-e$EDICntl",
+      "ID": "sequence0002",
+      "isActive": false,
       "purpose": "EBIL",
       "usage": "P",
-      "receiverId": "",
+      "receiverID": "",
       "name": "production config",
-      "fldsep": "other",
-      "otherfldsep": "^",
+      "fldsep": "*",
       "descr": "some description"
     }
   ]

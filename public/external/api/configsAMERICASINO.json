@@ -7,22 +7,22 @@
   "data": [
     {
       "oid": "10:28d-e$EDICntl",
-      "id": "JSI:AMERICASINO:EBIL",
-      "isActive": true,
+      "ID": "JSI:AMERICASINO:EBIL",
+      "isActive": false,
       "purpose": "EBIL",
       "usage": "T",
-      "receiverId": "205367462",
+      "receiverID": "205367462",
       "name": "test config",
       "fldsep": "*",
       "descr": "some description"
     },
     {
       "oid": "10:2am-e$EDICntl",
-      "id": "sequence0002",
+      "ID": "sequence0002",
       "isActive": true,
       "purpose": "EBIL",
       "usage": "P",
-      "receiverId": "",
+      "receiverID": "",
       "name": "production config",
       "fldsep": "*",
       "descr": "some description"

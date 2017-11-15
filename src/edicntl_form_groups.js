@@ -6,6 +6,7 @@ export default class EDICntlFormGroups extends Component {
     let name = props.configFormState === "dupl" ? "" : this.props.name;
     this.state = {
       name: name,
+      id: this.props.id,
       purpose: this.props.purpose,
       usage: this.props.usage,
       fldsep: this.props.fldsep,
@@ -58,6 +59,17 @@ export default class EDICntlFormGroups extends Component {
               />
             </div>
             <div className="form-group">
+              <label htmlFor="edicntl-name">ID *</label>
+              <input
+                name="id"
+                id="edicntl-id"
+                type="text"
+                value={this.state.id}
+                onChange={this.handleInputChange}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
               <label htmlFor="edicntl-purpose">Purpose *</label>
               <select
                 name="purpose"
@@ -102,21 +114,21 @@ export default class EDICntlFormGroups extends Component {
                 <option value="other">other</option>
               </select>
             </div>
-            {this.state.fldsep === "other"
-              ? <div className="form-group">
-                  <label htmlFor="edicntl-fldsep-other">
-                    Specify separator
-                  </label>
-                  <input
-                    name="otherfldsep"
-                    id="edicntl-otherfldsep"
-                    type="text"
-                    className="form-control"
-                    value={this.state.otherfldsep}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-              : ""}
+            {this.state.fldsep === "other" ? (
+              <div className="form-group">
+                <label htmlFor="edicntl-fldsep-other">Specify separator</label>
+                <input
+                  name="otherfldsep"
+                  id="edicntl-otherfldsep"
+                  type="text"
+                  className="form-control"
+                  value={this.state.otherfldsep}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+            ) : (
+              ""
+            )}
             <div className="form-group">
               <label htmlFor="edicntl-descr">Description</label>
               <input

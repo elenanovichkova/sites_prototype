@@ -7,7 +7,9 @@ export default class ConfigListItem extends Component {
     this.state = {};
   }
 
-  handleEdit = () => {
+  handleEdit = (event) => {
+	event.preventDefault();
+	console.log('edit');
     this.props.onEdit(this.props.config);
   };
 
@@ -29,19 +31,19 @@ export default class ConfigListItem extends Component {
         <div className="row">
           <div className="col-md-2">
             <p>
-              {this.props.config.name}
+              {this.props.config.receiverID}
             </p>
           </div>
+          <div className="col-md-2">
+	          <p>
+	            {this.props.config.ID}
+	          </p>
+          </div>          
           <div className="col-md-2">
             <Switch
               isChecked={this.props.config.isActive}
               onChange={this.handleStateChange}
             />
-          </div>
-          <div className="col-md-2">
-            <p>
-              {this.props.config.purpose}
-            </p>
           </div>
           <div className="col-md-2">
             <p>

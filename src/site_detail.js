@@ -25,7 +25,7 @@ export default class SiteDetail extends Component {
       dataType: "json",
       mimeType: "application/json",
       url: `external/api/siteDetail${this.props.siteId}.json`,
-      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=siteDetail&param.codenbr=${this.props.siteId}`,
+      //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=siteDetail&param.id=${this.props.siteId}`,
       success: data => {
         this.setState({ site: data.site });
       },
@@ -61,7 +61,7 @@ export default class SiteDetail extends Component {
           </TabList>
 
           <TabPanel>
-            <EdiConfigsRootComponent siteCodeNbr={this.props.siteCodeNbr} />
+            <EdiConfigsRootComponent siteId={this.props.siteId} />
           </TabPanel>
           <TabPanel>
             <h2>Bills Questionnaire content </h2>
