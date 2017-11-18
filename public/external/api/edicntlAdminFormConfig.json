@@ -1,0 +1,242 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "formConfig": {
+    "title": "",
+    "sections": [
+      {
+        "name": "edicntl",
+        "id": "edicntl",
+        "description": "EDI Control Configuration",
+        "view": "admin",
+        "formgroups": [
+          {
+            "id": "edicntlId",
+            "view": "admin",
+            "name": "edicntlId",
+            "description": "EDI control ID",
+            "type": "text",
+            "defaultValue": ""
+          },
+          {
+            "id": "edicntlSubmitterId",
+            "view": "admin",
+            "name": "edicntlSubmitterId",
+            "description": "Submitter ID",
+            "type": "text",
+            "defaultValue": ""
+          }
+        ]
+      },
+      {
+        "name": "edicntl837",
+        "id": "edicntl837",
+        "description": "837",
+        "view": "admin",
+        "formgroups": [
+          {
+            "id": "splitInbound837",
+            "view": "admin",
+            "name": "splitInbound837",
+            "description": "Split Inbound 837 Bill Files",
+            "type": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "splitInbound837ByTin",
+                "description": "Billing TIN",
+                "value": "TIN",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_pvdfld_tin",
+                    "tag": "p837_pvdfld",
+                    "val": "TIN"
+                  },
+                  {
+                    "id": "p837_pvdfld_tinn",
+                    "tag": "p837_pvdfldd",
+                    "val": "TINN"
+                  }
+                ]
+              },
+              {
+                "id": "splitInbound837ByNpi",
+                "description": "Billing NPI",
+                "value": "NPI",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_pvdfld_npi",
+                    "tag": "p837_pvdfld",
+                    "val": "NPI"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "allowtestindicator",
+            "view": "admin",
+            "name": "allowtestindicator",
+            "description": "Allow test indicator",
+            "type": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "allowtestindicatorYES",
+                "description": "YES",
+                "value": "Y",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "px12_allowtestY",
+                    "tag": "px12_allowtest",
+                    "val": "Y"
+                  }
+                ]
+              },
+              {
+                "id": "allowtestindicatorNO",
+                "description": "NO",
+                "value": "N",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "px12_allowtestN",
+                    "tag": "px12_allowtest",
+                    "val": "N"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "statelicenselookup",
+            "view": "admin",
+            "name": "statelicenselookup",
+            "description": "Opt-in state license lookup",
+            "type": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "statelicenselookupYES",
+                "description": "YES",
+                "value": "Y",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_lookupstlicY",
+                    "tag": "p837_lookupstlic",
+                    "val": "Y"
+                  }
+                ]
+              },
+              {
+                "id": "statelicenselookupNO",
+                "description": "NO",
+                "value": "N",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_lookupstlicN",
+                    "tag": "p837_lookupstlic",
+                    "val": "N"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "defaultssn",
+            "view": "admin",
+            "name": "defaultssn",
+            "description": "Default SSN",
+            "type": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "defaultssn999999999",
+                "description": "999999999",
+                "value": "999999999",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_defssnY",
+                    "tag": "p837_defssn",
+                    "val": "999999999"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "attachments",
+        "id": "attachments",
+        "description": "Attachments",
+        "view": "admin",
+        "formgroups": [
+          {
+            "id": "billrequiresattachment",
+            "view": "admin",
+            "name": "billrequiresattachment",
+            "description": "Which bill requires attachment",
+            "type": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "billrequiresattachmentY",
+                "description": "All Bills",
+                "value": "Y",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atY",
+                    "tag": "p837_at",
+                    "val": "Y"
+                  }
+                ]
+              },
+              {
+                "id": "billrequiresattachmentN",
+                "description": "No Bills",
+                "value": "N",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atN",
+                    "tag": "p837_at",
+                    "val": "N"
+                  }
+                ]
+              },
+              {
+                "id": "billrequiresattachmentPWK",
+                "description": "Use PWK",
+                "value": "PWK",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atPWK",
+                    "tag": "p837_at",
+                    "val": "PWK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -4,20 +4,15 @@ import $ from "jquery";
 import ConfigListItem from "./config_list_item";
 
 export default class ConfigList extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   getConfigs() {
     return this.props.configList.map(config => {
       return (
         <ConfigListItem
           config={config}
-          onEdit={this.props.editConfig}
-          onDuplicate={this.props.duplicateConfig}
-          onDelete={this.props.deleteConfig}
-          onStateChange={this.props.changeConfigState}
+          onEditClick={this.props.onEditClick}
+          onDuplicateClick={this.props.onDuplicateClick}
+          onDeleteClick={this.props.onDeleteClick}
+          onStateChange={this.props.onStateChange}
           key={config.oid}
         />
       );
@@ -35,8 +30,8 @@ export default class ConfigList extends Component {
               <p>Submitter ID</p>
             </div>
             <div className="col-md-2">
-	            <p>ID</p>
-            </div>            
+              <p>ID</p>
+            </div>
             <div className="col-md-2">
               <p>Status</p>
             </div>

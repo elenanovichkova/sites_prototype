@@ -8,10 +8,10 @@ export default class EdiConfigsRootComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showConfigForm: false,
       config: {},
       configList: [],
-      configFormState: "new"
+      view: "list", // list, form
+      action: "" // saveNew,
     };
   }
 
@@ -28,7 +28,7 @@ export default class EdiConfigsRootComponent extends Component {
       //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=getSiteConfigs&param.id=${this
       //   .props.siteId}`,
       success: data => {
-        this.setState({ configList: data.data, showConfigForm: false });
+        this.setState({ configList: data.data });
       },
       error: (xhr, status, error) => {
         console.log(error);
@@ -36,7 +36,7 @@ export default class EdiConfigsRootComponent extends Component {
     });
   }
 
-  updateConfigState = (config, state) => {
+  updateConfigState = (config, state, callback) => {
     let status = state ? "ACTV" : "IGNR";
     $.ajax({
       method: "GET",
@@ -46,7 +46,7 @@ export default class EdiConfigsRootComponent extends Component {
       //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=updConfigState&param.config=${config.oid}&param.receiverID=${config.receiverID}&param.configstatus=${status}`,
       success: response => {
         if (response.status.result) {
-          this.fetchSiteConfigurations();
+          callback();
         }
       },
       error: (xhr, status, error) => {
@@ -64,7 +64,8 @@ export default class EdiConfigsRootComponent extends Component {
       //url: `${sid}/ajax.do?req.objectID=${reqObjID}&flow=f_sitesJ&param.rtype=getConfig&param.config=${config.oid}`,
       success: response => {
         if (response.status.result) {
-          callback(response.config);
+          this.setState({ config: response.config });
+          callback();
         }
       },
       error: (xhr, status, error) => {
@@ -73,44 +74,39 @@ export default class EdiConfigsRootComponent extends Component {
     });
   };
 
-  hideConfigForm = () => {
-    this.setState({ showConfigForm: false, config: {} });
-  };
-
-  createNewConfig = () => {
+  hideConfigForm = event => {
+    event.preventDefault();
     this.setState({
-      showConfigForm: true,
-      configFormState: "new",
+      view: "list",
       config: {}
     });
   };
 
-  handleUpdateConfigList = () => {
-    this.fetchSiteConfigurations(this.props.siteCodeNbr);
-  };
-
-  showEditForm = config => {
+  createNewConfig = () => {
     this.setState({
-      showConfigForm: true,
-      configFormState: "edit",
-      config: config
+      view: "form",
+      config: {}
     });
   };
 
-  handleEditConfig = config => {
-    this.fetchConfigDetail(config, this.showEditForm);
+  showConfigForm = event => {
+    this.setState({
+      view: "form"
+    });
   };
 
-  handleDuplicateConfig = config => {
+  handleOnEditClick = config => {
+    this.fetchConfigDetail(config, this.showConfigForm);
+  };
+
+  handleOnDuplicateClick = config => {
     //to do ajax to get config params and then show config form with prepopulated data
     this.setState({
-      showConfigForm: true,
-      configFormState: "dupl",
-      config: config
+      view: "list"
     });
   };
 
-  handleDeleteConfig = config => {
+  handleOnDeleteClick = config => {
     //to do ajax to remove config and then reload the list
 
     //here is optimistic delete
@@ -121,40 +117,31 @@ export default class EdiConfigsRootComponent extends Component {
     this.setState({ configList: configs });
   };
 
-  handleUpdateConfigList = () => {
-    this.fetchSiteConfigurations(this.props.siteCodeNbr);
-  };
-
-  handleChangeConfigState = (config, state) => {
-    this.updateConfigState(config, state);
+  handleOnStateChange = (config, state) => {
+    this.updateConfigState(config, state, this.fetchSiteConfigurations);
   };
 
   render() {
     return (
       <div>
-        {this.state.showConfigForm ? (
+        {this.state.view == "form" ? (
           <div>
             <button type="button" onClick={this.hideConfigForm}>
-              Go back to all configurations
+              Go back
             </button>
-            <ConfigForm
-              configFormState={this.state.configFormState}
-              edicntl={this.state.config}
-              onSave={this.handleUpdateConfigList}
-            />
+            <ConfigForm config={this.state.config} onSave={this.onSave} />
           </div>
         ) : (
           <div>
-            <button type="button" onClick={this.createNewConfig}>
+            <button type="button" onClick={this.showConfigForm}>
               Add Configuration
             </button>
             <ConfigList
               configList={this.state.configList}
-              updateList={this.handleUpdateConfigList}
-              editConfig={this.handleEditConfig}
-              duplicateConfig={this.handleDuplicateConfig}
-              deleteConfig={this.handleDeleteConfig}
-              changeConfigState={this.handleChangeConfigState}
+              onEditClick={this.handleOnEditClick}
+              onDuplicateClick={this.handleOnDuplicateClick}
+              onDeleteClick={this.handleOnDeleteClick}
+              onStateChange={this.handleOnStateChange}
             />
           </div>
         )}
