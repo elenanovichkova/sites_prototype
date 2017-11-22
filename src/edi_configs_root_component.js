@@ -126,10 +126,22 @@ export default class EdiConfigsRootComponent extends Component {
       <div>
         {this.state.view == "form" ? (
           <div>
-            <button type="button" onClick={this.hideConfigForm}>
-              Go back
-            </button>
-            <ConfigForm config={this.state.config} onSave={this.onSave} />
+            <div className="row">
+              <div className="col-md-2">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={this.hideConfigForm}
+                >
+                  Go back
+                </button>
+              </div>
+            </div>
+            <ConfigForm
+              config={this.state.config}
+              onSave={this.onSave}
+              siteId={this.props.siteId}
+            />
           </div>
         ) : (
           <div>

@@ -18,15 +18,17 @@
             "view": "admin",
             "name": "edicntlId",
             "description": "EDI control ID",
-            "type": "text",
+            "type": "edicntl",
+            "controltype": "text",
             "defaultValue": ""
           },
           {
             "id": "edicntlSubmitterId",
             "view": "admin",
             "name": "edicntlSubmitterId",
+            "type": "edicntl",
             "description": "Submitter ID",
-            "type": "text",
+            "controltype": "text",
             "defaultValue": ""
           }
         ]
@@ -39,10 +41,11 @@
         "formgroups": [
           {
             "id": "splitInbound837",
+            "type": "edicntlParam",
             "view": "admin",
             "name": "splitInbound837",
             "description": "Split Inbound 837 Bill Files",
-            "type": "combo",
+            "controltype": "combo",
             "defaultValue": "",
             "required": true,
             "options": [
@@ -55,12 +58,12 @@
                   {
                     "id": "p837_pvdfld_tin",
                     "tag": "p837_pvdfld",
-                    "val": "TIN"
+                    "value": "TIN"
                   },
                   {
                     "id": "p837_pvdfld_tinn",
                     "tag": "p837_pvdfldd",
-                    "val": "TINN"
+                    "value": "TINN"
                   }
                 ]
               },
@@ -73,7 +76,7 @@
                   {
                     "id": "p837_pvdfld_npi",
                     "tag": "p837_pvdfld",
-                    "val": "NPI"
+                    "value": "NPI"
                   }
                 ]
               }
@@ -81,10 +84,11 @@
           },
           {
             "id": "allowtestindicator",
+            "type": "edicntlParam",
             "view": "admin",
             "name": "allowtestindicator",
             "description": "Allow test indicator",
-            "type": "combo",
+            "controltype": "combo",
             "defaultValue": "",
             "required": true,
             "options": [
@@ -97,7 +101,7 @@
                   {
                     "id": "px12_allowtestY",
                     "tag": "px12_allowtest",
-                    "val": "Y"
+                    "value": "Y"
                   }
                 ]
               },
@@ -110,7 +114,7 @@
                   {
                     "id": "px12_allowtestN",
                     "tag": "px12_allowtest",
-                    "val": "N"
+                    "value": "N"
                   }
                 ]
               }
@@ -118,10 +122,11 @@
           },
           {
             "id": "statelicenselookup",
+            "type": "edicntlParam",
             "view": "admin",
             "name": "statelicenselookup",
             "description": "Opt-in state license lookup",
-            "type": "combo",
+            "controltype": "combo",
             "defaultValue": "",
             "required": true,
             "options": [
@@ -134,7 +139,7 @@
                   {
                     "id": "p837_lookupstlicY",
                     "tag": "p837_lookupstlic",
-                    "val": "Y"
+                    "value": "Y"
                   }
                 ]
               },
@@ -147,7 +152,7 @@
                   {
                     "id": "p837_lookupstlicN",
                     "tag": "p837_lookupstlic",
-                    "val": "N"
+                    "value": "N"
                   }
                 ]
               }
@@ -155,10 +160,11 @@
           },
           {
             "id": "defaultssn",
+            "type": "edicntlParam",
             "view": "admin",
             "name": "defaultssn",
             "description": "Default SSN",
-            "type": "combo",
+            "controltype": "combo",
             "defaultValue": "",
             "required": true,
             "options": [
@@ -171,7 +177,7 @@
                   {
                     "id": "p837_defssnY",
                     "tag": "p837_defssn",
-                    "val": "999999999"
+                    "value": "999999999"
                   }
                 ]
               }
@@ -187,10 +193,11 @@
         "formgroups": [
           {
             "id": "billrequiresattachment",
+            "type": "edicntlParam",
             "view": "admin",
             "name": "billrequiresattachment",
             "description": "Which bill requires attachment",
-            "type": "combo",
+            "controltype": "combo",
             "defaultValue": "",
             "required": true,
             "options": [
@@ -203,7 +210,7 @@
                   {
                     "id": "p837_atY",
                     "tag": "p837_at",
-                    "val": "Y"
+                    "value": "Y"
                   }
                 ]
               },
@@ -216,7 +223,7 @@
                   {
                     "id": "p837_atN",
                     "tag": "p837_at",
-                    "val": "N"
+                    "value": "N"
                   }
                 ]
               },
@@ -229,7 +236,318 @@
                   {
                     "id": "p837_atPWK",
                     "tag": "p837_at",
-                    "val": "PWK"
+                    "value": "PWK"
+                  }
+                ]
+              },
+              {
+                "id": "billrequiresattachmentEMDEON",
+                "description": "EMDEON rules",
+                "value": "EMDEON",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atEMDEON",
+                    "tag": "p837_at",
+                    "value": "EMDEON"
+                  }
+                ]
+              },
+              {
+                "id": "billrequiresattachmentR",
+                "description": "Jopari rules",
+                "value": "R",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atR",
+                    "tag": "p837_at",
+                    "value": "R"
+                  }
+                ]
+              },
+              {
+                "id": "billrequiresattachmentSITE",
+                "description": "Site specific",
+                "value": "SITE",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_atSITE",
+                    "tag": "p837_at",
+                    "value": "%SITE%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rejectbillmissingattachment",
+            "type": "edicntlParam",
+            "view": "admin",
+            "name": "rejectbillmissingattachment",
+            "description":
+              "Reject Bill for missing attachment(default 15 days)",
+            "controltype": "combo",
+            "defaultValue": "15",
+            "required": true,
+            "options": [
+              {
+                "id": "rejectbillmissingattachment0",
+                "description": "0",
+                "value": "0",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej0",
+                    "tag": "patt_autorej",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment1",
+                "description": "1",
+                "value": "1",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej1",
+                    "tag": "patt_autorej",
+                    "value": "1"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment2",
+                "description": "2",
+                "value": "2",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej2",
+                    "tag": "patt_autorej",
+                    "value": "2"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment3",
+                "description": "3",
+                "value": "3",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej3",
+                    "tag": "patt_autorej",
+                    "value": "3"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment4",
+                "description": "4",
+                "value": "4",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej4",
+                    "tag": "patt_autorej",
+                    "value": "4"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment5",
+                "description": "5",
+                "value": "5",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej5",
+                    "tag": "patt_autorej",
+                    "value": "5"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment6",
+                "description": "6",
+                "value": "6",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autore6",
+                    "tag": "patt_autorej",
+                    "value": "6"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment7",
+                "description": "7",
+                "value": "7",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej7",
+                    "tag": "patt_autorej",
+                    "value": "7"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment8",
+                "description": "8",
+                "value": "8",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej8",
+                    "tag": "patt_autorej",
+                    "value": "8"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment9",
+                "description": "9",
+                "value": "9",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej9",
+                    "tag": "patt_autorej",
+                    "value": "9"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment10",
+                "description": "10",
+                "value": "10",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej10",
+                    "tag": "patt_autorej",
+                    "value": "10"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment11",
+                "description": "11",
+                "value": "11",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej11",
+                    "tag": "patt_autorej",
+                    "value": "11"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment12",
+                "description": "12",
+                "value": "12",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej12",
+                    "tag": "patt_autorej",
+                    "value": "12"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment13",
+                "description": "13",
+                "value": "13",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej1",
+                    "tag": "patt_autorej",
+                    "value": "13"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment14",
+                "description": "14",
+                "value": "14",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej14",
+                    "tag": "patt_autorej",
+                    "value": "14"
+                  }
+                ]
+              },
+              {
+                "id": "rejectbillmissingattachment15",
+                "description": "15",
+                "value": "15",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "patt_autorej15",
+                    "tag": "patt_autorej",
+                    "value": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "howattachmentmatchtobill",
+            "type": "edicntlParam",
+            "view": "admin",
+            "name": "howattachmentmatchtobill",
+            "description": "How will attachment match to the bill",
+            "controltype": "combo",
+            "defaultValue": "",
+            "required": true,
+            "options": [
+              {
+                "id": "howattachmentmatchtobill517",
+                "description": "claimid",
+                "value": "517",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_at517",
+                    "tag": "p837_attag",
+                    "value": "517"
+                  }
+                ]
+              },
+              {
+                "id": "howattachmentmatchtobill517_485",
+                "description": "claimid_dateofservice",
+                "value": "517_485",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_at517_485",
+                    "tag": "p837_attag",
+                    "value": "517_485"
+                  }
+                ]
+              },
+              {
+                "id": "howattachmentmatchtobill043_044_485",
+                "description": "lastname_firstname_dateofservice",
+                "value": "043_044_485",
+                "restricted": false,
+                "implparams": [
+                  {
+                    "id": "p837_attag043_044_485",
+                    "tag": "p837_attag",
+                    "value": "043_044_485"
                   }
                 ]
               }

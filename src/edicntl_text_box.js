@@ -11,10 +11,10 @@ export default class EdiCntlTextBox extends Component {
   onChange = event => {
     let value = event.target.value;
     this.setState({ value });
+    this.props.onChange(this.props.type, value, []);
   };
 
   render() {
-    console.log("state", this.state);
     return (
       <div>
         <input
