@@ -55,3 +55,7 @@ input:checked + .switchslider:before {
 .switchslider.round:before {
   border-radius: 50%;
 }
+
+.site-detail-nav-tabs {
+  background-color: #1c1c1c1c;
+}

@@ -1,0 +1,41 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "ADM:BERKLEYSIG",
+      "siteId": "BERKLEYSIG",
+      "etype": "ADM",
+      "codenbr": "BERKLEYSIG",
+      "taxid": "111111111",
+      "name": "Berkley Southeast Insurance Group"
+    },
+    {
+      "id": "FTP:EHSC",
+      "siteId": "EHSC",
+      "etype": "FTP",
+      "codenbr": "EHSC",
+      "taxid": "222222222",
+      "name": "EHSC"
+    },
+    {
+      "id": "ADM:NCLM",
+      "siteId": "NCLM",
+      "etype": "ADM",
+      "codenbr": "NCLM",
+      "taxid": "333333333",
+      "name": "North Carolina League of Municipalities"
+    },
+    {
+      "id": "ADM:AMERICASINO",
+      "siteId": "AMERICASINO",
+      "etype": "ADM",
+      "codenbr": "AMERICASINO",
+      "taxid": "555555555",
+      "name": "American Casino & Entertainment Properties"
+    }
+  ]
+}
