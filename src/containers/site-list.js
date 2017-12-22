@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectSite } from "../actions/index";
+import { selectSite, fetchConfigs } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class SiteList extends Component {
@@ -10,7 +10,10 @@ class SiteList extends Component {
         <li
           key={site.id}
           className="list-group-item"
-          onClick={() => this.props.selectSite(site)}
+          onClick={() => {
+            this.props.selectSite(site);
+            this.props.fetchConfigs(site.codenbr);
+          }}
         >
           {site.siteId}
         </li>
@@ -38,7 +41,7 @@ function mapStateToProps({ sites }) {
 //enything return from this function will end up as props on the SiteList container
 function mapDispatchToProps(dispatch) {
   //whenever select is call, he result should be passed to all our reducers
-  return bindActionCreators({ selectSite: selectSite }, dispatch);
+  return bindActionCreators({ selectSite, fetchConfigs }, dispatch);
 }
 
 //promote SiteList from a component to a container -  it needs to kow about this new dispatch method, selectSite. Make it available as a prop

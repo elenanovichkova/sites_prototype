@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import $ from "jquery";
 
+import ConfigList from "./config-list";
+import ConfigDetail from "./config-detail";
+
 class SiteDetail extends Component {
   onTabClick(event) {
     event.preventDefault();
@@ -14,12 +17,31 @@ class SiteDetail extends Component {
     console.log(tabId);
   }
 
+  renderConfigs() {
+    let configsView = this.props.activeConfig.view;
+    switch (configsView) {
+      case "edit":
+        return "edit";
+      case "view":
+        return <ConfigDetail />;
+      case "duplicate":
+        return "duplicate";
+      case "delete":
+        return "delete";
+      case "list":
+        return <ConfigList />;
+      default:
+        return <ConfigList />;
+    }
+  }
+
   render() {
+    console.log("Active config", this.props.activeConfig);
     {
       if (!this.props.site.name) {
         return (
           <div className="panel panel-default">
-            <div className="panel-heading">Search a site to get started</div>
+            <div className="panel-heading">Select a site to get started</div>
           </div>
         );
       } else {
@@ -87,7 +109,7 @@ class SiteDetail extends Component {
                   role="tabpanel"
                   className="site-detail-tab-pane tab-pane active"
                 >
-                  Site configs
+                  {this.renderConfigs()}
                 </div>
                 <div
                   id="site-profile"
@@ -121,7 +143,8 @@ class SiteDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    site: state.activeSite
+    site: state.activeSite,
+    activeConfig: state.activeConfig
   };
 }
 

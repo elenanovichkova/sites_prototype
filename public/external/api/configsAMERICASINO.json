@@ -22,7 +22,7 @@
       "isActive": true,
       "purpose": "EBIL",
       "usage": "P",
-      "receiverID": "",
+      "receiverID": "205367462",
       "name": "production config",
       "fldsep": "*",
       "descr": "some description"
