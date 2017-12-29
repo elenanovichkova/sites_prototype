@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { changeSitesView } from "../actions/index";
 import $ from "jquery";
 
 import ConfigList from "./config-list";
 import ConfigDetail from "./config-detail";
+import ConfigForm from "./config-form";
 
 class SiteDetail extends Component {
   onTabClick(event) {
@@ -14,21 +17,20 @@ class SiteDetail extends Component {
     var tabId = event.target.href.substring(index);
     $(tabId).addClass("active");
     $(event.target).parent().addClass("active");
-    console.log(tabId);
   }
 
   renderConfigs() {
-    let configsView = this.props.activeConfig.view;
-    switch (configsView) {
-      case "edit":
-        return "edit";
-      case "view":
+    let configView = this.props.configView;
+    switch (configView) {
+      case "config-edit":
+        return <ConfigForm />;
+      case "config-detail":
         return <ConfigDetail />;
-      case "duplicate":
+      case "config-duplicate":
         return "duplicate";
-      case "delete":
+      case "config-delete":
         return "delete";
-      case "list":
+      case "config-list":
         return <ConfigList />;
       default:
         return <ConfigList />;
@@ -36,30 +38,41 @@ class SiteDetail extends Component {
   }
 
   render() {
-    console.log("Active config", this.props.activeConfig);
     {
-      if (!this.props.site.name) {
-        return (
-          <div className="panel panel-default">
-            <div className="panel-heading">Select a site to get started</div>
-          </div>
-        );
-      } else {
-        return (
+      return (
+        <div>
+          <p>
+            <a href="#" onClick={() => this.props.changeSitesView("site-list")}>
+              <span className="fa fa-chevron-circle-left" /> BACK
+            </a>
+          </p>
           <div className="panel panel-default">
             <div className="panel-heading">
-              {this.props.site.name}
+              <div className="row">
+                <div className="col-md-10">
+                  {this.props.activeSite.name}
+                </div>
+                <div className="col-md-2 text-right">
+                  {this.props.activeSite.status}
+                </div>
+              </div>
             </div>
             <div className="panel-body">
               <p>
-                <span className="fa fa-folder" /> {this.props.site.codenbr}
+                <span className="fa fa-folder" />{" "}
+                {this.props.activeSite.codenbr}
               </p>
               <p>
-                <span className="fa fa-address-card-o" />{" "}
-                {this.props.site.address}
+                <span className="fa fa-home" /> {this.props.activeSite.address}
               </p>
               <p>
-                <span className="fa fa-phone" /> {this.props.site.phone}
+                <span className="fa fa-phone" /> {this.props.activeSite.phone}
+              </p>
+              <p>
+                <span>Tax ID: </span>
+                <span>
+                  {this.props.activeSite.taxid}
+                </span>
               </p>
               <ul className="nav nav-tabs site-detail-nav-tabs">
                 <li className="active">
@@ -135,17 +148,22 @@ class SiteDetail extends Component {
               </div>
             </div>
           </div>
-        );
-      }
+        </div>
+      );
     }
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ activeSite, activeConfig, configView }) {
   return {
-    site: state.activeSite,
-    activeConfig: state.activeConfig
+    activeSite,
+    activeConfig,
+    configView
   };
 }
 
-export default connect(mapStateToProps)(SiteDetail);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ changeSitesView }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SiteDetail);

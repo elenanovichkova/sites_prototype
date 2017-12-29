@@ -23,12 +23,14 @@ class SiteFilter extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.fetchSites(
-      this.state.siteName,
-      this.state.siteId,
-      this.state.siteTaxId,
-      this.state.siteReceiverId
-    );
+    if (!this.props.siteList.isFetching) {
+      this.props.fetchSites(
+        this.state.siteName,
+        this.state.siteId,
+        this.state.siteTaxId,
+        this.state.siteReceiverId
+      );
+    }
   }
 
   render() {
@@ -39,7 +41,7 @@ class SiteFilter extends Component {
           onSubmit={event => this.onFormSubmit(event)}
         >
           <div className="row">
-            <div className="col-md-10">
+            <div className="col-md-12">
               <div className="row">
                 <div className="col-md-3">
                   <div className="form-group">
@@ -86,7 +88,7 @@ class SiteFilter extends Component {
                 <div className="col-md-3">
                   <div className="form-group">
                     <label className="control-label col-sm-5">
-                      Submitter ID
+                      Receiver ID
                     </label>
                     <div className="col-sm-7">
                       <input
@@ -101,10 +103,10 @@ class SiteFilter extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-2">
+            <div className="col-md-12">
               <div className="form-group text-right">
-                <div className="col-sm-offset-2 col-sm-10">
-                  <button type="submit" className="btn btn-default">
+                <div className="col-md-12">
+                  <button type="submit" className="btn btn-primary">
                     Submit
                   </button>
                 </div>
@@ -117,8 +119,13 @@ class SiteFilter extends Component {
   }
 }
 
+function mapStateToProps({ siteList }) {
+  // whatever is returned will show up as a props
+  return { siteList };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchSites }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SiteFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(SiteFilter);

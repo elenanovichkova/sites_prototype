@@ -3,8 +3,10 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import ReduxPromise from "redux-promise";
+import thunk from "redux-thunk";
+import { logger } from "redux-logger";
 
-import SitesComponent from "./components/sites_component";
+import SitesContainer from "./containers/sites-container";
 import reducers from "./reducers";
 
 const styles = {
@@ -12,13 +14,15 @@ const styles = {
   textAlign: "left"
 };
 
-const createStoreWithMiddleWare = applyMiddleware(ReduxPromise)(createStore);
+const middleware = [thunk, ReduxPromise, logger];
+
+const createStoreWithMiddleWare = applyMiddleware(...middleware)(createStore);
 
 const App = () =>
   <Provider store={createStoreWithMiddleWare(reducers)}>
     <div style={styles}>
       <div className="container">
-        <SitesComponent />
+        <SitesContainer />
       </div>
     </div>
   </Provider>;

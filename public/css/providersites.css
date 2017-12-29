@@ -59,3 +59,7 @@ input:checked + .switchslider:before {
 .site-detail-nav-tabs {
   background-color: #1c1c1c1c;
 }
+
+.full-width {
+  width: 100%;
+}

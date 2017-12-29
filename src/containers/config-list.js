@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectConfig, viewConfig } from "../actions/index";
+import {
+  viewConfig,
+  editConfig,
+  duplicateConfig,
+  deleteConfig,
+  changeConfigsView
+} from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class ConfigList extends Component {
   renderList() {
-    return this.props.configs.map(config => {
+    //console.log(privs);
+    return this.props.configList.map(config => {
       return (
         <tr key={config.ID}>
           <td>
@@ -25,7 +32,10 @@ class ConfigList extends Component {
             <a href="#">
               <span
                 className="fa fa-eye"
-                onClick={() => this.props.viewConfig(config)}
+                onClick={() => {
+                  this.props.changeConfigsView("config-detail");
+                  this.props.viewConfig(config);
+                }}
               />
             </a>
           </td>
@@ -33,15 +43,18 @@ class ConfigList extends Component {
             <a href="#">
               <span
                 className="fa fa-pencil"
-                onClick={() => this.props.selectConfig(config, "edit")}
+                onClick={() => {
+                  this.props.changeConfigsView("config-edit");
+                  this.props.editConfig(config);
+                }}
               />
             </a>
           </td>
           <td>
             <a href="#">
               <span
-                className="fa fa-clone"
-                onClick={() => this.props.selectConfig(config, "duplicate")}
+                className="fa fa-files-o"
+                onClick={() => this.props.duplicateConfig(config, "duplicate")}
               />
             </a>
           </td>
@@ -49,7 +62,7 @@ class ConfigList extends Component {
             <a href="#">
               <span
                 className="fa fa-trash"
-                onClick={() => this.props.selectConfig(config, "delete")}
+                onClick={() => this.props.deleteConfig(config, "delete")}
               />
             </a>
           </td>
@@ -88,16 +101,24 @@ class ConfigList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // whatever is returned will show up as a props inside of BookList
-  return { configs: state.configs };
+function mapStateToProps({ configList }) {
+  // whatever is returned will show up as a props
+  return { configList };
 }
 
-//enything return from this function will end up as props on the SiteList container
 function mapDispatchToProps(dispatch) {
-  //whenever select is call, he result should be passed to all our reducers
-  return bindActionCreators({ selectConfig, viewConfig }, dispatch);
+  //whenever function called, the result should be passed to all our reducers
+  return bindActionCreators(
+    {
+      viewConfig,
+      editConfig,
+      duplicateConfig,
+      deleteConfig,
+      changeConfigsView
+    },
+    dispatch
+  );
 }
 
-//promote SiteList from a component to a container -  it needs to kow about this new dispatch method, selectSite. Make it available as a prop
+//promote component to a container -  it needs to know about dispatch methods. Make them available as a prop
 export default connect(mapStateToProps, mapDispatchToProps)(ConfigList);
