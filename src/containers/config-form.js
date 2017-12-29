@@ -166,14 +166,14 @@ class ConfigForm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-1">
+            <div className="col-md-2">
               <input
                 type="button"
                 value="CANCEL"
                 className="btn btn-default  full-width"
               />
             </div>
-            <div className="col-md-1">
+            <div className="col-md-2">
               <input
                 type="button"
                 value="SAVE"
