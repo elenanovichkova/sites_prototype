@@ -98,13 +98,23 @@ const configViewReducer = (state = "config-list", action) => {
   }
 };
 
+const activeParamReducer = (state = "", action) => {
+  switch (action.type) {
+    case types.PARAM_SELECTED:
+      return action.payload;
+    default:
+      return "";
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
   siteList: siteListReducer,
   activeSite: activeSiteReducer,
   configList: configListReducer,
-  activeConfig: activeConfigReducer
+  activeConfig: activeConfigReducer,
+  activeParam: activeParamReducer
 });
 
 export default rootReducer;

@@ -111,3 +111,11 @@ export function fetchConfigs(siteId) {
     payload: request
   };
 }
+
+export function selectParam(param) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.PARAM_SELECTED,
+    payload: param
+  };
+}

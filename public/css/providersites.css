@@ -63,3 +63,11 @@ input:checked + .switchslider:before {
 .full-width {
   width: 100%;
 }
+
+.edicntl-param-table tbody tr {
+  cursor: pointer;
+}
+
+.edicntl-param-table tbody tr.selected {
+  background-color: #f5f5f5;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeConfigsView } from "../actions/index";
+import { changeConfigsView, selectParam } from "../actions/index";
 
 class ConfigForm extends Component {
   render() {
@@ -24,7 +24,7 @@ class ConfigForm extends Component {
         </div>
         <form className="form form-horizontal">
           <div className="form-group">
-            <label className="control-label col-sm-5" for="receiverId">
+            <label className="control-label col-sm-5" htmlFor="receiverId">
               Receiver Id:
             </label>
             <div className="col-sm-7">
@@ -38,7 +38,7 @@ class ConfigForm extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-5" for="usage">
+            <label className="control-label col-sm-5" htmlFor="usage">
               Usage:
             </label>
             <div className="col-sm-7">
@@ -50,7 +50,7 @@ class ConfigForm extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-5" for="purpose">
+            <label className="control-label col-sm-5" htmlFor="purpose">
               Purpose
             </label>
             <div className="col-sm-7">
@@ -69,7 +69,7 @@ class ConfigForm extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-5" for="fldsep">
+            <label className="control-label col-sm-5" htmlFor="fldsep">
               Which delimiter will be used with X12 transactions?
             </label>
             <div className="col-sm-7">
@@ -102,7 +102,24 @@ class ConfigForm extends Component {
                         <tbody>
                           {this.props.activeConfig.params.map(param => {
                             return (
-                              <tr key={param.id}>
+                              <tr
+                                key={param.id}
+                                className={
+                                  this.props.activeParam == param
+                                    ? "selected"
+                                    : ""
+                                }
+                                onClick={() => {
+                                  if (
+                                    this.props.activeParam != "" &&
+                                    this.props.activeParam == param
+                                  ) {
+                                    this.props.selectParam("");
+                                  } else {
+                                    this.props.selectParam(param);
+                                  }
+                                }}
+                              >
                                 <td>
                                   {param.formcontrolLabel}
                                 </td>
@@ -121,7 +138,7 @@ class ConfigForm extends Component {
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-md-2 text-right">
+                    <div className="col-md-2 text-right">
                       <div className="form-group">
                         <div className="col-md-12">
                           <input
@@ -136,6 +153,7 @@ class ConfigForm extends Component {
                           <input
                             type="button"
                             className="btn btn-default full-width"
+                            disabled={this.props.activeParam === ""}
                             value="EDIT..."
                           />
                         </div>
@@ -145,6 +163,7 @@ class ConfigForm extends Component {
                           <input
                             type="button"
                             className="btn btn-default full-width"
+                            disabled={this.props.activeParam === ""}
                             value="REMOVE"
                           />
                         </div>
@@ -187,13 +206,13 @@ class ConfigForm extends Component {
   }
 }
 
-function mapStateToProps({ activeConfig }) {
+function mapStateToProps({ activeConfig, activeParam }) {
   // whatever is returned will show up as a props
-  return { activeConfig };
+  return { activeConfig, activeParam };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeConfigsView }, dispatch);
+  return bindActionCreators({ changeConfigsView, selectParam }, dispatch);
 }
 
 //promote component to a container
