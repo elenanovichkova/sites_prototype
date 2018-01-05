@@ -4,7 +4,7 @@
     "result": true,
     "reason": "OK"
   },
-  "param": {
+  "paramformcontrol": {
     "id": "px12_do997",
     "formcontrolName": "support997version",
     "formcontrolLabel": "Support 997 X12 format",
@@ -14,34 +14,30 @@
         "selected": true,
         "value": "N",
         "answer": "No",
-        "params": [
-          {
-            "id": "10:2gqg-x$rtv",
-            "tag": "px12_do997",
-            "value": "N",
-            "formcontrolName": "support997version",
-            "formcontrolLabel": "Support 997 X12 format",
-            "formcontrolOptionDescr": "No",
-            "formcontrolOptionValue": "N"
-          }
-        ]
+        "param": {
+          "id": "10:2gqg-x$rtv",
+          "tag": "px12_do997",
+          "value": "N",
+          "formcontrolName": "support997version",
+          "formcontrolLabel": "Support 997 X12 format",
+          "formcontrolOptionDescr": "No",
+          "formcontrolOptionValue": "N"
+        }
       },
       {
         "id": "option_px12_do997_Y",
         "selected": false,
         "value": "Y",
         "answer": "Yes",
-        "params": [
-          {
-            "id": "10:2gqg-x$rtv",
-            "tag": "px12_do997",
-            "value": "Y",
-            "formcontrolName": "support997version",
-            "formcontrolLabel": "Support 997 X12 format",
-            "formcontrolOptionDescr": "Yes",
-            "formcontrolOptionValue": "Y"
-          }
-        ]
+        "param": {
+          "id": "10:2gqg-x$rtv",
+          "tag": "px12_do997",
+          "value": "Y",
+          "formcontrolName": "support997version",
+          "formcontrolLabel": "Support 997 X12 format",
+          "formcontrolOptionDescr": "Yes",
+          "formcontrolOptionValue": "Y"
+        }
       }
     ]
   }

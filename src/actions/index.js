@@ -157,13 +157,12 @@ export function changeActiveParamOption(option) {
   };
 }
 
-export function updateActiveConfig(activeConfig, paramToRemove, paramsToAdd) {
+export function updateActiveConfig(activeConfig, paramToRemove, paramToAdd) {
   //action creator, it needs to return an action, an object with a type property
-  var updatedParamList = _.concat(
-    _.pullAllWith(activeConfig.params, [paramToRemove], _.isEqual),
-    ...paramsToAdd
+  var index = activeConfig.params.findIndex(
+    param => param.id == paramToRemove.id
   );
-  activeConfig.params = updatedParamList;
+  activeConfig.params.splice(index, 1, paramToAdd);
   return {
     type: types.UPDATE_ACTIVE_CONFIG,
     payload: activeConfig

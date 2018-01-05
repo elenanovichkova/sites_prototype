@@ -103,12 +103,14 @@ const configViewReducer = (state = "config-list", action) => {
 
 const activeParamReducer = (state = "", action) => {
   switch (action.type) {
+    case types.CONFIG_EDIT_VIEW:
+      return "";
     case types.PARAM_SELECTED:
       return action.payload;
     case types.GET_PARAM_INFO:
       return state;
     case types.UPDATE_ACTIVE_CONFIG:
-      return "";
+      return state;
     default:
       return state;
   }
@@ -117,7 +119,7 @@ const activeParamReducer = (state = "", action) => {
 const activeParamDetailReducer = (state = { options: [] }, action) => {
   switch (action.type) {
     case types.OPEN_EDIT_PARAM_MODAL:
-      return action.payload.data.param;
+      return action.payload.data.paramformcontrol;
     case types.CLOSE_EDIT_PARAM_MODAL:
       return { options: [] };
     case types.UPDATE_ACTIVE_CONFIG:
@@ -140,18 +142,20 @@ const editParamModalIsOpenReducer = (state = false, action) => {
   }
 };
 
-const activeParamSelectedOptionReducer = (state = { params: [] }, action) => {
+const activeParamSelectedOptionReducer = (state = { param: {} }, action) => {
   switch (action.type) {
     case types.OPEN_EDIT_PARAM_MODAL:
-      return _.find(action.payload.data.param.options, function(option) {
+      return _.find(action.payload.data.paramformcontrol.options, function(
+        option
+      ) {
         return option.selected;
       });
     case types.CHANGE_ACTIVE_PARAM_OPTION:
       return action.payload;
     case types.UPDATE_ACTIVE_CONFIG:
-      return { params: [] };
+      return { param: {} };
     case types.CLOSE_EDIT_PARAM_MODAL:
-      return { params: [] };
+      return { param: {} };
     default:
       return state;
   }

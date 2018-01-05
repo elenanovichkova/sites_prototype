@@ -4,7 +4,8 @@ import _ from "lodash";
 import {
   closeEditParamModal,
   changeActiveParamOption,
-  updateActiveConfig
+  updateActiveConfig,
+  selectParam
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import Modal from "react-modal";
@@ -71,16 +72,21 @@ class EditParamModal extends Component {
                 })}
               </select>
             </div>
-            <div className="col-sm-offset-6 col-sm-6">
-              {this.props.activeParamSelectedOption.params.map(param => {
-                return (
-                  <h4 key={param.id}>
-                    <span className="label label-info">
-                      {param.tag + ", " + param.value}
-                    </span>
-                  </h4>
-                );
-              })}
+          </div>
+          <div className="form-group">
+            <label className="control-label col-sm-6">Parameter tag</label>
+            <div className="col-sm-6">
+              <p className="form-control-static">
+                {this.props.activeParamSelectedOption.param.tag}
+              </p>
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="control-label col-sm-6">Parameter value</label>
+            <div className="col-sm-6">
+              <p className="form-control-static">
+                {this.props.activeParamSelectedOption.param.value}
+              </p>
             </div>
           </div>
           <div className="form-group">
@@ -98,10 +104,13 @@ class EditParamModal extends Component {
                 type="button"
                 className="btn btn-primary full-width"
                 onClick={() => {
+                  this.props.selectParam(
+                    this.props.activeParamSelectedOption.param
+                  );
                   this.props.updateActiveConfig(
                     this.props.activeConfig,
                     this.props.activeParam,
-                    this.props.activeParamSelectedOption.params
+                    this.props.activeParamSelectedOption.param
                   );
                 }}
               >
@@ -136,7 +145,12 @@ function mapStateToProps({
 function mapDispatchToProps(dispatch) {
   //whenever select is call, the result should be passed to all reducers
   return bindActionCreators(
-    { closeEditParamModal, changeActiveParamOption, updateActiveConfig },
+    {
+      closeEditParamModal,
+      changeActiveParamOption,
+      updateActiveConfig,
+      selectParam
+    },
     dispatch
   );
 }
