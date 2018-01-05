@@ -1,9 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeConfigsView, selectParam } from "../actions/index";
+import EditParamModal from "./edit-param-modal";
+import {
+  changeConfigsView,
+  selectParam,
+  getParamDetail,
+  openEditParamModal
+} from "../actions/index";
 
 class ConfigForm extends Component {
+  constructor() {
+    super();
+  }
+
+  selectParam(param) {
+    if (this.props.activeParam != "" && this.props.activeParam == param) {
+      //if param is already selected
+      this.props.selectParam("");
+    } else {
+      //new param selected
+      this.props.selectParam(param);
+    }
+  }
+
   render() {
     return (
       <div className="panel-body">
@@ -110,14 +130,7 @@ class ConfigForm extends Component {
                                     : ""
                                 }
                                 onClick={() => {
-                                  if (
-                                    this.props.activeParam != "" &&
-                                    this.props.activeParam == param
-                                  ) {
-                                    this.props.selectParam("");
-                                  } else {
-                                    this.props.selectParam(param);
-                                  }
+                                  this.selectParam(param);
                                 }}
                               >
                                 <td>
@@ -154,6 +167,11 @@ class ConfigForm extends Component {
                             type="button"
                             className="btn btn-default full-width"
                             disabled={this.props.activeParam === ""}
+                            onClick={() => {
+                              this.props.openEditParamModal(
+                                this.props.activeParam
+                              );
+                            }}
                             value="EDIT..."
                           />
                         </div>
@@ -201,18 +219,27 @@ class ConfigForm extends Component {
             </div>
           </div>
         </form>
+        <EditParamModal />
       </div>
     );
   }
 }
 
-function mapStateToProps({ activeConfig, activeParam }) {
+function mapStateToProps({
+  activeConfig,
+  activeParam,
+  activeParamView,
+  activeParamDetail
+}) {
   // whatever is returned will show up as a props
-  return { activeConfig, activeParam };
+  return { activeConfig, activeParam, activeParamView, activeParamDetail };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeConfigsView, selectParam }, dispatch);
+  return bindActionCreators(
+    { changeConfigsView, selectParam, getParamDetail, openEditParamModal },
+    dispatch
+  );
 }
 
 //promote component to a container

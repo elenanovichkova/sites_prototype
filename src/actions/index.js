@@ -1,4 +1,5 @@
 import axios from "axios";
+import _ from "lodash";
 import * as types from "./action-types";
 
 const ROOT_URL = "external/api";
@@ -117,5 +118,54 @@ export function selectParam(param) {
   return {
     type: types.PARAM_SELECTED,
     payload: param
+  };
+}
+
+export function getParamDetail(param) {
+  let url = `${ROOT_URL}/paramDetail.json`;
+  let request = axios.get(url);
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.GET_PARAM_INFO,
+    payload: request
+  };
+}
+
+export function openEditParamModal(param) {
+  //action creator, it needs to return an action, an object with a type property
+  let url = `${ROOT_URL}/paramDetail.json`;
+  let request = axios.get(url);
+  return {
+    type: types.OPEN_EDIT_PARAM_MODAL,
+    payload: request
+  };
+}
+
+export function closeEditParamModal() {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CLOSE_EDIT_PARAM_MODAL,
+    payload: ""
+  };
+}
+
+export function changeActiveParamOption(option) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CHANGE_ACTIVE_PARAM_OPTION,
+    payload: option
+  };
+}
+
+export function updateActiveConfig(activeConfig, paramToRemove, paramsToAdd) {
+  //action creator, it needs to return an action, an object with a type property
+  var updatedParamList = _.concat(
+    _.pullAllWith(activeConfig.params, [paramToRemove], _.isEqual),
+    ...paramsToAdd
+  );
+  activeConfig.params = updatedParamList;
+  return {
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfig
   };
 }

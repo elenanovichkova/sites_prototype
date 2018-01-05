@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import _ from "lodash";
 import * as types from "../actions/action-types";
 
 /*const INITIAL_STATE = {
@@ -67,6 +68,8 @@ const activeConfigReducer = (state = { params: [] }, action) => {
       return { params: [] };
     case types.SITE_SELECTED:
       return { params: [] };
+    case types.UPDATE_ACTIVE_CONFIG:
+      return action.payload;
     default:
       return state;
   }
@@ -102,8 +105,55 @@ const activeParamReducer = (state = "", action) => {
   switch (action.type) {
     case types.PARAM_SELECTED:
       return action.payload;
-    default:
+    case types.GET_PARAM_INFO:
+      return state;
+    case types.UPDATE_ACTIVE_CONFIG:
       return "";
+    default:
+      return state;
+  }
+};
+
+const activeParamDetailReducer = (state = { options: [] }, action) => {
+  switch (action.type) {
+    case types.OPEN_EDIT_PARAM_MODAL:
+      return action.payload.data.param;
+    case types.CLOSE_EDIT_PARAM_MODAL:
+      return { options: [] };
+    case types.UPDATE_ACTIVE_CONFIG:
+      return { options: [] };
+    default:
+      return state;
+  }
+};
+
+const editParamModalIsOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case types.OPEN_EDIT_PARAM_MODAL:
+      return true;
+    case types.CLOSE_EDIT_PARAM_MODAL:
+      return false;
+    case types.UPDATE_ACTIVE_CONFIG:
+      return false;
+    default:
+      return state;
+  }
+};
+
+const activeParamSelectedOptionReducer = (state = { params: [] }, action) => {
+  switch (action.type) {
+    case types.OPEN_EDIT_PARAM_MODAL:
+      return _.find(action.payload.data.param.options, function(option) {
+        return option.selected;
+      });
+    case types.CHANGE_ACTIVE_PARAM_OPTION:
+      return action.payload;
+    case types.UPDATE_ACTIVE_CONFIG:
+      return { params: [] };
+    case types.CLOSE_EDIT_PARAM_MODAL:
+      return { params: [] };
+    default:
+      return state;
   }
 };
 
@@ -114,7 +164,10 @@ const rootReducer = combineReducers({
   activeSite: activeSiteReducer,
   configList: configListReducer,
   activeConfig: activeConfigReducer,
-  activeParam: activeParamReducer
+  activeParam: activeParamReducer,
+  activeParamDetail: activeParamDetailReducer,
+  activeParamSelectedOption: activeParamSelectedOptionReducer,
+  editParamModalIsOpen: editParamModalIsOpenReducer
 });
 
 export default rootReducer;
