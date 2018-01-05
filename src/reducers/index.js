@@ -161,6 +161,50 @@ const activeParamSelectedOptionReducer = (state = { param: {} }, action) => {
   }
 };
 
+const activeConfigReceiverIdReducer = (state = "", action) => {
+  switch (action.type) {
+    case types.CONFIG_EDIT:
+      return action.payload.data.config.receiverID;
+    case types.CHANGE_ACTIVECONFIG_RECEIVERID:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const activeConfigUsageReducer = (state = "", action) => {
+  switch (action.type) {
+    case types.CONFIG_EDIT:
+      return action.payload.data.config.usage;
+    case types.CHANGE_ACTIVECONFIG_USAGE:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const activeConfigPurposeReducer = (state = "", action) => {
+  switch (action.type) {
+    case types.CONFIG_EDIT:
+      return action.payload.data.config.purpose;
+    case types.CHANGE_ACTIVECONFIG_PURPOSE:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const activeConfigFldSepReducer = (state = ":", action) => {
+  switch (action.type) {
+    case types.CONFIG_EDIT:
+      return action.payload.data.config.fldSep;
+    case types.CHANGE_ACTIVECONFIG_FLDSEP:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -168,6 +212,10 @@ const rootReducer = combineReducers({
   activeSite: activeSiteReducer,
   configList: configListReducer,
   activeConfig: activeConfigReducer,
+  activeConfigReceiverId: activeConfigReceiverIdReducer,
+  activeConfigUsage: activeConfigUsageReducer,
+  activeConfigPurpose: activeConfigPurposeReducer,
+  activeConfigFldSep: activeConfigFldSepReducer,
   activeParam: activeParamReducer,
   activeParamDetail: activeParamDetailReducer,
   activeParamSelectedOption: activeParamSelectedOptionReducer,

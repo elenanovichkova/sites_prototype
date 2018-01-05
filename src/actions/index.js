@@ -70,10 +70,14 @@ export function viewConfig(config) {
 
 export function editConfig(config) {
   let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
-  let request = axios.get(url);
-  return {
-    type: types.CONFIG_EDIT,
-    payload: request
+  return function(dispatch) {
+    axios.get(url).then(response => {
+      console.log("response", response);
+      dispatch({
+        type: types.CONFIG_EDIT,
+        payload: response
+      });
+    });
   };
 }
 
@@ -166,5 +170,37 @@ export function updateActiveConfig(activeConfig, paramToRemove, paramToAdd) {
   return {
     type: types.UPDATE_ACTIVE_CONFIG,
     payload: activeConfig
+  };
+}
+
+export function changeActiveConfigReceiverId(receiverId) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CHANGE_ACTIVECONFIG_RECEIVERID,
+    payload: receiverId
+  };
+}
+
+export function changeActiveConfigUsage(usage) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CHANGE_ACTIVECONFIG_USAGE,
+    payload: usage
+  };
+}
+
+export function changeActiveConfigPurpose(purpose) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CHANGE_ACTIVECONFIG_PURPOSE,
+    payload: purpose
+  };
+}
+
+export function changeActiveConfigFldSep(fldSep) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CHANGE_ACTIVECONFIG_FLDSEP,
+    payload: fldSep
   };
 }

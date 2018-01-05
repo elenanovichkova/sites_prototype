@@ -6,7 +6,11 @@ import {
   changeConfigsView,
   selectParam,
   getParamDetail,
-  openEditParamModal
+  openEditParamModal,
+  changeActiveConfigReceiverId,
+  changeActiveConfigUsage,
+  changeActiveConfigPurpose,
+  changeActiveConfigFldSep
 } from "../actions/index";
 
 class ConfigForm extends Component {
@@ -25,6 +29,7 @@ class ConfigForm extends Component {
   }
 
   render() {
+    console.log("props", this.props);
     return (
       <div className="panel-body">
         <p>
@@ -54,6 +59,7 @@ class ConfigForm extends Component {
                 id="receiverId"
                 name="receiverId"
                 placeholder="Enter receiver/submitter Id"
+                value={this.props.activeConfigReceiverId}
               />
             </div>
           </div>
@@ -62,7 +68,12 @@ class ConfigForm extends Component {
               Usage:
             </label>
             <div className="col-sm-7">
-              <select className="form-control" id="usage" name="usage">
+              <select
+                className="form-control"
+                id="usage"
+                name="usage"
+                value={this.props.activeConfigUsage}
+              >
                 <option value="">SELECT</option>
                 <option value="P">Production</option>
                 <option value="T">Test</option>
@@ -74,13 +85,17 @@ class ConfigForm extends Component {
               Purpose
             </label>
             <div className="col-sm-7">
-              <select className="form-control" id="purpose" name="purpose">
+              <select
+                className="form-control"
+                id="purpose"
+                name="purpose"
+                value={this.props.activeConfigPurpose}
+              >
                 <option value="">SELECT</option>
                 <option value="EBIL">EBIL</option>
                 <option value="EBRV">EBRV</option>
                 <option value="PPO">PPO</option>
                 <option value="EDI3">EDI3</option>
-                <option value="PPO">PPO</option>
                 <option value="PNOT">PNOT</option>
                 <option value="DISB">DISB</option>
                 <option value="SRCA">SRCA</option>
@@ -93,7 +108,12 @@ class ConfigForm extends Component {
               Which delimiter will be used with X12 transactions?
             </label>
             <div className="col-sm-7">
-              <select className="form-control" id="fldsep" name="fldsep">
+              <select
+                className="form-control"
+                id="fldsep"
+                name="fldsep"
+                value={this.props.activeConfigFldSep}
+              >
                 <option value="">SELECT</option>
                 <option value="*">Asterisk(*)</option>
                 <option value="~">Tilde(~)</option>
@@ -229,15 +249,37 @@ function mapStateToProps({
   activeConfig,
   activeParam,
   activeParamView,
-  activeParamDetail
+  activeParamDetail,
+  activeConfigReceiverId,
+  activeConfigUsage,
+  activeConfigPurpose,
+  activeConfigFldSep
 }) {
   // whatever is returned will show up as a props
-  return { activeConfig, activeParam, activeParamView, activeParamDetail };
+  return {
+    activeConfig,
+    activeParam,
+    activeParamView,
+    activeParamDetail,
+    activeConfigReceiverId,
+    activeConfigUsage,
+    activeConfigPurpose,
+    activeConfigFldSep
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { changeConfigsView, selectParam, getParamDetail, openEditParamModal },
+    {
+      changeConfigsView,
+      selectParam,
+      getParamDetail,
+      openEditParamModal,
+      changeActiveConfigReceiverId,
+      changeActiveConfigUsage,
+      changeActiveConfigPurpose,
+      changeActiveConfigFldSep
+    },
     dispatch
   );
 }
