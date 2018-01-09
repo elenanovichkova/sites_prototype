@@ -1,61 +1,191 @@
 {
   "status": { "code": "01", "result": true, "reason": "OK" },
   "config": {
-    "oid": "10:2gqg-h$EDICntl",
-    "ID": "JSI:ABELCHIRO:EBIL",
-    "admin": "Elena Solutions, Inc.",
+    "oid": "10:8nvz-i$EDICntl",
+    "ID": "JSI:BMS:EBIL",
+    "admin": "Jopari Solutions, Inc.",
     "carrier": "",
     "purpose": "EBIL",
-    "status": "ACTV",
+    "status": "",
     "authQual": "00",
     "authInfo": "",
     "secQual": "00",
     "secInfo": "",
-    "sender": "Elena Solutions, Inc.",
+    "sender": "Jopari Solutions, Inc.",
     "senderQual": "ZZ",
-    "senderID": "000000000",
-    "senderCode": "000000000",
+    "senderID": "200787505",
+    "senderCode": "200787505",
     "senderName": "Customer Service",
-    "senderEmail": "elena@myorg.com",
-    "receiver": "ABELCHIRO",
+    "senderEmail": "support@jopari.com",
+    "receiver": "BMS Practice Solutions",
     "receiverQual": "ZZ",
-    "receiverID": "123456789",
-    "receiverCode": "123456789",
+    "receiverID": "330431736",
+    "receiverCode": "330431736",
     "busOffice": "",
     "needTA1": "0",
-    "usage": "P",
+    "usage": "T",
     "compSep": ":",
     "reptSep": "^",
     "version": "00501",
     "fldSep": "*",
     "binaryMode": "OFF",
-    "params": [
+    "paramsX12": [
       {
-        "id": "10:2gqg-x$rtv",
+        "id": "px12_docrypt_1",
+        "tag": "px12_docrypt",
+        "value": "N",
+        "formgroupName": "X12",
+        "formcontrolName": "px12_docrypt",
+        "formcontrolLabel": "Do files need to be encrypted",
+        "formcontrolOptionDescr": "No",
+        "formcontrolOptionValue": "N"
+      }
+    ],
+    "params837": [
+      {
+        "id": "p837_lookupstlic_2",
+        "tag": "p837_lookupstlic",
+        "value": "Y",
+        "formgroupName": "837",
+        "formcontrolName": "optinstatelookup",
+        "formcontrolLabel": "Opt-in state license lookup",
+        "formcontrolOptionDescr": "Yes",
+        "formcontrolOptionValue": "Y"
+      }
+    ],
+    "paramsatt": [
+      {
+        "id": "p837_at_3",
+        "tag": "p837_at",
+        "value": "PWK",
+        "formgroupName": "att",
+        "formcontrolName": "whichbillrequiresatt",
+        "formcontrolLabel": "Which bill requires attachment",
+        "formcontrolOptionDescr": "Use PWK",
+        "formcontrolOptionValue": "PWK"
+      },
+      {
+        "id": "patt_autorej277_2",
+        "tag": "patt_autorej277",
+        "value": "Y",
+        "formgroupName": "att",
+        "formcontrolName": "patt_autorej277",
+        "formcontrolLabel": "Auto-reject for missing attachments",
+        "formcontrolOptionDescr": "Yes",
+        "formcontrolOptionValue": "Y"
+      },
+      {
+        "id": "patt_autowarn_5",
+        "tag": "patt_autowarn1",
+        "value": "5",
+        "formgroupName": "att",
+        "formcontrolName": "patt_autowarn1",
+        "formcontrolLabel": "First missing attachment warning",
+        "formcontrolOptionDescr": "5",
+        "formcontrolOptionValue": "5"
+      },
+      {
+        "id": "patt_autowarn2_10",
+        "tag": "patt_autowarn2",
+        "value": "10",
+        "formgroupName": "att",
+        "formcontrolName": "patt_autowarn2",
+        "formcontrolLabel": "Second missing attachment warning",
+        "formcontrolOptionDescr": "10",
+        "formcontrolOptionValue": "10"
+      },
+      {
+        "id": "patt_autorej_15",
+        "tag": "patt_autorej",
+        "value": "15",
+        "formgroupName": "att",
+        "formcontrolName": "patt_autorej",
+        "formcontrolLabel": "Reject bill for missing attachment (default 15 days)",
+        "formcontrolOptionDescr": "15",
+        "formcontrolOptionValue": "15"
+      }
+    ],
+    "params999": [
+      {
+        "id": "px12_do999_1",
+        "tag": "px12_do999",
+        "value": "CLEAR",
+        "formgroupName": "999",
+        "formcontrolName": "px12_do999",
+        "formcontrolLabel": "Support 999",
+        "formcontrolOptionDescr": "CLEAR",
+        "formcontrolOptionValue": "CLEAR"
+      }
+    ],
+    "params277": [
+      {
+        "id": "px12_do277ca_2",
+        "tag": "px12_do277ca",
+        "value": "Y",
+        "formgroupName": "277",
+        "formcontrolName": "px12_do277ca",
+        "formcontrolLabel": "Support 277 ca",
+        "formcontrolOptionDescr": "Yes",
+        "formcontrolOptionValue": "Y"
+      },
+      {
+        "id": "p277ca_ver_2",
+        "tag": "p277ca_ver",
+        "value": "005010X214",
+        "formgroupName": "277",
+        "formcontrolName": "p277ca_ver",
+        "formcontrolLabel": "277ca version",
+        "formcontrolOptionDescr": "005010X214",
+        "formcontrolOptionValue": "005010X214"
+      }
+    ],
+    "params835": [
+      {
+        "id": "p835_ver_2",
+        "tag": "p835_ver",
+        "value": "005010X221A1",
+        "formgroupName": "835",
+        "formcontrolName": "p835_ver",
+        "formcontrolLabel": "835 Version",
+        "formcontrolOptionDescr": "005010X221A1",
+        "formcontrolOptionValue": "005010X221A1"
+      }
+    ],
+    "params275": [],
+    "params997": [
+      {
+        "id": "px12_do997_2",
         "tag": "px12_do997",
         "value": "N",
+        "formgroupName": "997",
         "formcontrolName": "support997version",
         "formcontrolLabel": "Support 997 X12 format",
         "formcontrolOptionDescr": "No",
         "formcontrolOptionValue": "N"
-      },
+      }
+    ],
+    "params824": [
       {
-        "id": "10:2gqg-10$rtv",
+        "id": "px12_do824_2",
         "tag": "px12_do824",
         "value": "N",
+        "formgroupName": "824",
         "formcontrolName": "support824version",
         "formcontrolLabel": "Support 824 X12 format",
         "formcontrolOptionDescr": "No",
         "formcontrolOptionValue": "N"
-      },
+      }
+    ],
+    "paramsUndefined": [
       {
-        "id": "10:2gqg-13$rtv",
-        "tag": "p837_at",
-        "value": "Y",
-        "formcontrolName": "whichbillrequiresatt",
-        "formcontrolLabel": "Which bill requires attachment",
-        "formcontrolOptionDescr": "All Bills",
-        "formcontrolOptionValue": "Y"
+        "id": "123456",
+        "tag": "px12_do8245",
+        "value": "N",
+        "formgroupName": "Undefined",
+        "formcontrolName": "",
+        "formcontrolLabel": "",
+        "formcontrolOptionDescr": "",
+        "formcontrolOptionValue": ""
       }
     ]
   }

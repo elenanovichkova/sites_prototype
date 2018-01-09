@@ -71,3 +71,7 @@ input:checked + .switchslider:before {
 .edicntl-param-table tbody tr.selected {
   background-color: #f5f5f5;
 }
+
+.config-param-title {
+  background-color: #fff;
+}

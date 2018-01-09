@@ -54,7 +54,21 @@ const configListReducer = (state = [], action) => {
   }
 };
 
-const activeConfigReducer = (state = { params: [] }, action) => {
+const activeConfigReducer = (
+  state = {
+    paramsX12: [],
+    params837: [],
+    paramsatt: [],
+    params999: [],
+    params277: [],
+    params835: [],
+    params275: [],
+    params997: [],
+    params824: [],
+    paramsUndefined: []
+  },
+  action
+) => {
   switch (action.type) {
     case types.CONFIG_VIEW:
       return action.payload.data.config;
@@ -65,9 +79,31 @@ const activeConfigReducer = (state = { params: [] }, action) => {
     case types.CONFIG_DUPLICATE:
       return action.payload.data.config;
     case types.CONFIG_LIST_VIEW:
-      return { params: [] };
+      return {
+        paramsX12: [],
+        params837: [],
+        paramsatt: [],
+        params999: [],
+        params277: [],
+        params835: [],
+        params275: [],
+        params997: [],
+        params824: [],
+        paramsUndefined: []
+      };
     case types.SITE_SELECTED:
-      return { params: [] };
+      return {
+        paramsX12: [],
+        params837: [],
+        paramsatt: [],
+        params999: [],
+        params277: [],
+        params835: [],
+        params275: [],
+        params997: [],
+        params824: [],
+        paramsUndefined: []
+      };
     case types.UPDATE_ACTIVE_CONFIG:
       return action.payload;
     default:
