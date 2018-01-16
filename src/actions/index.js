@@ -59,24 +59,16 @@ export function fetchSites(siteName, siteId, siteTaxId, siteReceiverId) {
   };
 }
 
-export function viewConfig(config) {
-  let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
-  let request = axios.get(url);
-  return {
-    type: types.CONFIG_VIEW,
-    payload: request
-  };
-}
-
-export function editConfig(config) {
+export function getConfigDetail(config, callback) {
   let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
   return function(dispatch) {
+    dispatch({ type: types.REQUEST_CONFIG_DETAIL });
     axios.get(url).then(response => {
-      console.log("response", response);
       dispatch({
-        type: types.CONFIG_EDIT,
+        type: types.RECEIVED_CONFIG_DETAIL,
         payload: response
       });
+      callback();
     });
   };
 }
@@ -164,65 +156,59 @@ export function changeActiveParamOption(option) {
 export function updateActiveConfig(activeConfig, paramToRemove, paramToAdd) {
   //action creator, it needs to return an action, an object with a type property
   let paramsGroupName = `params${paramToRemove.formgroupName}`;
-  var index = activeConfig[paramsGroupName].findIndex(
+  var index = activeConfig.data[paramsGroupName].findIndex(
     param => param.id == paramToRemove.id
   );
-  activeConfig[paramsGroupName].splice(index, 1, paramToAdd);
+  activeConfig.data[paramsGroupName].splice(index, 1, paramToAdd);
   return {
     type: types.UPDATE_ACTIVE_CONFIG,
     payload: activeConfig
   };
 }
 
-export function changeActiveConfigReceiverId(receiverId) {
+export function changeActiveConfigReceiverId(receiverId, activeConfig) {
   //action creator, it needs to return an action, an object with a type property
+  activeConfig.data.receiverID = receiverId;
   return {
-    type: types.CHANGE_ACTIVECONFIG_RECEIVERID,
-    payload: receiverId
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfig
   };
 }
 
-export function changeActiveConfigUsage(usage) {
+export function changeActiveConfigUsage(usage, activeConfig) {
   //action creator, it needs to return an action, an object with a type property
+  activeConfig.data.usage = usage;
   return {
-    type: types.CHANGE_ACTIVECONFIG_USAGE,
-    payload: usage
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfig
   };
 }
 
-export function changeActiveConfigPurpose(purpose) {
+export function changeActiveConfigPurpose(purpose, activeConfig) {
   //action creator, it needs to return an action, an object with a type property
+  activeConfig.data.purpose = purpose;
   return {
-    type: types.CHANGE_ACTIVECONFIG_PURPOSE,
-    payload: purpose
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfig
   };
 }
 
-export function changeActiveConfigFldSep(fldSep) {
+export function changeActiveConfigFldSep(fldSep, activeConfig) {
   //action creator, it needs to return an action, an object with a type property
+  activeConfig.data.fldSep = fldSep;
   return {
-    type: types.CHANGE_ACTIVECONFIG_FLDSEP,
-    payload: fldSep
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfig
   };
 }
 
-export function saveConfig(
-  oid,
-  activeConfigReceiverId,
-  activeConfigUsage,
-  activeConfigPurpose,
-  activeConfigFldSep,
-  params
-) {
+export function updateConfig(config, callback) {
   //action creator, it needs to return an action, an object with a type property
   let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
   return function(dispatch) {
-    dispatch({ type: types.CONFIG_DETAIL_VIEW });
     axios.get(url).then(response => {
-      dispatch({
-        type: types.CONFIG_VIEW,
-        payload: response
-      });
+      dispatch({ type: types.CONFIG_LIST_VIEW });
+      callback();
     });
   };
 }

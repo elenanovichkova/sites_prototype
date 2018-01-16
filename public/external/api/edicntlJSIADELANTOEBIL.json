@@ -18,6 +18,7 @@
     "senderName": "Customer Service",
     "senderEmail": "support@jopari.com",
     "receiver": "BMS Practice Solutions",
+    "receiverCodeNbr": "BMS",
     "receiverQual": "ZZ",
     "receiverID": "330431736",
     "receiverCode": "330431736",

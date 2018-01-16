@@ -5,10 +5,10 @@ import { bindActionCreators } from "redux";
 
 class ConfigDetail extends Component {
   renderX12paramsTitle() {
-    if (this.props.activeConfig.paramsX12.length > 0) {
+    if (this.props.activeConfig.data.paramsX12.length > 0) {
       return (
         <tr className="config-param-title config-param-title-x12">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>X12</strong>
           </td>
         </tr>
@@ -17,10 +17,10 @@ class ConfigDetail extends Component {
   }
 
   render837paramsTitle() {
-    if (this.props.activeConfig.params837.length > 0) {
+    if (this.props.activeConfig.data.params837.length > 0) {
       return (
         <tr className="config-param-title config-param-title-837">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>837</strong>
           </td>
         </tr>
@@ -29,10 +29,10 @@ class ConfigDetail extends Component {
   }
 
   renderAttparamsTitle() {
-    if (this.props.activeConfig.paramsatt.length > 0) {
+    if (this.props.activeConfig.data.paramsatt.length > 0) {
       return (
         <tr className="config-param-title config-param-title-att">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>Attachments</strong>
           </td>
         </tr>
@@ -41,10 +41,10 @@ class ConfigDetail extends Component {
   }
 
   render999paramsTitle() {
-    if (this.props.activeConfig.params999.length > 0) {
+    if (this.props.activeConfig.data.params999.length > 0) {
       return (
         <tr className="config-param-title config-param-title-999">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>999 Acknowledgement</strong>
           </td>
         </tr>
@@ -53,10 +53,10 @@ class ConfigDetail extends Component {
   }
 
   render277paramsTitle() {
-    if (this.props.activeConfig.params277.length > 0) {
+    if (this.props.activeConfig.data.params277.length > 0) {
       return (
         <tr className="config-param-title config-param-title-277">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>277 Claim status</strong>
           </td>
         </tr>
@@ -65,10 +65,10 @@ class ConfigDetail extends Component {
   }
 
   render835paramsTitle() {
-    if (this.props.activeConfig.params835.length > 0) {
+    if (this.props.activeConfig.data.params835.length > 0) {
       return (
         <tr className="config-param-title config-param-title-835">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>835 EOB</strong>
           </td>
         </tr>
@@ -77,10 +77,10 @@ class ConfigDetail extends Component {
   }
 
   render275paramsTitle() {
-    if (this.props.activeConfig.params275.length > 0) {
+    if (this.props.activeConfig.data.params275.length > 0) {
       return (
         <tr className="config-param-title config-param-title-275">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>275 Patient Information Transaction Set</strong>
           </td>
         </tr>
@@ -89,10 +89,10 @@ class ConfigDetail extends Component {
   }
 
   render997paramsTitle() {
-    if (this.props.activeConfig.params997.length > 0) {
+    if (this.props.activeConfig.data.params997.length > 0) {
       return (
         <tr className="config-param-title config-param-title-997">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>997 Functional Acknowledgment</strong>
           </td>
         </tr>
@@ -101,10 +101,10 @@ class ConfigDetail extends Component {
   }
 
   render824paramsTitle() {
-    if (this.props.activeConfig.params824.length > 0) {
+    if (this.props.activeConfig.data.params824.length > 0) {
       return (
         <tr className="config-param-title config-param-title-824">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>824 Application Advice</strong>
           </td>
         </tr>
@@ -113,10 +113,10 @@ class ConfigDetail extends Component {
   }
 
   renderUndefinedparamsTitle() {
-    if (this.props.activeConfig.paramsUndefined.length > 0) {
+    if (this.props.activeConfig.data.paramsUndefined.length > 0) {
       return (
         <tr className="config-param-title config-param-title-undefined">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>Undefined params</strong>
           </td>
         </tr>
@@ -125,6 +125,10 @@ class ConfigDetail extends Component {
   }
 
   render() {
+    console.log("this.props.activeConfig", this.props.activeConfig);
+    if (this.props.activeConfig.isFetching) {
+      return <div>...loading</div>;
+    }
     return (
       <div className="">
         <div className="panel-body">
@@ -146,7 +150,7 @@ class ConfigDetail extends Component {
                     <div className="col-md-12">
                       <div className="title text-center">
                         <h3>
-                          {this.props.activeConfig.ID}
+                          {this.props.activeConfig.data.ID}
                         </h3>
                       </div>
                     </div>
@@ -159,18 +163,21 @@ class ConfigDetail extends Component {
                     <ul className="list-group">
                       <li className="list-group-item">
                         Receiver ID:{" "}
-                        <strong>{this.props.activeConfig.receiverID}</strong>
+                        <strong>
+                          {this.props.activeConfig.data.receiverID}
+                        </strong>
                       </li>
                       <li className="list-group-item">
-                        Usage: <strong>{this.props.activeConfig.usage}</strong>
+                        Usage:{" "}
+                        <strong>{this.props.activeConfig.data.usage}</strong>
                       </li>
                       <li className="list-group-item">
                         Purpose:{" "}
-                        <strong>{this.props.activeConfig.purpose}</strong>
+                        <strong>{this.props.activeConfig.data.purpose}</strong>
                       </li>
                       <li className="list-group-item">
                         X12 transactions delimiter :{" "}
-                        <strong>{this.props.activeConfig.fldSep}</strong>
+                        <strong>{this.props.activeConfig.data.fldSep}</strong>
                       </li>
                     </ul>
                   </div>
@@ -259,91 +266,91 @@ class ConfigDetail extends Component {
                           <tbody>
                             <tr>
                               <td>
-                                {this.props.activeConfig.authQual}
+                                {this.props.activeConfig.data.authQual}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.authInfo}
+                                {this.props.activeConfig.data.authInfo}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.secQual}
+                                {this.props.activeConfig.data.secQual}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.secInfo}
+                                {this.props.activeConfig.data.secInfo}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.senderQual}
+                                {this.props.activeConfig.data.senderQual}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.senderID}
+                                {this.props.activeConfig.data.senderID}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.receiverQual}
+                                {this.props.activeConfig.data.receiverQual}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.receiverID}
+                                {this.props.activeConfig.data.receiverID}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>YYMMDD</td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>HHMM</td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.reptSep}
+                                {this.props.activeConfig.data.reptSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.version}
+                                {this.props.activeConfig.data.version}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>ICN(up to 9 digits)</td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.needTA1}
+                                {this.props.activeConfig.data.needTA1}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.usage}
+                                {this.props.activeConfig.data.usage}
                               </td>
                               <td>
-                                {this.props.activeConfig.fldSep}
+                                {this.props.activeConfig.data.fldSep}
                               </td>
                               <td>
-                                {this.props.activeConfig.compSep}
+                                {this.props.activeConfig.data.compSep}
                               </td>
                             </tr>
                           </tbody>
@@ -373,187 +380,205 @@ class ConfigDetail extends Component {
                           </thead>
                           <tbody>
                             {this.renderX12paramsTitle()}
-                            {this.props.activeConfig.paramsX12.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.paramsX12.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render837paramsTitle()}
-                            {this.props.activeConfig.params837.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params837.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.renderAttparamsTitle()}
-                            {this.props.activeConfig.paramsatt.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.paramsatt.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render999paramsTitle()}
-                            {this.props.activeConfig.params999.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params999.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render277paramsTitle()}
-                            {this.props.activeConfig.params277.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params277.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render835paramsTitle()}
-                            {this.props.activeConfig.params835.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params835.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render275paramsTitle()}
-                            {this.props.activeConfig.params275.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params275.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render997paramsTitle()}
-                            {this.props.activeConfig.params997.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params997.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.render824paramsTitle()}
-                            {this.props.activeConfig.params824.map(param => {
-                              return (
-                                <tr key={param.id}>
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
-                            })}
+                            {this.props.activeConfig.data.params824.map(
+                              param => {
+                                return (
+                                  <tr key={param.id}>
+                                    <td> </td>
+                                    <td>
+                                      {param.formcontrolLabel}
+                                    </td>
+                                    <td>
+                                      {param.formcontrolOptionDescr}
+                                    </td>
+                                    <td>
+                                      {param.tag}
+                                    </td>
+                                    <td>
+                                      {param.value}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            )}
                             {this.renderUndefinedparamsTitle()}
-                            {this.props.activeConfig.paramsUndefined.map(
+                            {this.props.activeConfig.data.paramsUndefined.map(
                               param => {
                                 return (
                                   <tr key={param.id}>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  viewConfig,
-  editConfig,
+  getConfigDetail,
   duplicateConfig,
   deleteConfig,
   changeConfigsView
@@ -33,8 +32,9 @@ class ConfigList extends Component {
               <span
                 className="fa fa-eye"
                 onClick={() => {
-                  this.props.changeConfigsView("config-detail");
-                  this.props.viewConfig(config);
+                  this.props.getConfigDetail(config, () =>
+                    this.props.changeConfigsView("config-detail")
+                  );
                 }}
               />
             </a>
@@ -44,8 +44,9 @@ class ConfigList extends Component {
               <span
                 className="fa fa-pencil"
                 onClick={() => {
-                  this.props.changeConfigsView("config-edit");
-                  this.props.editConfig(config);
+                  this.props.getConfigDetail(config, () =>
+                    this.props.changeConfigsView("config-edit")
+                  );
                 }}
               />
             </a>
@@ -110,8 +111,7 @@ function mapDispatchToProps(dispatch) {
   //whenever function called, the result should be passed to all our reducers
   return bindActionCreators(
     {
-      viewConfig,
-      editConfig,
+      getConfigDetail,
       duplicateConfig,
       deleteConfig,
       changeConfigsView

@@ -6,6 +6,7 @@
   },
   "paramformcontrol": {
     "id": "px12_do997",
+    "formgroupName": "X12",
     "formcontrolName": "support997version",
     "formcontrolLabel": "Support 997 X12 format",
     "options": [
@@ -15,10 +16,10 @@
         "value": "N",
         "answer": "No",
         "param": {
-          "id": "10:2gqg-x$rtv",
+          "id": "px12_docrypt_1",
           "tag": "px12_do997",
           "value": "N",
-          "formgroupName": "997",
+          "formgroupName": "X12",
           "formcontrolName": "support997version",
           "formcontrolLabel": "Support 997 X12 format",
           "formcontrolOptionDescr": "No",
@@ -31,10 +32,10 @@
         "value": "Y",
         "answer": "Yes",
         "param": {
-          "id": "10:2gqg-x$rtv",
+          "id": "px12_docrypt_2",
           "tag": "px12_do997",
           "value": "Y",
-          "formgroupName": "997",
+          "formgroupName": "X12",
           "formcontrolName": "support997version",
           "formcontrolLabel": "Support 997 X12 format",
           "formcontrolOptionDescr": "Yes",

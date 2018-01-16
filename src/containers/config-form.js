@@ -11,15 +11,15 @@ import {
   changeActiveConfigUsage,
   changeActiveConfigPurpose,
   changeActiveConfigFldSep,
-  saveConfig
+  updateConfig
 } from "../actions/index";
 
 class ConfigForm extends Component {
   renderX12paramsTitle() {
-    if (this.props.activeConfig.paramsX12.length > 0) {
+    if (this.props.activeConfig.data.paramsX12.length > 0) {
       return (
         <tr className="config-param-title config-param-title-x12">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>X12</strong>
           </td>
         </tr>
@@ -28,10 +28,10 @@ class ConfigForm extends Component {
   }
 
   render837paramsTitle() {
-    if (this.props.activeConfig.params837.length > 0) {
+    if (this.props.activeConfig.data.params837.length > 0) {
       return (
         <tr className="config-param-title config-param-title-837">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>837</strong>
           </td>
         </tr>
@@ -40,10 +40,10 @@ class ConfigForm extends Component {
   }
 
   renderAttparamsTitle() {
-    if (this.props.activeConfig.paramsatt.length > 0) {
+    if (this.props.activeConfig.data.paramsatt.length > 0) {
       return (
         <tr className="config-param-title config-param-title-att">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>Attachments</strong>
           </td>
         </tr>
@@ -52,10 +52,10 @@ class ConfigForm extends Component {
   }
 
   render999paramsTitle() {
-    if (this.props.activeConfig.params999.length > 0) {
+    if (this.props.activeConfig.data.params999.length > 0) {
       return (
         <tr className="config-param-title config-param-title-999">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>999 Acknowledgement</strong>
           </td>
         </tr>
@@ -64,10 +64,10 @@ class ConfigForm extends Component {
   }
 
   render277paramsTitle() {
-    if (this.props.activeConfig.params277.length > 0) {
+    if (this.props.activeConfig.data.params277.length > 0) {
       return (
         <tr className="config-param-title config-param-title-277">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>277 Claim status</strong>
           </td>
         </tr>
@@ -76,10 +76,10 @@ class ConfigForm extends Component {
   }
 
   render835paramsTitle() {
-    if (this.props.activeConfig.params835.length > 0) {
+    if (this.props.activeConfig.data.params835.length > 0) {
       return (
         <tr className="config-param-title config-param-title-835">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>835 EOB</strong>
           </td>
         </tr>
@@ -88,10 +88,10 @@ class ConfigForm extends Component {
   }
 
   render275paramsTitle() {
-    if (this.props.activeConfig.params275.length > 0) {
+    if (this.props.activeConfig.data.params275.length > 0) {
       return (
         <tr className="config-param-title config-param-title-275">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>275 Patient Information Transaction Set</strong>
           </td>
         </tr>
@@ -100,10 +100,10 @@ class ConfigForm extends Component {
   }
 
   render997paramsTitle() {
-    if (this.props.activeConfig.params997.length > 0) {
+    if (this.props.activeConfig.data.params997.length > 0) {
       return (
         <tr className="config-param-title config-param-title-997">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>997 Functional Acknowledgment</strong>
           </td>
         </tr>
@@ -112,10 +112,10 @@ class ConfigForm extends Component {
   }
 
   render824paramsTitle() {
-    if (this.props.activeConfig.params824.length > 0) {
+    if (this.props.activeConfig.data.params824.length > 0) {
       return (
         <tr className="config-param-title config-param-title-824">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>824 Application Advice</strong>
           </td>
         </tr>
@@ -124,10 +124,10 @@ class ConfigForm extends Component {
   }
 
   renderUndefinedparamsTitle() {
-    if (this.props.activeConfig.paramsUndefined.length > 0) {
+    if (this.props.activeConfig.data.paramsUndefined.length > 0) {
       return (
         <tr className="config-param-title config-param-title-undefined">
-          <td colspan="5">
+          <td colSpan="5">
             <strong>Undefined params</strong>
           </td>
         </tr>
@@ -146,6 +146,9 @@ class ConfigForm extends Component {
   }
 
   render() {
+    if (this.props.activeConfig.isFetching) {
+      return <div>...loading</div>;
+    }
     return (
       <div className="panel-body">
         <p>
@@ -160,7 +163,7 @@ class ConfigForm extends Component {
         </p>
         <div className="title text-center page-header">
           <h3>
-            {this.props.activeConfig.ID}
+            {this.props.activeConfig.data.ID}
           </h3>
         </div>
         <form className="form form-horizontal">
@@ -175,11 +178,14 @@ class ConfigForm extends Component {
                 id="receiverId"
                 name="receiverId"
                 placeholder="Enter receiver/submitter Id"
-                value={this.props.activeConfigReceiverId}
+                value={this.props.activeConfig.data.receiverID}
                 onChange={event => {
                   let target = event.target;
                   let value = target.value;
-                  this.props.changeActiveConfigReceiverId(value);
+                  this.props.changeActiveConfigReceiverId(
+                    value,
+                    this.props.activeConfig
+                  );
                 }}
               />
             </div>
@@ -193,11 +199,14 @@ class ConfigForm extends Component {
                 className="form-control"
                 id="usage"
                 name="usage"
-                value={this.props.activeConfigUsage}
+                value={this.props.activeConfig.data.usage}
                 onChange={event => {
                   let target = event.target;
                   let value = target.value;
-                  this.props.changeActiveConfigUsage(value);
+                  this.props.changeActiveConfigUsage(
+                    value,
+                    this.props.activeConfig
+                  );
                 }}
               >
                 <option value="">SELECT</option>
@@ -215,11 +224,14 @@ class ConfigForm extends Component {
                 className="form-control"
                 id="purpose"
                 name="purpose"
-                value={this.props.activeConfigPurpose}
+                value={this.props.activeConfig.data.purpose}
                 onChange={event => {
                   let target = event.target;
                   let value = target.value;
-                  this.props.changeActiveConfigPurpose(value);
+                  this.props.changeActiveConfigPurpose(
+                    value,
+                    this.props.activeConfig
+                  );
                 }}
               >
                 <option value="">SELECT</option>
@@ -243,11 +255,14 @@ class ConfigForm extends Component {
                 className="form-control"
                 id="fldsep"
                 name="fldsep"
-                value={this.props.activeConfigFldSep}
+                value={this.props.activeConfig.data.fldSep}
                 onChange={event => {
                   let target = event.target;
                   let value = target.value;
-                  this.props.changeActiveConfigFldSep(value);
+                  this.props.changeActiveConfigFldSep(
+                    value,
+                    this.props.activeConfig
+                  );
                 }}
               >
                 <option value="">SELECT</option>
@@ -278,7 +293,7 @@ class ConfigForm extends Component {
                         </thead>
                         <tbody>
                           {this.renderX12paramsTitle()}
-                          {this.props.activeConfig.paramsX12.map(param => {
+                          {this.props.activeConfig.data.paramsX12.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -308,7 +323,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render837paramsTitle()}
-                          {this.props.activeConfig.params837.map(param => {
+                          {this.props.activeConfig.data.params837.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -338,7 +353,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.renderAttparamsTitle()}
-                          {this.props.activeConfig.paramsatt.map(param => {
+                          {this.props.activeConfig.data.paramsatt.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -368,7 +383,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render999paramsTitle()}
-                          {this.props.activeConfig.params999.map(param => {
+                          {this.props.activeConfig.data.params999.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -398,7 +413,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render277paramsTitle()}
-                          {this.props.activeConfig.params277.map(param => {
+                          {this.props.activeConfig.data.params277.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -428,7 +443,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render835paramsTitle()}
-                          {this.props.activeConfig.params835.map(param => {
+                          {this.props.activeConfig.data.params835.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -458,7 +473,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render275paramsTitle()}
-                          {this.props.activeConfig.params275.map(param => {
+                          {this.props.activeConfig.data.params275.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -488,7 +503,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render997paramsTitle()}
-                          {this.props.activeConfig.params997.map(param => {
+                          {this.props.activeConfig.data.params997.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -518,7 +533,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.render824paramsTitle()}
-                          {this.props.activeConfig.params824.map(param => {
+                          {this.props.activeConfig.data.params824.map(param => {
                             return (
                               <tr
                                 key={param.id}
@@ -548,7 +563,7 @@ class ConfigForm extends Component {
                             );
                           })}
                           {this.renderUndefinedparamsTitle()}
-                          {this.props.activeConfig.paramsUndefined.map(
+                          {this.props.activeConfig.data.paramsUndefined.map(
                             param => {
                               return (
                                 <tr
@@ -650,13 +665,10 @@ class ConfigForm extends Component {
                 value="SAVE"
                 className="btn btn-primary  full-width"
                 onClick={() => {
-                  this.props.saveConfig(
-                    this.props.activeConfig.oid,
-                    this.props.activeConfigReceiverId,
-                    this.props.activeConfigUsage,
-                    this.props.activeConfigPurpose,
-                    this.props.activeConfigFldSep,
-                    this.props.activeConfig.params
+                  this.props.updateConfig(this.props.activeConfig.data, () =>
+                    this.props.fetchConfigs(
+                      this.props.activeConfig.data.receiverCodeNbr
+                    )
                   );
                 }}
               />
@@ -703,7 +715,7 @@ function mapDispatchToProps(dispatch) {
       changeActiveConfigUsage,
       changeActiveConfigPurpose,
       changeActiveConfigFldSep,
-      saveConfig
+      updateConfig
     },
     dispatch
   );
