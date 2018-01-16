@@ -73,6 +73,9 @@ class ConfigList extends Component {
   }
 
   render() {
+    if (this.props.activeConfig.isFetching) {
+      return <div>...loading</div>;
+    }
     return (
       <div className="panel-body">
         <div className="row">
@@ -102,9 +105,9 @@ class ConfigList extends Component {
   }
 }
 
-function mapStateToProps({ configList }) {
+function mapStateToProps({ configList, activeConfig }) {
   // whatever is returned will show up as a props
-  return { configList };
+  return { configList, activeConfig };
 }
 
 function mapDispatchToProps(dispatch) {
