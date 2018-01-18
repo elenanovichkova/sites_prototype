@@ -163,6 +163,7 @@ export function closeAddParamModal() {
 
 export function fetchParams(callback) {
   //action creator, it needs to return an action, an object with a type property
+  callback();
   let url = `${ROOT_URL}/params.json`;
   return function(dispatch) {
     dispatch({ type: types.REQUEST_PARAMS });
@@ -171,7 +172,6 @@ export function fetchParams(callback) {
         type: types.RECEIVE_PARAMS,
         payload: response
       });
-      callback();
     });
   };
 }

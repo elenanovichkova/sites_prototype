@@ -22,9 +22,6 @@ class AddParamModal extends Component {
     super();
   }
   render() {
-    if (this.props.paramList.length == 0) {
-      return <div>Loading...</div>;
-    }
     return (
       <Modal
         isOpen={this.props.addParamModalIsOpen}
@@ -41,6 +38,9 @@ class AddParamModal extends Component {
             <div className="row params-list-container">
               <div className="col-md-12">
                 <div className="">
+                  {this.props.paramList.length == 0
+                    ? <div>Loading...</div>
+                    : ""}
                   {this.props.paramList.map(formgroup => {
                     return (
                       <div key={formgroup.id}>
