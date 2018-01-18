@@ -1,0 +1,408 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "fromgroupX12",
+      "type": "formgroup",
+      "name": "X12",
+      "formcontrols": [
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "1",
+          "selectedParamValue": "Y",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "1",
+              "descr": "1",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "10",
+              "descr": "10",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "2",
+              "descr": "2",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "10",
+              "descr": "10",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "3",
+              "descr": "3",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": false,
+          "selectedOptionValue": "",
+          "selectedParamValue": "",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": false,
+          "selectedOptionValue": "",
+          "selectedParamValue": "",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "N",
+          "selectedParamValue": "N",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "N",
+          "selectedParamValue": "N",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "N",
+          "selectedParamValue": "N",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "Y",
+          "selectedParamValue": "Y",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        },
+        {
+          "id": "px12_docrypt",
+          "name": "px12_docrypt",
+          "type": "formcontrol",
+          "selected": true,
+          "selectedOptionValue": "N",
+          "selectedParamValue": "N",
+          "label": "Do files need to be encrypted",
+          "options": [
+            {
+              "id": "px12_docrypt_option_Y",
+              "type": "formcontroloption",
+              "val": "Y",
+              "descr": "Yes",
+              "param": {
+                "id": "px12_docrypt_1",
+                "tag": "px12_docrypt",
+                "value": "Y",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "Yes",
+                "formcontrolOptionValue": "Y"
+              }
+            },
+            {
+              "id": "px12_docrypt_option_N",
+              "type": "formcontroloption",
+              "val": "N",
+              "descr": "No",
+              "param": {
+                "id": "px12_docrypt_2",
+                "tag": "px12_docrypt",
+                "value": "N",
+                "formgroupName": "X12",
+                "formcontrolName": "px12_docrypt",
+                "formcontrolLabel": "Do files need to be encrypted",
+                "formcontrolOptionDescr": "No",
+                "formcontrolOptionValue": "N"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

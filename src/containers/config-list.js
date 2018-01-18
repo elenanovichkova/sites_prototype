@@ -74,7 +74,11 @@ class ConfigList extends Component {
 
   render() {
     if (this.props.activeConfig.isFetching) {
-      return <div>...loading</div>;
+      return (
+        <div className="text-center">
+          <h3>Loading ...</h3>
+        </div>
+      );
     }
     return (
       <div className="panel-body">

@@ -138,6 +138,17 @@ const activeParamReducer = (state = "", action) => {
 const activeParamDetailReducer = (state = { options: [] }, action) => {
   switch (action.type) {
     case types.OPEN_EDIT_PARAM_MODAL:
+      //fix sorting for numeric options
+      action.payload.data.paramformcontrol.options = _.sortBy(
+        action.payload.data.paramformcontrol.options.map(option => {
+          let value = !isNaN(parseInt(option.val))
+            ? parseInt(option.val)
+            : option.val;
+          option.val = value;
+          return option;
+        }),
+        "value"
+      );
       return action.payload.data.paramformcontrol;
     case types.CLOSE_EDIT_PARAM_MODAL:
       return { options: [] };
@@ -180,6 +191,45 @@ const activeParamSelectedOptionReducer = (state = { param: {} }, action) => {
   }
 };
 
+const addParamModalIsOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case types.OPEN_ADD_PARAM_MODAL:
+      return action.payload;
+    case types.CLOSE_ADD_PARAM_MODAL:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const paramListReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.REQUEST_PARAMS:
+      return [];
+    case types.RECEIVE_PARAMS:
+      //fix sorting for numeric options
+      action.payload.data.data.map(formgroup => {
+        formgroup.formcontrols.map(formcontrol => {
+          formcontrol.options = _.sortBy(
+            formcontrol.options.map(option => {
+              let value = !isNaN(parseInt(option.val))
+                ? parseInt(option.val)
+                : option.val;
+              option.val = value;
+              return option;
+            }),
+            "val"
+          );
+          return formcontrol;
+        });
+        return formgroup;
+      });
+      return action.payload.data.data;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -190,7 +240,9 @@ const rootReducer = combineReducers({
   activeParam: activeParamReducer,
   activeParamDetail: activeParamDetailReducer,
   activeParamSelectedOption: activeParamSelectedOptionReducer,
-  editParamModalIsOpen: editParamModalIsOpenReducer
+  editParamModalIsOpen: editParamModalIsOpenReducer,
+  addParamModalIsOpen: addParamModalIsOpenReducer,
+  paramList: paramListReducer
 });
 
 export default rootReducer;

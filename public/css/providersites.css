@@ -75,3 +75,20 @@ input:checked + .switchslider:before {
 .config-param-title {
   background-color: #fff;
 }
+
+.params-list-container {
+  max-height: 300px;
+  width: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.badge.badge-success {
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.badge.badge-info {
+  color: #fff;
+  background-color: #337ab7;
+}

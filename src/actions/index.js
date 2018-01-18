@@ -145,6 +145,37 @@ export function closeEditParamModal() {
   };
 }
 
+export function openAddParamModal() {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.OPEN_ADD_PARAM_MODAL,
+    payload: true
+  };
+}
+
+export function closeAddParamModal() {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.CLOSE_ADD_PARAM_MODAL,
+    payload: false
+  };
+}
+
+export function fetchParams(callback) {
+  //action creator, it needs to return an action, an object with a type property
+  let url = `${ROOT_URL}/params.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_PARAMS });
+    axios.get(url).then(response => {
+      dispatch({
+        type: types.RECEIVE_PARAMS,
+        payload: response
+      });
+      callback();
+    });
+  };
+}
+
 export function changeActiveParamOption(option) {
   //action creator, it needs to return an action, an object with a type property
   return {

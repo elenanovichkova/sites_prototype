@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import EditParamModal from "./edit-param-modal";
+import AddParamModal from "./add-param-modal";
 import {
   changeConfigsView,
   selectParam,
   getParamDetail,
   openEditParamModal,
+  openAddParamModal,
+  fetchParams,
   changeActiveConfigReceiverId,
   changeActiveConfigUsage,
   changeActiveConfigPurpose,
@@ -604,6 +607,11 @@ class ConfigForm extends Component {
                             type="button"
                             className="btn btn-default full-width"
                             value="ADD..."
+                            onClick={() => {
+                              this.props.fetchParams(() =>
+                                this.props.openAddParamModal()
+                              );
+                            }}
                           />
                         </div>
                       </div>
@@ -676,6 +684,7 @@ class ConfigForm extends Component {
           </div>
         </form>
         <EditParamModal />
+        <AddParamModal />
       </div>
     );
   }
@@ -711,6 +720,8 @@ function mapDispatchToProps(dispatch) {
       selectParam,
       getParamDetail,
       openEditParamModal,
+      openAddParamModal,
+      fetchParams,
       changeActiveConfigReceiverId,
       changeActiveConfigUsage,
       changeActiveConfigPurpose,
