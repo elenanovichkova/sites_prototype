@@ -107,75 +107,95 @@ class AddParamModal extends Component {
             Select parameter to be added to configuration
           </div>
           <div className="panel-body">
-            <div className="row params-list-container">
+            <div className="row">
               <div className="col-md-12">
-                <div className="">
+                <div className="form-horizontal">
+                  <div className="row nav-tabs">
+                    <div className="col-xs-2">
+                      <strong>Category</strong>
+                    </div>
+                    <div className="col-xs-4 text-right">
+                      <strong>Question</strong>
+                    </div>
+                    <div className="col-xs-3">
+                      <strong>Answer</strong>
+                    </div>
+                    <div className="col-xs-3">
+                      <strong>Parameter</strong>
+                    </div>
+                  </div>
                   {this.props.paramList.length == 0
                     ? <div>Loading...</div>
                     : ""}
-                  {this.props.paramList.map(formgroup => {
-                    return (
-                      <div key={formgroup.id}>
-                        {formgroup.formcontrols.map(formcontrol => {
-                          return (
-                            <div key={formcontrol.id}>
-                              <div className="form-group">
-                                <label>
-                                  {formcontrol.label}
-                                </label>
-                                <div className="row">
-                                  <div className="col-xs-12">
-                                    <select
-                                      className="form-control"
-                                      disabled={formcontrol.selected}
-                                      value={
-                                        formcontrol.selected ||
-                                        formcontrol.staged
-                                          ? formcontrol.selectedOptionValue
-                                          : ""
-                                      }
-                                      onChange={event =>
-                                        this.props.updateParamList(
-                                          event,
-                                          formcontrol,
-                                          this.props.paramList
-                                        )}
-                                    >
-                                      <option value="">Select</option>
-                                      {formcontrol.options.map(option => {
-                                        return (
-                                          <option
-                                            key={option.id}
-                                            value={option.val}
-                                          >
-                                            {option.descr}
-                                          </option>
-                                        );
-                                      })}
-                                    </select>
-                                    <small>
-                                      {formgroup.name} parameter,{" "}
-                                      <span
-                                        className={this.getParamClassName(
-                                          formcontrol
-                                        )}
+                  <div className="params-list-container">
+                    {this.props.paramList.map(formgroup => {
+                      return (
+                        <div key={formgroup.id}>
+                          {formgroup.formcontrols.map(formcontrol => {
+                            return (
+                              <div key={formcontrol.id} className="">
+                                <div className="form-group">
+                                  <div className="nav-tabs">
+                                    <div className="col-xs-2">
+                                      {formgroup.name}
+                                    </div>
+                                    <div className="col-xs-4 control-label">
+                                      {formcontrol.label}
+                                    </div>
+                                    <div className="col-xs-3">
+                                      <select
+                                        className="form-control"
+                                        disabled={formcontrol.selected}
+                                        value={
+                                          formcontrol.selected ||
+                                          formcontrol.staged
+                                            ? formcontrol.selectedOptionValue
+                                            : ""
+                                        }
+                                        onChange={event =>
+                                          this.props.updateParamList(
+                                            event,
+                                            formcontrol,
+                                            this.props.paramList
+                                          )}
                                       >
-                                        {formcontrol.options[0].param.tag}
-                                        {formcontrol.selected ||
-                                        formcontrol.staged
-                                          ? `, ${formcontrol.selectedParamValue}`
-                                          : ``}
-                                      </span>
-                                    </small>
+                                        <option value="">Select</option>
+                                        {formcontrol.options.map(option => {
+                                          return (
+                                            <option
+                                              key={option.id}
+                                              value={option.val}
+                                            >
+                                              {option.descr}
+                                            </option>
+                                          );
+                                        })}
+                                      </select>
+                                    </div>
+                                    <div className="col-xs-3">
+                                      <small>
+                                        <span
+                                          className={this.getParamClassName(
+                                            formcontrol
+                                          )}
+                                        >
+                                          {formcontrol.options[0].param.tag}
+                                          {formcontrol.selected ||
+                                          formcontrol.staged
+                                            ? `, ${formcontrol.selectedParamValue}`
+                                            : ``}
+                                        </span>
+                                      </small>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
