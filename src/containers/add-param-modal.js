@@ -219,7 +219,11 @@ class AddParamModal extends Component {
         <div className="form-group">
           <div className="row">
             <div className="col-md-2">
-              <button type="button" className="btn btn-default full-width">
+              <button
+                type="button"
+                className="btn btn-default full-width"
+                onClick={() => this.props.closeAddParamModal()}
+              >
                 Cancel
               </button>
             </div>

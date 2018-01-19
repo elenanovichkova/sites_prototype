@@ -141,9 +141,7 @@ const activeParamDetailReducer = (state = { options: [] }, action) => {
       //fix sorting for numeric options
       action.payload.data.paramformcontrol.options = _.sortBy(
         action.payload.data.paramformcontrol.options.map(option => {
-          let value = !isNaN(parseInt(option.val))
-            ? parseInt(option.val)
-            : option.val;
+          let value = !isNaN(option.val) ? parseInt(option.val) : option.val;
           option.val = value;
           return option;
         }),
@@ -212,7 +210,7 @@ const paramListReducer = (state = [], action) => {
         formgroup.formcontrols.map(formcontrol => {
           formcontrol.options = _.sortBy(
             formcontrol.options.map(option => {
-              let value = !isNaN(parseInt(option.val))
+              let value = !isNaN(option.val)
                 ? parseInt(option.val)
                 : option.val;
               option.val = value;

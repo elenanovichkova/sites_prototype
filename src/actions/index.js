@@ -178,7 +178,7 @@ export function fetchParams(callback) {
 
 export function updateParamList(event, formcontrol, paramList) {
   //action creator, it needs to return an action, an object with a type property
-  let value = !isNaN(parseInt(event.target.value))
+  let value = !isNaN(event.target.value)
     ? parseInt(event.target.value)
     : event.target.value;
 
