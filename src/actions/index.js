@@ -161,7 +161,7 @@ export function closeAddParamModal() {
   };
 }
 
-export function fetchParams(callback) {
+export function fetchParams(config, callback) {
   //action creator, it needs to return an action, an object with a type property
   callback();
   let url = `${ROOT_URL}/params.json`;
@@ -276,5 +276,13 @@ export function updateConfig(config, callback) {
       dispatch({ type: types.CONFIG_LIST_VIEW });
       callback();
     });
+  };
+}
+
+export function selectAddParamFormControl(formcontrol) {
+  //action creator, it needs to return an action, an object with a type property
+  return {
+    type: types.ADDPARAM_FORMCONTROL_SELECTED,
+    payload: formcontrol
   };
 }

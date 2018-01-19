@@ -64,19 +64,25 @@ input:checked + .switchslider:before {
   width: 100%;
 }
 
+.add-params-list-container .row,
 .edicntl-param-table tbody tr {
   cursor: pointer;
 }
 
+.add-params-list-container .row.selected,
 .edicntl-param-table tbody tr.selected {
   background-color: #f5f5f5;
+}
+
+.edicntl-param-table tbody tr.changed {
+  color: #ff6600;
 }
 
 .config-param-title {
   background-color: #fff;
 }
 
-.params-list-container {
+.add-params-list-container {
   max-height: 300px;
   width: auto;
   overflow-y: scroll;

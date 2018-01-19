@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import EditParamModal from "./edit-param-modal";
 import AddParamModal from "./add-param-modal";
+import ParamListItem from "./param-list-item";
 import {
   changeConfigsView,
   selectParam,
@@ -297,304 +298,44 @@ class ConfigForm extends Component {
                         <tbody>
                           {this.renderX12paramsTitle()}
                           {this.props.activeConfig.data.paramsX12.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render837paramsTitle()}
                           {this.props.activeConfig.data.params837.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.renderAttparamsTitle()}
                           {this.props.activeConfig.data.paramsatt.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render999paramsTitle()}
                           {this.props.activeConfig.data.params999.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render277paramsTitle()}
                           {this.props.activeConfig.data.params277.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render835paramsTitle()}
                           {this.props.activeConfig.data.params835.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render275paramsTitle()}
                           {this.props.activeConfig.data.params275.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render997paramsTitle()}
                           {this.props.activeConfig.data.params997.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.render824paramsTitle()}
                           {this.props.activeConfig.data.params824.map(param => {
-                            return (
-                              <tr
-                                key={param.id}
-                                className={
-                                  this.props.activeParam == param
-                                    ? "selected"
-                                    : ""
-                                }
-                                onClick={() => {
-                                  this.selectParam(param);
-                                }}
-                              >
-                                <td> </td>
-                                <td>
-                                  {param.formcontrolLabel}
-                                </td>
-                                <td>
-                                  {param.formcontrolOptionDescr}
-                                </td>
-                                <td>
-                                  {param.tag}
-                                </td>
-                                <td>
-                                  {param.value}
-                                </td>
-                              </tr>
-                            );
+                            return <ParamListItem param={param} />;
                           })}
                           {this.renderUndefinedparamsTitle()}
                           {this.props.activeConfig.data.paramsUndefined.map(
                             param => {
-                              return (
-                                <tr
-                                  key={param.id}
-                                  className={
-                                    this.props.activeParam == param
-                                      ? "selected"
-                                      : ""
-                                  }
-                                  onClick={() => {
-                                    this.selectParam(param);
-                                  }}
-                                >
-                                  <td> </td>
-                                  <td>
-                                    {param.formcontrolLabel}
-                                  </td>
-                                  <td>
-                                    {param.formcontrolOptionDescr}
-                                  </td>
-                                  <td>
-                                    {param.tag}
-                                  </td>
-                                  <td>
-                                    {param.value}
-                                  </td>
-                                </tr>
-                              );
+                              return <ParamListItem param={param} />;
                             }
                           )}
                         </tbody>
@@ -608,8 +349,9 @@ class ConfigForm extends Component {
                             className="btn btn-default full-width"
                             value="ADD..."
                             onClick={() => {
-                              this.props.fetchParams(() =>
-                                this.props.openAddParamModal()
+                              this.props.fetchParams(
+                                this.props.activeConfig,
+                                () => this.props.openAddParamModal()
                               );
                             }}
                           />

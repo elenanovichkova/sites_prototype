@@ -4,7 +4,8 @@ import _ from "lodash";
 import {
   closeAddParamModal,
   updateActiveConfig,
-  updateParamList
+  updateParamList,
+  selectAddParamFormControl
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import Modal from "react-modal";
@@ -99,137 +100,116 @@ class AddParamModal extends Component {
         ariaHideApp={false}
         contentLabel="Add Param Modal"
       >
-        <div className="title page-header text-center">
-          <h3>Add Parameters</h3>
-        </div>
-        <div className="panel panel-default">
-          <div className="panel-heading">Selected parameters</div>
-          <div className="panel-body">
-            {this.renderAddedParams()}
-          </div>
-        </div>
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            Select parameter to be added to configuration
-          </div>
-          <div className="panel-body">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="form-horizontal">
-                  <div className="row nav-tabs">
-                    <div className="col-xs-2">
-                      <strong>Category</strong>
-                    </div>
-                    <div className="col-xs-4 text-right">
-                      <strong>Question</strong>
-                    </div>
-                    <div className="col-xs-3">
-                      <strong>Answer</strong>
-                    </div>
-                    <div className="col-xs-3">
-                      <strong>Parameter</strong>
-                    </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="title page-header text-center">
+              <h3>Add Parameter</h3>
+            </div>
+            <div>
+              <p>Search parameter</p>
+            </div>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <form
+                  id="search-param-to-add-form"
+                  className="form form-inline"
+                >
+                  <div className="form-group">
+                    <label>Group Name</label>{" "}
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="add-param-group-name"
+                    />{" "}
                   </div>
-                  {this.props.paramList.length == 0
-                    ? <div>Loading...</div>
-                    : ""}
-                  <div className="params-list-container">
-                    {this.props.paramList.map(formgroup => {
-                      return (
-                        <div key={formgroup.id}>
-                          {formgroup.formcontrols.map(formcontrol => {
-                            return (
-                              <div key={formcontrol.id} className="">
-                                <div className="form-group">
-                                  <div className="nav-tabs">
-                                    <div className="col-xs-2">
-                                      {formgroup.name}
-                                    </div>
-                                    <div className="col-xs-4 control-label">
-                                      {formcontrol.label}
-                                    </div>
-                                    <div className="col-xs-3">
-                                      <select
-                                        className="form-control"
-                                        disabled={formcontrol.selected}
-                                        value={
-                                          formcontrol.selected ||
-                                          formcontrol.staged
-                                            ? formcontrol.selectedOptionValue
-                                            : ""
-                                        }
-                                        onChange={event =>
-                                          this.props.updateParamList(
-                                            event,
-                                            formcontrol,
-                                            this.props.paramList
-                                          )}
-                                      >
-                                        <option value="">Select</option>
-                                        {formcontrol.options.map(option => {
-                                          return (
-                                            <option
-                                              key={option.id}
-                                              value={option.val}
-                                            >
-                                              {option.descr}
-                                            </option>
-                                          );
-                                        })}
-                                      </select>
-                                    </div>
-                                    <div className="col-xs-3">
-                                      <small>
-                                        <span
-                                          className={this.getParamClassName(
-                                            formcontrol
-                                          )}
-                                        >
+                  <div className="form-group">
+                    <label>&nbsp;Question</label>{" "}
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="add-param-question"
+                    />{" "}
+                  </div>
+                  <div className="form-group">
+                    <label>&nbsp;Parameter</label>{" "}
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="add-param-tag"
+                    />{" "}
+                  </div>{" "}
+                  <button type="button" className="btn btn-primary">
+                    Search
+                  </button>
+                </form>
+              </div>
+              <div className="panel-body">
+                <div className="row">
+                  <div className="col-xs-8">
+                    <div className="nav-tabs">
+                      <div className="row">
+                        <div className="col-xs-3">
+                          <strong>Group name</strong>
+                        </div>
+                        <div className="col-xs-4">
+                          <strong>Question</strong>
+                        </div>
+                        <div className="col-xs-5">
+                          <strong>Parameter</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="add-param-table-body">
+                      {this.props.paramList.length == 0
+                        ? <div>Loading...</div>
+                        : ""}
+                      <div className="add-params-list-container">
+                        {this.props.paramList.map(formgroup => {
+                          return (
+                            <div key={formgroup.id}>
+                              {formgroup.formcontrols.map(formcontrol => {
+                                return (
+                                  <div
+                                    key={formcontrol.id}
+                                    className={`row ${this.props
+                                      .addParamFormControl.name ==
+                                    formcontrol.name
+                                      ? "selected"
+                                      : ""}`}
+                                    onClick={() =>
+                                      this.props.selectAddParamFormControl(
+                                        formcontrol
+                                      )}
+                                  >
+                                    <div className="">
+                                      <div className="nav-tabs">
+                                        <div className="col-xs-3">
+                                          {formgroup.name}
+                                        </div>
+                                        <div className="col-xs-4">
+                                          {formcontrol.label}
+                                        </div>
+                                        <div className="col-xs-5">
                                           {formcontrol.options[0].param.tag}
-                                          {formcontrol.selected ||
-                                          formcontrol.staged
-                                            ? `, ${formcontrol.selectedParamValue}`
-                                            : ``}
-                                        </span>
-                                      </small>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      );
-                    })}
+                                );
+                              })}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
+                  {this.props.addParamFormControl.options
+                    ? <div>
+                        {this.props.addParamFormControl.label}
+                      </div>
+                    : <div className="col-xs-4">Select Param</div>}
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="panel-footer">
-            <div>
-              Green badge - parameter is in configuration(to change value close
-              this modal and click edit)
-            </div>
-            <div>Blue badge - selected parameter</div>
-            <div>Gray badge - available parameter to be selected</div>
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="row">
-            <div className="col-md-2">
-              <button
-                type="button"
-                className="btn btn-default full-width"
-                onClick={() => this.props.closeAddParamModal()}
-              >
-                Cancel
-              </button>
-            </div>
-            <div className="col-md-2">
-              <button type="button" className="btn btn-primary full-width">
-                OK
-              </button>
             </div>
           </div>
         </div>
@@ -238,12 +218,18 @@ class AddParamModal extends Component {
   }
 }
 
-function mapStateToProps({ addParamModalIsOpen, activeConfig, paramList }) {
+function mapStateToProps({
+  addParamModalIsOpen,
+  activeConfig,
+  paramList,
+  addParamFormControl
+}) {
   // whatever is returned will show up as a props
   return {
     addParamModalIsOpen,
     activeConfig,
-    paramList
+    paramList,
+    addParamFormControl
   };
 }
 
@@ -254,7 +240,8 @@ function mapDispatchToProps(dispatch) {
     {
       closeAddParamModal,
       updateActiveConfig,
-      updateParamList
+      updateParamList,
+      selectAddParamFormControl
     },
     dispatch
   );

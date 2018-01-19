@@ -231,6 +231,15 @@ const paramListReducer = (state = [], action) => {
   }
 };
 
+const addParamFormControlReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.ADDPARAM_FORMCONTROL_SELECTED:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -243,7 +252,8 @@ const rootReducer = combineReducers({
   activeParamSelectedOption: activeParamSelectedOptionReducer,
   editParamModalIsOpen: editParamModalIsOpenReducer,
   addParamModalIsOpen: addParamModalIsOpenReducer,
-  paramList: paramListReducer
+  paramList: paramListReducer,
+  addParamFormControl: addParamFormControlReducer
 });
 
 export default rootReducer;
