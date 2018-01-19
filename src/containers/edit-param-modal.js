@@ -31,7 +31,7 @@ class EditParamModal extends Component {
       <Modal
         isOpen={this.props.editParamModalIsOpen}
         style={customStyles}
-        shouldCloseOnOverlayClick={false}
+        shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
         contentLabel="Edit Param Modal"
       >

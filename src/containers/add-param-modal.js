@@ -103,6 +103,12 @@ class AddParamModal extends Component {
           <h3>Add Parameters</h3>
         </div>
         <div className="panel panel-default">
+          <div className="panel-heading">Selected parameters</div>
+          <div className="panel-body">
+            {this.renderAddedParams()}
+          </div>
+        </div>
+        <div className="panel panel-default">
           <div className="panel-heading">
             Select parameter to be added to configuration
           </div>
@@ -207,13 +213,6 @@ class AddParamModal extends Component {
             </div>
             <div>Blue badge - selected parameter</div>
             <div>Gray badge - available parameter to be selected</div>
-          </div>
-        </div>
-
-        <div className="panel panel-default">
-          <div className="panel-heading">Selected parameters</div>
-          <div className="panel-body">
-            {this.renderAddedParams()}
           </div>
         </div>
         <div className="form-group">
