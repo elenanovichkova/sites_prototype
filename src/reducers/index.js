@@ -225,6 +225,9 @@ const paramListReducer = (state = [], action) => {
         return formgroup;
       });
       return action.payload.data.data;
+    case types.UPDATE_PARAMS:
+      console.log("************ update params *************");
+      return action.payload;
     default:
       return state;
   }

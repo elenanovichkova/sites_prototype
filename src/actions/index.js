@@ -176,6 +176,41 @@ export function fetchParams(callback) {
   };
 }
 
+export function updateParamList(event, formcontrol, paramList) {
+  //action creator, it needs to return an action, an object with a type property
+  let value = !isNaN(parseInt(event.target.value))
+    ? parseInt(event.target.value)
+    : event.target.value;
+
+  paramList.map(formgroup => {
+    let stagedFormControl = _.find(formgroup.formcontrols, {
+      id: formcontrol.id
+    });
+    if (stagedFormControl) {
+      let stagedFormControlOption = _.find(stagedFormControl.options, {
+        val: value
+      });
+      if (stagedFormControlOption) {
+        stagedFormControl.selectedOptionValue = value;
+        stagedFormControl.selectedParamValue =
+          stagedFormControlOption.param.value;
+        stagedFormControl.staged = value ? true : false;
+      } else {
+        stagedFormControl.selectedOptionValue = "";
+        stagedFormControl.selectedParamValue = "";
+        stagedFormControl.staged = false;
+      }
+    }
+    return formgroup;
+  });
+  //need to clone to forse rerender on react component
+  var cloneParamList = _.cloneDeep(paramList);
+  return {
+    type: types.UPDATE_PARAMS,
+    payload: cloneParamList
+  };
+}
+
 export function changeActiveParamOption(option) {
   //action creator, it needs to return an action, an object with a type property
   return {

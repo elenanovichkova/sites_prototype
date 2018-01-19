@@ -78,7 +78,7 @@ input:checked + .switchslider:before {
 
 .params-list-container {
   max-height: 300px;
-  width: 600px;
+  width: auto;
   overflow-y: scroll;
   overflow-x: hidden;
 }
