@@ -235,6 +235,10 @@ const addParamFormControlReducer = (state = {}, action) => {
   switch (action.type) {
     case types.ADDPARAM_FORMCONTROL_SELECTED:
       return action.payload;
+    case types.ADDPARAM_SET_VALUE:
+      return action.payload;
+    case types.CLOSE_ADD_PARAM_MODAL:
+      return {};
     default:
       return state;
   }

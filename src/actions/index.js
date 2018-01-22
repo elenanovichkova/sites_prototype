@@ -281,8 +281,29 @@ export function updateConfig(config, callback) {
 
 export function selectAddParamFormControl(formcontrol) {
   //action creator, it needs to return an action, an object with a type property
+  let formControlClone = _.cloneDeep(formcontrol);
   return {
     type: types.ADDPARAM_FORMCONTROL_SELECTED,
-    payload: formcontrol
+    payload: formControlClone
+  };
+}
+
+export function addParamFormControlSetValue(value, formcontrol) {
+  //action creator, it needs to return an action, an object with a type property
+  value = !isNaN(value) ? parseInt(value) : value;
+  let selectedFormControlOption = _.find(formcontrol.options, {
+    val: value
+  });
+  if (selectedFormControlOption) {
+    formcontrol.selectedOptionValue = selectedFormControlOption.val;
+    formcontrol.selectedParamValue = selectedFormControlOption.param.value;
+  } else {
+    formcontrol.selectedOptionValue = "";
+    formcontrol.selectedParamValue = "";
+  }
+  let formControlClone = _.cloneDeep(formcontrol);
+  return {
+    type: types.ADDPARAM_SET_VALUE,
+    payload: formControlClone
   };
 }

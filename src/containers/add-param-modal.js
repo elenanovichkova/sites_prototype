@@ -5,7 +5,8 @@ import {
   closeAddParamModal,
   updateActiveConfig,
   updateParamList,
-  selectAddParamFormControl
+  selectAddParamFormControl,
+  addParamFormControlSetValue
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import Modal from "react-modal";
@@ -19,76 +20,76 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     maxHeight: "700px",
-    overflowY: "scroll",
     width: "1000px"
   }
 };
 
 class AddParamModal extends Component {
-  constructor() {
-    super();
+  addParamValueChanged(event) {
+    let value = event.target.value;
+    this.props.addParamFormControlSetValue(
+      value,
+      this.props.addParamFormControl
+    );
   }
 
-  renderAddedParams() {
-    var paramListClone = _.cloneDeep(this.props.paramList);
-    return _.filter(paramListClone, formgroup => {
-      let stagedFormControls = _.filter(
-        formgroup.formcontrols,
-        formcontrol => formcontrol.staged
-      );
-      formgroup.formcontrols = stagedFormControls;
-      return stagedFormControls.length > 0;
-    }).map(formgroup => {
-      return (
-        <div key={formgroup.id} className="row">
-          <div className="col-md-12">
-            <div className="title">
-              <h3>
-                {formgroup.name}
-              </h3>
+  renderSelectedFormControl() {
+    return (
+      <div className="col-xs-4">
+        <div className="panel-body">
+          <div className="form">
+            <div className="form-group">
+              <label>
+                {this.props.addParamFormControl.label}
+              </label>
+              <select
+                className="form-control"
+                value={this.props.addParamFormControl.selectedOptionValue}
+                onChange={event => this.addParamValueChanged(event)}
+              >
+                <option value="">SELECT</option>
+                {this.props.addParamFormControl.options.map(option => {
+                  return (
+                    <option value={option.val}>
+                      {option.descr}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
-          </div>
-          <div className="col-md-12">
-            {formgroup.formcontrols.map(formcontrol => {
-              let stagedOption = _.find(
-                formcontrol.options,
-                option => option.val == formcontrol.selectedOptionValue
-              );
-              return (
-                <div key={formcontrol.id} className="panel-body  nav-tabs">
-                  <div className="row">
-                    <div className="col-xs-3">
-                      {stagedOption.param.formcontrolLabel}
-                    </div>
-                    <div className="col-xs-4">
-                      {stagedOption.param.formcontrolOptionDescr}
-                    </div>
-                    <div className="col-xs-3">
-                      {stagedOption.param.tag}
-                    </div>
-                    <div className="col-xs-2">
-                      {stagedOption.param.value}
-                    </div>
-                  </div>
+            <div className="form-horizontal">
+              <div className="form-group">
+                <label className="col-xs-2 control-label">Tag</label>
+                <div className="col-xs-10">
+                  <p className="form-control-static">
+                    {this.props.addParamFormControl.options[0].param.tag}
+                  </p>
                 </div>
-              );
-            })}{" "}
+              </div>
+              <div className="form-group">
+                <label className="col-xs-2 control-label">Value</label>
+                <div className="col-xs-10">
+                  <p className="form-control-static">
+                    {this.props.addParamFormControl.selectedParamValue}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {this.props.addParamFormControl.selectedParamValue != ""
+              ? <div className="form-group">
+                  <button
+                    className="btn btn-primary"
+                    onClick={this.props.addNewParam}
+                  >
+                    ADD
+                  </button>
+                </div>
+              : ""}
+            <div />
           </div>
         </div>
-      );
-    });
-  }
-
-  getParamClassName(formcontrol) {
-    let className = "";
-    if (formcontrol.selected) {
-      className = "badge badge-success";
-    } else if (formcontrol.staged) {
-      className = "badge badge-info";
-    } else {
-      className = "badge";
-    }
-    return className;
+      </div>
+    );
   }
 
   render() {
@@ -100,6 +101,13 @@ class AddParamModal extends Component {
         ariaHideApp={false}
         contentLabel="Add Param Modal"
       >
+        <div className="row">
+          <div className="col-xs-offset-11 col-xs-1 text-right">
+            <a href="#" onClick={() => this.props.closeAddParamModal()}>
+              <span className="fa fa-times" />
+            </a>
+          </div>
+        </div>
         <div className="row">
           <div className="col-xs-12">
             <div className="title page-header text-center">
@@ -136,7 +144,7 @@ class AddParamModal extends Component {
                       type="text"
                       className="form-control"
                       id="add-param-tag"
-                    />{" "}
+                    />
                   </div>{" "}
                   <button type="button" className="btn btn-primary">
                     Search
@@ -204,10 +212,16 @@ class AddParamModal extends Component {
                     </div>
                   </div>
                   {this.props.addParamFormControl.options
-                    ? <div>
-                        {this.props.addParamFormControl.label}
-                      </div>
-                    : <div className="col-xs-4">Select Param</div>}
+                    ? this.renderSelectedFormControl()
+                    : <div className="col-xs-4">
+                        <div className="panel-body">
+                          <div className="form">
+                            <div className="form-group">
+                              <label>Select Parameter</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>}
                 </div>
               </div>
             </div>
@@ -241,7 +255,8 @@ function mapDispatchToProps(dispatch) {
       closeAddParamModal,
       updateActiveConfig,
       updateParamList,
-      selectAddParamFormControl
+      selectAddParamFormControl,
+      addParamFormControlSetValue
     },
     dispatch
   );
