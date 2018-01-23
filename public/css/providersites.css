@@ -82,6 +82,10 @@ input:checked + .switchslider:before {
   color: #5cb85c;
 }
 
+.edicntl-param-table tbody tr.deleted {
+  color: #cccccc;
+}
+
 .config-param-title {
   background-color: #fff;
 }

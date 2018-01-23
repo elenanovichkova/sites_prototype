@@ -271,6 +271,17 @@ const addParamFormControlReducer = (state = {}, action) => {
   }
 };
 
+const confirmationModalDataReducer = (state = { isOpen: false }, action) => {
+  switch (action.type) {
+    case types.OPEN_CONFIRMATION_MODAL:
+      return action.payload;
+    case types.CLOSE_CONFIRMATION_MODAL:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -285,7 +296,8 @@ const rootReducer = combineReducers({
   editParamModalIsOpen: editParamModalIsOpenReducer,
   addParamModalIsOpen: addParamModalIsOpenReducer,
   paramList: paramListReducer,
-  addParamFormControl: addParamFormControlReducer
+  addParamFormControl: addParamFormControlReducer,
+  confirmationModalData: confirmationModalDataReducer
 });
 
 export default rootReducer;

@@ -30,7 +30,7 @@ class ParamListItem extends Component {
           : ""} ${this.props.param.isChanged ? "changed" : ""} ${this.props
           .param.isNew
           ? "new"
-          : ""}`}
+          : ""} ${this.props.param.isDeleted ? "deleted" : ""}`}
         onClick={() => {
           this.selectParam(this.props.param);
         }}

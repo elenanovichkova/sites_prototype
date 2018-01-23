@@ -239,12 +239,12 @@ export function updateActiveConfig(
   var initialIndex = initialActiveConfig.data[paramsGroupName].findIndex(
     param => param.tag == paramToAdd.tag
   );
-
+  /*
   console.log("************** index in current configuration", index);
   console.log("************** param to add value", paramToAdd.value);
   console.log("************** index in initial configuration", initialIndex);
   console.log("************** param to update value", paramToUpdate.value);
-
+  */
   //if initial index equals -1 it means the param does not exist in initial configuration
   if (initialIndex === -1 && index === -1) {
     //param was not found either in initial and in active config, then push in active config and set status as new
@@ -366,5 +366,66 @@ export function addParamFormControlSetValue(value, formcontrol) {
   return {
     type: types.ADDPARAM_SET_VALUE,
     payload: formControlClone
+  };
+}
+
+export function deleteParam(initialActiveConfig, activeConfig, paramToRemove) {
+  //action creator, it needs to return an action, an object with a type property
+  let activeConfigClone = _.cloneDeep(activeConfig);
+
+  //get group name param belongs to
+  let paramsGroupName = `params${paramToRemove.formgroupName}`;
+  //try to find position of param in current configuration
+  var index = activeConfigClone.data[paramsGroupName].findIndex(
+    param => param.tag == paramToRemove.tag
+  );
+
+  //try to find posision of param in initial configuration
+  var initialIndex = initialActiveConfig.data[paramsGroupName].findIndex(
+    param => param.tag == paramToRemove.tag
+  );
+
+  //if initial index equals -1 it means the param does not exist in initial configuration
+  if (initialIndex === -1 && index === -1) {
+    //param was not found either in initial and in active config, then do nothing
+  } else if (initialIndex === -1 && index !== -1) {
+    //param was not found in initial, but exists in active config, then just delete from active config
+    activeConfigClone.data[paramsGroupName].splice(index, 1);
+  } else if (initialIndex !== -1 && index === -1) {
+    //param exists in initial config, but not found in active config, then push param in active config
+  } else if (initialIndex !== -1 && index !== -1) {
+    //param exists in initial config and exist in active config
+    activeConfigClone.data[paramsGroupName][index].isDeleted = true;
+  }
+
+  return {
+    type: types.UPDATE_ACTIVE_CONFIG,
+    payload: activeConfigClone
+  };
+}
+
+export function openConfirmationModal(text, callback) {
+  //action creator, it needs to return an action, an object with a type property
+  let confirmationModalData = {
+    isOpen: true,
+    text: text,
+    callback: callback
+  };
+  return {
+    type: types.OPEN_CONFIRMATION_MODAL,
+    payload: confirmationModalData
+  };
+}
+
+export function closeConfirmationModal() {
+  //action creator, it needs to return an action, an object with a type property
+  let confirmationModalData = {
+    isOpen: false,
+    text: "",
+    callback: null
+  };
+  return {
+    type: types.CLOSE_CONFIRMATION_MODAL,
+    payload: confirmationModalData
   };
 }

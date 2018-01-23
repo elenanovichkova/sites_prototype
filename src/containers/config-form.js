@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import EditParamModal from "./edit-param-modal";
 import AddParamModal from "./add-param-modal";
+import ConfirmationModal from "./confirmation-modal";
 import ParamListItem from "./param-list-item";
 import {
   changeConfigsView,
@@ -15,7 +16,9 @@ import {
   changeActiveConfigUsage,
   changeActiveConfigPurpose,
   changeActiveConfigFldSep,
-  updateConfig
+  updateConfig,
+  openConfirmationModal,
+  deleteParam
 } from "../actions/index";
 
 class ConfigForm extends Component {
@@ -398,6 +401,18 @@ class ConfigForm extends Component {
                             type="button"
                             className="btn btn-default full-width"
                             disabled={this.props.activeParam === ""}
+                            onClick={() => {
+                              this.props.openConfirmationModal(
+                                `Are you sure you want to delete parameter ${this
+                                  .props.activeParam.tag}`,
+                                () =>
+                                  this.props.deleteParam(
+                                    this.props.initialActiveConfig,
+                                    this.props.activeConfig,
+                                    this.props.activeParam
+                                  )
+                              );
+                            }}
                             value="REMOVE"
                           />
                         </div>
@@ -447,6 +462,7 @@ class ConfigForm extends Component {
         </form>
         <EditParamModal />
         <AddParamModal />
+        <ConfirmationModal />
       </div>
     );
   }
@@ -490,7 +506,9 @@ function mapDispatchToProps(dispatch) {
       changeActiveConfigUsage,
       changeActiveConfigPurpose,
       changeActiveConfigFldSep,
-      updateConfig
+      updateConfig,
+      openConfirmationModal,
+      deleteParam
     },
     dispatch
   );
