@@ -298,44 +298,64 @@ class ConfigForm extends Component {
                         <tbody>
                           {this.renderX12paramsTitle()}
                           {this.props.activeConfig.data.paramsX12.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render837paramsTitle()}
                           {this.props.activeConfig.data.params837.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.renderAttparamsTitle()}
                           {this.props.activeConfig.data.paramsatt.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render999paramsTitle()}
                           {this.props.activeConfig.data.params999.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render277paramsTitle()}
                           {this.props.activeConfig.data.params277.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render835paramsTitle()}
                           {this.props.activeConfig.data.params835.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render275paramsTitle()}
                           {this.props.activeConfig.data.params275.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render997paramsTitle()}
                           {this.props.activeConfig.data.params997.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.render824paramsTitle()}
                           {this.props.activeConfig.data.params824.map(param => {
-                            return <ParamListItem param={param} />;
+                            return (
+                              <ParamListItem param={param} key={param.id} />
+                            );
                           })}
                           {this.renderUndefinedparamsTitle()}
                           {this.props.activeConfig.data.paramsUndefined.map(
                             param => {
-                              return <ParamListItem param={param} />;
+                              return (
+                                <ParamListItem param={param} key={param.id} />
+                              );
                             }
                           )}
                         </tbody>
@@ -433,6 +453,7 @@ class ConfigForm extends Component {
 }
 
 function mapStateToProps({
+  initialActiveConfig,
   activeConfig,
   activeParam,
   activeParamView,
@@ -444,6 +465,7 @@ function mapStateToProps({
 }) {
   // whatever is returned will show up as a props
   return {
+    initialActiveConfig,
     activeConfig,
     activeParam,
     activeParamView,

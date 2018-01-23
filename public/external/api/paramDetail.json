@@ -5,41 +5,53 @@
     "reason": "OK"
   },
   "paramformcontrol": {
-    "id": "px12_do997",
-    "formgroupName": "X12",
-    "formcontrolName": "support997version",
-    "formcontrolLabel": "Support 997 X12 format",
+    "id": "10:2jhog-15sp$FormControl",
+    "name": "px12_do277ca",
+    "type": "formcontrol",
+    "label": "Support 277 ca",
+    "selected": false,
+    "selectedOptionValue": "N",
+    "selectedParamValue": "N",
     "options": [
       {
-        "id": "option_px12_do997_N",
+        "id": "10:2jhog-172y$FormControlOption",
+        "type": "formcontroloption",
+        "val": "N",
         "selected": true,
-        "value": "N",
-        "answer": "No",
+        "descr": "No",
         "param": {
-          "id": "px12_docrypt_1",
-          "tag": "px12_do997",
+          "id": "px12_do277ca_1",
+          "tag": "px12_do277ca",
           "value": "N",
-          "formgroupName": "X12",
-          "formcontrolName": "support997version",
-          "formcontrolLabel": "Support 997 X12 format",
+          "formgroupName": "277",
+          "formcontrolName": "px12_do277ca",
+          "formcontrolLabel": "Support 277 ca",
           "formcontrolOptionDescr": "No",
-          "formcontrolOptionValue": "N"
+          "formcontrolOptionValue": "N",
+          "siteCodeNbr": "",
+          "isNew": false,
+          "isChanged": false,
+          "isCurrent": false
         }
       },
       {
-        "id": "option_px12_do997_Y",
-        "selected": false,
-        "value": "Y",
-        "answer": "Yes",
+        "id": "10:2jhog-1731$FormControlOption",
+        "type": "formcontroloption",
+        "val": "Y",
+        "descr": "Yes",
         "param": {
-          "id": "px12_docrypt_2",
-          "tag": "px12_do997",
+          "id": "px12_do277ca_2",
+          "tag": "px12_do277ca",
           "value": "Y",
-          "formgroupName": "X12",
-          "formcontrolName": "support997version",
-          "formcontrolLabel": "Support 997 X12 format",
+          "formgroupName": "277",
+          "formcontrolName": "px12_do277ca",
+          "formcontrolLabel": "Support 277 ca",
           "formcontrolOptionDescr": "Yes",
-          "formcontrolOptionValue": "Y"
+          "formcontrolOptionValue": "Y",
+          "siteCodeNbr": "",
+          "isNew": false,
+          "isChanged": false,
+          "isCurrent": false
         }
       }
     ]

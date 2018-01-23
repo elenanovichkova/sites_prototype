@@ -24,6 +24,13 @@ const customStyles = {
   }
 };
 
+const paramListStyle = {
+  maxHeight: "300px",
+  width: "auto",
+  overflowY: "scroll",
+  overflowX: "hidden"
+};
+
 class AddParamModal extends Component {
   addParamValueChanged(event) {
     let value = event.target.value;
@@ -33,59 +40,78 @@ class AddParamModal extends Component {
     );
   }
 
+  handleAddNewParam() {
+    console.log(this.props.addParamFormControl.options);
+    let newParam = _.find(this.props.addParamFormControl.options, {
+      val: this.props.addParamFormControl.selectedOptionValue
+    }).param;
+    this.props.updateActiveConfig(
+      this.props.initialActiveConfig,
+      this.props.activeConfig,
+      {},
+      newParam
+    );
+    this.props.closeAddParamModal();
+  }
+
   renderSelectedFormControl() {
     return (
       <div className="col-xs-4">
-        <div className="panel-body">
-          <div className="form">
-            <div className="form-group">
-              <label>
-                {this.props.addParamFormControl.label}
-              </label>
-              <select
-                className="form-control"
-                value={this.props.addParamFormControl.selectedOptionValue}
-                onChange={event => this.addParamValueChanged(event)}
-              >
-                <option value="">SELECT</option>
-                {this.props.addParamFormControl.options.map(option => {
-                  return (
-                    <option value={option.val}>
-                      {option.descr}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <div className="form-horizontal">
+        <div className="panel panel-success">
+          <div className="panel-heading">
+            Select parameter desired value and click "ADD"
+          </div>
+          <div className="panel-body">
+            <div className="form">
               <div className="form-group">
-                <label className="col-xs-2 control-label">Tag</label>
-                <div className="col-xs-10">
-                  <p className="form-control-static">
-                    {this.props.addParamFormControl.options[0].param.tag}
-                  </p>
+                <label>
+                  {this.props.addParamFormControl.label}
+                </label>
+                <select
+                  className="form-control"
+                  value={this.props.addParamFormControl.selectedOptionValue}
+                  onChange={event => this.addParamValueChanged(event)}
+                >
+                  <option value="">SELECT</option>
+                  {this.props.addParamFormControl.options.map(option => {
+                    return (
+                      <option key={option.id} value={option.val}>
+                        {option.descr}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="form-horizontal">
+                <div className="form-group">
+                  <label className="col-xs-2 control-label">Tag</label>
+                  <div className="col-xs-10">
+                    <p className="form-control-static">
+                      {this.props.addParamFormControl.options[0].param.tag}
+                    </p>
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="col-xs-2 control-label">Value</label>
+                  <div className="col-xs-10">
+                    <p className="form-control-static">
+                      {this.props.addParamFormControl.selectedParamValue}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="form-group">
-                <label className="col-xs-2 control-label">Value</label>
-                <div className="col-xs-10">
-                  <p className="form-control-static">
-                    {this.props.addParamFormControl.selectedParamValue}
-                  </p>
-                </div>
-              </div>
+              {this.props.addParamFormControl.selectedParamValue != ""
+                ? <div className="form-group">
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => this.handleAddNewParam()}
+                    >
+                      ADD
+                    </button>
+                  </div>
+                : ""}
+              <div />
             </div>
-            {this.props.addParamFormControl.selectedParamValue != ""
-              ? <div className="form-group">
-                  <button
-                    className="btn btn-primary"
-                    onClick={this.props.addNewParam}
-                  >
-                    ADD
-                  </button>
-                </div>
-              : ""}
-            <div />
           </div>
         </div>
       </div>
@@ -123,12 +149,18 @@ class AddParamModal extends Component {
                   className="form form-inline"
                 >
                   <div className="form-group">
-                    <label>Group Name</label>{" "}
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="add-param-group-name"
-                    />{" "}
+                    <label>Group</label>{" "}
+                    <select className="form-control" id="add-param-group-name">
+                      <option value="">SELECT</option>
+                      <option value="X12">X12</option>
+                      <option value="837">837</option>
+                      <option value="att">Att</option>
+                      <option value="277">277</option>
+                      <option value="999">999</option>
+                      <option value="835">835</option>
+                      <option value="997">997</option>
+                      <option value="275">275</option>
+                    </select>{" "}
                   </div>
                   <div className="form-group">
                     <label>&nbsp;Question</label>{" "}
@@ -157,7 +189,7 @@ class AddParamModal extends Component {
                     <div className="nav-tabs">
                       <div className="row">
                         <div className="col-xs-3">
-                          <strong>Group name</strong>
+                          <strong>Group</strong>
                         </div>
                         <div className="col-xs-4">
                           <strong>Question</strong>
@@ -171,7 +203,10 @@ class AddParamModal extends Component {
                       {this.props.paramList.length == 0
                         ? <div>Loading...</div>
                         : ""}
-                      <div className="add-params-list-container">
+                      <div
+                        className="add-params-list-container"
+                        style={paramListStyle}
+                      >
                         {this.props.paramList.map(formgroup => {
                           return (
                             <div key={formgroup.id}>
@@ -233,6 +268,7 @@ class AddParamModal extends Component {
 }
 
 function mapStateToProps({
+  initialActiveConfig,
   addParamModalIsOpen,
   activeConfig,
   paramList,
@@ -240,6 +276,7 @@ function mapStateToProps({
 }) {
   // whatever is returned will show up as a props
   return {
+    initialActiveConfig,
     addParamModalIsOpen,
     activeConfig,
     paramList,

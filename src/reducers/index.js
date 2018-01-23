@@ -89,6 +89,34 @@ const activeConfigReducer = (
         isFetching: false,
         data: action.payload.data.config
       };
+    case types.UPDATE_ACTIVE_CONFIG:
+      return {
+        isFetching: false,
+        data: action.payload.data
+      };
+    default:
+      return state;
+  }
+};
+
+const initialActiveConfigReducer = (
+  state = {
+    isFetching: false,
+    data: initialActiveConfig
+  },
+  action
+) => {
+  switch (action.type) {
+    case types.REQUEST_CONFIG_DETAIL:
+      return {
+        isFetching: true,
+        data: initialActiveConfig
+      };
+    case types.RECEIVED_CONFIG_DETAIL:
+      return {
+        isFetching: false,
+        data: action.payload.data.config
+      };
     default:
       return state;
   }
@@ -145,7 +173,7 @@ const activeParamDetailReducer = (state = { options: [] }, action) => {
           option.val = value;
           return option;
         }),
-        "value"
+        "val"
       );
       return action.payload.data.paramformcontrol;
     case types.CLOSE_EDIT_PARAM_MODAL:
@@ -224,7 +252,6 @@ const paramListReducer = (state = [], action) => {
       });
       return action.payload.data.data;
     case types.UPDATE_PARAMS:
-      console.log("************ update params *************");
       return action.payload;
     default:
       return state;
@@ -250,6 +277,7 @@ const rootReducer = combineReducers({
   siteList: siteListReducer,
   activeSite: activeSiteReducer,
   configList: configListReducer,
+  initialActiveConfig: initialActiveConfigReducer,
   activeConfig: activeConfigReducer,
   activeParam: activeParamReducer,
   activeParamDetail: activeParamDetailReducer,

@@ -78,6 +78,10 @@ input:checked + .switchslider:before {
   color: #ff6600;
 }
 
+.edicntl-param-table tbody tr.new {
+  color: #5cb85c;
+}
+
 .config-param-title {
   background-color: #fff;
 }

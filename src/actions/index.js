@@ -219,16 +219,77 @@ export function changeActiveParamOption(option) {
   };
 }
 
-export function updateActiveConfig(activeConfig, paramToRemove, paramToAdd) {
+export function updateActiveConfig(
+  initialActiveConfig,
+  activeConfig,
+  paramToUpdate,
+  paramToAdd
+) {
   //action creator, it needs to return an action, an object with a type property
-  let paramsGroupName = `params${paramToRemove.formgroupName}`;
-  var index = activeConfig.data[paramsGroupName].findIndex(
-    param => param.id == paramToRemove.id
+  let activeConfigClone = _.cloneDeep(activeConfig);
+
+  //get group name param belongs to
+  let paramsGroupName = `params${paramToAdd.formgroupName}`;
+  //try to find position of param in current configuration
+  var index = activeConfigClone.data[paramsGroupName].findIndex(
+    param => param.tag == paramToAdd.tag
   );
-  activeConfig.data[paramsGroupName].splice(index, 1, paramToAdd);
+
+  //try to find posision of param in initial configuration
+  var initialIndex = initialActiveConfig.data[paramsGroupName].findIndex(
+    param => param.tag == paramToAdd.tag
+  );
+
+  console.log("************** index in current configuration", index);
+  console.log("************** param to add value", paramToAdd.value);
+  console.log("************** index in initial configuration", initialIndex);
+  console.log("************** param to update value", paramToUpdate.value);
+
+  //if initial index equals -1 it means the param does not exist in initial configuration
+  if (initialIndex === -1 && index === -1) {
+    //param was not found either in initial and in active config, then push in active config and set status as new
+    paramToAdd.isNew = true;
+    activeConfigClone.data[paramsGroupName].push(paramToAdd);
+  } else if (initialIndex === -1 && index !== -1) {
+    //param was not found in initial, but exists in active config, then update param value, but status is still new
+    paramToAdd.isNew = true;
+    if (
+      activeConfigClone.data[paramsGroupName][index].value != paramToAdd.vale
+    ) {
+      //update active config param if value is different
+      activeConfigClone.data[paramsGroupName].splice(index, 1, paramToAdd);
+    }
+  } else if (initialIndex !== -1 && index === -1) {
+    //param exists in initial config, but not found in active config, then push param in active config
+    activeConfigClone.data[paramsGroupName].push(paramToAdd);
+    if (
+      initialActiveConfig.data[paramsGroupName][initialIndex].value !==
+      paramToAdd.value
+    ) {
+      //value is not the same as in initial config then set status isChanged as true
+      paramToAdd.isChanged = true;
+    } else {
+      // value is the same as in initial config then set status isChanged as false
+      paramToAdd.isChanged = false;
+    }
+  } else if (initialIndex !== -1 && index !== -1) {
+    //param exists in initial config and exist in active config
+    if (
+      initialActiveConfig.data[paramsGroupName][initialIndex].value !==
+      paramToAdd.value
+    ) {
+      //value is not the same as in initial config then set status isChanged as true
+      paramToAdd.isChanged = true;
+    } else {
+      // value is the same as in initial config then set status isChanged as false
+      paramToAdd.isChanged = false;
+    }
+    activeConfigClone.data[paramsGroupName].splice(index, 1, paramToAdd);
+  }
+
   return {
     type: types.UPDATE_ACTIVE_CONFIG,
-    payload: activeConfig
+    payload: activeConfigClone
   };
 }
 

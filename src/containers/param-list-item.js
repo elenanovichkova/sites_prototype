@@ -27,8 +27,9 @@ class ParamListItem extends Component {
         key={this.props.param.id}
         className={`${this.props.activeParam == this.props.param
           ? "selected"
-          : ""} ${this.props.param.value != this.state.param.value
-          ? "changed"
+          : ""} ${this.props.param.isChanged ? "changed" : ""} ${this.props
+          .param.isNew
+          ? "new"
           : ""}`}
         onClick={() => {
           this.selectParam(this.props.param);

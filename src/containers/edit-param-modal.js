@@ -41,14 +41,14 @@ class EditParamModal extends Component {
         <form className="form form-horizontal">
           <div className="form-group">
             <label className="control-label col-sm-6" htmlFor="fldsep">
-              {this.props.activeParamDetail.formcontrolLabel}
+              {this.props.activeParamDetail.label}
             </label>
             <div className="col-sm-6">
               <select
                 className="form-control"
                 id={this.props.activeParamDetail.formcontrolName}
                 name={this.props.activeParamDetail.formcontrolName}
-                defaultValue={this.props.activeParamSelectedOption.value}
+                value={this.props.activeParamSelectedOption.val}
                 onChange={event => {
                   let target = event.target;
                   let optionValue = target.value;
@@ -56,7 +56,7 @@ class EditParamModal extends Component {
                     this.props.activeParamDetail.options,
                     function(option) {
                       option.selected = false;
-                      return option.value == optionValue;
+                      return option.val == optionValue;
                     }
                   );
                   selectedOption.selected = true;
@@ -65,8 +65,8 @@ class EditParamModal extends Component {
               >
                 {this.props.activeParamDetail.options.map(option => {
                   return (
-                    <option value={option.value} key={option.id}>
-                      {option.answer}
+                    <option value={option.val} key={option.id}>
+                      {option.descr}
                     </option>
                   );
                 })}
@@ -108,6 +108,7 @@ class EditParamModal extends Component {
                     this.props.activeParamSelectedOption.param
                   );
                   this.props.updateActiveConfig(
+                    this.props.initialActiveConfig,
                     this.props.activeConfig,
                     this.props.activeParam,
                     this.props.activeParamSelectedOption.param
@@ -128,6 +129,7 @@ function mapStateToProps({
   editParamModalIsOpen,
   activeParamDetail,
   activeParamSelectedOption,
+  initialActiveConfig,
   activeConfig,
   activeParam
 }) {
@@ -136,6 +138,7 @@ function mapStateToProps({
     editParamModalIsOpen,
     activeParamDetail,
     activeParamSelectedOption,
+    initialActiveConfig,
     activeConfig,
     activeParam
   };
