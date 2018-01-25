@@ -59,7 +59,7 @@ class AddParamModal extends Component {
       <div className="col-xs-4">
         <div className="panel panel-success">
           <div className="panel-heading">
-            Select parameter desired value and click "ADD"
+            Select parameter desired value and click "ADDd"
           </div>
           <div className="panel-body">
             <div className="form">

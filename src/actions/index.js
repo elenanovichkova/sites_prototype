@@ -161,6 +161,89 @@ export function closeAddParamModal() {
   };
 }
 
+function fixOptionSoting(config) {
+  config.data.map(formgroup => {
+    formgroup.formcontrols.map(formcontrol => {
+      formcontrol.options = _.sortBy(
+        formcontrol.options.map(option => {
+          let value = !isNaN(option.val) ? parseInt(option.val) : option.val;
+          option.val = value;
+          return option;
+        }),
+        "val"
+      );
+      return formcontrol;
+    });
+    return formgroup;
+  });
+  return config;
+}
+
+function filterCurrentParams(currConfig, config) {
+  config.data.map(formgroup => {
+    formgroup.formcontrols = formgroup.formcontrols.filter(formcontrol => {
+      let isCurrent = false;
+      currConfig.data.paramsX12.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params837.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.paramsatt.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params999.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params277.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params275.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params824.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.params997.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      currConfig.data.paramsUndefined.map(param => {
+        if (param.formcontrolName == formcontrol.name) {
+          isCurrent = true;
+        }
+        return param;
+      });
+      return !isCurrent;
+    });
+    return formgroup;
+  });
+  return config;
+}
+
 export function fetchParams(config, callback) {
   //action creator, it needs to return an action, an object with a type property
   callback();
@@ -168,9 +251,11 @@ export function fetchParams(config, callback) {
   return function(dispatch) {
     dispatch({ type: types.REQUEST_PARAMS });
     axios.get(url).then(response => {
+      response.data = fixOptionSoting(response.data);
+      response.data = filterCurrentParams(config, response.data);
       dispatch({
         type: types.RECEIVE_PARAMS,
-        payload: response
+        payload: response.data.data
       });
     });
   };
@@ -331,6 +416,7 @@ export function changeActiveConfigFldSep(fldSep, activeConfig) {
 
 export function updateConfig(config, callback) {
   //action creator, it needs to return an action, an object with a type property
+  console.log(config);
   let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
   return function(dispatch) {
     axios.get(url).then(response => {

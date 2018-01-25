@@ -233,24 +233,7 @@ const paramListReducer = (state = [], action) => {
     case types.REQUEST_PARAMS:
       return [];
     case types.RECEIVE_PARAMS:
-      //fix sorting for numeric options
-      action.payload.data.data.map(formgroup => {
-        formgroup.formcontrols.map(formcontrol => {
-          formcontrol.options = _.sortBy(
-            formcontrol.options.map(option => {
-              let value = !isNaN(option.val)
-                ? parseInt(option.val)
-                : option.val;
-              option.val = value;
-              return option;
-            }),
-            "val"
-          );
-          return formcontrol;
-        });
-        return formgroup;
-      });
-      return action.payload.data.data;
+      return action.payload;
     case types.UPDATE_PARAMS:
       return action.payload;
     default:

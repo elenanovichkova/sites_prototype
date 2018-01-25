@@ -222,7 +222,7 @@ class ConfigForm extends Component {
               </select>
             </div>
           </div>
-          <div className="form-group">
+          {/*<div className="form-group">
             <label className="control-label col-sm-5" htmlFor="purpose">
               Purpose
             </label>
@@ -252,7 +252,7 @@ class ConfigForm extends Component {
                 <option value="UNKN">UNKN</option>
               </select>
             </div>
-          </div>
+          </div>*/}
           <div className="form-group">
             <label className="control-label col-sm-5" htmlFor="fldsep">
               Which delimiter will be used with X12 transactions?
@@ -385,7 +385,11 @@ class ConfigForm extends Component {
                           <input
                             type="button"
                             className="btn btn-default full-width"
-                            disabled={this.props.activeParam === ""}
+                            disabled={
+                              this.props.activeParam === "" ||
+                              this.props.activeParam.formgroupName ===
+                                "Undefined"
+                            }
                             onClick={() => {
                               this.props.openEditParamModal(
                                 this.props.activeParam
