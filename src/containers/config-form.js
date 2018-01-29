@@ -222,7 +222,7 @@ class ConfigForm extends Component {
               </select>
             </div>
           </div>
-          {/*<div className="form-group">
+          <div className="form-group">
             <label className="control-label col-sm-5" htmlFor="purpose">
               Purpose
             </label>
@@ -249,10 +249,13 @@ class ConfigForm extends Component {
                 <option value="PNOT">PNOT</option>
                 <option value="DISB">DISB</option>
                 <option value="SRCA">SRCA</option>
+                <option value="SRCA">TST1</option>
+                <option value="SRCA">TST2</option>
+                <option value="SRCA">TST3</option>
                 <option value="UNKN">UNKN</option>
               </select>
             </div>
-          </div>*/}
+          </div>
           <div className="form-group">
             <label className="control-label col-sm-5" htmlFor="fldsep">
               Which delimiter will be used with X12 transactions?
@@ -422,6 +425,7 @@ class ConfigForm extends Component {
                         </div>
                       </div>
                       <br />
+                      {/*}
                       <div className="form-group">
                         <div className="col-md-12">
                           <input
@@ -430,7 +434,7 @@ class ConfigForm extends Component {
                             value="CREATE NEW..."
                           />
                         </div>
-                      </div>
+                      </div>*/}
                     </div>
                   </div>
                 </div>

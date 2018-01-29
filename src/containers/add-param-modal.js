@@ -32,6 +32,44 @@ const paramListStyle = {
 };
 
 class AddParamModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      paramGroup: "",
+      paramQuestion: "",
+      paramTag: "",
+      paramList: this.props.paramList
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ paramList: nextProps.paramList });
+  }
+
+  onParamGroupChange(event) {
+    let paramGroup = event.target.value;
+    this.setState({ paramGroup });
+  }
+
+  onParamQuestionChange(event) {
+    let paramQuestion = event.target.value;
+    this.setState({ paramQuestion });
+  }
+
+  onParamTagChange(event) {
+    let paramTag = event.target.value;
+    this.setState({ paramTag });
+  }
+
+  onSearchClick() {
+    console.log("*********************************", this.state);
+    let paramListClone = _.deepClone(this.state.paramList);
+    paramListClone.filter(formgroup => {
+      let isGroupMatch = true;
+      return isGroupMatch;
+    });
+  }
+
   addParamValueChanged(event) {
     let value = event.target.value;
     this.props.addParamFormControlSetValue(
@@ -57,9 +95,9 @@ class AddParamModal extends Component {
   renderSelectedFormControl() {
     return (
       <div className="col-xs-4">
-        <div className="panel panel-success">
+        <div className="panel panel-info">
           <div className="panel-heading">
-            Select parameter desired value and click "ADDd"
+            Select parameter desired value and click "ADD"
           </div>
           <div className="panel-body">
             <div className="form">
@@ -150,7 +188,12 @@ class AddParamModal extends Component {
                 >
                   <div className="form-group">
                     <label>Group</label>{" "}
-                    <select className="form-control" id="add-param-group-name">
+                    <select
+                      className="form-control"
+                      id="add-param-group-name"
+                      value={this.props.paramGroup}
+                      onChange={event => this.onParamGroupChange(event)}
+                    >
                       <option value="">SELECT</option>
                       <option value="X12">X12</option>
                       <option value="837">837</option>
@@ -168,6 +211,8 @@ class AddParamModal extends Component {
                       type="text"
                       className="form-control"
                       id="add-param-question"
+                      value={this.props.paramQuestion}
+                      onChange={event => this.onParamQuestionChange(event)}
                     />{" "}
                   </div>
                   <div className="form-group">
@@ -176,9 +221,15 @@ class AddParamModal extends Component {
                       type="text"
                       className="form-control"
                       id="add-param-tag"
+                      value={this.props.paramTag}
+                      onChange={event => this.onParamTagChange(event)}
                     />
                   </div>{" "}
-                  <button type="button" className="btn btn-primary">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => this.onSearchClick()}
+                  >
                     Search
                   </button>
                 </form>
