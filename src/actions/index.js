@@ -515,3 +515,62 @@ export function closeConfirmationModal() {
     payload: confirmationModalData
   };
 }
+
+export function openNewConfigModal() {
+  return {
+    type: types.OPEN_NEWCONFIG_MODAL,
+    payload: true
+  };
+}
+
+export function closeNewConfigModal() {
+  return {
+    type: types.CLOSE_NEWCONFIG_MODAL,
+    payload: false
+  };
+}
+export function updateNewConfigReceiverId(value) {
+  value = value.replace(/\s/g, "");
+  return {
+    type: types.UPDATE_NEWCONFIG_RECEIVERID,
+    payload: value
+  };
+}
+export function updateNewConfigPurpose(value) {
+  return {
+    type: types.UPDATE_NEWCONFIG_PURPOSE,
+    payload: value
+  };
+}
+export function updateNewConfigUsage(value) {
+  return {
+    type: types.UPDATE_NEWCONFIG_USAGE,
+    payload: value
+  };
+}
+export function createNewConfig(siteCodeNbr, receiverId, purpose, usage) {
+  if (receiverId === "" || purpose === "" || usage === "") {
+    return {
+      type: types.SUMBIT_NEWCONFIG_FAILED,
+      payload: "All fields are required"
+    };
+  }
+  if (!/^[a-zA-Z0-9 _.'&",#@-]{3,64}$/.test(receiverId)) {
+    return {
+      type: types.SUMBIT_NEWCONFIG_FAILED,
+      payload: "receiver id is not valid"
+    };
+  }
+
+  return function(dispatch) {
+    dispatch({ type: types.SUMBIT_NEWCONFIG });
+
+    dispatch({
+      type: types.CLOSE_NEWCONFIG_MODAL,
+      payload: false
+    });
+    dispatch({
+      type: types.NEWCONFIG_CREATED
+    });
+  };
+}

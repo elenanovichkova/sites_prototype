@@ -4,9 +4,11 @@ import {
   getConfigDetail,
   duplicateConfig,
   deleteConfig,
-  changeConfigsView
+  changeConfigsView,
+  openNewConfigModal
 } from "../actions/index";
 import { bindActionCreators } from "redux";
+import NewConfigModal from "./newconfig-modal";
 
 class ConfigList extends Component {
   renderList() {
@@ -84,7 +86,11 @@ class ConfigList extends Component {
       <div className="panel-body">
         <div className="row">
           <div className="col-md-12 text-right">
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => this.props.openNewConfigModal()}
+            >
               Add New
             </button>
           </div>
@@ -104,6 +110,7 @@ class ConfigList extends Component {
             {this.renderList()}
           </tbody>
         </table>
+        <NewConfigModal />
       </div>
     );
   }
@@ -121,7 +128,8 @@ function mapDispatchToProps(dispatch) {
       getConfigDetail,
       duplicateConfig,
       deleteConfig,
-      changeConfigsView
+      changeConfigsView,
+      openNewConfigModal
     },
     dispatch
   );

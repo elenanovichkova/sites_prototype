@@ -265,6 +265,50 @@ const confirmationModalDataReducer = (state = { isOpen: false }, action) => {
   }
 };
 
+const isNewConfigModalOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case types.OPEN_NEWCONFIG_MODAL:
+      return action.payload;
+    case types.CLOSE_NEWCONFIG_MODAL:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const newConfigReducer = (
+  state = {
+    isSubmitting: false,
+    message: "",
+    siteId: "",
+    receiverId: "",
+    purpose: "",
+    usage: ""
+  },
+  action
+) => {
+  switch (action.type) {
+    case types.UPDATE_NEWCONFIG_RECEIVERID:
+      return { ...state, message: "", receiverId: action.payload };
+    case types.UPDATE_NEWCONFIG_PURPOSE:
+      return { ...state, message: "", purpose: action.payload };
+    case types.UPDATE_NEWCONFIG_USAGE:
+      return { ...state, message: "", usage: action.payload };
+    case types.SUMBIT_NEWCONFIG:
+      return { ...state, message: "", isSubmitting: true };
+    case types.SUMBIT_NEWCONFIG_FAILED:
+      return { ...state, isSubmitting: false, message: action.payload };
+    case types.NEWCONFIG_CREATED:
+      return {
+        ...state,
+        message: "successfully created new config",
+        isSubmitting: false
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -280,7 +324,9 @@ const rootReducer = combineReducers({
   addParamModalIsOpen: addParamModalIsOpenReducer,
   paramList: paramListReducer,
   addParamFormControl: addParamFormControlReducer,
-  confirmationModalData: confirmationModalDataReducer
+  confirmationModalData: confirmationModalDataReducer,
+  isNewConfigModalOpen: isNewConfigModalOpenReducer,
+  newConfig: newConfigReducer
 });
 
 export default rootReducer;
