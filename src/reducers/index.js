@@ -305,9 +305,9 @@ const newConfigReducer = (
       return { ...state, message: "", purpose: action.payload };
     case types.UPDATE_NEWCONFIG_USAGE:
       return { ...state, message: "", usage: action.payload };
-    case types.SUMBIT_NEWCONFIG:
+    case types.SUBMIT_NEWCONFIG:
       return { ...state, message: "", isSubmitting: true };
-    case types.SUMBIT_NEWCONFIG_FAILED:
+    case types.SUBMIT_NEWCONFIG_FAILED:
       return { ...state, isSubmitting: false, message: action.payload };
     case types.NEWCONFIG_CREATED:
       return {
@@ -323,7 +323,6 @@ const newConfigReducer = (
 //**************************************************************
 
 const isDuplConfigModalOpenReducer = (state = false, action) => {
-  console.log("###############################", action.payload);
   switch (action.type) {
     case types.OPEN_DUPLCONFIG_MODAL:
       return action.payload;
@@ -374,9 +373,9 @@ const duplConfigReducer = (
       return { ...state, message: "", purpose: action.payload };
     case types.UPDATE_DUPLCONFIG_USAGE:
       return { ...state, message: "", usage: action.payload };
-    case types.SUMBIT_DUPLCONFIG:
+    case types.SUBMIT_DUPLCONFIG:
       return { ...state, message: "", isSubmitting: true };
-    case types.SUMBIT_DUPLCONFIG_FAILED:
+    case types.SUBMIT_DUPLCONFIG_FAILED:
       return { ...state, isSubmitting: false, message: action.payload };
     case types.DUPLCONFIG_CREATED:
       return {

@@ -549,19 +549,19 @@ export function updateNewConfigUsage(value) {
 export function createNewConfig(siteCodeNbr, receiverId, purpose, usage) {
   if (receiverId === "" || purpose === "" || usage === "") {
     return {
-      type: types.SUMBIT_NEWCONFIG_FAILED,
+      type: types.SUBMIT_NEWCONFIG_FAILED,
       payload: "All fields are required"
     };
   }
   if (!/^[a-zA-Z0-9 _.'&",#@-]{3,64}$/.test(receiverId)) {
     return {
-      type: types.SUMBIT_NEWCONFIG_FAILED,
+      type: types.SUBMIT_NEWCONFIG_FAILED,
       payload: "receiver id is not valid"
     };
   }
 
   return function(dispatch) {
-    dispatch({ type: types.SUMBIT_NEWCONFIG });
+    dispatch({ type: types.SUBMIT_NEWCONFIG });
 
     dispatch({
       type: types.CLOSE_NEWCONFIG_MODAL,
@@ -616,19 +616,19 @@ export function createDuplConfig(
 ) {
   if (receiverId === "" || purpose === "" || usage === "") {
     return {
-      type: types.SUMBIT_DUPLCONFIG_FAILED,
+      type: types.SUBMIT_DUPLCONFIG_FAILED,
       payload: "All fields are required"
     };
   }
   if (!/^[a-zA-Z0-9 _.'&",#@-]{3,64}$/.test(receiverId)) {
     return {
-      type: types.SUMBIT_DUPLCONFIG_FAILED,
+      type: types.SUBMIT_DUPLCONFIG_FAILED,
       payload: "receiver id is not valid"
     };
   }
 
   return function(dispatch) {
-    dispatch({ type: types.SUMBIT_DUPLCONFIG });
+    dispatch({ type: types.SUBMIT_DUPLCONFIG });
 
     dispatch({
       type: types.CLOSE_DUPLCONFIG_MODAL,
