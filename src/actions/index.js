@@ -74,11 +74,9 @@ export function getConfigDetail(config, callback) {
 }
 
 export function duplicateConfig(config) {
-  let url = `${ROOT_URL}/edicntlJSIADELANTOEBIL.json`;
-  let request = axios.get(url);
   return {
     type: types.CONFIG_DUPLICATE,
-    payload: request
+    payload: config
   };
 }
 
@@ -571,6 +569,73 @@ export function createNewConfig(siteCodeNbr, receiverId, purpose, usage) {
     });
     dispatch({
       type: types.NEWCONFIG_CREATED
+    });
+  };
+}
+
+//*********************************************************
+
+export function openDuplConfigModal() {
+  return {
+    type: types.OPEN_DUPLCONFIG_MODAL,
+    payload: true
+  };
+}
+
+export function closeDuplConfigModal() {
+  return {
+    type: types.CLOSE_DUPLCONFIG_MODAL,
+    payload: false
+  };
+}
+export function updateDuplConfigReceiverId(value) {
+  value = value.replace(/\s/g, "");
+  return {
+    type: types.UPDATE_DUPLCONFIG_RECEIVERID,
+    payload: value
+  };
+}
+export function updateDuplConfigPurpose(value) {
+  return {
+    type: types.UPDATE_DUPLCONFIG_PURPOSE,
+    payload: value
+  };
+}
+export function updateDuplConfigUsage(value) {
+  return {
+    type: types.UPDATE_DUPLCONFIG_USAGE,
+    payload: value
+  };
+}
+export function createDuplConfig(
+  siteCodeNbr,
+  receiverId,
+  purpose,
+  usage,
+  edicntl
+) {
+  if (receiverId === "" || purpose === "" || usage === "") {
+    return {
+      type: types.SUMBIT_DUPLCONFIG_FAILED,
+      payload: "All fields are required"
+    };
+  }
+  if (!/^[a-zA-Z0-9 _.'&",#@-]{3,64}$/.test(receiverId)) {
+    return {
+      type: types.SUMBIT_DUPLCONFIG_FAILED,
+      payload: "receiver id is not valid"
+    };
+  }
+
+  return function(dispatch) {
+    dispatch({ type: types.SUMBIT_DUPLCONFIG });
+
+    dispatch({
+      type: types.CLOSE_DUPLCONFIG_MODAL,
+      payload: false
+    });
+    dispatch({
+      type: types.DUPLCONFIG_CREATED
     });
   };
 }

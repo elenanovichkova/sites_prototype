@@ -276,6 +276,15 @@ const isNewConfigModalOpenReducer = (state = false, action) => {
   }
 };
 
+const initialNewConfig = {
+  isSubmitting: false,
+  message: "",
+  siteId: "",
+  receiverId: "",
+  purpose: "",
+  usage: ""
+};
+
 const newConfigReducer = (
   state = {
     isSubmitting: false,
@@ -288,6 +297,8 @@ const newConfigReducer = (
   action
 ) => {
   switch (action.type) {
+    case types.OPEN_NEWCONFIG_MODAL:
+      return initialNewConfig;
     case types.UPDATE_NEWCONFIG_RECEIVERID:
       return { ...state, message: "", receiverId: action.payload };
     case types.UPDATE_NEWCONFIG_PURPOSE:
@@ -302,6 +313,75 @@ const newConfigReducer = (
       return {
         ...state,
         message: "successfully created new config",
+        isSubmitting: false
+      };
+    default:
+      return state;
+  }
+};
+
+//**************************************************************
+
+const isDuplConfigModalOpenReducer = (state = false, action) => {
+  console.log("###############################", action.payload);
+  switch (action.type) {
+    case types.OPEN_DUPLCONFIG_MODAL:
+      return action.payload;
+    case types.CLOSE_DUPLCONFIG_MODAL:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const configToDuplicateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.CONFIG_DUPLICATE:
+      return action.payload;
+    case types.CLOSE_DUPLCONFIG_MODAL:
+      return {};
+    default:
+      return state;
+  }
+};
+
+const initialDuplConfig = {
+  isSubmitting: false,
+  message: "",
+  siteId: "",
+  receiverId: "",
+  purpose: "",
+  usage: ""
+};
+
+const duplConfigReducer = (
+  state = {
+    isSubmitting: false,
+    message: "",
+    siteId: "",
+    receiverId: "",
+    purpose: "",
+    usage: ""
+  },
+  action
+) => {
+  switch (action.type) {
+    case types.OPEN_DUPLCONFIG_MODAL:
+      return initialNewConfig;
+    case types.UPDATE_DUPLCONFIG_RECEIVERID:
+      return { ...state, message: "", receiverId: action.payload };
+    case types.UPDATE_DUPLCONFIG_PURPOSE:
+      return { ...state, message: "", purpose: action.payload };
+    case types.UPDATE_DUPLCONFIG_USAGE:
+      return { ...state, message: "", usage: action.payload };
+    case types.SUMBIT_DUPLCONFIG:
+      return { ...state, message: "", isSubmitting: true };
+    case types.SUMBIT_DUPLCONFIG_FAILED:
+      return { ...state, isSubmitting: false, message: action.payload };
+    case types.DUPLCONFIG_CREATED:
+      return {
+        ...state,
+        message: "successfully duplicate new config",
         isSubmitting: false
       };
     default:
@@ -326,7 +406,10 @@ const rootReducer = combineReducers({
   addParamFormControl: addParamFormControlReducer,
   confirmationModalData: confirmationModalDataReducer,
   isNewConfigModalOpen: isNewConfigModalOpenReducer,
-  newConfig: newConfigReducer
+  newConfig: newConfigReducer,
+  isDuplConfigModalOpen: isDuplConfigModalOpenReducer,
+  duplConfig: duplConfigReducer,
+  configToDuplicate: configToDuplicateReducer
 });
 
 export default rootReducer;

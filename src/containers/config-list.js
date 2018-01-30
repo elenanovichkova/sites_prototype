@@ -5,10 +5,12 @@ import {
   duplicateConfig,
   deleteConfig,
   changeConfigsView,
-  openNewConfigModal
+  openNewConfigModal,
+  openDuplConfigModal
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import NewConfigModal from "./newconfig-modal";
+import DuplConfigModal from "./duplconfig-modal";
 
 class ConfigList extends Component {
   renderList() {
@@ -57,7 +59,11 @@ class ConfigList extends Component {
             <a href="#">
               <span
                 className="fa fa-files-o"
-                onClick={() => this.props.duplicateConfig(config, "duplicate")}
+                onClick={() => {
+                  console.log("******************* duplicate config", config);
+                  this.props.duplicateConfig(config, "duplicate");
+                  this.props.openDuplConfigModal();
+                }}
               />
             </a>
           </td>
@@ -111,6 +117,7 @@ class ConfigList extends Component {
           </tbody>
         </table>
         <NewConfigModal />
+        <DuplConfigModal />
       </div>
     );
   }
@@ -129,7 +136,8 @@ function mapDispatchToProps(dispatch) {
       duplicateConfig,
       deleteConfig,
       changeConfigsView,
-      openNewConfigModal
+      openNewConfigModal,
+      openDuplConfigModal
     },
     dispatch
   );

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import {
-  closeNewConfigModal,
-  updateNewConfigReceiverId,
-  updateNewConfigUsage,
-  updateNewConfigPurpose,
-  createNewConfig
+  closeDuplConfigModal,
+  updateDuplConfigReceiverId,
+  updateDuplConfigUsage,
+  updateDuplConfigPurpose,
+  createDuplConfig
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import Modal from "react-modal";
@@ -23,25 +23,28 @@ const customStyles = {
   }
 };
 
-class NewConfigModal extends Component {
+class DuplConfigModal extends Component {
   constructor() {
     super();
   }
   render() {
     return (
       <Modal
-        isOpen={this.props.isNewConfigModalOpen}
+        isOpen={this.props.isDuplConfigModalOpen}
         style={customStyles}
         shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
-        contentLabel="Edit Param Modal"
+        contentLabel="Duplicate config modal"
       >
-        {this.props.newConfig.isSubmitting
-          ? <div>Submitting new config data...</div>
+        {this.props.duplConfig.isSubmitting
+          ? <div>Submitting duplicate config data...</div>
           : <div>
               <div className="title page-header text-center">
-                <h3>Create New Configuration</h3>
+                <h3>
+                  Duplicate Configuration {this.props.configToDuplicate.ID}
+                </h3>
               </div>
+              <p>Enter new configuration identifiers</p>
               <form className="form form-horizontal">
                 <div className="form-group">
                   <label className="control-label col-xs-4">Receiver ID</label>
@@ -49,9 +52,10 @@ class NewConfigModal extends Component {
                     <input
                       type="text"
                       className="form-control"
-                      value={this.props.newConfig.receiverId}
+                      id="duplconfig-receiverid"
+                      value={this.props.duplConfig.receiverId}
                       onChange={event =>
-                        this.props.updateNewConfigReceiverId(
+                        this.props.updateDuplConfigReceiverId(
                           event.target.value
                         )}
                     />
@@ -62,11 +66,11 @@ class NewConfigModal extends Component {
                   <div className="col-xs-8">
                     <select
                       className="form-control"
-                      id="newconfig-purpose"
+                      id="duplconfig-purpose"
                       name="purpose"
-                      value={this.props.newConfig.purpose}
+                      value={this.props.duplConfig.purpose}
                       onChange={event =>
-                        this.props.updateNewConfigPurpose(event.target.value)}
+                        this.props.updateDuplConfigPurpose(event.target.value)}
                     >
                       <option value="">SELECT</option>
                       <option value="TST1">TST1</option>
@@ -80,11 +84,11 @@ class NewConfigModal extends Component {
                   <div className="col-xs-8">
                     <select
                       className="form-control"
-                      id="newconfig-usage"
+                      id="duplconfig-usage"
                       name="usage"
-                      value={this.props.newConfig.usage}
+                      value={this.props.duplConfig.usage}
                       onChange={event =>
-                        this.props.updateNewConfigUsage(event.target.value)}
+                        this.props.updateDuplConfigUsage(event.target.value)}
                     >
                       <option value="">SELECT</option>
                       <option value="P">Production</option>
@@ -92,9 +96,9 @@ class NewConfigModal extends Component {
                     </select>
                   </div>
                 </div>
-                {this.props.newConfig.message
+                {this.props.duplConfig.message
                   ? <div className="alert alert-danger">
-                      {this.props.newConfig.message}
+                      {this.props.duplConfig.message}
                     </div>
                   : ""}
                 <div className="form-group">
@@ -102,7 +106,7 @@ class NewConfigModal extends Component {
                     <button
                       type="button"
                       className="btn btn-default full-width"
-                      onClick={() => this.props.closeNewConfigModal()}
+                      onClick={() => this.props.closeDuplConfigModal()}
                     >
                       CANCEL
                     </button>
@@ -112,11 +116,12 @@ class NewConfigModal extends Component {
                       type="button"
                       className="btn btn-primary full-width"
                       onClick={() =>
-                        this.props.createNewConfig(
+                        this.props.createDuplConfig(
                           this.props.activeSite.codenbr,
-                          this.props.newConfig.receiverId,
-                          this.props.newConfig.purpose,
-                          this.props.newConfig.usage
+                          this.props.duplConfig.receiverId,
+                          this.props.duplConfig.purpose,
+                          this.props.duplConfig.usage,
+                          this.props.activeConfig
                         )}
                     >
                       SUBMIT
@@ -130,12 +135,18 @@ class NewConfigModal extends Component {
   }
 }
 
-function mapStateToProps({ activeSite, isNewConfigModalOpen, newConfig }) {
+function mapStateToProps({
+  activeSite,
+  isDuplConfigModalOpen,
+  duplConfig,
+  configToDuplicate
+}) {
   // whatever is returned will show up as a props
   return {
     activeSite,
-    isNewConfigModalOpen,
-    newConfig
+    isDuplConfigModalOpen,
+    duplConfig,
+    configToDuplicate
   };
 }
 
@@ -144,15 +155,15 @@ function mapDispatchToProps(dispatch) {
   //whenever select is call, the result should be passed to all reducers
   return bindActionCreators(
     {
-      closeNewConfigModal,
-      updateNewConfigReceiverId,
-      updateNewConfigUsage,
-      updateNewConfigPurpose,
-      createNewConfig
+      closeDuplConfigModal,
+      updateDuplConfigReceiverId,
+      updateDuplConfigUsage,
+      updateDuplConfigPurpose,
+      createDuplConfig
     },
     dispatch
   );
 }
 
 //component to a container -  it needs to kow about this new dispatch method. Make it available as a prop
-export default connect(mapStateToProps, mapDispatchToProps)(NewConfigModal);
+export default connect(mapStateToProps, mapDispatchToProps)(DuplConfigModal);
