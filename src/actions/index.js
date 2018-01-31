@@ -648,3 +648,25 @@ export function deleteConfig(config) {
     });
   };
 }
+
+//*************************************** Site log
+
+export function fetchSiteLog(activeSite) {
+  let url = `${ROOT_URL}/site-log.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_SITE_LOG });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_SITE_LOG,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_SITE_LOG_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}

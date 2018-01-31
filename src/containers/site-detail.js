@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeSitesView } from "../actions/index";
+import { changeSitesView, fetchSiteLog } from "../actions/index";
 import $ from "jquery";
 
 import ConfigList from "./config-list";
 import ConfigDetail from "./config-detail";
 import ConfigForm from "./config-form";
+import SiteLog from "./site-log";
 
 class SiteDetail extends Component {
   onTabClick(event) {
@@ -115,6 +116,17 @@ class SiteDetail extends Component {
                     Users
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="#site-log"
+                    onClick={event => {
+                      this.props.fetchSiteLog(this.props.activeSite);
+                      this.onTabClick(event);
+                    }}
+                  >
+                    Log
+                  </a>
+                </li>
               </ul>
               <div className="site-detail-tab-content tab-content">
                 <div
@@ -145,6 +157,13 @@ class SiteDetail extends Component {
                 >
                   Site users
                 </div>
+                <div
+                  id="site-log"
+                  role="tabpanel"
+                  className="site-detail-tab-pane tab-pane"
+                >
+                  <SiteLog />
+                </div>
               </div>
             </div>
           </div>
@@ -154,16 +173,17 @@ class SiteDetail extends Component {
   }
 }
 
-function mapStateToProps({ activeSite, activeConfig, configView }) {
+function mapStateToProps({ activeSite, activeConfig, configView, siteLog }) {
   return {
     activeSite,
     activeConfig,
-    configView
+    configView,
+    siteLog
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeSitesView }, dispatch);
+  return bindActionCreators({ changeSitesView, fetchSiteLog }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiteDetail);

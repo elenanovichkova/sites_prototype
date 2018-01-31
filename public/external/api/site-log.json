@@ -1,0 +1,25 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "10:194-e$gEventLog",
+      "category": "CONFIG",
+      "result": "NEW PARAM ADDED",
+      "descr": "New parameter was added",
+      "when": "01012018",
+      "user": "sitemeister@jopari.com"
+    },
+    {
+      "id": "10:1pu-e$gEventLog",
+      "category": "CONFIG",
+      "result": "NEW PARAM ADDED",
+      "descr": "New parameter was added",
+      "when": "01012018",
+      "user": "sitemeister@jopari.com"
+    }
+  ]
+}

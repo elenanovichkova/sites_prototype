@@ -388,6 +388,35 @@ const duplConfigReducer = (
   }
 };
 
+//************************ Site Log
+
+const defaultSiteLog = {
+  isFetching: false,
+  message: "",
+  data: []
+};
+
+const siteLogReducer = (state = defaultSiteLog, action) => {
+  switch (action.type) {
+    case types.REQUEST_SITE_LOG:
+      return { ...state, isFetching: true };
+    case types.RECEIVED_SITE_LOG:
+      return {
+        isFetching: false,
+        message: "",
+        data: action.payload
+      };
+    case types.REQUEST_SITE_LOG_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        message: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -408,7 +437,8 @@ const rootReducer = combineReducers({
   newConfig: newConfigReducer,
   isDuplConfigModalOpen: isDuplConfigModalOpenReducer,
   duplConfig: duplConfigReducer,
-  configToDuplicate: configToDuplicateReducer
+  configToDuplicate: configToDuplicateReducer,
+  siteLog: siteLogReducer
 });
 
 export default rootReducer;
