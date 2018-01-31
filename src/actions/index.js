@@ -80,15 +80,6 @@ export function duplicateConfig(config) {
   };
 }
 
-export function deleteConfig(config) {
-  let url = `${ROOT_URL}&param.rtype=getConfig&param.config=${config.oid}`;
-  let request = axios.get(url);
-  return {
-    type: types.CONFIG_DELETE,
-    payload: request
-  };
-}
-
 export function newConfig(config) {
   let url = `${ROOT_URL}&param.rtype=getConfig&param.config=${config.oid}`;
   let request = axios.get(url);
@@ -636,6 +627,24 @@ export function createDuplConfig(
     });
     dispatch({
       type: types.DUPLCONFIG_CREATED
+    });
+  };
+}
+
+//***************************************************************
+
+export function deleteConfig(config) {
+  return function(dispatch) {
+    dispatch({ type: types.SUBMIT_DELETE_CONFIG });
+    dispatch({ type: types.CONFIG_DELETED });
+    let confirmationModalData = {
+      isOpen: false,
+      text: "",
+      callback: null
+    };
+    dispatch({
+      type: types.CLOSE_CONFIRMATION_MODAL,
+      payload: confirmationModalData
     });
   };
 }
