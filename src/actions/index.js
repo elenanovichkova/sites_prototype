@@ -15,6 +15,10 @@ export function changeSitesView(view) {
       return {
         type: types.SITE_LIST_VIEW
       };
+    case "site-new":
+      return {
+        type: types.SITE_NEW_VIEW
+      };
   }
 }
 

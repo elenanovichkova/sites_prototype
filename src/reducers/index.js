@@ -128,6 +128,8 @@ const siteViewReducer = (state = "site-list", action) => {
       return "site-detail";
     case types.SITE_LIST_VIEW:
       return "site-list";
+    case types.SITE_NEW_VIEW:
+      return "site-new";
     default:
       return state;
   }
