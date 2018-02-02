@@ -230,7 +230,40 @@ const addParamModalIsOpenReducer = (state = false, action) => {
   }
 };
 
+const defaultAddParamListFilter = {
+  groupName: "",
+  formcontrolQuestion: "",
+  paramTag: ""
+};
+
+const addParamListFilterReducer = (
+  state = defaultAddParamListFilter,
+  action
+) => {
+  switch (action.type) {
+    case types.OPEN_ADD_PARAM_MODAL:
+      return defaultAddParamListFilter;
+    case types.CLOSE_ADD_PARAM_MODAL:
+      return defaultAddParamListFilter;
+    case types.ADD_PARAM_MODAL_FILTER_CHANGED:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const paramListReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.REQUEST_PARAMS:
+      return [];
+    case types.RECEIVE_PARAMS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const filteredParamListReducer = (state = [], action) => {
   switch (action.type) {
     case types.REQUEST_PARAMS:
       return [];
@@ -419,6 +452,45 @@ const siteLogReducer = (state = defaultSiteLog, action) => {
   }
 };
 
+//***************************************** Site templates
+const defaultSiteTemplateList = {
+  isFetching: false,
+  message: "",
+  data: []
+};
+
+const siteTemplateListReducer = (state = defaultSiteTemplateList, action) => {
+  switch (action.type) {
+    case types.REQUEST_SITE_TEMPLATES:
+      return { ...state, isFetching: true };
+    case types.RECEIVED_SITE_TEMPLATES:
+      return {
+        isFetching: false,
+        message: "",
+        data: action.payload
+      };
+    case types.REQUEST_SITE_TEMPLATES_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        message: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+const activeSiteTemplateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.SELECT_SITE_TEMPLATE:
+      return action.payload;
+    case types.DESELECT_SITE_TEMPLATE:
+      return {};
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   configView: configViewReducer,
@@ -432,7 +504,9 @@ const rootReducer = combineReducers({
   activeParamSelectedOption: activeParamSelectedOptionReducer,
   editParamModalIsOpen: editParamModalIsOpenReducer,
   addParamModalIsOpen: addParamModalIsOpenReducer,
+  addParamListFilter: addParamListFilterReducer,
   paramList: paramListReducer,
+  filteredParamList: filteredParamListReducer,
   addParamFormControl: addParamFormControlReducer,
   confirmationModalData: confirmationModalDataReducer,
   isNewConfigModalOpen: isNewConfigModalOpenReducer,
@@ -440,7 +514,9 @@ const rootReducer = combineReducers({
   isDuplConfigModalOpen: isDuplConfigModalOpenReducer,
   duplConfig: duplConfigReducer,
   configToDuplicate: configToDuplicateReducer,
-  siteLog: siteLogReducer
+  siteLog: siteLogReducer,
+  siteTemplateList: siteTemplateListReducer,
+  activeSiteTemplate: activeSiteTemplateReducer
 });
 
 export default rootReducer;

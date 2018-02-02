@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeSitesView } from "../actions/index";
+import { changeSitesView, getSiteTemplates } from "../actions/index";
 import _ from "lodash";
 
 import SiteFilter from "./site-filter";
 import SiteDetail from "./site-detail";
 import SiteList from "./site-list";
 import Spinner from "./spinner";
-import NewSiteTemplatePicker from "./newsite-template-picker";
+import NewSiteTemplatePicker from "./newsite-template-picker.jsx";
 
 class SitesContainer extends Component {
   render() {
@@ -29,8 +29,10 @@ class SitesContainer extends Component {
                         <h3>
                           <button
                             className="btn btn-primary  full-width"
-                            onClick={() =>
-                              this.props.changeSitesView("site-new")}
+                            onClick={() => {
+                              this.props.getSiteTemplates();
+                              this.props.changeSitesView("site-new");
+                            }}
                           >
                             Create New Site
                           </button>
@@ -69,13 +71,14 @@ class SitesContainer extends Component {
             : ""}
           {this.props.siteView == "site-new"
             ? <div>
-                <button
-                  type="button"
-                  className="btn btn-default"
-                  onClick={() => this.props.changeSitesView("site-list")}
-                >
-                  back
-                </button>
+                <p>
+                  <a
+                    href="#"
+                    onClick={() => this.props.changeSitesView("site-list")}
+                  >
+                    <span className="fa fa-chevron-circle-left" /> BACK TO SITES
+                  </a>
+                </p>
                 <div>
                   <NewSiteTemplatePicker />
                 </div>
@@ -93,7 +96,7 @@ function mapStateToProps({ siteView }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeSitesView }, dispatch);
+  return bindActionCreators({ changeSitesView, getSiteTemplates }, dispatch);
 }
 
 //promote SitesRootComponent from a component to a container

@@ -254,38 +254,63 @@ export function fetchParams(config, callback) {
   };
 }
 
-export function updateParamList(event, formcontrol, paramList) {
+export function updateAddParamsListFilter(filter, paramList) {
   //action creator, it needs to return an action, an object with a type property
-  let value = !isNaN(event.target.value)
-    ? parseInt(event.target.value)
-    : event.target.value;
-
-  paramList.map(formgroup => {
-    let stagedFormControl = _.find(formgroup.formcontrols, {
-      id: formcontrol.id
+  let paramListClone = _.cloneDeep(paramList);
+  return function(dispatch) {
+    dispatch({
+      type: types.ADD_PARAM_MODAL_FILTER_CHANGED,
+      payload: filter
     });
-    if (stagedFormControl) {
-      let stagedFormControlOption = _.find(stagedFormControl.options, {
-        val: value
+    if (filter.groupName || filter.formcontrolQuestion || filter.paramTag) {
+      let filteredParamList = paramListClone.filter(formgroup => {
+        if (filter.groupName == "" || filter.groupName == formgroup.name) {
+          formgroup.formcontrols = formgroup.formcontrols.filter(
+            formcontrol => {
+              let isLabelMatch = false;
+              if (
+                filter.formcontrolQuestion == "" ||
+                formcontrol.label
+                  .toLowerCase()
+                  .includes(filter.formcontrolQuestion.toLowerCase())
+              ) {
+                isLabelMatch = true;
+              }
+              let isParamTagMatch = false;
+              if (
+                filter.paramTag == "" ||
+                formcontrol.options[0].param.tag
+                  .toLowerCase()
+                  .includes(filter.paramTag.toLowerCase())
+              ) {
+                isParamTagMatch = true;
+              }
+              if (isLabelMatch && isParamTagMatch) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+          );
+          if (formgroup.formcontrols.length > 0) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
       });
-      if (stagedFormControlOption) {
-        stagedFormControl.selectedOptionValue = value;
-        stagedFormControl.selectedParamValue =
-          stagedFormControlOption.param.value;
-        stagedFormControl.staged = value ? true : false;
-      } else {
-        stagedFormControl.selectedOptionValue = "";
-        stagedFormControl.selectedParamValue = "";
-        stagedFormControl.staged = false;
-      }
+      dispatch({
+        type: types.UPDATE_PARAMS,
+        payload: filteredParamList
+      });
+    } else {
+      dispatch({
+        type: types.UPDATE_PARAMS,
+        payload: paramListClone
+      });
     }
-    return formgroup;
-  });
-  //need to clone to forse rerender on react component
-  var cloneParamList = _.cloneDeep(paramList);
-  return {
-    type: types.UPDATE_PARAMS,
-    payload: cloneParamList
   };
 }
 
@@ -672,5 +697,41 @@ export function fetchSiteLog(activeSite) {
         });
       }
     });
+  };
+}
+
+//************************************** Site getSiteTemplates
+
+export function getSiteTemplates() {
+  let url = `external/api/site-templates.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_SITE_TEMPLATES });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_SITE_TEMPLATES,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_SITE_TEMPLATES_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function selectSiteTemplate(template) {
+  return {
+    type: types.SELECT_SITE_TEMPLATE,
+    payload: template
+  };
+}
+
+export function deselectSiteTemplate() {
+  return {
+    type: types.DESELECT_SITE_TEMPLATE,
+    payload: {}
   };
 }

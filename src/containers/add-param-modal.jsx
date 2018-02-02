@@ -4,9 +4,9 @@ import _ from "lodash";
 import {
   closeAddParamModal,
   updateActiveConfig,
-  updateParamList,
   selectAddParamFormControl,
-  addParamFormControlSetValue
+  addParamFormControlSetValue,
+  updateAddParamsListFilter
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import Modal from "react-modal";
@@ -32,44 +32,6 @@ const paramListStyle = {
 };
 
 class AddParamModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      paramGroup: "",
-      paramQuestion: "",
-      paramTag: "",
-      paramList: this.props.paramList
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ paramList: nextProps.paramList });
-  }
-
-  onParamGroupChange(event) {
-    let paramGroup = event.target.value;
-    this.setState({ paramGroup });
-  }
-
-  onParamQuestionChange(event) {
-    let paramQuestion = event.target.value;
-    this.setState({ paramQuestion });
-  }
-
-  onParamTagChange(event) {
-    let paramTag = event.target.value;
-    this.setState({ paramTag });
-  }
-
-  onSearchClick() {
-    console.log("*********************************", this.state);
-    let paramListClone = _.deepClone(this.state.paramList);
-    paramListClone.filter(formgroup => {
-      let isGroupMatch = true;
-      return isGroupMatch;
-    });
-  }
-
   addParamValueChanged(event) {
     let value = event.target.value;
     this.props.addParamFormControlSetValue(
@@ -184,54 +146,101 @@ class AddParamModal extends Component {
               <div className="panel-heading">
                 <form
                   id="search-param-to-add-form"
-                  className="form form-inline"
+                  className="form form-horizontal"
                 >
-                  <div className="form-group">
-                    <label>Group</label>{" "}
-                    <select
-                      className="form-control"
-                      id="add-param-group-name"
-                      value={this.props.paramGroup}
-                      onChange={event => this.onParamGroupChange(event)}
-                    >
-                      <option value="">SELECT</option>
-                      <option value="X12">X12</option>
-                      <option value="837">837</option>
-                      <option value="att">Att</option>
-                      <option value="277">277</option>
-                      <option value="999">999</option>
-                      <option value="835">835</option>
-                      <option value="997">997</option>
-                      <option value="275">275</option>
-                    </select>{" "}
+                  <div className="row">
+                    <div className="col-md-3">
+                      <div className="form-group">
+                        <label className="control-label col-xs-5">Group</label>
+                        <div className="col-xs-7">
+                          <select
+                            className="form-control"
+                            id="add-param-group-name"
+                            name="groupName"
+                            value={this.props.addParamListFilter.groupName}
+                            onChange={event =>
+                              this.props.updateAddParamsListFilter(
+                                {
+                                  groupName: event.target.value,
+                                  formcontrolQuestion: this.props
+                                    .addParamListFilter.formcontrolQuestion,
+                                  paramTag: this.props.addParamListFilter
+                                    .paramTag
+                                },
+                                this.props.paramList
+                              )}
+                          >
+                            <option value="">SELECT</option>
+                            <option value="X12">X12</option>
+                            <option value="837">837</option>
+                            <option value="att">Att</option>
+                            <option value="277">277</option>
+                            <option value="999">999</option>
+                            <option value="835">835</option>
+                            <option value="824">824</option>
+                            <option value="997">997</option>
+                            <option value="275">275</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-5">
+                      <div className="form-group">
+                        <label className="control-label col-xs-3">
+                          Question
+                        </label>
+                        <div className="col-xs-9">
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="add-param-question"
+                            name="formcontrolQuestion"
+                            value={
+                              this.props.addParamListFilter.formcontrolQuestion
+                            }
+                            onChange={event =>
+                              this.props.updateAddParamsListFilter(
+                                {
+                                  groupName: this.props.addParamListFilter
+                                    .groupName,
+                                  formcontrolQuestion: event.target.value,
+                                  paramTag: this.props.addParamListFilter
+                                    .paramTag
+                                },
+                                this.props.paramList
+                              )}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="form-group">
+                        <label className="control-label col-xs-5">
+                          Parameter tag
+                        </label>
+                        <div className="col-xs-7">
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="add-param-tag"
+                            name="paramTag"
+                            value={this.props.addParamListFilter.paramTag}
+                            onChange={event =>
+                              this.props.updateAddParamsListFilter(
+                                {
+                                  groupName: this.props.addParamListFilter
+                                    .groupName,
+                                  formcontrolQuestion: this.props
+                                    .addParamListFilter.formcontrolQuestion,
+                                  paramTag: event.target.value
+                                },
+                                this.props.paramList
+                              )}
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label>&nbsp;Question</label>{" "}
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="add-param-question"
-                      value={this.props.paramQuestion}
-                      onChange={event => this.onParamQuestionChange(event)}
-                    />{" "}
-                  </div>
-                  <div className="form-group">
-                    <label>&nbsp;Parameter</label>{" "}
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="add-param-tag"
-                      value={this.props.paramTag}
-                      onChange={event => this.onParamTagChange(event)}
-                    />
-                  </div>{" "}
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => this.onSearchClick()}
-                  >
-                    Search
-                  </button>
                 </form>
               </div>
               <div className="panel-body">
@@ -246,7 +255,7 @@ class AddParamModal extends Component {
                           <strong>Question</strong>
                         </div>
                         <div className="col-xs-5">
-                          <strong>Parameter</strong>
+                          <strong>Parameter tag</strong>
                         </div>
                       </div>
                     </div>
@@ -258,7 +267,7 @@ class AddParamModal extends Component {
                         className="add-params-list-container"
                         style={paramListStyle}
                       >
-                        {this.props.paramList.map(formgroup => {
+                        {this.props.filteredParamList.map(formgroup => {
                           return (
                             <div key={formgroup.id}>
                               {formgroup.formcontrols.map(formcontrol => {
@@ -300,11 +309,12 @@ class AddParamModal extends Component {
                   {this.props.addParamFormControl.options
                     ? this.renderSelectedFormControl()
                     : <div className="col-xs-4">
-                        <div className="panel-body">
-                          <div className="form">
-                            <div className="form-group">
-                              <label>Select Parameter</label>
-                            </div>
+                        <div className="panel panel-info">
+                          <div className="panel-heading">
+                            <h4>
+                              <span className="fa fa-hand-o-left" />
+                              &nbsp;&nbsp;Select Parameter
+                            </h4>
                           </div>
                         </div>
                       </div>}
@@ -323,7 +333,9 @@ function mapStateToProps({
   addParamModalIsOpen,
   activeConfig,
   paramList,
-  addParamFormControl
+  filteredParamList,
+  addParamFormControl,
+  addParamListFilter
 }) {
   // whatever is returned will show up as a props
   return {
@@ -331,7 +343,9 @@ function mapStateToProps({
     addParamModalIsOpen,
     activeConfig,
     paramList,
-    addParamFormControl
+    filteredParamList,
+    addParamFormControl,
+    addParamListFilter
   };
 }
 
@@ -342,9 +356,9 @@ function mapDispatchToProps(dispatch) {
     {
       closeAddParamModal,
       updateActiveConfig,
-      updateParamList,
       selectAddParamFormControl,
-      addParamFormControlSetValue
+      addParamFormControlSetValue,
+      updateAddParamsListFilter
     },
     dispatch
   );

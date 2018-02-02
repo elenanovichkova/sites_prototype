@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import EditParamModal from "./edit-param-modal";
-import AddParamModal from "./add-param-modal";
+import AddParamModal from "./add-param-modal.jsx";
 import ConfirmationModal from "./confirmation-modal";
 import ParamListItem from "./param-list-item";
 import {
