@@ -491,8 +491,32 @@ const activeSiteTemplateReducer = (state = {}, action) => {
   }
 };
 
+//************************** Site filter
+const defaultFilter = {
+  siteId: "",
+  siteName: "",
+  taxId: "",
+  receiverId: ""
+};
+
+const sitesFilterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.FILTER_SITEID_CHANGED:
+      return { ...state, siteId: action.payload };
+    case types.FILTER_SITENAME_CHANGED:
+      return { ...state, siteName: action.payload };
+    case types.FILTER_SITETAXID_CHANGED:
+      return { ...state, taxId: action.payload };
+    case types.FILTER_SITERECEIVERID_CHANGED:
+      return { ...state, receiverId: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
+  sitesFilter: sitesFilterReducer,
   configView: configViewReducer,
   siteList: siteListReducer,
   activeSite: activeSiteReducer,

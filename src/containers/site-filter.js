@@ -1,34 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchSites } from "../actions/index";
+import {
+  fetchSites,
+  filterSiteNameChanged,
+  filterSiteIdChanged,
+  filterSiteTaxIdChanged,
+  filterSiteReceiverIdChanged
+} from "../actions/index";
 
 class SiteFilter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      siteName: "",
-      siteId: "",
-      siteTaxId: "",
-      siteReceiverId: ""
-    };
-  }
-
   onChange(event) {
     console.log(event.target.value, event.target.name);
     let value = event.target.value;
     let name = event.target.name;
-    this.setState({ [name]: value });
+    switch (name) {
+      case "siteName":
+        this.props.filterSiteNameChanged(value);
+        break;
+      case "siteId":
+        this.props.filterSiteIdChanged(value);
+        break;
+      case "siteTaxId":
+        this.props.filterSiteTaxIdChanged(value);
+        break;
+      case "siteReceiverId":
+        this.props.filterSiteReceiverIdChanged(value);
+        break;
+    }
   }
 
   onFormSubmit(event) {
     event.preventDefault();
     if (!this.props.siteList.isFetching) {
       this.props.fetchSites(
-        this.state.siteName,
-        this.state.siteId,
-        this.state.siteTaxId,
-        this.state.siteReceiverId
+        this.props.sitesFilter.siteName,
+        this.props.sitesFilter.siteId,
+        this.props.sitesFilter.taxId,
+        this.props.sitesFilter.receiverId
       );
     }
   }
@@ -50,8 +59,9 @@ class SiteFilter extends Component {
                       <input
                         type="text"
                         name="siteName"
-                        className="form-control"
-                        value={this.state.siteName}
+                        className="form-control wildcard"
+                        title="Use leading and/or trailing % for wildcard search, case sensitive"
+                        value={this.props.sitesFilter.siteName}
                         onChange={event => this.onChange(event)}
                       />
                     </div>
@@ -64,8 +74,9 @@ class SiteFilter extends Component {
                       <input
                         type="text"
                         name="siteId"
-                        className="form-control"
-                        value={this.state.siteId}
+                        className="form-control wildcard"
+                        title="Use leading and/or trailing % for wildcard search, case sensitive"
+                        value={this.props.sitesFilter.siteId}
                         onChange={event => this.onChange(event)}
                       />
                     </div>
@@ -79,7 +90,7 @@ class SiteFilter extends Component {
                         type="text"
                         name="siteTaxId"
                         className="form-control"
-                        value={this.state.siteTaxId}
+                        value={this.props.sitesFilter.taxId}
                         onChange={event => this.onChange(event)}
                       />
                     </div>
@@ -95,7 +106,7 @@ class SiteFilter extends Component {
                         type="text"
                         name="siteReceiverId"
                         className="form-control"
-                        value={this.state.siteReceiverId}
+                        value={this.props.sitesFilter.receiverId}
                         onChange={event => this.onChange(event)}
                       />
                     </div>
@@ -119,13 +130,22 @@ class SiteFilter extends Component {
   }
 }
 
-function mapStateToProps({ siteList }) {
+function mapStateToProps({ siteList, sitesFilter }) {
   // whatever is returned will show up as a props
-  return { siteList };
+  return { siteList, sitesFilter };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchSites }, dispatch);
+  return bindActionCreators(
+    {
+      fetchSites,
+      filterSiteNameChanged,
+      filterSiteIdChanged,
+      filterSiteTaxIdChanged,
+      filterSiteReceiverIdChanged
+    },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiteFilter);

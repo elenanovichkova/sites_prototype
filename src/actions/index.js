@@ -4,6 +4,35 @@ import * as types from "./action-types";
 
 const ROOT_URL = "external/api";
 
+//********************** sites filter
+
+export function filterSiteIdChanged(siteId) {
+  return {
+    type: types.FILTER_SITEID_CHANGED,
+    payload: siteId
+  };
+}
+export function filterSiteNameChanged(siteName) {
+  return {
+    type: types.FILTER_SITENAME_CHANGED,
+    payload: siteName
+  };
+}
+export function filterSiteTaxIdChanged(taxId) {
+  return {
+    type: types.FILTER_SITETAXID_CHANGED,
+    payload: taxId
+  };
+}
+export function filterSiteReceiverIdChanged(receiverId) {
+  return {
+    type: types.FILTER_SITERECEIVERID_CHANGED,
+    payload: receiverId
+  };
+}
+
+//************************* sites view
+
 export function changeSitesView(view) {
   //action creator, it needs to return an action, an object with a type property
   switch (view) {
