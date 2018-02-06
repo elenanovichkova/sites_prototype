@@ -31,7 +31,7 @@ class SitesContainer extends Component {
                             className="btn btn-primary  full-width"
                             onClick={() => {
                               this.props.getSiteTemplates();
-                              this.props.changeSitesView("site-new");
+                              this.props.changeSitesView("site-templates");
                             }}
                           >
                             Create New Site
@@ -44,7 +44,7 @@ class SitesContainer extends Component {
             </div>
           </div>
           {this.props.siteView == "site-list"
-            ? <div>
+            ? <div className="sites-container">
                 <div className="row">
                   <div className="col-md-12">
                     <SiteFilter />
@@ -69,7 +69,7 @@ class SitesContainer extends Component {
                 </div>
               </div>
             : ""}
-          {this.props.siteView == "site-new"
+          {this.props.siteView == "site-templates"
             ? <div>
                 <p>
                   <a

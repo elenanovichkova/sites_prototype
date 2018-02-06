@@ -44,9 +44,9 @@ export function changeSitesView(view) {
       return {
         type: types.SITE_LIST_VIEW
       };
-    case "site-new":
+    case "site-templates":
       return {
-        type: types.SITE_NEW_VIEW
+        type: types.SITE_TEMPLATES_VIEW
       };
   }
 }

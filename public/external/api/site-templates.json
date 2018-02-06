@@ -10,7 +10,71 @@
       "name": "blank",
       "type": "sitetemplate",
       "title": "Blank",
-      "descr": "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      "descr": "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "epsite": {
+        "ID": {
+          "type": "text",
+          "label": "Enter site abbreviation",
+          "name": "ID",
+          "placeholder": "enter site id",
+          "hint": "3 - 20 max all capital letters, no spaces",
+          "maxLength": "20",
+          "minLength": "3",
+          "isRequired": true,
+          "isReadOnly": false,
+          "defaultValue": "",
+          "validator": "siteIdValidator"
+        },
+        "codeNbr": {
+          "type": "text",
+          "label": "Enter site codenbr",
+          "name": "codeNbr",
+          "placeholder": "enter site id",
+          "hint": "3 - 20 max all capital letters, no spaces",
+          "maxLength": "20",
+          "minLength": "3",
+          "isRequired": true,
+          "isReadOnly": false,
+          "defaultValue": "",
+          "validator": "siteCodeNbrValidator"
+        },
+        "name": {
+          "type": "text",
+          "label": "Enter site name",
+          "name": "name",
+          "placeholder": "enter site id",
+          "hint": "3 of 55 max characters",
+          "maxLength": "55",
+          "minLength": "3",
+          "isRequired": true,
+          "isReadOnly": false,
+          "defaultValue": "",
+          "validator": "siteNameValidator"
+        },
+        "calendar": {
+          "type": "combo",
+          "label": "Pick calendar to process bills",
+          "name": "calendar",
+          "placeholder": "",
+          "hint": "",
+          "maxLength": "",
+          "minLength": "",
+          "isRequired": true,
+          "isReadOnly": false,
+          "defaultValue": "work",
+          "validator": "",
+          "options": [
+            {
+              "val": "work",
+              "descr": "Work Days"
+            },
+            {
+              "val": "USPS",
+              "descr": "USPS"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "template2",

@@ -35,6 +35,10 @@ class NewSiteTemplatePicker extends Component {
                           <button
                             className="btn btn-primary full-width"
                             type="button"
+                            onClick={this.props.selectSiteTemplate(
+                              template,
+                              () => this.props.changeSitesView("site-new")
+                            )}
                           >
                             CREATE
                           </button>
