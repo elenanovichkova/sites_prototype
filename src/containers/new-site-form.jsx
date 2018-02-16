@@ -105,10 +105,19 @@ const data = {
   ],
   params837: [
     {
-      px12_docrypt: "Y"
+      px12_allowtest: "Y"
     },
     {
-      px12_dota1: "Y"
+      p837_lookupstlic: "Y"
+    },
+    {
+      p837_imagedays: "5"
+    },
+    {
+      p837_paper: "N"
+    },
+    {
+      p837_pvdfld: "BCN"
     }
   ]
 };
@@ -511,62 +520,68 @@ let NewSiteForm = props => {
           <div className="form form-horizontal">
             <div className="row">
               <div className="col-md-6">
-                <Field
-                  name="annualVolumes.wcbill"
-                  label="WC Bills"
-                  placeholder="WC Bills"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
-              </div>
-              <div className="col-md-6">
-                <Field
-                  name="annualVolumes.wcatt"
-                  label="WC Attachments"
-                  placeholder="WC Attachments"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <Field
-                  name="annualVolumes.autobill"
-                  label="Auto Bills"
-                  placeholder="Auto Bills"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
-              </div>
-              <div className="col-md-6">
-                <Field
-                  name="annualVolumes.autoatt"
-                  label="Auto Attachments"
-                  placeholder="Auto Attachments"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <Field
-                  name="annualVolumes.otherbill"
-                  label="Other Bills"
-                  placeholder="Other Bills"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
-              </div>
-              <div className="col-md-6">
-                <Field
-                  name="annualVolumes.otheratt"
-                  label="Other Attachments"
-                  placeholder="Other Attachments"
-                  type="number"
-                  component={renderHorizontalTextField}
-                />
+                <div className="row">
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.wcbill"
+                      label="WC Bills"
+                      placeholder="WC Bills"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.wcatt"
+                      label="WC Attachments"
+                      placeholder="WC Attachments"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.autobill"
+                      label="Auto Bills"
+                      placeholder="Auto Bills"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.autoatt"
+                      label="Auto Attachments"
+                      placeholder="Auto Attachments"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.otherbill"
+                      label="Other Bills"
+                      placeholder="Other Bills"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <Field
+                      name="annualVolumes.otheratt"
+                      label="Other Attachments"
+                      placeholder="Other Attachments"
+                      type="number"
+                      component={renderHorizontalTextField}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1733,6 +1748,142 @@ const formConfig = {
         id: "px12_dota1_2",
         descr: "No",
         value: "N"
+      }
+    ]
+  },
+  px12_allowtest: {
+    label: "Allow test indicator",
+    options: [
+      {
+        id: "px12_allowtest_0",
+        descr: "SELECT",
+        value: ""
+      },
+      {
+        id: "px12_allowtest_1",
+        descr: "Yes",
+        value: "Y"
+      },
+      {
+        id: "px12_allowtest_2",
+        descr: "No",
+        value: "N"
+      }
+    ]
+  },
+  p837_lookupstlic: {
+    label: "Opt-in state license lookup",
+    options: [
+      {
+        id: "p837_lookupstlic_0",
+        descr: "SELECT",
+        value: ""
+      },
+      {
+        id: "p837_lookupstlic_1",
+        descr: "Yes",
+        value: "Y"
+      },
+      {
+        id: "p837_lookupstlic_2",
+        descr: "No",
+        value: "N"
+      }
+    ]
+  },
+  p837_imagedays: {
+    label: "How long should attachment pend for matching (default 15 days)",
+    options: [
+      {
+        id: "p837_imagedays_0",
+        descr: "SELECT",
+        value: ""
+      },
+      {
+        id: "p837_imagedays_1",
+        descr: "1",
+        value: "1"
+      },
+      {
+        id: "p837_imagedays_2",
+        descr: "2",
+        value: "2"
+      },
+      {
+        id: "p837_imagedays_3",
+        descr: "3",
+        value: "3"
+      },
+      {
+        id: "p837_imagedays_4",
+        descr: "4",
+        value: "4"
+      },
+      {
+        id: "p837_imagedays_5",
+        descr: "5",
+        value: "5"
+      }
+    ]
+  },
+  p837_paper: {
+    label:
+      "If Y or OUT send the payer loop data from the MBEntity in subscriber.payer. If Y only run validation rules 1, 2 and 3",
+    options: [
+      {
+        id: "p837_paper_0",
+        descr: "SELECT",
+        value: ""
+      },
+      {
+        id: "p837_paper_1",
+        descr: "Yes",
+        value: "Y"
+      },
+      {
+        id: "p837_paper_1",
+        descr: "OUT",
+        value: "OUT"
+      },
+      {
+        id: "p837_paper_2",
+        descr: "No",
+        value: "N"
+      }
+    ]
+  },
+  p837_pvdfld: {
+    label: "Split Inbound 837 Bill Files",
+    options: [
+      {
+        id: "p837_pvdfld_0",
+        descr: "SELECT",
+        value: ""
+      },
+      {
+        id: "p837_pvdfld_1",
+        descr: "BCN",
+        value: "BCN"
+      },
+      {
+        id: "p837_pvdfld_1",
+        descr: "CBO",
+        value: "CBO"
+      },
+      {
+        id: "p837_pvdfld_2",
+        descr: "NPI",
+        value: "NPI"
+      },
+      {
+        id: "p837_pvdfld_1",
+        descr: "TIN",
+        value: "TIN"
+      },
+      {
+        id: "p837_pvdfld_2",
+        descr: "ZIRMEDBCN",
+        value: "ZIRMEDBCN"
       }
     ]
   }

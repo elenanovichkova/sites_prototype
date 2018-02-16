@@ -519,10 +519,19 @@ const sitesFilterReducer = (state = {}, action) => {
 
 const LOAD = "redux-form-examples/account/LOAD";
 
-const siteTemplateDataReducer = (
-  state = { data: { paramsX12: [{ px12_docrypt: "" }, { px12_dota1: "" }] } },
-  action
-) => {
+const defaultSiteTemplate = {
+  data: {
+    paramsX12: [{ px12_docrypt: "" }, { px12_dota1: "" }],
+    params837: [
+      { px12_allowtest: "" },
+      { p837_lookupstlic: "" },
+      { p837_imagedays: "" },
+      { p837_pvdfld: "" }
+    ]
+  }
+};
+
+const siteTemplateDataReducer = (state = defaultSiteTemplate, action) => {
   switch (action.type) {
     case LOAD:
       return {
