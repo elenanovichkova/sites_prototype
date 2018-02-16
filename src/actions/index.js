@@ -48,6 +48,10 @@ export function changeSitesView(view) {
       return {
         type: types.SITE_TEMPLATES_VIEW
       };
+    case "site-new":
+      return {
+        type: types.SITE_NEW_VIEW
+      };
   }
 }
 
@@ -764,3 +768,6 @@ export function deselectSiteTemplate() {
     payload: {}
   };
 }
+
+const LOAD = "redux-form-examples/account/LOAD";
+export const load = data => ({ type: LOAD, data });

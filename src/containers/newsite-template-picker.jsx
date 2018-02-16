@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { selectSiteTemplate } from "../actions/index";
+import { selectSiteTemplate, changeSitesView } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class NewSiteTemplatePicker extends Component {
@@ -9,7 +9,7 @@ class NewSiteTemplatePicker extends Component {
     return (
       <div>
         <div className="title text-center">
-          <h3>NEW SITE</h3>
+          <h3>NEW</h3>
         </div>
         <br />
         {_.chunk(this.props.siteTemplateList.data, 4).map((row, rowIndex) => {
@@ -35,10 +35,10 @@ class NewSiteTemplatePicker extends Component {
                           <button
                             className="btn btn-primary full-width"
                             type="button"
-                            onClick={this.props.selectSiteTemplate(
-                              template,
-                              () => this.props.changeSitesView("site-new")
-                            )}
+                            onClick={() => {
+                              this.props.selectSiteTemplate(template);
+                              this.props.changeSitesView("site-new");
+                            }}
                           >
                             CREATE
                           </button>
@@ -61,7 +61,7 @@ function mapStateToProps({ siteTemplateList }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectSiteTemplate }, dispatch);
+  return bindActionCreators({ selectSiteTemplate, changeSitesView }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(

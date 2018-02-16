@@ -9,6 +9,7 @@ import SiteDetail from "./site-detail";
 import SiteList from "./site-list";
 import Spinner from "./spinner";
 import NewSiteTemplatePicker from "./newsite-template-picker.jsx";
+import NewSiteForm from "./new-site-form.jsx";
 
 class SitesContainer extends Component {
   render() {
@@ -81,6 +82,22 @@ class SitesContainer extends Component {
                 </p>
                 <div>
                   <NewSiteTemplatePicker />
+                </div>
+              </div>
+            : ""}
+          {this.props.siteView == "site-new"
+            ? <div>
+                <p>
+                  <a
+                    href="#"
+                    onClick={() => this.props.changeSitesView("site-templates")}
+                  >
+                    <span className="fa fa-chevron-circle-left" /> BACK TO
+                    TEMPLATES
+                  </a>
+                </p>
+                <div>
+                  <NewSiteForm />
                 </div>
               </div>
             : ""}

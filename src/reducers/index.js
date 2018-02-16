@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 import _ from "lodash";
 import * as types from "../actions/action-types";
 
@@ -130,6 +131,8 @@ const siteViewReducer = (state = "site-list", action) => {
       return "site-list";
     case types.SITE_TEMPLATES_VIEW:
       return "site-templates";
+    case types.SITE_NEW_VIEW:
+      return "site-new";
     default:
       return state;
   }
@@ -514,6 +517,22 @@ const sitesFilterReducer = (state = {}, action) => {
   }
 };
 
+const LOAD = "redux-form-examples/account/LOAD";
+
+const siteTemplateDataReducer = (
+  state = { data: { paramsX12: [{ px12_docrypt: "" }, { px12_dota1: "" }] } },
+  action
+) => {
+  switch (action.type) {
+    case LOAD:
+      return {
+        data: action.data
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -540,7 +559,9 @@ const rootReducer = combineReducers({
   configToDuplicate: configToDuplicateReducer,
   siteLog: siteLogReducer,
   siteTemplateList: siteTemplateListReducer,
-  activeSiteTemplate: activeSiteTemplateReducer
+  activeSiteTemplate: activeSiteTemplateReducer,
+  siteTemplateData: siteTemplateDataReducer,
+  form: formReducer
 });
 
 export default rootReducer;

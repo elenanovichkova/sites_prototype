@@ -13,6 +13,7 @@
       "descr": "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "epsite": {
         "ID": {
+          "id": "epsiteId",
           "type": "text",
           "label": "Enter site abbreviation",
           "name": "ID",
@@ -20,12 +21,14 @@
           "hint": "3 - 20 max all capital letters, no spaces",
           "maxLength": "20",
           "minLength": "3",
+          "isHidden": false,
           "isRequired": true,
           "isReadOnly": false,
           "defaultValue": "",
           "validator": "siteIdValidator"
         },
         "codeNbr": {
+          "id": "epsiteCodeNbr",
           "type": "text",
           "label": "Enter site codenbr",
           "name": "codeNbr",
@@ -33,12 +36,14 @@
           "hint": "3 - 20 max all capital letters, no spaces",
           "maxLength": "20",
           "minLength": "3",
+          "isHidden": true,
           "isRequired": true,
           "isReadOnly": false,
           "defaultValue": "",
           "validator": "siteCodeNbrValidator"
         },
         "name": {
+          "id": "epsiteName",
           "type": "text",
           "label": "Enter site name",
           "name": "name",
@@ -46,19 +51,22 @@
           "hint": "3 of 55 max characters",
           "maxLength": "55",
           "minLength": "3",
+          "isHidden": false,
           "isRequired": true,
           "isReadOnly": false,
           "defaultValue": "",
           "validator": "siteNameValidator"
         },
         "calendar": {
-          "type": "combo",
+          "id": "epsiteCalendar",
+          "type": "select",
           "label": "Pick calendar to process bills",
           "name": "calendar",
           "placeholder": "",
           "hint": "",
           "maxLength": "",
           "minLength": "",
+          "isHidden": true,
           "isRequired": true,
           "isReadOnly": false,
           "defaultValue": "work",
@@ -71,6 +79,16 @@
             {
               "val": "USPS",
               "descr": "USPS"
+            }
+          ]
+        }
+      },
+      "paramsX12": {
+        "px12_docrypt": {
+          "options": [
+            {
+              "descr": "Yes",
+              "value": "Y"
             }
           ]
         }
