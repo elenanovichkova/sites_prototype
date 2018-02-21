@@ -769,5 +769,27 @@ export function deselectSiteTemplate() {
   };
 }
 
+//******************************** Form CONFIG_NEW
+
+export function getFormConfig() {
+  let url = `external/api/formConfig.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_FORM_CONFIG });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_FORM_CONFIG,
+          payload: _.keyBy(response.data.data, "name")
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_FORM_CONFIG_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
 const LOAD = "redux-form-examples/account/LOAD";
 export const load = data => ({ type: LOAD, data });

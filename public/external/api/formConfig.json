@@ -1,0 +1,637 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "name": "portalAccess",
+      "label": "Do you need portal access?",
+      "options": [
+        {
+          "id": "portalAccess_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "portalAccess_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "portalAccess_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "billFrequencyPeriod",
+      "label": "Period",
+      "options": [
+        {
+          "id": "billFrequencyPeriod_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "billFrequencyPeriod_1",
+          "descr": "Daily",
+          "value": "daily"
+        },
+        {
+          "id": "billFrequencyPeriod_2",
+          "descr": "Bi-weekly",
+          "value": "biweekly"
+        },
+        {
+          "id": "billFrequencyPeriod_3",
+          "descr": "Weekly",
+          "value": "weekly"
+        },
+        {
+          "id": "billFrequencyPeriod_4",
+          "descr": "Bi-monthly",
+          "value": "bimonthly"
+        },
+        {
+          "id": "billFrequencyPeriod_5",
+          "descr": "Monthly",
+          "value": "monthly"
+        }
+      ]
+    },
+    {
+      "name": "doElectronicAtt",
+      "label": "Do you store your attachments electronically?",
+      "options": [
+        {
+          "id": "doElectronicAtt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "doElectronicAtt_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "doElectronicAtt_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "doElectronicBills",
+      "label": "Do you currently submit bills electronically?",
+      "options": [
+        {
+          "id": "doElectronicBills_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "doElectronicBills_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "doElectronicBills_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "state",
+      "label": "State",
+      "options": [
+        {
+          "id": "state_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "state_1",
+          "descr": "Alabama",
+          "value": "AL"
+        },
+        {
+          "id": "state_2",
+          "descr": "Alaska",
+          "value": "AK"
+        },
+        {
+          "id": "state_3",
+          "descr": "American Samoa",
+          "value": "AS"
+        },
+        {
+          "id": "state_4",
+          "descr": "Arizona",
+          "value": "AZ"
+        },
+        {
+          "id": "state_5",
+          "descr": "Arkansas",
+          "value": "AR"
+        },
+        {
+          "id": "state_6",
+          "descr": "California",
+          "value": "CA"
+        },
+        {
+          "id": "state_7",
+          "descr": "Colorado",
+          "value": "CO"
+        },
+        {
+          "id": "state_8",
+          "descr": "Connecticut",
+          "value": "CT"
+        },
+        {
+          "id": "state_9",
+          "descr": "Delaware",
+          "value": "DE"
+        },
+        {
+          "id": "state_10",
+          "descr": "District Of Columbia",
+          "value": "DC"
+        },
+        {
+          "id": "state_11",
+          "descr": "Federated States Of Micronesia",
+          "value": "FM"
+        },
+        {
+          "id": "state_12",
+          "descr": "Florida",
+          "value": "FL"
+        },
+        {
+          "id": "state_13",
+          "descr": "Georgia",
+          "value": "GA"
+        },
+        {
+          "id": "state_14",
+          "descr": "Guam",
+          "value": "GU"
+        },
+        {
+          "id": "state_15",
+          "descr": "Hawaii",
+          "value": "HI"
+        },
+        {
+          "id": "state_16",
+          "descr": "Idaho",
+          "value": "ID"
+        },
+        {
+          "id": "state_17",
+          "descr": "Illinois",
+          "value": "IL"
+        },
+        {
+          "id": "state_18",
+          "descr": "Indiana",
+          "value": "IN"
+        },
+        {
+          "id": "state_19",
+          "descr": "Iowa",
+          "value": "IA"
+        },
+        {
+          "id": "state_20",
+          "descr": "Kansas",
+          "value": "KS"
+        },
+        {
+          "id": "state_21",
+          "descr": "Kentucky",
+          "value": "KY"
+        },
+        {
+          "id": "state_22",
+          "descr": "Louisiana",
+          "value": "LA"
+        },
+        {
+          "id": "state_23",
+          "descr": "Maine",
+          "value": "ME"
+        },
+        {
+          "id": "state_24",
+          "descr": "Marshall Islands",
+          "value": "MH"
+        },
+        {
+          "id": "state_25",
+          "descr": "Maryland",
+          "value": "MD"
+        },
+        {
+          "id": "state_26",
+          "descr": "Massachusetts",
+          "value": "MA"
+        },
+        {
+          "id": "state_27",
+          "descr": "Michigan",
+          "value": "MI"
+        },
+        {
+          "id": "state_28",
+          "descr": "Minnesota",
+          "value": "MN"
+        },
+        {
+          "id": "state_29",
+          "descr": "Mississippi",
+          "value": "MS"
+        },
+        {
+          "id": "state_30",
+          "descr": "Missouri",
+          "value": "MO"
+        },
+        {
+          "id": "state_31",
+          "descr": "Montana",
+          "value": "MT"
+        },
+        {
+          "id": "state_32",
+          "descr": "Nebraska",
+          "value": "NE"
+        },
+        {
+          "id": "state_33",
+          "descr": "Nevada",
+          "value": "NV"
+        },
+        {
+          "id": "state_34",
+          "descr": "New Hampshire",
+          "value": "NH"
+        },
+        {
+          "id": "state_35",
+          "descr": "New Jersey",
+          "value": "NJ"
+        },
+        {
+          "id": "state_36",
+          "descr": "New Mexico",
+          "value": "NM"
+        },
+        {
+          "id": "state_37",
+          "descr": "New York",
+          "value": "NY"
+        },
+        {
+          "id": "state_38",
+          "descr": "North Carolina",
+          "value": "NC"
+        },
+        {
+          "id": "state_39",
+          "descr": "North Dakota",
+          "value": "ND"
+        },
+        {
+          "id": "state_40",
+          "descr": "Northern Mariana Islands",
+          "value": "MP"
+        },
+        {
+          "id": "state_41",
+          "descr": "Ohio",
+          "value": "OH"
+        },
+        {
+          "id": "state_42",
+          "descr": "Oklahoma",
+          "value": "OK"
+        },
+        {
+          "id": "state_43",
+          "descr": "Oregon",
+          "value": "OR"
+        },
+        {
+          "id": "state_44",
+          "descr": "Palau",
+          "value": "PW"
+        },
+        {
+          "id": "state_45",
+          "descr": "Pennsylvania",
+          "value": "PA"
+        },
+        {
+          "id": "state_46",
+          "descr": "Puerto Rico",
+          "value": "PR"
+        },
+        {
+          "id": "state_47",
+          "descr": "Rhode Island",
+          "value": "RI"
+        },
+        {
+          "id": "state_48",
+          "descr": "South Carolina",
+          "value": "SC"
+        },
+        {
+          "id": "state_49",
+          "descr": "South Dakota",
+          "value": "SD"
+        },
+        {
+          "id": "state_50",
+          "descr": "Tennessee",
+          "value": "TN"
+        },
+        {
+          "id": "state_51",
+          "descr": "Texas",
+          "value": "TX"
+        },
+        {
+          "id": "state_52",
+          "descr": "Utah",
+          "value": "UT"
+        },
+        {
+          "id": "state_53",
+          "descr": "Vermont",
+          "value": "VT"
+        },
+        {
+          "id": "state_54",
+          "descr": "Virgin Islands",
+          "value": "VI"
+        },
+        {
+          "id": "state_55",
+          "descr": "Virginia",
+          "value": "VA"
+        },
+        {
+          "id": "state_56",
+          "descr": "Washington",
+          "value": "WA"
+        },
+        {
+          "id": "state_57",
+          "descr": "West Virginia",
+          "value": "WV"
+        },
+        {
+          "id": "state_58",
+          "descr": "Wisconsin",
+          "value": "WI"
+        },
+        {
+          "id": "state_59",
+          "descr": "Wyoming",
+          "value": "WY"
+        }
+      ]
+    },
+    {
+      "name": "masterEntity",
+      "label": "Master Entity",
+      "options": [
+        {
+          "id": "state_1",
+          "descr": "NONE",
+          "value": ""
+        },
+        {
+          "id": "state_2",
+          "descr": "BACTES",
+          "value": "BACTES"
+        },
+        {
+          "id": "state_3",
+          "descr": "CERESOFT",
+          "value": "CERESOFT"
+        },
+        {
+          "id": "state_4",
+          "descr": "ETACTICS",
+          "value": "ETACTICS"
+        },
+        {
+          "id": "state_5",
+          "descr": "GALENMD",
+          "value": "GALENMD"
+        },
+        {
+          "id": "state_6",
+          "descr": "INTEGRITAS",
+          "value": "INTEGRITAS"
+        },
+        {
+          "id": "state_7",
+          "descr": "RAINTREE",
+          "value": "RAINTREE"
+        }
+      ]
+    },
+    {
+      "name": "px12_docrypt",
+      "label": "Do files need to be encrypted",
+      "options": [
+        {
+          "id": "px12_docrypt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_docrypt_1",
+          "descr": "Yes",
+          "value": "Y"
+        },
+        {
+          "id": "px12_docrypt_2",
+          "descr": "No",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "px12_dota1",
+      "label": "Request acknowledgment",
+      "options": [
+        {
+          "id": "px12_dota1_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_dota1_1",
+          "descr": "Yes",
+          "value": "Y"
+        },
+        {
+          "id": "px12_dota1_2",
+          "descr": "No",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "px12_allowtest",
+      "label": "Allow test indicator",
+      "options": [
+        {
+          "id": "px12_allowtest_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_allowtest_1",
+          "descr": "Yes",
+          "value": "Y"
+        },
+        {
+          "id": "px12_allowtest_2",
+          "descr": "No",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p837_lookupstlic",
+      "label": "Opt-in state license lookup",
+      "options": [
+        {
+          "id": "p837_lookupstlic_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_lookupstlic_1",
+          "descr": "Yes",
+          "value": "Y"
+        },
+        {
+          "id": "p837_lookupstlic_2",
+          "descr": "No",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p837_imagedays",
+      "label": "How long should attachment pend for matching (default 15 days)",
+      "options": [
+        {
+          "id": "p837_imagedays_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_imagedays_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "p837_imagedays_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "p837_imagedays_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "p837_imagedays_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "p837_imagedays_5",
+          "descr": "5",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "name": "p837_paper",
+      "label": "If Y or OUT send the payer loop data from the MBEntity in subscriber.payer. If Y only run validation rules 1, 2 and 3",
+      "options": [
+        {
+          "id": "p837_paper_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_paper_1",
+          "descr": "Yes",
+          "value": "Y"
+        },
+        {
+          "id": "p837_paper_1",
+          "descr": "OUT",
+          "value": "OUT"
+        },
+        {
+          "id": "p837_paper_2",
+          "descr": "No",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p837_pvdfld",
+      "label": "Split Inbound 837 Bill Files",
+      "options": [
+        {
+          "id": "p837_pvdfld_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_pvdfld_1",
+          "descr": "BCN",
+          "value": "BCN"
+        },
+        {
+          "id": "p837_pvdfld_1",
+          "descr": "CBO",
+          "value": "CBO"
+        },
+        {
+          "id": "p837_pvdfld_2",
+          "descr": "NPI",
+          "value": "NPI"
+        },
+        {
+          "id": "p837_pvdfld_1",
+          "descr": "TIN",
+          "value": "TIN"
+        },
+        {
+          "id": "p837_pvdfld_2",
+          "descr": "ZIRMEDBCN",
+          "value": "ZIRMEDBCN"
+        }
+      ]
+    }
+  ]
+}

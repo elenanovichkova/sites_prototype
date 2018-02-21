@@ -542,6 +542,29 @@ const siteTemplateDataReducer = (state = defaultSiteTemplate, action) => {
   }
 };
 
+const formConfigReducer = (
+  state = {
+    isFetching: false,
+    data: {}
+  },
+  action
+) => {
+  switch (action.type) {
+    case types.REQUEST_FORM_CONFIG:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case types.RECEIVED_FORM_CONFIG:
+      return {
+        isFetching: false,
+        data: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -570,7 +593,8 @@ const rootReducer = combineReducers({
   siteTemplateList: siteTemplateListReducer,
   activeSiteTemplate: activeSiteTemplateReducer,
   siteTemplateData: siteTemplateDataReducer,
-  form: formReducer
+  form: formReducer,
+  formConfig: formConfigReducer
 });
 
 export default rootReducer;

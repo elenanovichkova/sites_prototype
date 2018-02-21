@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeSitesView, getSiteTemplates } from "../actions/index";
+import {
+  changeSitesView,
+  getSiteTemplates,
+  getFormConfig
+} from "../actions/index";
 import _ from "lodash";
 
 import SiteFilter from "./site-filter";
@@ -12,6 +16,11 @@ import NewSiteTemplatePicker from "./newsite-template-picker.jsx";
 import NewSiteForm from "./new-site-form.jsx";
 
 class SitesContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.props.getFormConfig();
+  }
+
   render() {
     let privs = ["ssRead", "ssNew", "ssEdit"];
     return (
@@ -113,7 +122,10 @@ function mapStateToProps({ siteView }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeSitesView, getSiteTemplates }, dispatch);
+  return bindActionCreators(
+    { changeSitesView, getSiteTemplates, getFormConfig },
+    dispatch
+  );
 }
 
 //promote SitesRootComponent from a component to a container
