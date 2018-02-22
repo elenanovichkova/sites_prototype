@@ -351,6 +351,28 @@ const SiteProfileFormAddon = props =>
     <div className="row">
       <div className="col-md-12">
         <div className="row">
+          <div className="col-md-5">
+            <div className="">
+              <label>Do you send 999 acknowledgment after receiving 835?</label>
+            </div>
+          </div>
+          <div className="col-md-7">
+            <Field
+              name="eobAck999"
+              label="(available only via FTP/SFTP)"
+              type="checkbox"
+              component={renderCheckboxField}
+            />
+          </div>
+        </div>
+        <div className="row" />
+        <div className="form-group" />
+      </div>
+    </div>
+
+    <div className="row">
+      <div className="col-md-12">
+        <div className="row">
           <div className="col-md-12">
             <div className="">
               <label>Estimated Annual Volumes</label>

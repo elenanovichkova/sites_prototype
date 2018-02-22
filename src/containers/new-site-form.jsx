@@ -21,6 +21,7 @@ const data = {
   doElectronicBills: "Y",
   doElectronicBillsCompany: "partner name",
   x12fieldSep: "*",
+  eobAck999: true,
   doElectronicAtt: "Y",
   optInAttachmentRule: "other",
   optInAttachmentOtherRule: "BVFR",
