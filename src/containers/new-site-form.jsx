@@ -99,30 +99,42 @@ const data = {
     billFrequencyCnt: 2000,
     billFrequencyPeriod: "biweekly"
   },
-  paramsX12: [
-    {
-      px12_docrypt: "Y"
-    },
-    {
-      px12_dota1: "Y"
-    }
-  ],
+  paramsX12: [{ px12_docrypt: "Y" }, { px12_dota1: "Y" }],
   params837: [
-    {
-      px12_allowtest: "Y"
-    },
-    {
-      p837_lookupstlic: "Y"
-    },
-    {
-      p837_imagedays: "5"
-    },
-    {
-      p837_paper: "N"
-    },
-    {
-      p837_pvdfld: "BCN"
-    }
+    { px12_allowtest: "Y" },
+    { p837_lookupstlic: "Y" },
+    { p837_paper: "N" },
+    { p837_pvdfld: "BCN" },
+    { p837_defssn: "999999999" },
+    { p837_dopaper: "" }
+  ],
+  paramsatt: [
+    { p837_imagedays: "5" },
+    { p837_attag: "634_647_517_485" },
+    { p837_at: "R" }
+  ],
+  params999: [{ px12_do999: "" }],
+  params277: [
+    { px12_do277ca: "" },
+    { patt_autorej277: "" },
+    { patt_autorej: "15" },
+    { patt_autowarn1: "5" },
+    { patt_autowarn2: "15" },
+    { patt_autowarn3: "" },
+    { patt_autowarn4: "" },
+    { p277_perbilling: "" },
+    { p277_perpayer: "" },
+    { p277_perdate: "" }
+  ],
+  params835: [
+    { p835_ver: "" },
+    { p835_perbilling: "" },
+    { p835_perpayer: "" },
+    { p835_perdate: "" },
+    { p835_perclaimtype: "" },
+    { p835_perpayee: "" },
+    { p835_perzeropay: "" },
+    { p835_billdcn: "" }
   ]
 };
 const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
@@ -253,27 +265,62 @@ const renderCheckboxField = ({
   );
 };
 
+const renderInlineSelectField = ({
+  input,
+  label,
+  options,
+  meta: { touched, error }
+}) =>
+  <div className="form-group">
+    <label className="col-xs-6 control-label">
+      {label}
+    </label>
+    <div className="col-xs-6">
+      <select {...input} className="form-control">
+        {options.map(option =>
+          <option key={option.id} value={option.value}>
+            {option.descr}
+          </option>
+        )}
+      </select>
+      {touched &&
+        error &&
+        <span>
+          {error}
+        </span>}
+    </div>
+  </div>;
+
 const renderParams = ({
   fields,
+  title,
   formConfig,
   meta: { error, submitFailed }
 }) => {
   let name = fields.name;
   return (
-    <div className="row">
-      {fields.getAll().map((member, index) => {
-        return (
-          <div className="col-md-12" key={index}>
-            {/*name should be in format paramsX12[index].paramName like paramsX12[0].px12_docrypt*/}
-            <Field
-              name={`${name}[${index}].${Object.keys(member)[0]}`}
-              options={formConfig[Object.keys(member)[0]].options}
-              component={renderSelectField}
-              label={`${formConfig[Object.keys(member)[0]].label}`}
-            />
-          </div>
-        );
-      })}
+    <div className="form form-horizontal">
+      <h4 className="title">
+        <strong>
+          {title}
+        </strong>
+      </h4>
+      <hr />
+      <div className="row">
+        {fields.getAll().map((member, index) => {
+          return (
+            <div className="col-md-12" key={index}>
+              {/*name should be in format paramsX12[index].paramName like paramsX12[0].px12_docrypt*/}
+              <Field
+                name={`${name}[${index}].${Object.keys(member)[0]}`}
+                options={formConfig[Object.keys(member)[0]].options}
+                component={renderInlineSelectField}
+                label={`${formConfig[Object.keys(member)[0]].label}`}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -316,33 +363,79 @@ let NewSiteForm = props => {
 
       <SiteConnectivityAddon {...props} />
 
-      <h3 className="new-site-form-section-title new-site-form-section-title-bill-questionnaire">
-        <strong>X12 parameters</strong>
-      </h3>
-      <hr />
-
-      <div className="row">
-        <div className="col-md-6">
-          <FieldArray
-            name="paramsX12"
-            formConfig={props.formConfig}
-            component={renderParams}
-          />
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3 className="title new-site-form-section-title new-site-form-section-title-edi-configuration">
+            <strong>EDI configuration</strong>
+          </h3>
         </div>
-      </div>
 
-      <h3 className="new-site-form-section-title new-site-form-section-title-bill-questionnaire">
-        <strong>837 parameters</strong>
-      </h3>
-      <hr />
+        <div className="panel-body">
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="paramsX12"
+                title="X12 General Parameters"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
 
-      <div className="row">
-        <div className="col-md-6">
-          <FieldArray
-            name="params837"
-            formConfig={props.formConfig}
-            component={renderParams}
-          />
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params837"
+                title="837 Healthcare Claim"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="paramsatt"
+                title="Attachments Parameters"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params999"
+                title="999 Implementation Acknowledgment"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params277"
+                title="277 Health Care Claim Acknowledgement"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params835"
+                title="835 The Explanation of Benefits (EOB)"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
         </div>
       </div>
 

@@ -769,7 +769,7 @@ export function deselectSiteTemplate() {
   };
 }
 
-//******************************** Form CONFIG_NEW
+//******************************** Form CONFIG
 
 export function getFormConfig() {
   let url = `external/api/formConfig.json`;

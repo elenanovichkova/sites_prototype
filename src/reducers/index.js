@@ -525,8 +525,33 @@ const defaultSiteTemplate = {
     params837: [
       { px12_allowtest: "" },
       { p837_lookupstlic: "" },
-      { p837_imagedays: "" },
-      { p837_pvdfld: "" }
+      { p837_pvdfld: "" },
+      { p837_defssn: "" },
+      { p837_dopaper: "" }
+    ],
+    paramsatt: [{ p837_imagedays: "15" }, { p837_attag: "" }, { p837_at: "" }],
+    params999: [{ px12_do999: "" }],
+    params277: [
+      { px12_do277ca: "" },
+      { patt_autorej277: "" },
+      { patt_autorej: "15" },
+      { patt_autowarn1: "5" },
+      { patt_autowarn2: "15" },
+      { patt_autowarn3: "" },
+      { patt_autowarn4: "" },
+      { p277_perbilling: "" },
+      { p277_perpayer: "" },
+      { p277_perdate: "" }
+    ],
+    params835: [
+      { p835_ver: "" },
+      { p835_perbilling: "" },
+      { p835_perpayer: "" },
+      { p835_perdate: "" },
+      { p835_perclaimtype: "" },
+      { p835_perpayee: "" },
+      { p835_perzeropay: "" },
+      { p835_billdcn: "" }
     ]
   }
 };

@@ -568,6 +568,231 @@
           "id": "p837_imagedays_5",
           "descr": "5",
           "value": "5"
+        },
+        {
+          "id": "p837_imagedays_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "p837_imagedays_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "p837_imagedays_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "p837_imagedays_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "p837_imagedays_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "p837_imagedays_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "p837_imagedays_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "p837_imagedays_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "p837_imagedays_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "p837_imagedays_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "p837_imagedays_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "p837_imagedays_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "p837_imagedays_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "p837_imagedays_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "p837_imagedays_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "p837_imagedays_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "p837_imagedays_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "p837_imagedays_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "p837_imagedays_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "p837_imagedays_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "p837_imagedays_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "p837_imagedays_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "p837_imagedays_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "p837_imagedays_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "p837_imagedays_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "p837_imagedays_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "p837_imagedays_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "p837_imagedays_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "p837_imagedays_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "p837_imagedays_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "p837_imagedays_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "p837_imagedays_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "p837_imagedays_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "p837_imagedays_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "p837_imagedays_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "p837_imagedays_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "p837_imagedays_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "p837_imagedays_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "p837_imagedays_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "p837_imagedays_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "p837_imagedays_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "p837_imagedays_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "p837_imagedays_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "p837_imagedays_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "p837_imagedays_50",
+          "descr": "50",
+          "value": "50"
         }
       ]
     },
@@ -630,6 +855,1754 @@
           "id": "p837_pvdfld_2",
           "descr": "ZIRMEDBCN",
           "value": "ZIRMEDBCN"
+        }
+      ]
+    },
+    {
+      "name": "p837_attag",
+      "label": "How will attachment match to the bill",
+      "options": [
+        {
+          "id": "p837_attag_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_attag_1",
+          "descr": "lastname_firstname_dateofservice",
+          "value": "043_044_485"
+        },
+        {
+          "id": "p837_attag_2",
+          "descr": "last_first_providerlast_providerfirst_dateofservice",
+          "value": "043_044_528_529_485"
+        },
+        {
+          "id": "p837_attag_3",
+          "descr": "first_last_dateofservice",
+          "value": "044_043_485"
+        },
+        {
+          "id": "p837_attag_4",
+          "descr": "Paper Conversion Id",
+          "value": "490"
+        },
+        {
+          "id": "p837_attag_5",
+          "descr": "claimid",
+          "value": "517"
+        },
+        {
+          "id": "p837_attag_6",
+          "descr": "claimid_lastname_dateofservice",
+          "value": "517_043_485"
+        },
+        {
+          "id": "p837_attag_7",
+          "descr": "claimid_dateofservice",
+          "value": "517_485"
+        },
+        {
+          "id": "p837_attag_8",
+          "descr": "claimid_dateofservice_dateofaccedent",
+          "value": "517_485_031"
+        },
+        {
+          "id": "p837_attag_9",
+          "descr": "claimid_dateofservice_attachmenttype",
+          "value": "517_485_494"
+        },
+        {
+          "id": "p837_attag_10",
+          "descr": "providerid_renderingproviderid_claimid_dateofservice",
+          "value": "634_647_517_485"
+        }
+      ]
+    },
+    {
+      "name": "p837_at",
+      "label": "Which bill requires attachment",
+      "options": [
+        {
+          "id": "p837_at_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_at_1",
+          "descr": "EMDEON rules",
+          "value": "EMDEON"
+        },
+        {
+          "id": "p837_at_2",
+          "descr": "No Bills",
+          "value": "N"
+        },
+        {
+          "id": "p837_at_3",
+          "descr": "Use PWK",
+          "value": "PWK"
+        },
+        {
+          "id": "p837_at_4",
+          "descr": "Jopari rules",
+          "value": "R"
+        },
+        {
+          "id": "p837_at_5",
+          "descr": "Site specific",
+          "value": "*SITE*"
+        },
+        {
+          "id": "p837_at_6",
+          "descr": "All Bills",
+          "value": "Y"
+        }
+      ]
+    },
+    {
+      "name": "p837_defssn",
+      "label": "Default SSN",
+      "options": [
+        {
+          "id": "p837_defssn_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_defssn_1",
+          "descr": "999999999",
+          "value": "999999999"
+        }
+      ]
+    },
+    {
+      "name": "px12_do999",
+      "label": "Do you want to receive implementation acknowledgment?",
+      "options": [
+        {
+          "id": "px12_do999_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_do999_1",
+          "descr": "YES (not encrypted)",
+          "value": "CLEAR"
+        },
+        {
+          "id": "px12_do999_2",
+          "descr": "YES (PGP encrypted)",
+          "value": "Y"
+        },
+        {
+          "id": "px12_do999_3",
+          "descr": "Do not send 999",
+          "value": "N"
+        },
+        {
+          "id": "px12_do999_4",
+          "descr": "SIGN",
+          "value": "SIGN"
+        }
+      ]
+    },
+    {
+      "name": "px12_do277ca",
+      "label": "Do you want to receive claim acknowledgement?",
+      "options": [
+        {
+          "id": "px12_do277ca_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_do277ca_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "px12_do277ca_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p277_perbilling",
+      "label": "Do you want to split files by billing TIN?",
+      "options": [
+        {
+          "id": "p277_perbilling_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p277_perbilling_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p277_perbilling_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p277_perpayer",
+      "label": "Do you want to split files by payer?",
+      "options": [
+        {
+          "id": "p277_perpayer_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p277_perpayer_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p277_perpayer_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p277_perdate",
+      "label": "Do you want to split files by date?",
+      "options": [
+        {
+          "id": "p277_perdate_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p277_perdate_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p277_perdate_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "patt_autowarn1",
+      "label": "First attachment warning",
+      "options": [
+        {
+          "id": "patt_autowarn1_0",
+          "descr": "NONE",
+          "value": ""
+        },
+        {
+          "id": "patt_autowarn1_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "patt_autowarn1_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "patt_autowarn1_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "patt_autowarn1_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "patt_autowarn1_5",
+          "descr": "5",
+          "value": "5"
+        },
+        {
+          "id": "patt_autowarn1_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "patt_autowarn1_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "patt_autowarn1_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "patt_autowarn1_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "patt_autowarn1_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "patt_autowarn1_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "patt_autowarn1_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "patt_autowarn1_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "patt_autowarn1_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "patt_autowarn1_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "patt_autowarn1_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "patt_autowarn1_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "patt_autowarn1_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "patt_autowarn1_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "patt_autowarn1_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "patt_autowarn1_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "patt_autowarn1_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "patt_autowarn1_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "patt_autowarn1_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "patt_autowarn1_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "patt_autowarn1_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "patt_autowarn1_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "patt_autowarn1_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "patt_autowarn1_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "patt_autowarn1_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "patt_autowarn1_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "patt_autowarn1_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "patt_autowarn1_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "patt_autowarn1_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "patt_autowarn1_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "patt_autowarn1_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "patt_autowarn1_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "patt_autowarn1_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "patt_autowarn1_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "patt_autowarn1_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "patt_autowarn1_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "patt_autowarn1_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "patt_autowarn1_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "patt_autowarn1_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "patt_autowarn1_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "patt_autowarn1_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "patt_autowarn1_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "patt_autowarn1_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "patt_autowarn1_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "patt_autowarn1_50",
+          "descr": "50",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "name": "patt_autowarn2",
+      "label": "Second attachment warning",
+      "options": [
+        {
+          "id": "patt_autowarn2_0",
+          "descr": "NONE",
+          "value": ""
+        },
+        {
+          "id": "patt_autowarn2_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "patt_autowarn2_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "patt_autowarn2_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "patt_autowarn2_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "patt_autowarn2_5",
+          "descr": "5",
+          "value": "5"
+        },
+        {
+          "id": "patt_autowarn2_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "patt_autowarn2_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "patt_autowarn2_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "patt_autowarn2_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "patt_autowarn2_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "patt_autowarn2_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "patt_autowarn2_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "patt_autowarn2_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "patt_autowarn2_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "patt_autowarn2_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "patt_autowarn2_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "patt_autowarn2_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "patt_autowarn2_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "patt_autowarn2_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "patt_autowarn2_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "patt_autowarn2_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "patt_autowarn2_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "patt_autowarn2_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "patt_autowarn2_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "patt_autowarn2_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "patt_autowarn2_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "patt_autowarn2_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "patt_autowarn2_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "patt_autowarn2_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "patt_autowarn2_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "patt_autowarn2_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "patt_autowarn2_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "patt_autowarn2_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "patt_autowarn2_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "patt_autowarn2_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "patt_autowarn2_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "patt_autowarn2_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "patt_autowarn2_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "patt_autowarn2_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "patt_autowarn2_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "patt_autowarn2_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "patt_autowarn2_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "patt_autowarn2_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "patt_autowarn2_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "patt_autowarn2_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "patt_autowarn2_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "patt_autowarn2_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "patt_autowarn2_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "patt_autowarn2_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "patt_autowarn2_50",
+          "descr": "50",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "name": "patt_autowarn3",
+      "label": "Third attachment warning",
+      "options": [
+        {
+          "id": "patt_autowarn3_0",
+          "descr": "NONE",
+          "value": ""
+        },
+        {
+          "id": "patt_autowarn3_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "patt_autowarn3_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "patt_autowarn3_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "patt_autowarn3_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "patt_autowarn3_5",
+          "descr": "5",
+          "value": "5"
+        },
+        {
+          "id": "patt_autowarn3_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "patt_autowarn3_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "patt_autowarn3_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "patt_autowarn3_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "patt_autowarn3_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "patt_autowarn3_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "patt_autowarn3_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "patt_autowarn3_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "patt_autowarn3_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "patt_autowarn3_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "patt_autowarn3_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "patt_autowarn3_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "patt_autowarn3_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "patt_autowarn3_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "patt_autowarn3_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "patt_autowarn3_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "patt_autowarn3_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "patt_autowarn3_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "patt_autowarn3_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "patt_autowarn3_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "patt_autowarn3_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "patt_autowarn3_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "patt_autowarn3_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "patt_autowarn3_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "patt_autowarn3_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "patt_autowarn3_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "patt_autowarn3_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "patt_autowarn3_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "patt_autowarn3_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "patt_autowarn3_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "patt_autowarn3_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "patt_autowarn3_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "patt_autowarn3_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "patt_autowarn3_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "patt_autowarn3_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "patt_autowarn3_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "patt_autowarn3_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "patt_autowarn3_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "patt_autowarn3_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "patt_autowarn3_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "patt_autowarn3_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "patt_autowarn3_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "patt_autowarn3_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "patt_autowarn3_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "patt_autowarn3_50",
+          "descr": "50",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "name": "patt_autowarn4",
+      "label": "Fourth attachment warning",
+      "options": [
+        {
+          "id": "patt_autowarn4_0",
+          "descr": "NONE",
+          "value": ""
+        },
+        {
+          "id": "patt_autowarn4_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "patt_autowarn4_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "patt_autowarn4_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "patt_autowarn4_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "patt_autowarn4_5",
+          "descr": "5",
+          "value": "5"
+        },
+        {
+          "id": "patt_autowarn4_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "patt_autowarn4_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "patt_autowarn4_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "patt_autowarn4_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "patt_autowarn4_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "patt_autowarn4_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "patt_autowarn4_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "patt_autowarn4_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "patt_autowarn4_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "patt_autowarn4_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "patt_autowarn4_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "patt_autowarn4_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "patt_autowarn4_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "patt_autowarn4_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "patt_autowarn4_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "patt_autowarn4_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "patt_autowarn4_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "patt_autowarn4_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "patt_autowarn4_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "patt_autowarn4_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "patt_autowarn4_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "patt_autowarn4_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "patt_autowarn4_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "patt_autowarn4_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "patt_autowarn4_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "patt_autowarn4_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "patt_autowarn4_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "patt_autowarn4_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "patt_autowarn4_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "patt_autowarn4_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "patt_autowarn4_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "patt_autowarn4_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "patt_autowarn4_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "patt_autowarn4_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "patt_autowarn4_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "patt_autowarn4_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "patt_autowarn4_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "patt_autowarn4_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "patt_autowarn4_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "patt_autowarn4_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "patt_autowarn4_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "patt_autowarn4_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "patt_autowarn4_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "patt_autowarn4_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "patt_autowarn4_50",
+          "descr": "50",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "name": "patt_autorej277",
+      "label": "Reject for missing attachments",
+      "options": [
+        {
+          "id": "patt_autorej277_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "patt_autorej277_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "patt_autorej277_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "patt_autorej",
+      "label": "How many days before reject for missing attachments? (Default is 15 days)",
+      "options": [
+        {
+          "id": "patt_autorej_0",
+          "descr": "Immediate Rejects",
+          "value": "0"
+        },
+        {
+          "id": "patt_autorej_1",
+          "descr": "1",
+          "value": "1"
+        },
+        {
+          "id": "patt_autorej_2",
+          "descr": "2",
+          "value": "2"
+        },
+        {
+          "id": "patt_autorej_3",
+          "descr": "3",
+          "value": "3"
+        },
+        {
+          "id": "patt_autorej_4",
+          "descr": "4",
+          "value": "4"
+        },
+        {
+          "id": "patt_autorej_5",
+          "descr": "5",
+          "value": "5"
+        },
+        {
+          "id": "patt_autorej_6",
+          "descr": "6",
+          "value": "6"
+        },
+        {
+          "id": "patt_autorej_7",
+          "descr": "7",
+          "value": "7"
+        },
+        {
+          "id": "patt_autorej_8",
+          "descr": "8",
+          "value": "8"
+        },
+        {
+          "id": "patt_autorej_9",
+          "descr": "9",
+          "value": "9"
+        },
+        {
+          "id": "patt_autorej_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "patt_autorej_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "patt_autorej_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "patt_autorej_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "patt_autorej_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "patt_autorej_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "patt_autorej_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "patt_autorej_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "patt_autorej_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "patt_autorej_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "patt_autorej_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "patt_autorej_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "patt_autorej_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "patt_autorej_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "patt_autorej_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "patt_autorej_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "patt_autorej_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "patt_autorej_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "patt_autorej_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "patt_autorej_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "patt_autorej_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "patt_autorej_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "patt_autorej_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "patt_autorej_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "patt_autorej_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "patt_autorej_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "patt_autorej_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "patt_autorej_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "patt_autorej_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "patt_autorej_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "patt_autorej_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "patt_autorej_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "patt_autorej_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "patt_autorej_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "patt_autorej_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "patt_autorej_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "patt_autorej_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "patt_autorej_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "patt_autorej_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "patt_autorej_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "patt_autorej_50",
+          "descr": "50",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "name": "p835_perclaimtype",
+      "label": "Split files by claim type",
+      "options": [
+        {
+          "id": "p835_perclaimtype_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perclaimtype_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perclaimtype_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_perdate",
+      "label": "Split files by date",
+      "options": [
+        {
+          "id": "p835_perdate_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perdate_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perdate_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_perpayee",
+      "label": "Split files by payee",
+      "options": [
+        {
+          "id": "p835_perpayee_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perpayee_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perpayee_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_perpayer",
+      "label": "Split files by payer",
+      "options": [
+        {
+          "id": "p835_perpayer_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perpayer_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perpayer_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_perzeropay",
+      "label": "Split files by zero pay",
+      "options": [
+        {
+          "id": "p835_perzeropay_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perzeropay_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perzeropay_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_perbilling",
+      "label": "Split files by billing TIN",
+      "options": [
+        {
+          "id": "p835_perbilling_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_perbilling_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_perbilling_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p835_ver",
+      "label": "Specify 835 version",
+      "options": [
+        {
+          "id": "p835_ver_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_ver_1",
+          "descr": "004010X091A1",
+          "value": "004010X091A1"
+        },
+        {
+          "id": "p835_ver_2",
+          "descr": "005010X221A1",
+          "value": "005010X221A1"
+        }
+      ]
+    },
+    {
+      "name": "p835_billdcn",
+      "label": "Return matching field in 835 REF*D9 (REF - Reference Identification Qualifier, D9 - Claim Number)",
+      "options": [
+        {
+          "id": "p835_billdcn_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p835_billdcn_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p835_billdcn_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "p837_dopaper",
+      "label": "Do you want 837 to be printed and sent by mail?",
+      "options": [
+        {
+          "id": "p837_dopaper_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "p837_dopaper_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "p837_dopaper_2",
+          "descr": "NO",
+          "value": "N"
         }
       ]
     }
