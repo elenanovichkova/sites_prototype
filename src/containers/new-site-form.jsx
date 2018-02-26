@@ -8,6 +8,7 @@ import SiteProfileFormAddon from "../components/site-profile-form-addon";
 import SiteBillQuestionnaireAddon from "../components/site-billquest-form-addon";
 import SiteAttQuestionnaireAddon from "../components/site-attquest-form-addon";
 import SiteConnectivityAddon from "../components/site-connectivity-form-addon";
+import SiteKeyClientsFormAddon from "../components/site-keyclients-form-addon";
 
 const data = {
   // used to populate "account" reducer when "Load" is clicked
@@ -29,6 +30,42 @@ const data = {
   portalAccess: "Y",
   connectivity: "portalOnly",
   comment: "Born to write amazing Redux code.",
+  sitePrimaryContact: {
+    first: "first",
+    last: "last",
+    title: "title",
+    company: "company name",
+    phone: "2222222222",
+    email: "qqq@qqq.qqq",
+    hasPortalAccess: true
+  },
+  siteAddContact: {
+    first: "first",
+    last: "last",
+    title: "title",
+    company: "company name",
+    phone: "2222222222",
+    email: "qqq@qqq.qqq",
+    hasPortalAccess: true
+  },
+  siteBillingContact: {
+    first: "first",
+    last: "last",
+    title: "title",
+    company: "company name",
+    phone: "2222222222",
+    email: "qqq@qqq.qqq",
+    hasPortalAccess: true
+  },
+  siteTechContact: {
+    first: "first",
+    last: "last",
+    title: "title",
+    company: "company name",
+    phone: "2222222222",
+    email: "qqq@qqq.qqq",
+    hasPortalAccess: true
+  },
   address: {
     address1: "qqq",
     address2: "sss",
@@ -299,42 +336,58 @@ const renderParams = ({
   meta: { error, submitFailed }
 }) => {
   let name = fields.name;
-  return (
-    <div className="form form-horizontal">
-      <h4 className="title">
-        <strong>
-          {title}
-        </strong>
-      </h4>
-      <hr />
-      <div className="row">
-        {fields.getAll().map((member, index) => {
-          return (
-            <div className="col-md-12" key={index}>
-              {/*name should be in format paramsX12[index].paramName like paramsX12[0].px12_docrypt*/}
-              <Field
-                name={`${name}[${index}].${Object.keys(member)[0]}`}
-                options={formConfig[Object.keys(member)[0]].options}
-                component={renderInlineSelectField}
-                label={`${formConfig[Object.keys(member)[0]].label}`}
-              />
-            </div>
-          );
-        })}
+  if (fields.getAll()) {
+    return (
+      <div className="form form-horizontal">
+        <h4 className="title">
+          <strong>
+            {title}
+          </strong>
+        </h4>
+        <hr />
+        <div className="row">
+          {fields.getAll().map((member, index) => {
+            if (Object.keys(member)[0] && formConfig[Object.keys(member)[0]]) {
+              return (
+                <div className="col-md-12" key={index}>
+                  {/*name should be in format paramsX12[index].paramName like paramsX12[0].px12_docrypt*/}
+                  <Field
+                    name={`${name}[${index}].${Object.keys(member)[0]}`}
+                    options={formConfig[Object.keys(member)[0]].options}
+                    component={renderInlineSelectField}
+                    label={`${formConfig[Object.keys(member)[0]].label}`}
+                  />
+                </div>
+              );
+            } else {
+              return (
+                <div className="col-md-offset-6 col-md-6">
+                  <div className="form-group">
+                    <div className="col-md-12">
+                      {Object.keys(member)[0]}, {member[Object.keys(member)[0]]}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return "";
+  }
 };
 
 let NewSiteForm = props => {
   const { handleSubmit, load, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      {/*}<div>
         <button type="button" onClick={() => load(data)}>
           Load Account
         </button>
-      </div>
+      </div>*/}
 
       <h3 className="new-site-form-section-title new-site-form-section-title-company-info">
         <strong>Company Information</strong>
@@ -342,6 +395,15 @@ let NewSiteForm = props => {
       <hr />
 
       <SiteProfileFormAddon {...props} />
+
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3>Key Client Contacts</h3>
+        </div>
+        <div className="panel-body">
+          <SiteKeyClientsFormAddon {...props} />
+        </div>
+      </div>
 
       <h3 className="new-site-form-section-title new-site-form-section-title-bill-questionnaire">
         <strong>Bill Questionnaire</strong>
@@ -437,15 +499,49 @@ let NewSiteForm = props => {
               />
             </div>
           </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params997"
+                title="997 Functional Acknowledgment"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params824"
+                title="824 Health Care Benefit Enrollment"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <FieldArray
+                name="params275"
+                title="275 Patient Information Transaction Set"
+                formConfig={props.formConfig}
+                component={renderParams}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label>Comment</label>
         <div>
-          <Field name="comment" component="textarea" />
+          <Field name="comment" component="textarea" className="form-control" />
         </div>
       </div>
+
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Submit

@@ -448,6 +448,11 @@
           "id": "state_7",
           "descr": "RAINTREE",
           "value": "RAINTREE"
+        },
+        {
+          "id": "state_8",
+          "descr": "ECW",
+          "value": "ECW"
         }
       ]
     },
@@ -2503,7 +2508,7 @@
     },
     {
       "name": "p835_perzeropay",
-      "label": "Split files by zero pay",
+      "label": "Split files by paid/non paid pay",
       "options": [
         {
           "id": "p835_perzeropay_0",
@@ -2601,6 +2606,90 @@
         },
         {
           "id": "p837_dopaper_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "px12_do277u",
+      "label": "Do you want to receive 277 unsolicited claim?",
+      "options": [
+        {
+          "id": "px12_do277u_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_do277u_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "px12_do277u_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "px12_277ver",
+      "label": "Specify 277 claim acknowledgement version",
+      "options": [
+        {
+          "id": "px12_277ver_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_277ver_1",
+          "descr": "005010X214",
+          "value": "005010X214"
+        },
+        {
+          "id": "px12_277ver_2",
+          "descr": "004040X167",
+          "value": "004040X167"
+        }
+      ]
+    },
+    {
+      "name": "px12_do997",
+      "label": "Do you want to receive  functional acknowledgment?",
+      "options": [
+        {
+          "id": "px12_do997_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_do997_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "px12_do997_2",
+          "descr": "NO",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "px12_do824",
+      "label": "Do you want to receive 824 application advice?",
+      "options": [
+        {
+          "id": "px12_do824_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "px12_do824_1",
+          "descr": "YES",
+          "value": "Y"
+        },
+        {
+          "id": "px12_do824_2",
           "descr": "NO",
           "value": "N"
         }

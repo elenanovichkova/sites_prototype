@@ -558,6 +558,10 @@ const defaultSiteTemplate = {
 
 const siteTemplateDataReducer = (state = defaultSiteTemplate, action) => {
   switch (action.type) {
+    case types.SELECT_SITE_TEMPLATE:
+      return {
+        data: action.payload
+      };
     case LOAD:
       return {
         data: action.data

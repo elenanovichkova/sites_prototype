@@ -756,9 +756,22 @@ export function getSiteTemplates() {
 }
 
 export function selectSiteTemplate(template) {
-  return {
-    type: types.SELECT_SITE_TEMPLATE,
-    payload: template
+  let url = `external/api/${template.name}-site-template.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_SITE_TEMPLATE });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.SELECT_SITE_TEMPLATE,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_SITE_TEMPLATE_FAIL,
+          payload: response
+        });
+      }
+    });
   };
 }
 

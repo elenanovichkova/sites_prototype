@@ -1,0 +1,175 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": {
+    "masterEntity": "ECW",
+    "receiverName": "",
+    "receiverTaxId": "",
+    "siteId": "",
+    "receiverId": "",
+    "receiverMngmntSystem": "",
+    "receiverAddInfo": "",
+    "switchPayerIdToPaper": true,
+    "doElectronicBills": "Y",
+    "doElectronicBillsCompany": "",
+    "x12fieldSep": "*",
+    "eobAck999": false,
+    "doElectronicAtt": "Y",
+    "optInAttachmentRule": "bht03",
+    "optInAttachmentOtherRule": "",
+    "attPageCount": 10,
+    "portalAccess": "Y",
+    "connectivity": "ftp",
+    "comment": "Born to write amazing Redux code.",
+    "sitePrimaryContact": {
+      "first": "",
+      "last": "",
+      "title": "",
+      "company": "",
+      "phone": "",
+      "email": "",
+      "hasPortalAccess": true
+    },
+    "siteAddContact": {
+      "first": "",
+      "last": "",
+      "title": "",
+      "company": "",
+      "phone": "",
+      "email": "",
+      "hasPortalAccess": false
+    },
+    "siteBillingContac": {
+      "firs": "",
+      "las": "",
+      "titl": "",
+      "compan": "",
+      "phon": "",
+      "emai": "",
+      "hasPortalAcces": false
+    },
+    "siteTechContac": {
+      "firs": "",
+      "las": "",
+      "titl": "",
+      "compan": "",
+      "phon": "",
+      "emai": "",
+      "hasPortalAcces": false
+    },
+    "address": {
+      "address1": "",
+      "address2": "",
+      "city": "",
+      "state": "",
+      "zip": ""
+    },
+    "services": {
+      "ebill": true,
+      "eatt": true,
+      "faxatt": true,
+      "printmail": true,
+      "portalcorrection": true,
+      "other": true
+    },
+    "annualVolumes": {
+      "wcbill": "",
+      "wcatt": "",
+      "autobill": "",
+      "autoatt": "",
+      "otherbill": "",
+      "otheratt": ""
+    },
+    "billFileFormat": {
+      "printfile": false,
+      "nsf": true,
+      "file837": true,
+      "other": false
+    },
+    "billFormType": {
+      "hcfa1500": true,
+      "ub04": true,
+      "pharmacy": true,
+      "dental": true,
+      "other": false
+    },
+    "attFileFormat": {
+      "pdf": false,
+      "tif": false,
+      "tiff": false
+    },
+    "attType": {
+      "ambulance": false,
+      "ame": false,
+      "chartNotes": false,
+      "cmnlmn": false,
+      "consult": false,
+      "diagnostic": false,
+      "disabilityStatus": false,
+      "fcefca": false,
+      "firstReport": false,
+      "homeCare": false,
+      "ime": false,
+      "psreport": false,
+      "pathology": false,
+      "physicianScript": false,
+      "preauthorizationRequest": false,
+      "ptNotes": false,
+      "qme": false,
+      "radiology": false,
+      "referralRequest": false,
+      "supplementalReport": false,
+      "surgical": false,
+      "transportationReport": false,
+      "twcc73": false,
+      "other": false
+    },
+    "billFrequency": {
+      "billFrequencyCnt": "",
+      "billFrequencyPeriod": ""
+    },
+    "paramsX12": [{ "px12_docrypt": "N" }, { "px12_dota1": "" }],
+    "params837": [
+      { "px12_allowtest": "Y" },
+      { "p837_lookupstlic": "Y" },
+      { "p837_pvdfld": "TIN" },
+      { "p837_defssn": "" },
+      { "p837_dopaper": "Y" }
+    ],
+    "paramsatt": [
+      { "p837_imagedays": "15" },
+      { "p837_attag": "ECW" },
+      { "p837_at": "" }
+    ],
+    "params999": [{ "px12_do999": "CLEAR" }],
+    "params277": [
+      { "px12_do277u": "N" },
+      { "px12_do277ca": "Y" },
+      { "px12_277ver": "005010X214" },
+      { "patt_autorej277": "Y" },
+      { "patt_autorej": "15" },
+      { "patt_autowarn1": "5" },
+      { "patt_autowarn2": "15" },
+      { "patt_autowarn3": "" },
+      { "patt_autowarn4": "" },
+      { "p277_perbilling": "Y" },
+      { "p277_perpayer": "" },
+      { "p277_perdate": "" }
+    ],
+    "params835": [
+      { "p835_ver": "005010X221A1" },
+      { "p835_perbilling": "Y" },
+      { "p835_perpayer": "" },
+      { "p835_perdate": "" },
+      { "p835_perclaimtype": "" },
+      { "p835_perpayee": "Y" },
+      { "p835_perzeropay": "" },
+      { "p835_billdcn": "" }
+    ],
+    "params997": [{ "px12_do997": "N" }],
+    "params824": [{ "px12_do824": "N" }]
+  }
+}
