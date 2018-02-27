@@ -1,0 +1,7 @@
+{
+  "status": {
+    "code": "0",
+    "result": false,
+    "reason": "This tax id already belongs to the org"
+  }
+}

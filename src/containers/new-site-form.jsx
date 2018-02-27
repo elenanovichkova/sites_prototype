@@ -3,179 +3,12 @@ import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm, FieldArray } from "redux-form";
-import { load as loadAccount } from "../actions/index.js";
+import { load as loadAccount, asyncValidateNewSite } from "../actions/index.js";
 import SiteProfileFormAddon from "../components/site-profile-form-addon";
 import SiteBillQuestionnaireAddon from "../components/site-billquest-form-addon";
 import SiteAttQuestionnaireAddon from "../components/site-attquest-form-addon";
 import SiteConnectivityAddon from "../components/site-connectivity-form-addon";
 import SiteKeyClientsFormAddon from "../components/site-keyclients-form-addon";
-
-const data = {
-  // used to populate "account" reducer when "Load" is clicked
-  receiverName: "Receiver Name",
-  receiverTaxId: "123456789",
-  siteId: "ABCD",
-  receiverId: "123456789",
-  receiverMngmntSystem: "managment system",
-  receiverAddInfo: "additional information",
-  switchPayerIdToPaper: true,
-  doElectronicBills: "Y",
-  doElectronicBillsCompany: "partner name",
-  x12fieldSep: "*",
-  eobAck999: true,
-  doElectronicAtt: "Y",
-  optInAttachmentRule: "other",
-  optInAttachmentOtherRule: "BVFR",
-  attPageCount: 10,
-  portalAccess: "Y",
-  connectivity: "portalOnly",
-  comment: "Born to write amazing Redux code.",
-  sitePrimaryContact: {
-    first: "first",
-    last: "last",
-    title: "title",
-    company: "company name",
-    phone: "2222222222",
-    email: "qqq@qqq.qqq",
-    hasPortalAccess: true
-  },
-  siteAddContact: {
-    first: "first",
-    last: "last",
-    title: "title",
-    company: "company name",
-    phone: "2222222222",
-    email: "qqq@qqq.qqq",
-    hasPortalAccess: true
-  },
-  siteBillingContact: {
-    first: "first",
-    last: "last",
-    title: "title",
-    company: "company name",
-    phone: "2222222222",
-    email: "qqq@qqq.qqq",
-    hasPortalAccess: true
-  },
-  siteTechContact: {
-    first: "first",
-    last: "last",
-    title: "title",
-    company: "company name",
-    phone: "2222222222",
-    email: "qqq@qqq.qqq",
-    hasPortalAccess: true
-  },
-  address: {
-    address1: "qqq",
-    address2: "sss",
-    city: "Concord",
-    state: "CA",
-    zip: "94596"
-  },
-  services: {
-    ebill: true,
-    eatt: true,
-    faxatt: true,
-    printmail: true,
-    portalcorrection: true,
-    other: true
-  },
-  annualVolumes: {
-    wcbill: 12345,
-    wcatt: 23333,
-    autobill: 5555,
-    autoatt: 426534,
-    otherbill: 3462342,
-    otheratt: 345632
-  },
-  billFileFormat: {
-    printfile: true,
-    nsf: true,
-    file837: true,
-    other: true
-  },
-  billFormType: {
-    hcfa1500: true,
-    ub04: true,
-    pharmacy: true,
-    dental: true,
-    other: true
-  },
-  attFileFormat: {
-    pdf: true,
-    tif: true,
-    tiff: true
-  },
-  attType: {
-    ambulance: true,
-    ame: true,
-    chartNotes: true,
-    cmnlmn: true,
-    consult: true,
-    diagnostic: true,
-    disabilityStatus: true,
-    fcefca: true,
-    firstReport: true,
-    homeCare: true,
-    ime: true,
-    psreport: true,
-    pathology: true,
-    physicianScript: true,
-    preauthorizationRequest: true,
-    ptNotes: true,
-    qme: true,
-    radiology: true,
-    referralRequest: true,
-    supplementalReport: true,
-    surgical: true,
-    transportationReport: true,
-    twcc73: true,
-    other: true
-  },
-  billFrequency: {
-    billFrequencyCnt: 2000,
-    billFrequencyPeriod: "biweekly"
-  },
-  paramsX12: [{ px12_docrypt: "Y" }, { px12_dota1: "Y" }],
-  params837: [
-    { px12_allowtest: "Y" },
-    { p837_lookupstlic: "Y" },
-    { p837_paper: "N" },
-    { p837_pvdfld: "BCN" },
-    { p837_defssn: "999999999" },
-    { p837_dopaper: "" }
-  ],
-  paramsatt: [
-    { p837_imagedays: "5" },
-    { p837_attag: "634_647_517_485" },
-    { p837_at: "R" }
-  ],
-  params999: [{ px12_do999: "" }],
-  params277: [
-    { px12_do277ca: "" },
-    { patt_autorej277: "" },
-    { patt_autorej: "15" },
-    { patt_autowarn1: "5" },
-    { patt_autowarn2: "15" },
-    { patt_autowarn3: "" },
-    { patt_autowarn4: "" },
-    { p277_perbilling: "" },
-    { p277_perpayer: "" },
-    { p277_perdate: "" }
-  ],
-  params835: [
-    { p835_ver: "" },
-    { p835_perbilling: "" },
-    { p835_perpayer: "" },
-    { p835_perdate: "" },
-    { p835_perclaimtype: "" },
-    { p835_perpayee: "" },
-    { p835_perzeropay: "" },
-    { p835_billdcn: "" }
-  ]
-};
-const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 
 const renderTextField = ({
   input,
@@ -563,7 +396,9 @@ function validate(values) {
 NewSiteForm = reduxForm({
   form: "initializeFromState",
   enableReinitialize: true,
-  validate
+  validate,
+  asyncValidate: asyncValidateNewSite,
+  asyncBlurFields: ["receiverName", "receiverTaxId", "siteId", "receiverId"]
 })(NewSiteForm);
 
 // You have to connect() to any reducers that you wish to connect to yourself

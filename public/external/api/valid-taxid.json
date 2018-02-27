@@ -1,0 +1,7 @@
+{
+  "status": {
+    "code": "1",
+    "result": true,
+    "reason": "This tax id could be used"
+  }
+}

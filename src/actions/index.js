@@ -806,3 +806,18 @@ export function getFormConfig() {
 
 const LOAD = "redux-form-examples/account/LOAD";
 export const load = data => ({ type: LOAD, data });
+
+//******************************* asyncValidateNewSite
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+export function asyncValidateNewSite(values, dispatch) {
+  return sleep(1000) // simulate server latency
+    .then(() => {
+      if (
+        ["111111111", "2222", "3333", "4444"].includes(values.receiverTaxId)
+      ) {
+        throw { receiverTaxId: "That receiver tax id is taken" };
+      }
+    });
+}

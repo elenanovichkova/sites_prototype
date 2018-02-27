@@ -106,3 +106,12 @@ input:checked + .switchslider:before {
   color: #fff;
   background-color: #337ab7;
 }
+
+.field-error-message {
+  color: #a94442;
+}
+
+.async-validating::after {
+  display: inline-block;
+  content: "checking...";
+}

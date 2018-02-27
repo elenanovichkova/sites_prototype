@@ -1,130 +1,17 @@
 import React from "react";
 import { Field, reduxForm, FieldArray } from "redux-form";
 
-const renderTextField = ({
-  input,
-  label,
-  type,
-  placeholder,
-  meta: { touched, error }
-}) =>
-  <div className="form-group">
-    <label>
-      {label}
-    </label>
-    <div>
-      <input
-        {...input}
-        type={type}
-        placeholder={placeholder}
-        className="form-control"
-      />
-      {touched &&
-        error &&
-        <span>
-          {error}
-        </span>}
-    </div>
-  </div>;
+import TextField from "./text-field";
+import HorizontalTextField from "./horizontal-text-field";
+import SelectField from "./select-field";
+import HorizontalSelectField from "./horizontal-select-field";
+import CheckboxField from "./checkbox-field";
 
-const renderHorizontalTextField = ({
-  input,
-  label,
-  type,
-  placeholder,
-  meta: { touched, error }
-}) =>
-  <div className="form-group">
-    <span className="control-label col-md-6">
-      {label}
-    </span>
-    <div className="col-md-6">
-      <input
-        {...input}
-        type={type}
-        placeholder={placeholder}
-        className="form-control"
-      />
-      {touched &&
-        error &&
-        <span>
-          {error}
-        </span>}
-    </div>
-  </div>;
-
-const renderSelectField = ({
-  input,
-  label,
-  options,
-  meta: { touched, error }
-}) =>
-  <div className="form-group">
-    <label>
-      {label}
-    </label>
-    <select {...input} className="form-control">
-      {options.map(option =>
-        <option key={option.id} value={option.value}>
-          {option.descr}
-        </option>
-      )}
-    </select>
-    {touched &&
-      error &&
-      <span>
-        {error}
-      </span>}
-  </div>;
-
-const renderHorizontalSelectField = ({
-  input,
-  label,
-  options,
-  meta: { touched, error }
-}) =>
-  <div className="form-group">
-    <span className="control-label col-md-6">
-      {label}
-    </span>
-    <div className="col-md-6">
-      <select {...input} className="form-control">
-        {options.map(option =>
-          <option key={option.id} value={option.value}>
-            {option.descr}
-          </option>
-        )}
-      </select>
-      {touched &&
-        error &&
-        <span>
-          {error}
-        </span>}
-    </div>
-  </div>;
-
-const renderCheckboxField = ({
-  input,
-  type,
-  label,
-  placeholder,
-  meta: { touched, error }
-}) => {
-  return (
-    <div className="">
-      <div className="checkbox">
-        <label>
-          <input {...input} type={type} /> {label}
-        </label>
-        {touched &&
-          error &&
-          <span>
-            {error}
-          </span>}
-      </div>
-    </div>
-  );
-};
+const renderTextField = TextField;
+const renderHorizontalTextField = HorizontalTextField;
+const renderSelectField = SelectField;
+const renderHorizontalSelectField = HorizontalSelectField;
+const renderCheckboxField = CheckboxField;
 
 const SiteBillQuestionnaireAddon = props =>
   <div class="site-billquest-form-addon">
