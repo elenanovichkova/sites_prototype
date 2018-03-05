@@ -133,6 +133,8 @@ const siteViewReducer = (state = "site-list", action) => {
       return "site-templates";
     case types.SITE_NEW_VIEW:
       return "site-new";
+    case types.SITE_DUPL_VIEW:
+      return "site-duplicate";
     default:
       return state;
   }
@@ -562,6 +564,10 @@ const siteTemplateDataReducer = (state = defaultSiteTemplate, action) => {
       return {
         data: action.payload
       };
+    case types.SITE_SELECTED:
+      return {
+        data: action.payload
+      };
     case LOAD:
       return {
         data: action.data
@@ -588,6 +594,17 @@ const formConfigReducer = (
       return {
         isFetching: false,
         data: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+const siteDuplicateDataReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.FETCH_CONFIGS:
+      return {
+        configs: action.payload.data.data
       };
     default:
       return state;
@@ -622,6 +639,7 @@ const rootReducer = combineReducers({
   siteTemplateList: siteTemplateListReducer,
   activeSiteTemplate: activeSiteTemplateReducer,
   siteTemplateData: siteTemplateDataReducer,
+  siteDuplicateData: siteDuplicateDataReducer,
   form: formReducer,
   formConfig: formConfigReducer
 });

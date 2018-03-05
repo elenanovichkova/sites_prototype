@@ -23,42 +23,76 @@ class SiteList extends Component {
                 </div>
               </div>
               <div className="panel-body">
-                <div className="title">
-                  <h3>
-                    {site.siteId}
-                  </h3>
-                </div>
-                <p>
-                  <span className="site-list-item-label site-list-item-label-taxid">
-                    Tax Id:{" "}
-                  </span>
-                  <span className="site-list-item-taxid">
-                    {site.taxid}
-                  </span>
-                </p>
                 <div className="row">
                   <div className="col-md-10">
-                    <p>
-                      <span className="site-list-item-label site-list-item-label-receiverids">
-                        Receiver Id(s):{" "}
-                      </span>
-                      <span className="site-list-item-taxid">
-                        {site.receiverIds}
-                      </span>
-                    </p>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div className="title">
+                          <h3>
+                            {site.siteId}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-md-12">
+                        <p>
+                          <span className="site-list-item-label site-list-item-label-taxid">
+                            Tax Id:{" "}
+                          </span>
+                          <span className="site-list-item-taxid">
+                            {site.taxid}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-md-12">
+                        <p>
+                          <span className="site-list-item-label site-list-item-label-receiverids">
+                            Receiver Id(s):{" "}
+                          </span>
+                          <span className="site-list-item-taxid">
+                            {site.receiverIds}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-md-2 text-right">
-                    <button
-                      className="btn btn-default"
-                      type="button"
-                      onClick={() => {
-                        this.props.changeSitesView("site-detail");
-                        this.props.selectSite(site);
-                        this.props.fetchConfigs(site.codenbr);
-                      }}
-                    >
-                      SELECT
-                    </button>
+                  <div className="col-md-2">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <div className="form-group">
+                          <button
+                            className="btn btn-default full-width"
+                            type="button"
+                            onClick={() => {
+                              this.props.changeSitesView("site-duplicate");
+                              this.props.fetchConfigs(site.codenbr);
+                            }}
+                          >
+                            DUPLICATE
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <button
+                          className="btn btn-default full-width"
+                          type="button"
+                          onClick={() => {
+                            this.props.changeSitesView("site-detail");
+                            this.props.selectSite(site);
+                            this.props.fetchConfigs(site.codenbr);
+                          }}
+                        >
+                          SELECT
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

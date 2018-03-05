@@ -14,6 +14,7 @@ import SiteList from "./site-list";
 import Spinner from "./spinner";
 import NewSiteTemplatePicker from "./newsite-template-picker.jsx";
 import NewSiteForm from "./new-site-form.jsx";
+import NewDuplSiteForm from "./new-dupl-site-form";
 
 class SitesContainer extends Component {
   constructor(props) {
@@ -107,6 +108,21 @@ class SitesContainer extends Component {
                 </p>
                 <div>
                   <NewSiteForm />
+                </div>
+              </div>
+            : ""}
+          {this.props.siteView == "site-duplicate"
+            ? <div>
+                <p>
+                  <a
+                    href="#"
+                    onClick={() => this.props.changeSitesView("site-duplicate")}
+                  >
+                    <span className="fa fa-chevron-circle-left" /> BACK TO SITES
+                  </a>
+                </p>
+                <div>
+                  <NewDuplSiteForm />
                 </div>
               </div>
             : ""}

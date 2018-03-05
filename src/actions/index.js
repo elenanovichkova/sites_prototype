@@ -52,6 +52,10 @@ export function changeSitesView(view) {
       return {
         type: types.SITE_NEW_VIEW
       };
+    case "site-duplicate":
+      return {
+        type: types.SITE_DUPL_VIEW
+      };
   }
 }
 
@@ -809,15 +813,19 @@ export const load = data => ({ type: LOAD, data });
 
 //******************************* asyncValidateNewSite
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+export function asyncValidateNewSite(values, dispatch, props, blurredField) {
+  console.log("**************************** async props", props);
+  //["receiverName", "receiverTaxId", "siteId", "receiverId"]
+  let url = `external/api/invalid-taxid.json`;
 
-export function asyncValidateNewSite(values, dispatch) {
-  return sleep(1000) // simulate server latency
-    .then(() => {
-      if (
-        ["111111111", "2222", "3333", "4444"].includes(values.receiverTaxId)
-      ) {
-        throw { receiverTaxId: "That receiver tax id is taken" };
-      }
-    });
+  return axios.get(url).then(response => {
+    console.log("response", response);
+    let errors = {};
+    if (response && response.data && response.data.status.result) {
+      response.data.data.map(error => (errors[error.name] = error.descr));
+      throw errors;
+    }
+  });
 }
+
+//************************************* Dupl site modal

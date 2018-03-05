@@ -2,10 +2,13 @@ import React from "react";
 import { Field, reduxForm, FieldArray } from "redux-form";
 import {
   required,
+  zip,
   number,
+  abbreviation,
   length9,
   minLength3,
   maxLength9,
+  maxLength64,
   maxLength120
 } from "../validators";
 
@@ -70,7 +73,9 @@ const SiteProfileFormAddon = props =>
         <Field
           name="siteId"
           label="Jopari Site Name *"
+          type="text"
           placeholder="Site abbreviation (all uppercase no spaces)"
+          validate={[required, abbreviation, maxLength64]}
           component={renderTextField}
         />
       </div>
@@ -80,6 +85,7 @@ const SiteProfileFormAddon = props =>
           label="Submitter ID *"
           placeholder="Submitter ID"
           type="text"
+          validate={[required]}
           component={renderTextField}
         />
       </div>
@@ -92,6 +98,7 @@ const SiteProfileFormAddon = props =>
           label="Street *"
           placeholder="Street"
           type="text"
+          validate={[required]}
           component={renderTextField}
         />
       </div>
@@ -113,6 +120,7 @@ const SiteProfileFormAddon = props =>
           label="City *"
           placeholder="City"
           type="text"
+          validate={[required]}
           component={renderTextField}
         />
       </div>
@@ -121,6 +129,7 @@ const SiteProfileFormAddon = props =>
           name="address.state"
           label="State *"
           options={props.formConfig.state.options}
+          validate={[required]}
           component={renderSelectField}
         />
       </div>
@@ -130,6 +139,7 @@ const SiteProfileFormAddon = props =>
           label="Zip *"
           placeholder="Zip code"
           type="text"
+          validate={[required, zip]}
           component={renderTextField}
         />
       </div>

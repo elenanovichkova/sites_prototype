@@ -1,0 +1,7 @@
+{
+  "status": {
+    "code": "1",
+    "result": false,
+    "reason": "request to the server failed validation"
+  }
+}
