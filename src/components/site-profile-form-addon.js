@@ -25,7 +25,7 @@ const renderHorizontalSelectField = HorizontalSelectField;
 const renderCheckboxField = CheckboxField;
 
 const SiteProfileFormAddon = props =>
-  <div class="site-profile-form-addon">
+  <div className="site-profile-form-addon">
     <div className="row">
       <div className="col-md-6">
         <Field

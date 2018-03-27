@@ -3,13 +3,19 @@ import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm, FieldArray } from "redux-form";
-import { load as loadAccount, asyncValidateNewSite } from "../actions/index.js";
+import {
+  load as loadAccount,
+  asyncValidateNewSite,
+  submitNewDuplSite
+} from "../actions/index.js";
 import SiteProfileFormAddon from "../components/site-profile-form-addon";
 import SiteBillQuestionnaireAddon from "../components/site-billquest-form-addon";
 import SiteAttQuestionnaireAddon from "../components/site-attquest-form-addon";
 import SiteConnectivityAddon from "../components/site-connectivity-form-addon";
 import SiteKeyClientsFormAddon from "../components/site-keyclients-form-addon";
 import ConfigListFormAddon from "../components/config-list-form-addon";
+
+import validate from "../validate-new-site";
 
 const renderTextField = ({
   input,
@@ -164,9 +170,9 @@ const renderInlineSelectField = ({
   </div>;
 
 let NewDuplSiteForm = props => {
-  const { handleSubmit, load, pristine, reset, submitting } = props;
+  const { handleSubmit, load, pristine, reset, submitting, error } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(submitNewDuplSite)}>
       {/*}<div>
         <button type="button" onClick={() => load(data)}>
           Load Account
@@ -228,6 +234,13 @@ let NewDuplSiteForm = props => {
         </div>
       </div>
 
+      {error &&
+        <div className="alert alert-danger">
+          <strong>
+            {error}
+          </strong>
+        </div>}
+
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Submit
@@ -239,11 +252,6 @@ let NewDuplSiteForm = props => {
     </form>
   );
 };
-
-function validate(values) {
-  console.log("****************** validating values", values);
-  return {};
-}
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
 NewDuplSiteForm = reduxForm({

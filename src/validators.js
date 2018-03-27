@@ -9,6 +9,8 @@ const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined;
 
 export const maxLength9 = maxLength(9);
+export const maxLength12 = maxLength(12);
+export const maxLength32 = maxLength(32);
 export const maxLength64 = maxLength(64);
 export const maxLength120 = maxLength(120);
 export const maxLength128 = maxLength(128);
@@ -50,9 +52,14 @@ export const phoneNumber = value =>
     ? "Invalid phone number, must be 10 digits"
     : undefined;
 
+export const fax = value =>
+  value && !/^(0|[1-9][0-9]{9})$/i.test(value)
+    ? "Invalid fax, must be 10 digits"
+    : undefined;
+
 export const extPhoneNumber = value =>
   value &&
-  !/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#\.?|x\.?|ext\.?|extension\.?)\s*(\d+))?$/.text(
+  !/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#\.?|x\.?|ext\.?|extension\.?)\s*(\d+))?$/.test(
     value
   )
     ? "Invalid phone number, must be 10 digits and optionally extention"
@@ -62,4 +69,6 @@ export const zip = value =>
   value && !/^\d{5}(?:[-\s]\d{4})?$/.test(value) ? "Invalid zip" : undefined;
 
 export const abbreviation = value =>
-  value && !/^[A-Z]+$/.test(value) ? "Invalid abbreviation" : undefined;
+  value && !/^[A-Z]+[0-9]?_?[A-Z0-9]+$/.test(value)
+    ? "Invalid abbreviation"
+    : undefined;

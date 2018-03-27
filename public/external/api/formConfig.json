@@ -842,22 +842,22 @@
           "value": "BCN"
         },
         {
-          "id": "p837_pvdfld_1",
+          "id": "p837_pvdfld_2",
           "descr": "CBO",
           "value": "CBO"
         },
         {
-          "id": "p837_pvdfld_2",
+          "id": "p837_pvdfld_3",
           "descr": "NPI",
           "value": "NPI"
         },
         {
-          "id": "p837_pvdfld_1",
+          "id": "p837_pvdfld_4",
           "descr": "TIN",
           "value": "TIN"
         },
         {
-          "id": "p837_pvdfld_2",
+          "id": "p837_pvdfld_5",
           "descr": "ZIRMEDBCN",
           "value": "ZIRMEDBCN"
         }
@@ -2692,6 +2692,858 @@
           "id": "px12_do824_2",
           "descr": "NO",
           "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "receiverType",
+      "label": "Type of subbmitter",
+      "options": [
+        {
+          "id": "receiverType_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "receiverType_1",
+          "descr": "INDIVIDUAL PRACTICE",
+          "value": "INDP"
+        },
+        {
+          "id": "receiverType_2",
+          "descr": "HEALTHCARE PROVIDER ORGANIZATION",
+          "value": "PRVO"
+        },
+        {
+          "id": "receiverType_3",
+          "descr": "BILLING AGENT/SERVICE VENDOR",
+          "value": "BVND"
+        },
+        {
+          "id": "receiverType_4",
+          "descr": "PRACTICE MANAGEMENT SYSTEM",
+          "value": "MNGM"
+        },
+        {
+          "id": "receiverType_5",
+          "descr": "CLEARING HOUSE VENDOR",
+          "value": "CVND"
+        },
+        {
+          "id": "receiverType_6",
+          "descr": "DENTAL",
+          "value": "DENT"
+        },
+        {
+          "id": "receiverType_7",
+          "descr": "HOSPITAL",
+          "value": "HOSP"
+        },
+        {
+          "id": "receiverType_8",
+          "descr": "REVENUE CYCLE SERVICE PROVIDER",
+          "value": "PROS"
+        },
+        {
+          "id": "receiverType_9",
+          "descr": "PBM / PHARMACY BENEFIT MANAGER",
+          "value": "PHAR"
+        },
+        {
+          "id": "receiverType_10",
+          "descr": "OTHER THIRD PARTY VENDOR",
+          "value": "TVND"
+        }
+      ]
+    },
+    {
+      "name": "billfetch",
+      "label": "Bill fetch by?",
+      "options": [
+        {
+          "id": "billfetch_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "billfetch_1",
+          "descr": "Admin",
+          "value": "byadmin"
+        }
+      ]
+    },
+    {
+      "name": "dataretentionpol",
+      "label": "Data retention policy?",
+      "options": [
+        {
+          "id": "dataretentionpol_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "dataretentionpol_1",
+          "descr": "6 months",
+          "value": "Data6Mo"
+        }
+      ]
+    },
+    {
+      "name": "ackn_next_state",
+      "label": "Send acknowledgement on state change(ackn_next_state)",
+      "options": [
+        {
+          "id": "ackn_next_state_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "ackn_next_state_1",
+          "descr": "IMG2",
+          "value": "IMG2"
+        }
+      ]
+    },
+    {
+      "name": "addtaxestoallowed",
+      "label": "Add taxes to allowed amount(addtaxestoallowed)",
+      "options": [
+        {
+          "id": "addtaxestoallowed_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "addtaxestoallowed_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        }
+      ]
+    },
+    {
+      "name": "chk_payr_addr",
+      "label": "Check payer address(chk_payr_addr)",
+      "options": [
+        {
+          "id": "chk_payr_addr_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "chk_payr_addr_1",
+          "descr": "PolEnt",
+          "value": "PolEnt"
+        }
+      ]
+    },
+    {
+      "name": "clmmatchedreq",
+      "label": "Claim matched request(clmmatchedreq)",
+      "options": [
+        {
+          "id": "clmmatchedreq_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "clmmatchedreq_1",
+          "descr": "FALSE",
+          "value": "FALSE"
+        },
+        {
+          "id": "clmmatchedreq_2",
+          "descr": "TRUE",
+          "value": "TRUE"
+        }
+      ]
+    },
+    {
+      "name": "daysgrace",
+      "label": "Grace period(daysgrace)",
+      "options": [
+        {
+          "id": "daysgrace_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "daysgrace_1",
+          "descr": "365 days",
+          "value": "365"
+        },
+        {
+          "id": "daysgrace_2",
+          "descr": "60 days",
+          "value": "60"
+        }
+      ]
+    },
+    {
+      "name": "defclaimid",
+      "label": "Default claim id(defclaimid)",
+      "options": [
+        {
+          "id": "defclaimid_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "defclaimid_1",
+          "descr": "ECA999",
+          "value": "ECA999"
+        }
+      ]
+    },
+    {
+      "name": "deliverymethod",
+      "label": "Delivery method(deliverymethod)",
+      "options": [
+        {
+          "id": "deliverymethod_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "deliverymethod_1",
+          "descr": "GA",
+          "value": "GA"
+        }
+      ]
+    },
+    {
+      "name": "dfltfacility",
+      "label": "Default facility(dfltfacility)",
+      "options": [
+        {
+          "id": "dfltfacility_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "dfltfacility_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "dfltfacility_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "doencrypt",
+      "label": "Do encrypt(doencrypt)",
+      "options": [
+        {
+          "id": "doencrypt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "doencrypt_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "doencrypt_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "doetl",
+      "label": "Do ETL(doetl)",
+      "options": [
+        {
+          "id": "doetl_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "doetl_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "doetl_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "doevent",
+      "label": "Do event(doevent)",
+      "options": [
+        {
+          "id": "doevent_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "doevent_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "doevent_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        },
+        {
+          "id": "doevent_3",
+          "descr": "TESK",
+          "value": "TASK"
+        },
+        {
+          "id": "doevent_4",
+          "descr": "\"",
+          "value": "\""
+        }
+      ]
+    },
+    {
+      "name": "eligupdatemode",
+      "label": "Elig update mode(eligupdatemode)",
+      "options": [
+        {
+          "id": "eligupdatemode_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "eligupdatemode_1",
+          "descr": "SYNC",
+          "value": "SYNC"
+        }
+      ]
+    },
+    {
+      "name": "eligvendorsync",
+      "label": "Elig vendor sync(eligvendorsync)",
+      "options": [
+        {
+          "id": "eligvendorsync_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "eligvendorsync_1",
+          "descr": "ELIGSYNC",
+          "value": "ELIGSYNC"
+        }
+      ]
+    },
+    {
+      "name": "emplbycase",
+      "label": "emplbycase",
+      "options": [
+        {
+          "id": "emplbycase_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "emplbycase_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "emplbycase_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "eob_payr_addr",
+      "label": "EOB payer address(eob_payr_addr)",
+      "options": [
+        {
+          "id": "eob_payr_addr_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "eob_payr_addr_1",
+          "descr": "PolEnt",
+          "value": "PolEnt"
+        }
+      ]
+    },
+    {
+      "name": "genformoffice",
+      "label": "genformoffice",
+      "options": [
+        {
+          "id": "genformoffice_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "genformoffice_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "genformoffice_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "golivedate",
+      "label": "golivedate",
+      "options": [
+        {
+          "id": "golivedate_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "golivedate_1",
+          "descr": "20180301",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "name": "isautopay",
+      "label": "Is auto pay?(isautopay)",
+      "options": [
+        {
+          "id": "isautopay_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "isautopay_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "isautopay_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "isbr",
+      "label": "isbr",
+      "options": [
+        {
+          "id": "isbr_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "isbr_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "isbr_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "isch",
+      "label": "isch",
+      "options": [
+        {
+          "id": "isch_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "isch_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "isch_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "isfullpay",
+      "label": "isfullpay",
+      "options": [
+        {
+          "id": "isfullpay_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "isfullpay_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "isfullpay_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "isiep683plus",
+      "label": "isiep683plus",
+      "options": [
+        {
+          "id": "isiep683plus_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "isiep683plus_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "isiep683plus_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "mailservice",
+      "label": "Mail service(mailservice)",
+      "options": [
+        {
+          "id": "mailservice_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "mailservice_1",
+          "descr": "APS",
+          "value": "APS"
+        },
+        {
+          "id": "mailservice_2",
+          "descr": "PFPC",
+          "value": "PFPC"
+        }
+      ]
+    },
+    {
+      "name": "pmlr_service",
+      "label": "Mail service(pmlr_service)",
+      "options": [
+        {
+          "id": "pmlr_service_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "pmlr_service_1",
+          "descr": "APSMAIL",
+          "value": "APSMAIL"
+        }
+      ]
+    },
+    {
+      "name": "nf10confirm",
+      "label": "nf10confirm",
+      "options": [
+        {
+          "id": "nf10confirm_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "nf10confirm_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "nf10confirm_2",
+          "descr": "FALSE",
+          "value": "FALSE"
+        }
+      ]
+    },
+    {
+      "name": "norm_vend_data_src",
+      "label": "Normalize vendor data source(norm_vend_data_src)",
+      "options": [
+        {
+          "id": "norm_vend_data_src_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "norm_vend_data_src_1",
+          "descr": "both",
+          "value": "both"
+        }
+      ]
+    },
+    {
+      "name": "portalaccessby",
+      "label": "portalaccessby",
+      "options": [
+        {
+          "id": "portalaccessby_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "portalaccessby_1",
+          "descr": "LOBS",
+          "value": "LOBS"
+        }
+      ]
+    },
+    {
+      "name": "rxonhcfa",
+      "label": "Process 1500/HCFA as Pharmacy/RX(rxonhcfa)",
+      "options": [
+        {
+          "id": "rxonhcfa_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "rxonhcfa_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "rxonhcfa_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showadjinfo",
+      "label": "Show adjusted information(showadjinfo)",
+      "options": [
+        {
+          "id": "showadjinfo_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showadjinfo_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showadjinfo_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showaprvamt",
+      "label": "Show approved amount(showaprvamt)",
+      "options": [
+        {
+          "id": "showaprvamt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showaprvamt_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showaprvamt_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showcontamt",
+      "label": "showcontamt",
+      "options": [
+        {
+          "id": "showcontamt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showcontamt_1",
+          "descr": "A",
+          "value": "A"
+        },
+        {
+          "id": "showcontamt_2",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showcontamt_3",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showcontamtexafterdos",
+      "label": "showcontamtexafterdos",
+      "options": [
+        {
+          "id": "showcontamtexafterdos_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showcontamtexafterdos_1",
+          "descr": "20111231",
+          "value": "20111231"
+        }
+      ]
+    },
+    {
+      "name": "showcontamtexjuris",
+      "label": "showcontamtexjuris",
+      "options": [
+        {
+          "id": "showcontamtexjuris_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showcontamtexjuris_1",
+          "descr": "TX",
+          "value": "TX"
+        }
+      ]
+    },
+    {
+      "name": "showcontamtextin",
+      "label": "showcontamtextin",
+      "options": [
+        {
+          "id": "showcontamtextin_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showcontamtextin_1",
+          "descr": "770683169;223218521",
+          "value": "770683169;223218521"
+        }
+      ]
+    },
+    {
+      "name": "showdaw",
+      "label": "showdaw",
+      "options": [
+        {
+          "id": "showdaw_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showdaw_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showdaw_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showpresclic",
+      "label": "showpresclic",
+      "options": [
+        {
+          "id": "showpresclic_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showpresclic_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showpresclic_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "showuncamt",
+      "label": "showuncamt",
+      "options": [
+        {
+          "id": "showuncamt_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "showuncamt_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "showuncamt_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "usefacilityname",
+      "label": "usefacilityname",
+      "options": [
+        {
+          "id": "usefacilityname_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "usefacilityname_1",
+          "descr": "Y",
+          "value": "Y"
+        },
+        {
+          "id": "usefacilityname_2",
+          "descr": "N",
+          "value": "N"
+        }
+      ]
+    },
+    {
+      "name": "vndmatchedreq",
+      "label": "vndmatchedreq",
+      "options": [
+        {
+          "id": "vndmatchedreq_0",
+          "descr": "SELECT",
+          "value": ""
+        },
+        {
+          "id": "vndmatchedreq_1",
+          "descr": "TRUE",
+          "value": "TRUE"
+        },
+        {
+          "id": "vndmatchedreq_2",
+          "descr": "FALSE",
+          "value": "FALSE"
         }
       ]
     }

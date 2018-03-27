@@ -611,6 +611,17 @@ const siteDuplicateDataReducer = (state = {}, action) => {
   }
 };
 
+const siteProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.RECEIVED_SITE_PROFILE:
+      return {
+        profile: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -641,7 +652,8 @@ const rootReducer = combineReducers({
   siteTemplateData: siteTemplateDataReducer,
   siteDuplicateData: siteDuplicateDataReducer,
   form: formReducer,
-  formConfig: formConfigReducer
+  formConfig: formConfigReducer,
+  siteProfile: siteProfileReducer
 });
 
 export default rootReducer;

@@ -1,0 +1,47 @@
+{
+  "status": { "code": "01", "result": true, "reason": "OK" },
+  "profile": {
+    "jiraNbr": "",
+    "address": {
+      "address1": "qqq",
+      "address2": "",
+      "city": "qqq",
+      "state": "CA",
+      "zip": "22222"
+    },
+    "annualVolumes": {
+      "wcbill": "nullnullnullnullnullnull",
+      "wcatt": "",
+      "autobill": "",
+      "autoatt": "",
+      "otherbill": "",
+      "otheratt": ""
+    },
+    "calendar": "work",
+    "comment": "Born to write amazing Redux code.",
+    "doEobAck999": false,
+    "lockDelay": "0",
+    "masterEntity": "ECW",
+    "pwdAgeMax": "0",
+    "pwdAgeMin": "0",
+    "pwdFailMax": "0",
+    "pwdHistDepth": "0",
+    "pwdStrength": "0",
+    "receiverAddInfo": "",
+    "receiverId": "",
+    "receiverMngmntSystem": "",
+    "receiverName": "qqq",
+    "receiverTaxId": "111111111",
+    "receiverType": "INDP",
+    "services": {
+      "ebill": true,
+      "eatt": true,
+      "faxatt": true,
+      "printmail": true,
+      "pcorr": true,
+      "other": false
+    },
+    "siteId": "QQQ",
+    "switchPayerIdToPaper": true
+  }
+}

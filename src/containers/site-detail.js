@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeSitesView, fetchSiteLog } from "../actions/index";
+import {
+  changeSitesView,
+  fetchSiteLog,
+  getSiteProfile
+} from "../actions/index";
 import $ from "jquery";
 
 import ConfigList from "./config-list";
 import ConfigDetail from "./config-detail";
 import ConfigForm from "./config-form";
 import SiteLog from "./site-log";
+import SiteProfileForm from "./site-profile-form";
 
 class SiteDetail extends Component {
   onTabClick(event) {
@@ -90,6 +95,7 @@ class SiteDetail extends Component {
                   <a
                     href="#site-profile"
                     onClick={event => {
+                      this.props.getSiteProfile(this.props.activeSite);
                       this.onTabClick(event);
                     }}
                   >
@@ -141,7 +147,7 @@ class SiteDetail extends Component {
                   role="tabpanel"
                   className="site-detail-tab-pane tab-pane"
                 >
-                  Site profile
+                  <SiteProfileForm />
                 </div>
                 <div
                   id="site-ftp"
@@ -183,7 +189,10 @@ function mapStateToProps({ activeSite, activeConfig, configView, siteLog }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeSitesView, fetchSiteLog }, dispatch);
+  return bindActionCreators(
+    { changeSitesView, fetchSiteLog, getSiteProfile },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiteDetail);

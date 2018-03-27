@@ -1,6 +1,7 @@
 import axios from "axios";
 import _ from "lodash";
 import * as types from "./action-types";
+import { SubmissionError } from "redux-form";
 
 const ROOT_URL = "external/api";
 
@@ -814,7 +815,6 @@ export const load = data => ({ type: LOAD, data });
 //******************************* asyncValidateNewSite
 
 export function asyncValidateNewSite(values, dispatch, props, blurredField) {
-  console.log("**************************** async props", props);
   //["receiverName", "receiverTaxId", "siteId", "receiverId"]
   let url = `external/api/invalid-taxid.json`;
 
@@ -828,4 +828,72 @@ export function asyncValidateNewSite(values, dispatch, props, blurredField) {
   });
 }
 
-//************************************* Dupl site modal
+//************************************* New SITE
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+export function submitNewSite(values) {
+  //console.log("######################### submitting new site", values);
+  return function(dispatch) {
+    sleep(1000).then(() => {
+      {
+        console.log("%%%%%%%%%%%%%%%%%%%%%%%", types.SITE_DETAIL_VIEW);
+        dispatch({ type: types.SITE_DETAIL_VIEW });
+      }
+    });
+  };
+}
+
+export function submitNewDuplSite(values) {
+  console.log("######################### submitting new site", values);
+  return sleep(1000).then(() => {
+    if (values.password !== "redux-form") {
+      throw new SubmissionError({
+        _error: "Login failed!"
+      });
+    } else {
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+    }
+  });
+}
+
+//*************************************** Site Profile
+
+export function getSiteProfile(activeSite) {
+  let url = `external/api/site-profile.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_SITE_PROFILE });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_SITE_PROFILE,
+          payload: response.data.profile
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_SITE_PROFILE_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function updateSiteProfile(activeSite) {
+  let url = `${ROOT_URL}&param.rtype=getSiteProfile&param.id=${activeSite.codenbr}`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_SITE_PROFILE });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_SITE_PROFILE,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_SITE_PROFILE_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
