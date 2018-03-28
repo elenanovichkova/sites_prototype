@@ -115,3 +115,10 @@ input:checked + .switchslider:before {
   display: inline-block;
   content: "checking...";
 }
+
+.edit-gparameter-form {
+  max-height: 300px;
+  width: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

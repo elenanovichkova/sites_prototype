@@ -173,12 +173,6 @@ let NewDuplSiteForm = props => {
   const { handleSubmit, load, pristine, reset, submitting, error } = props;
   return (
     <form onSubmit={handleSubmit(submitNewDuplSite)}>
-      {/*}<div>
-        <button type="button" onClick={() => load(data)}>
-          Load Account
-        </button>
-      </div>*/}
-
       <h3 className="new-site-form-section-title new-site-form-section-title-company-info">
         <strong>Company Information</strong>
       </h3>

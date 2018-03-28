@@ -1,0 +1,39 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "px12_docrypt",
+      "name": "px12_docrypt",
+      "tag": "px12_docrypt",
+      "category": "EDICNTL",
+      "group": "X12",
+      "question": "Do files need to be encrypted",
+      "options": [
+        {
+          "id": "px12_docrypt0",
+          "val": "Y",
+          "descr": "YES"
+        },
+        {
+          "id": "px12_docrypt1",
+          "val": "N",
+          "descr": "NO"
+        },
+        {
+          "id": "px12_docrypt2",
+          "val": "CLEAR",
+          "descr": "CLEAR"
+        },
+        {
+          "id": "px12_docrypt3",
+          "val": "UNDEFINED",
+          "descr": "UNDEFINED"
+        }
+      ]
+    }
+  ]
+}

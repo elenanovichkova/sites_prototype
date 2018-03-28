@@ -1,0 +1,29 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "category0",
+      "value": "",
+      "descr": "SELECT"
+    },
+    {
+      "id": "category1",
+      "value": "EDICNTL",
+      "descr": "EDICNTL"
+    },
+    {
+      "id": "category2",
+      "value": "SITE",
+      "descr": "SITE"
+    },
+    {
+      "id": "category3",
+      "value": "ENTITY",
+      "descr": "ENTITY"
+    }
+  ]
+}

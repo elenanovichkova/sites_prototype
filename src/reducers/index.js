@@ -135,6 +135,8 @@ const siteViewReducer = (state = "site-list", action) => {
       return "site-new";
     case types.SITE_DUPL_VIEW:
       return "site-duplicate";
+    case types.SITE_GPARAMS_LIBRARY_VIEW:
+      return "parameters-library";
     default:
       return state;
   }
@@ -622,6 +624,112 @@ const siteProfileReducer = (state = {}, action) => {
   }
 };
 
+//****************************** params library
+const gParams = {
+  fetching: false,
+  error: "",
+  data: []
+};
+
+const gFilteredParams = {
+  fetching: false,
+  data: []
+};
+
+const gParamsReducer = (state = gParams, action) => {
+  switch (action.type) {
+    case types.REQUEST_GPARAMS:
+      return {
+        ...state,
+        error: "",
+        fetching: true
+      };
+    case types.RECEIVED_GPARAMS:
+      return {
+        fetching: false,
+        error: "",
+        data: action.payload
+      };
+    case types.REQUEST_GPARAMS_FAIL:
+      return {
+        fetching: false,
+        error: action.payload,
+        data: []
+      };
+    default:
+      return state;
+  }
+};
+
+const gParamCategoryOptionsReducer = (
+  state = [
+    {
+      id: "category0",
+      value: "",
+      descr: "SELECT"
+    }
+  ],
+  action
+) => {
+  switch (action.type) {
+    case types.RECEIVED_GPARAMS_CATEGORY:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const gParamGroupOptionsReducer = (
+  state = [
+    {
+      id: "group0",
+      value: "",
+      descr: "SELECT"
+    }
+  ],
+  action
+) => {
+  switch (action.type) {
+    case types.RECEIVED_GPARAMS_GROUP:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const gFilteredParamsReducer = (state = gFilteredParams, action) => {
+  switch (action.type) {
+    case types.RECEIVED_SITE_PROFILE:
+      return {
+        profile: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+const activeGParamReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.SELECT_GPARAM:
+      return action.payload;
+    case types.DESELECT_GPARAM:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const isEditGParamModalOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case types.SHOW_EDITGPARAM_MODAL:
+      return true;
+    case types.HIDE_EDITGPARAM_MODAL:
+      return false;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -653,7 +761,13 @@ const rootReducer = combineReducers({
   siteDuplicateData: siteDuplicateDataReducer,
   form: formReducer,
   formConfig: formConfigReducer,
-  siteProfile: siteProfileReducer
+  siteProfile: siteProfileReducer,
+  gParams: gParamsReducer,
+  activeGParam: activeGParamReducer,
+  gParamCategoryOptions: gParamCategoryOptionsReducer,
+  gParamGroupOptions: gParamGroupOptionsReducer,
+  gFilteredParams: gFilteredParamsReducer,
+  isEditGParamModalOpen: isEditGParamModalOpenReducer
 });
 
 export default rootReducer;

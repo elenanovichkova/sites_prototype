@@ -4,13 +4,15 @@ const HorizontalSelectField = ({
   input,
   label,
   options,
+  labelLength,
+  selectLength,
   meta: { touched, error }
 }) =>
   <div className={`form-group ${touched && error ? "has-error" : ""}`}>
-    <span className="control-label col-md-6">
+    <span className={`control-label col-md-${labelLength ? labelLength : "6"}`}>
       {label}
     </span>
-    <div className="col-md-6">
+    <div className={`col-md-${selectLength ? selectLength : "6"}`}>
       <select {...input} className="form-control">
         {options.map(option =>
           <option key={option.id} value={option.value}>

@@ -57,6 +57,10 @@ export function changeSitesView(view) {
       return {
         type: types.SITE_DUPL_VIEW
       };
+    case "parameters-library":
+      return {
+        type: types.SITE_GPARAMS_LIBRARY_VIEW
+      };
   }
 }
 
@@ -895,5 +899,98 @@ export function updateSiteProfile(activeSite) {
         });
       }
     });
+  };
+}
+
+//*******************************  manage param library
+
+export function fetchGParams() {
+  let url = "external/api/gparams.json";
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_GPARAMS });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_GPARAMS,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_GPARAMS_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function fetchGParamsCategory() {
+  let url = "external/api/gparamsCategories.json";
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_GPARAMS_CATEGORY });
+    axios.get(url).then(response => {
+      console.log("########## categories response", response);
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_GPARAMS_CATEGORY,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_GPARAMS_CATEGORY_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function fetchGParamsGroup() {
+  let url = "external/api/gparamsGroups.json";
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_GPARAMS_GROUP });
+    axios.get(url).then(response => {
+      if (response.data.status.result) {
+        dispatch({
+          type: types.RECEIVED_GPARAMS_GROUP,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_GPARAMS_GROUP_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function selectGParam(param) {
+  return function(dispatch) {
+    dispatch({ type: types.SELECT_GPARAM, payload: param });
+  };
+}
+
+export function deselectGParam(param) {
+  return function(dispatch) {
+    dispatch({ type: types.DESELECT_GPARAM, payload: {} });
+  };
+}
+
+export function closeEditGParamModal() {
+  return function(dispatch) {
+    dispatch({ type: types.HIDE_EDITGPARAM_MODAL });
+  };
+}
+
+export function openEditGParamModal() {
+  return function(dispatch) {
+    dispatch({ type: types.SHOW_EDITGPARAM_MODAL });
+  };
+}
+
+export function updateGParam(values) {
+  return function(dispatch) {
+    dispatch({ type: types.SHOW_EDITGPARAM_MODAL });
   };
 }

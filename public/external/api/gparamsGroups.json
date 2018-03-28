@@ -1,0 +1,59 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "group0",
+      "value": "",
+      "descr": "SELECT"
+    },
+    {
+      "id": "group1",
+      "value": "X12",
+      "descr": "X12"
+    },
+    {
+      "id": "group2",
+      "value": "837",
+      "descr": "837"
+    },
+    {
+      "id": "group3",
+      "value": "att",
+      "descr": "Attachments"
+    },
+    {
+      "id": "group4",
+      "value": "999",
+      "descr": "Acknowledgment/999"
+    },
+    {
+      "id": "group5",
+      "value": "277",
+      "descr": "Claim Status/277"
+    },
+    {
+      "id": "group6",
+      "value": "835",
+      "descr": "EOB / 835"
+    },
+    {
+      "id": "group7",
+      "value": "275",
+      "descr": "275"
+    },
+    {
+      "id": "group8",
+      "value": "997",
+      "descr": "997"
+    },
+    {
+      "id": "group9",
+      "value": "824",
+      "descr": "824"
+    }
+  ]
+}
