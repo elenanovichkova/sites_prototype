@@ -994,3 +994,19 @@ export function updateGParam(values) {
     dispatch({ type: types.SHOW_EDITGPARAM_MODAL });
   };
 }
+
+//************************************* toggle Print and Mail services
+
+export function toggleEdiCntlPrintMail(edicntl, action) {
+  console.log("#################### edicntl", edicntl);
+  console.log("#################### event", action);
+  if (action == true) {
+    return function(dispatch) {
+      dispatch({ type: types.TURN_ON_PRINTMAILSERVICE });
+    };
+  } else {
+    return function(dispatch) {
+      dispatch({ type: types.TURN_OFF_PRINTMAILSERVICE });
+    };
+  }
+}

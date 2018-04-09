@@ -7,12 +7,14 @@ import {
   changeConfigsView,
   openNewConfigModal,
   openDuplConfigModal,
-  openConfirmationModal
+  openConfirmationModal,
+  toggleEdiCntlPrintMail
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import NewConfigModal from "./newconfig-modal";
 import DuplConfigModal from "./duplconfig-modal";
 import ConfirmationModal from "./confirmation-modal";
+import Switch from "./switch";
 
 class ConfigList extends Component {
   renderList() {
@@ -26,7 +28,13 @@ class ConfigList extends Component {
           <td>
             {config.ID}
           </td>
-          <td />
+          <td>
+            <Switch
+              isChecked={config.isActive}
+              onChange={event =>
+                this.props.toggleEdiCntlPrintMail(config, event)}
+            />
+          </td>
           <td>
             {config.purpose}
           </td>
@@ -112,7 +120,7 @@ class ConfigList extends Component {
             <tr>
               <th>Receiver ID</th>
               <th>ID</th>
-              <th>Status</th>
+              <th>Print&Mail</th>
               <th>Purpose</th>
               <th>Usage</th>
               <th colSpan="4">Action</th>
@@ -145,7 +153,8 @@ function mapDispatchToProps(dispatch) {
       changeConfigsView,
       openNewConfigModal,
       openDuplConfigModal,
-      openConfirmationModal
+      openConfirmationModal,
+      toggleEdiCntlPrintMail
     },
     dispatch
   );
