@@ -10,7 +10,7 @@ class SiteFtp extends Component {
     return (
       <div className="site-detail-ftp">
         <br />
-        <div className="site-detail-files">
+        <div className="site-detail-jobs">
           <div className="site-detail-jobs-header">
             <div className="panel-body">Site Jobs</div>
           </div>
@@ -54,12 +54,70 @@ class SiteFtp extends Component {
           </div>
         </div>
         <br />
-        <div className="site-detail-files">
-          <div className="site-detail-files-header">
-            <div className="panel-body">File Name Convention</div>
+        <div className="site-detail-inbound-files">
+          <div className="site-detail-inbound-files-header">
+            <div className="panel-body">Site Inbound Files</div>
           </div>
-          <div className="site-detail-files-form-wrapper">
-            <SiteFilesForm />
+          <div className="row">
+            <div className="col-md-12">
+              <div className="panel-body">
+                <div className="site-detail-current-inbound-files">
+                  <h4>Current Site Inbound Files</h4>
+                  <div className="panel-body">
+                    <div className="row">
+                      <div className="col-md-2 text-right">
+                        <p>
+                          <strong>
+                            <span className="site-inbound-file-id-header">
+                              File Id
+                            </span>
+                          </strong>
+                        </p>
+                      </div>
+                      <div className="col-md-2 text-left">
+                        <p>
+                          <strong>
+                            <span className="site-inbound-file-match-header">
+                              File Regex
+                            </span>
+                          </strong>
+                        </p>
+                      </div>
+                    </div>
+                    {this.props.activeSiteInboundFiles.map((file, index) =>
+                      <div key={file.ID} id={file.ID}>
+                        <div className="row">
+                          <div className="col-md-2 text-right">
+                            <span className="site-inbound-file-id">
+                              {file.ID}
+                            </span>
+                          </div>
+                          <div className="col-md-2 text-left">
+                            <span className="site-inbound-file-match">
+                              {file.match}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-12">
+            <div className="site-detail-update-inbound-files">
+              <h4>Update/Generate Site FTP Configuration For Incoming Files</h4>
+              <div className="site-detail-incoming-files-form-wrapper">
+                <div className="panel-body">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <SiteFilesForm />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -67,10 +125,15 @@ class SiteFtp extends Component {
   }
 }
 
-function mapStateToProps({ activeSite, activeSiteJobs }) {
+function mapStateToProps({
+  activeSite,
+  activeSiteJobs,
+  activeSiteInboundFiles
+}) {
   return {
     activeSite,
-    activeSiteJobs
+    activeSiteJobs,
+    activeSiteInboundFiles
   };
 }
 

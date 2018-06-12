@@ -1173,3 +1173,32 @@ export function updateSiteFtpConfig(values) {
   console.log("### update ftp config values", values);
   return errors;
 }
+
+export function getActiveSiteInboundFiles(site) {
+  let configFile = `j_${site.codenbr}`;
+  let url = "external/api/active-site-inbound-files.json";
+  /*let url = `${ROOT_URL}&param.rtype=getSiteJobs&param.configFile=${configFile}&param.siteCodeNbr=${
+    site.codenbr
+  }`;*/
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_ACTIVESITE_INBOUND_FILES });
+    axios.get(url).then(response => {
+      if (
+        response &&
+        response.data &&
+        response.data.status &&
+        response.data.status.result
+      ) {
+        dispatch({
+          type: types.RECEIVED_ACTIVESITE_INBOUND_FILES,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_ACTIVESITE_INBOUND_FILES_FAIL,
+          payload: []
+        });
+      }
+    });
+  };
+}

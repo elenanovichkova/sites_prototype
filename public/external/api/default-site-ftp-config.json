@@ -1,11 +1,12 @@
 {
-  "ftp_qid": "TEST12Q",
+  "ftp_qid": "[SITEID]Q",
   "files": [
     {
-      "id": "TEST12837",
+      "id": "[SITEID]837",
+      "name": "Incoming 837 file",
       "match": {
         "src": "filename",
-        "value": "^(?i).*TEST12_BILLS_.*.TXT$"
+        "value": "^(?i).*[SITEID]_BILLS_.*.TXT$"
       },
       "exception": {
         "outcome": "unk_file"
@@ -45,15 +46,16 @@
         },
         {
           "tag": "site",
-          "value": "TEST12"
+          "value": "[SITEID]"
         }
       ]
     },
     {
-      "id": "TEST12zip",
+      "id": "[SITEID]zip",
+      "name": "Incoming Attachments zip file",
       "match": {
         "src": "filename",
-        "value": "^(?i).*TEST12_IMAGES_.*.ZIP$"
+        "value": "^(?i).*[SITEID]_IMAGES_.*.ZIP$"
       },
       "exception": {
         "outcome": "unk_file"
@@ -93,18 +95,18 @@
         },
         {
           "tag": "site",
-          "value": "TEST12"
+          "value": "[SITEID]"
         }
       ]
     }
   ],
   "worksets": [
     {
-      "id": "TEST12837Data",
+      "id": "[SITEID]837Data",
       "outcome": "runflow",
       "flow": "f_loadX12N",
       "fileref": {
-        "id": "TEST12837"
+        "id": "[SITEID]837"
       },
       "exception": {
         "outcome": "unk_workset"
@@ -189,11 +191,11 @@
       ]
     },
     {
-      "id": "TEST12837ZipData",
+      "id": "[SITEID]837ZipData",
       "outcome": "runflow",
       "flow": "f_loadX12N",
       "fileref": {
-        "id": "TEST12zip"
+        "id": "[SITEID]zip"
       },
       "exception": {
         "outcome": "unk_workset"

@@ -124,7 +124,7 @@ input:checked + .switchslider:before {
 }
 
 .sites-detail-config-submitterid-header,
-.site-detail-files-header,
+.site-detail-inbound-files-header,
 .site-detail-jobs-header {
   background-color: #f5f5f5f5;
 }

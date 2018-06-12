@@ -5,7 +5,8 @@ import {
   changeSitesView,
   fetchSiteLog,
   getSiteProfile,
-  getActiveSiteJobs
+  getActiveSiteJobs,
+  getActiveSiteInboundFiles
 } from "../actions/index";
 import $ from "jquery";
 
@@ -109,6 +110,9 @@ class SiteDetail extends Component {
                     href="#site-ftp"
                     onClick={event => {
                       this.props.getActiveSiteJobs(this.props.activeSite);
+                      this.props.getActiveSiteInboundFiles(
+                        this.props.activeSite
+                      );
                       this.onTabClick(event);
                     }}
                   >
@@ -193,7 +197,13 @@ function mapStateToProps({ activeSite, activeConfig, configView, siteLog }) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { changeSitesView, fetchSiteLog, getSiteProfile, getActiveSiteJobs },
+    {
+      changeSitesView,
+      fetchSiteLog,
+      getSiteProfile,
+      getActiveSiteJobs,
+      getActiveSiteInboundFiles
+    },
     dispatch
   );
 }

@@ -771,6 +771,19 @@ const defaultSiteFtpConfigReducer = (state = {}, action) => {
   }
 };
 
+const activeSiteInboundFilesReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.SITE_SELECTED:
+      return [];
+    case types.REQUEST_ACTIVESITE_INBOUND_FILES:
+      return [];
+    case types.RECEIVED_ACTIVESITE_INBOUND_FILES:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -812,7 +825,8 @@ const rootReducer = combineReducers({
   form: formReducer,
   activeSiteJobs: activeSiteJobsReducer,
   defaultSiteFtpJobs: defaultSiteFtpJobsReducer,
-  defaultSiteFtpConfig: defaultSiteFtpConfigReducer
+  defaultSiteFtpConfig: defaultSiteFtpConfigReducer,
+  activeSiteInboundFiles: activeSiteInboundFilesReducer
 });
 
 export default rootReducer;

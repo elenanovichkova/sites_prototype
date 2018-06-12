@@ -1,0 +1,15 @@
+{
+  "status": { "code": "03", "result": true, "reason": "Success" },
+  "data": [
+    {
+      "ID": "ACI837",
+      "match": "^(?i).*ACI_BILLS_.*.TXT$",
+      "rtype": "837c"
+    },
+    {
+      "ID": "ACIzip",
+      "match": "^(?i).*ACI_IMAGES_.*.zip$",
+      "rtype": "att"
+    }
+  ]
+}
