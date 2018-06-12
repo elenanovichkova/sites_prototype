@@ -1,0 +1,281 @@
+{
+  "ftp_qid": "TEST12Q",
+  "files": [
+    {
+      "id": "TEST12837",
+      "match": {
+        "src": "filename",
+        "value": "^(?i).*TEST12_BILLS_.*.TXT$"
+      },
+      "exception": {
+        "outcome": "unk_file"
+      },
+      "extracts": [
+        {
+          "src": "filename",
+          "tag": "file",
+          "value": ".*"
+        },
+        {
+          "src": "filename",
+          "tag": "filetype",
+          "value": "837"
+        }
+      ],
+      "assigns": [
+        {
+          "tag": "rtype",
+          "value": "837c"
+        },
+        {
+          "tag": "portalid",
+          "value": "Jopari"
+        },
+        {
+          "tag": "callerid",
+          "value": "console"
+        },
+        {
+          "tag": "runftp",
+          "value": "ftp"
+        },
+        {
+          "tag": "runnotify",
+          "value": "notify"
+        },
+        {
+          "tag": "site",
+          "value": "TEST12"
+        }
+      ]
+    },
+    {
+      "id": "TEST12zip",
+      "match": {
+        "src": "filename",
+        "value": "^(?i).*TEST12_IMAGES_.*.ZIP$"
+      },
+      "exception": {
+        "outcome": "unk_file"
+      },
+      "extracts": [
+        {
+          "src": "filename",
+          "tag": "file",
+          "value": ".*"
+        },
+        {
+          "src": "filename",
+          "tag": "filetype",
+          "value": "zip"
+        }
+      ],
+      "assigns": [
+        {
+          "tag": "rtype",
+          "value": "att"
+        },
+        {
+          "tag": "portalid",
+          "value": "Jopari"
+        },
+        {
+          "tag": "callerid",
+          "value": "console"
+        },
+        {
+          "tag": "runftp",
+          "value": "ftp"
+        },
+        {
+          "tag": "runnotify",
+          "value": "notify"
+        },
+        {
+          "tag": "site",
+          "value": "TEST12"
+        }
+      ]
+    }
+  ],
+  "worksets": [
+    {
+      "id": "TEST12837Data",
+      "outcome": "runflow",
+      "flow": "f_loadX12N",
+      "fileref": {
+        "id": "TEST12837"
+      },
+      "exception": {
+        "outcome": "unk_workset"
+      },
+      "syncs": [
+        {
+          "tag": "file"
+        },
+        {
+          "tag": "rtype"
+        },
+        {
+          "tag": "portalid"
+        },
+        {
+          "tag": "callerid"
+        },
+        {
+          "tag": "runftp"
+        },
+        {
+          "tag": "runnotify"
+        },
+        {
+          "tag": "site"
+        },
+        {
+          "tag": "filetype"
+        }
+      ],
+      "setparams": [
+        {
+          "tag": "filename",
+          "src": "file",
+          "value": ".*"
+        },
+        {
+          "tag": "synctype",
+          "src": "rtype",
+          "value": ".*"
+        },
+        {
+          "tag": "portalid",
+          "src": "portalid",
+          "value": ".*"
+        },
+        {
+          "tag": "callerid",
+          "src": "callerid",
+          "value": ".*"
+        },
+        {
+          "tag": "runftp",
+          "src": "runftp",
+          "value": ".*"
+        },
+        {
+          "tag": "runnotify",
+          "src": "runnotify",
+          "value": ".*"
+        },
+        {
+          "tag": "site",
+          "src": "site",
+          "value": ".*"
+        },
+        {
+          "tag": "file",
+          "src": "file",
+          "value": ".*"
+        },
+        {
+          "tag": "filetype",
+          "src": "filetype",
+          "value": ".*"
+        },
+        {
+          "tag": "rtype",
+          "src": "rtype",
+          "value": ".*"
+        }
+      ]
+    },
+    {
+      "id": "TEST12837ZipData",
+      "outcome": "runflow",
+      "flow": "f_loadX12N",
+      "fileref": {
+        "id": "TEST12zip"
+      },
+      "exception": {
+        "outcome": "unk_workset"
+      },
+      "syncs": [
+        {
+          "tag": "file"
+        },
+        {
+          "tag": "rtype"
+        },
+        {
+          "tag": "portalid"
+        },
+        {
+          "tag": "callerid"
+        },
+        {
+          "tag": "runftp"
+        },
+        {
+          "tag": "runnotify"
+        },
+        {
+          "tag": "site"
+        },
+        {
+          "tag": "filetype"
+        }
+      ],
+      "setparams": [
+        {
+          "tag": "filename",
+          "src": "file",
+          "value": ".*"
+        },
+        {
+          "tag": "synctype",
+          "src": "rtype",
+          "value": ".*"
+        },
+        {
+          "tag": "portalid",
+          "src": "portalid",
+          "value": ".*"
+        },
+        {
+          "tag": "callerid",
+          "src": "callerid",
+          "value": ".*"
+        },
+        {
+          "tag": "runftp",
+          "src": "runftp",
+          "value": ".*"
+        },
+        {
+          "tag": "runnotify",
+          "src": "runnotify",
+          "value": ".*"
+        },
+        {
+          "tag": "site",
+          "src": "site",
+          "value": ".*"
+        },
+        {
+          "tag": "file",
+          "src": "file",
+          "value": ".*"
+        },
+        {
+          "tag": "filetype",
+          "src": "filetype",
+          "value": ".*"
+        },
+        {
+          "tag": "rtype",
+          "src": "rtype",
+          "value": ".*"
+        }
+      ]
+    }
+  ]
+}

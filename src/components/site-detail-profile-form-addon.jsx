@@ -31,7 +31,7 @@ const renderCheckboxField = CheckboxField;
 const SiteDetailProfileFormAddon = props => {
   console.log("-------------------", props);
   return (
-    <div class="site-profile-form-addon">
+    <div className="site-profile-form-addon">
       <div className="row">
         <div className="col-md-6">
           <Field

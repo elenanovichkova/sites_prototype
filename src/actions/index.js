@@ -1010,3 +1010,166 @@ export function toggleEdiCntlPrintMail(edicntl, action) {
     };
   }
 }
+
+const stringifyBooleanSiteData = newSiteData => {
+  for (var property in newSiteData) {
+    if (newSiteData.hasOwnProperty(property)) {
+      if (typeof newSiteData[property] === "boolean") {
+        newSiteData[property] = String(newSiteData[property]);
+      } else if (typeof newSiteData[property] === "object") {
+        stringifyBooleanSiteData(newSiteData[property]);
+      }
+    }
+  }
+  return newSiteData;
+};
+
+//*********************************site FTP
+export function getDefaultFtpJobs() {
+  let url = `external/api/default-site-ftp-jobs.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_DEFAULT_FTP_JOBS });
+    axios.get(url).then(response => {
+      if (response.data) {
+        dispatch({
+          type: types.RECEIVED_DEFAULT_FTP_JOBS,
+          payload: response.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_DEFAULT_FTP_JOBS_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function getDefaultFtpConfig() {
+  let url = `external/api/default-site-ftp-config.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_DEFAULT_FTP_CONFIG });
+    axios.get(url).then(response => {
+      if (response.data) {
+        dispatch({
+          type: types.RECEIVED_DEFAULT_FTP_CONFIG,
+          payload: response.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_DEFAULT_FTP_CONFIG_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function getActiveSiteJobs(site) {
+  let configFile = `j_${site.codenbr}`;
+  let url = "external/api/activeSiteJobs.json";
+  /*let url = `${ROOT_URL}&param.rtype=getSiteJobs&param.configFile=${configFile}&param.siteCodeNbr=${
+    site.codenbr
+  }`;*/
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_ACTIVESITE_JOBS });
+    axios.get(url).then(response => {
+      if (
+        response &&
+        response.data &&
+        response.data.status &&
+        response.data.status.result
+      ) {
+        dispatch({
+          type: types.RECEIVED_ACTIVESITE_JOBS,
+          payload: response.data.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_ACTIVESITE_JOBS_FAIL,
+          payload: []
+        });
+      }
+    });
+  };
+}
+
+export function validateSiteJobs() {
+  let errors = {};
+  return errors;
+}
+
+export function updateSiteJobs(values, dispatch, props) {
+  let errors = {};
+  var cloneValues = _.cloneDeep(values);
+  //replace *SITE* with current site Id
+  cloneValues = JSON.parse(
+    JSON.stringify(cloneValues).replace(/\*SITE\*/g, props.activeSite.codenbr)
+  );
+
+  //setup schedule time
+  for (var i = 0; i < cloneValues.jobs.length; i++) {
+    console.log(cloneValues.jobs[i]);
+    if (cloneValues.jobs[i].name != "Assembler") {
+      cloneValues.jobs[i].id +=
+        cloneValues.jobs[i].schedule.timer.at.hour.hour +
+        cloneValues.jobs[i].schedule.timer.at.hour.minute +
+        cloneValues.jobs[i].schedule.timer.at.hour.meridiem;
+      cloneValues.jobs[i].schedule.timer.at.hour.hour = parseInt(
+        cloneValues.jobs[i].schedule.timer.at.hour.hour
+      );
+      //add 12 hours if pm meridiem is picked
+      if (cloneValues.jobs[i].schedule.timer.at.hour.meridiem == "PM") {
+        cloneValues.jobs[i].schedule.timer.at.hour.hour =
+          parseInt(cloneValues.jobs[i].schedule.timer.at.hour.hour) + 12;
+      }
+      //update time to be in format HH:MM
+      cloneValues.jobs[i].schedule.timer.at.hour =
+        cloneValues.jobs[i].schedule.timer.at.hour.hour +
+        ":" +
+        cloneValues.jobs[i].schedule.timer.at.hour.minute;
+    } else {
+      cloneValues.jobs[i].schedule.timer.at.hour = "";
+    }
+    //stringify boolean isActive value
+    cloneValues.jobs[i].isActive = String(cloneValues.jobs[i].isActive);
+  }
+  console.log("jobs to server", cloneValues);
+  let url = `external/api/activeSiteJobs.json&param.rtype=genSiteJobs&param.siteCodeNbr=${props
+    .activeSite.codenbr}JSON=JSiteFtpJobs`;
+  //let url = `${ROOT_URL}&param.rtype=newsite&JSON=JNewSite`;
+  return axios.post(url, cloneValues).then(function(response) {
+    if (
+      response &&
+      response.data &&
+      response.data.status &&
+      response.data.status.result
+    ) {
+      console.log("successfully save site");
+    } else if (
+      response &&
+      response.data &&
+      response.data.status &&
+      !response.data.status.result
+    ) {
+      throw new SubmissionError({
+        _error: response.data.status.reason
+      });
+    } else {
+      throw new SubmissionError({
+        _error: "server error, please try again later."
+      });
+    }
+  });
+}
+
+export function validateSiteFiles() {
+  let errors = {};
+  return errors;
+}
+
+export function updateSiteFtpConfig(values) {
+  let errors = {};
+  console.log("### update ftp config values", values);
+  return errors;
+}

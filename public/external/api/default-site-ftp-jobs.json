@@ -1,0 +1,130 @@
+{
+  "jobs": [
+    {
+      "id": "*SITE*Assembler",
+      "name": "Assembler",
+      "isActive": true,
+      "flow": "f_ftpAssembler",
+      "params": {
+        "site": "*SITE*",
+        "ftpConfig": "a_*SITE*FtpConfig",
+        "ftp_qid": "*SITE*Q",
+        "filename": "",
+        "portalID": "",
+        "userID": "",
+        "callerID": "",
+        "source": "",
+        "runftp": "",
+        "runnotify": "",
+        "cmd": "",
+        "rtype": "",
+        "brvid": "",
+        "batch": "",
+        "payer": ""
+      },
+
+      "schedule": {
+        "perpetual": "",
+        "timer": {
+          "cal": "work",
+          "base": {
+            "expr": "{ return @clock.getNow(); }"
+          },
+          "at": {
+            "hour": {
+              "hour": "",
+              "minute": "",
+              "meridiem": ""
+            },
+            "minute": "",
+            "second": "+30"
+          }
+        }
+      }
+    },
+    {
+      "id": "*SITE*_Daily835_",
+      "name": "Daily 835",
+      "isActive": true,
+      "flow": "f_gen835p",
+      "params": {
+        "site": "*SITE*",
+        "ftpConfig": "",
+        "ftp_qid": "",
+        "filename": "",
+        "portalID": "Jopari",
+        "userID": "unknown",
+        "callerID": "console",
+        "source": "localhost",
+        "runftp": "ftp",
+        "runnotify": "notify",
+        "cmd": "",
+        "rtype": "clear",
+        "brvid": "",
+        "batch": "",
+        "payer": ""
+      },
+
+      "schedule": {
+        "perpetual": "1",
+        "timer": {
+          "cal": "work",
+          "base": {
+            "expr": "{ return @clock.getNow(); }"
+          },
+          "at": {
+            "hour": {
+              "hour": "9",
+              "minute": "05",
+              "meridiem": "AM"
+            },
+            "minute": "",
+            "second": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "*SITE*_Daily277Status_",
+      "name": "Daily 277",
+      "isActive": true,
+      "flow": "f_loadX12N",
+      "params": {
+        "site": "*SITE*",
+        "ftpConfig": "",
+        "ftp_qid": "",
+        "filename": "*SITE*_STATUS_277",
+        "portalID": "Jopari",
+        "userID": "unknown",
+        "callerID": "console",
+        "source": "localhost",
+        "runftp": "ftp",
+        "runnotify": "notify",
+        "cmd": "f_loadX12N",
+        "rtype": "genca2clear",
+        "brvid": "",
+        "batch": "",
+        "payer": ""
+      },
+
+      "schedule": {
+        "perpetual": "1",
+        "timer": {
+          "cal": "work",
+          "base": {
+            "expr": ""
+          },
+          "at": {
+            "hour": {
+              "hour": "9",
+              "minute": "12",
+              "meridiem": "AM"
+            },
+            "minute": "",
+            "second": ""
+          }
+        }
+      }
+    }
+  ]
+}

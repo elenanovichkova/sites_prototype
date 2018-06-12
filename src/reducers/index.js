@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { reducer as formReducer } from "redux-form";
 import _ from "lodash";
+import { reducer as formReducer } from "redux-form";
 import * as types from "../actions/action-types";
 
 /*const INITIAL_STATE = {
@@ -730,6 +730,47 @@ const isEditGParamModalOpenReducer = (state = false, action) => {
   }
 };
 
+//********************* Site FTP */
+
+const activeSiteJobsReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.SITE_SELECTED:
+      return [];
+    case types.REQUEST_ACTIVESITE_JOBS:
+      return [];
+    case types.RECEIVED_ACTIVESITE_JOBS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const defaultSiteFtpJobsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.REQUEST_DEFAULT_FTP_JOBS:
+      return [];
+    case types.RECEIVED_DEFAULT_FTP_JOBS:
+      return action.payload;
+    case types.REQUEST_DEFAULT_FTP_JOBS_FAIL:
+      return [];
+    default:
+      return state;
+  }
+};
+
+const defaultSiteFtpConfigReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.REQUEST_DEFAULT_FTP_CONFIG:
+      return [];
+    case types.RECEIVED_DEFAULT_FTP_CONFIG:
+      return action.payload;
+    case types.REQUEST_DEFAULT_FTP_CONFIG_FAIL:
+      return [];
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -767,7 +808,11 @@ const rootReducer = combineReducers({
   gParamCategoryOptions: gParamCategoryOptionsReducer,
   gParamGroupOptions: gParamGroupOptionsReducer,
   gFilteredParams: gFilteredParamsReducer,
-  isEditGParamModalOpen: isEditGParamModalOpenReducer
+  isEditGParamModalOpen: isEditGParamModalOpenReducer,
+  form: formReducer,
+  activeSiteJobs: activeSiteJobsReducer,
+  defaultSiteFtpJobs: defaultSiteFtpJobsReducer,
+  defaultSiteFtpConfig: defaultSiteFtpConfigReducer
 });
 
 export default rootReducer;

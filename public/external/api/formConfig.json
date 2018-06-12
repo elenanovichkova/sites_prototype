@@ -3546,6 +3546,394 @@
           "value": "FALSE"
         }
       ]
+    },
+    {
+      "name": "hour",
+      "label": "Hour",
+      "options": [
+        {
+          "id": "hour_1",
+          "descr": "01",
+          "value": "1"
+        },
+        {
+          "id": "hour_2",
+          "descr": "02",
+          "value": "2"
+        },
+        {
+          "id": "hour_3",
+          "descr": "03",
+          "value": "3"
+        },
+        {
+          "id": "hour_4",
+          "descr": "04",
+          "value": "4"
+        },
+        {
+          "id": "hour_5",
+          "descr": "05",
+          "value": "5"
+        },
+        {
+          "id": "hour_6",
+          "descr": "06",
+          "value": "6"
+        },
+        {
+          "id": "hour_7",
+          "descr": "07",
+          "value": "7"
+        },
+        {
+          "id": "hour_8",
+          "descr": "08",
+          "value": "8"
+        },
+        {
+          "id": "hour_9",
+          "descr": "09",
+          "value": "9"
+        },
+        {
+          "id": "hour_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "hour_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "hour_12",
+          "descr": "12",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "name": "minute",
+      "label": "Minute",
+      "options": [
+        {
+          "id": "minute_0",
+          "descr": "00",
+          "value": "00"
+        },
+        {
+          "id": "minute_1",
+          "descr": "01",
+          "value": "01"
+        },
+        {
+          "id": "minute_2",
+          "descr": "02",
+          "value": "02"
+        },
+        {
+          "id": "minute_3",
+          "descr": "03",
+          "value": "03"
+        },
+        {
+          "id": "minute_4",
+          "descr": "04",
+          "value": "04"
+        },
+        {
+          "id": "minute_5",
+          "descr": "05",
+          "value": "05"
+        },
+        {
+          "id": "minute_6",
+          "descr": "06",
+          "value": "06"
+        },
+        {
+          "id": "minute_7",
+          "descr": "07",
+          "value": "07"
+        },
+        {
+          "id": "minute_8",
+          "descr": "08",
+          "value": "08"
+        },
+        {
+          "id": "minute_9",
+          "descr": "09",
+          "value": "09"
+        },
+        {
+          "id": "minute_10",
+          "descr": "10",
+          "value": "10"
+        },
+        {
+          "id": "minute_11",
+          "descr": "11",
+          "value": "11"
+        },
+        {
+          "id": "minute_12",
+          "descr": "12",
+          "value": "12"
+        },
+        {
+          "id": "minute_13",
+          "descr": "13",
+          "value": "13"
+        },
+        {
+          "id": "minute_14",
+          "descr": "14",
+          "value": "14"
+        },
+        {
+          "id": "minute_15",
+          "descr": "15",
+          "value": "15"
+        },
+        {
+          "id": "minute_16",
+          "descr": "16",
+          "value": "16"
+        },
+        {
+          "id": "minute_17",
+          "descr": "17",
+          "value": "17"
+        },
+        {
+          "id": "minute_18",
+          "descr": "18",
+          "value": "18"
+        },
+        {
+          "id": "minute_19",
+          "descr": "19",
+          "value": "19"
+        },
+        {
+          "id": "minute_20",
+          "descr": "20",
+          "value": "20"
+        },
+        {
+          "id": "minute_21",
+          "descr": "21",
+          "value": "21"
+        },
+        {
+          "id": "minute_22",
+          "descr": "22",
+          "value": "22"
+        },
+        {
+          "id": "minute_23",
+          "descr": "23",
+          "value": "23"
+        },
+        {
+          "id": "minute_24",
+          "descr": "24",
+          "value": "24"
+        },
+        {
+          "id": "minute_25",
+          "descr": "25",
+          "value": "25"
+        },
+        {
+          "id": "minute_26",
+          "descr": "26",
+          "value": "26"
+        },
+        {
+          "id": "minute_27",
+          "descr": "27",
+          "value": "27"
+        },
+        {
+          "id": "minute_28",
+          "descr": "28",
+          "value": "28"
+        },
+        {
+          "id": "minute_29",
+          "descr": "29",
+          "value": "29"
+        },
+        {
+          "id": "minute_30",
+          "descr": "30",
+          "value": "30"
+        },
+        {
+          "id": "minute_31",
+          "descr": "31",
+          "value": "31"
+        },
+        {
+          "id": "minute_32",
+          "descr": "32",
+          "value": "32"
+        },
+        {
+          "id": "minute_33",
+          "descr": "33",
+          "value": "33"
+        },
+        {
+          "id": "minute_34",
+          "descr": "34",
+          "value": "34"
+        },
+        {
+          "id": "minute_35",
+          "descr": "35",
+          "value": "35"
+        },
+        {
+          "id": "minute_36",
+          "descr": "36",
+          "value": "36"
+        },
+        {
+          "id": "minute_37",
+          "descr": "37",
+          "value": "37"
+        },
+        {
+          "id": "minute_38",
+          "descr": "38",
+          "value": "38"
+        },
+        {
+          "id": "minute_39",
+          "descr": "39",
+          "value": "39"
+        },
+        {
+          "id": "minute_40",
+          "descr": "40",
+          "value": "40"
+        },
+        {
+          "id": "minute_41",
+          "descr": "41",
+          "value": "41"
+        },
+        {
+          "id": "minute_42",
+          "descr": "42",
+          "value": "42"
+        },
+        {
+          "id": "minute_43",
+          "descr": "43",
+          "value": "43"
+        },
+        {
+          "id": "minute_44",
+          "descr": "44",
+          "value": "44"
+        },
+        {
+          "id": "minute_45",
+          "descr": "45",
+          "value": "45"
+        },
+        {
+          "id": "minute_46",
+          "descr": "46",
+          "value": "46"
+        },
+        {
+          "id": "minute_47",
+          "descr": "47",
+          "value": "47"
+        },
+        {
+          "id": "minute_48",
+          "descr": "48",
+          "value": "48"
+        },
+        {
+          "id": "minute_49",
+          "descr": "49",
+          "value": "49"
+        },
+        {
+          "id": "minute_50",
+          "descr": "50",
+          "value": "50"
+        },
+        {
+          "id": "minute_51",
+          "descr": "51",
+          "value": "51"
+        },
+        {
+          "id": "minute_52",
+          "descr": "52",
+          "value": "52"
+        },
+        {
+          "id": "minute_53",
+          "descr": "53",
+          "value": "53"
+        },
+        {
+          "id": "minute_54",
+          "descr": "54",
+          "value": "54"
+        },
+        {
+          "id": "minute_55",
+          "descr": "55",
+          "value": "55"
+        },
+        {
+          "id": "minute_56",
+          "descr": "56",
+          "value": "56"
+        },
+        {
+          "id": "minute_57",
+          "descr": "57",
+          "value": "57"
+        },
+        {
+          "id": "minute_58",
+          "descr": "58",
+          "value": "58"
+        },
+        {
+          "id": "minute_59",
+          "descr": "59",
+          "value": "59"
+        }
+      ]
+    },
+    {
+      "name": "meridiem",
+      "label": "Meridiem",
+      "options": [
+        {
+          "id": "meridiem_0",
+          "descr": "AM",
+          "value": "AM"
+        },
+        {
+          "id": "meridiem_1",
+          "descr": "PM",
+          "value": "PM"
+        }
+      ]
     }
   ]
 }

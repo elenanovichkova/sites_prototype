@@ -5,16 +5,22 @@ const CheckboxField = ({
   type,
   label,
   placeholder,
+  disabled,
   meta: { touched, error }
 }) => {
   return (
     <div className={`${touched && error ? "has-error" : ""}`}>
       <div className="checkbox">
-        <label>
-          <input {...input} type={type} /> {label}
-        </label>
+        {disabled
+          ? <label>
+              <input {...input} type={type} disabled /> {label}
+            </label>
+          : <label>
+              <input {...input} type={type} /> {label}
+            </label>}
         {touched &&
           error &&
+          !disabled &&
           <span className="field-error-message">
             {error}
           </span>}
