@@ -11,7 +11,8 @@ import {
   openEditGParamModal,
   deselectGParam,
   getDefaultFtpJobs,
-  getDefaultFtpConfig
+  getDefaultFtpConfig,
+  getDefaultFtpNotify
 } from "../actions/index";
 import _ from "lodash";
 
@@ -33,6 +34,7 @@ class SitesContainer extends Component {
     this.props.getFormConfig();
     this.props.getDefaultFtpJobs();
     this.props.getDefaultFtpConfig();
+    this.props.getDefaultFtpNotify();
   }
 
   render() {
@@ -232,7 +234,8 @@ function mapDispatchToProps(dispatch) {
       openEditGParamModal,
       deselectGParam,
       getDefaultFtpConfig,
-      getDefaultFtpJobs
+      getDefaultFtpJobs,
+      getDefaultFtpNotify
     },
     dispatch
   );

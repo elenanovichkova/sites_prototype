@@ -784,6 +784,19 @@ const activeSiteInboundFilesReducer = (state = [], action) => {
   }
 };
 
+const defaultSiteFtpNotifyReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.REQUEST_DEFAULT_FTP_NOTIFY:
+      return [];
+    case types.RECEIVED_DEFAULT_FTP_NOTIFY:
+      return action.payload;
+    case types.REQUEST_DEFAULT_FTP_NOTIFY_FAIL:
+      return [];
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -826,6 +839,7 @@ const rootReducer = combineReducers({
   activeSiteJobs: activeSiteJobsReducer,
   defaultSiteFtpJobs: defaultSiteFtpJobsReducer,
   defaultSiteFtpConfig: defaultSiteFtpConfigReducer,
+  defaultSiteFtpNotify: defaultSiteFtpNotifyReducer,
   activeSiteInboundFiles: activeSiteInboundFilesReducer
 });
 

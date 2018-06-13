@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SiteFilesForm from "./site-files-form";
 import SiteJobsForm from "./site-jobs-form";
+import SiteFtpNotifyForm from "./site-ftpnotify-form";
 
 class SiteFtp extends Component {
   render() {
@@ -14,10 +15,10 @@ class SiteFtp extends Component {
           <div className="site-detail-jobs-header">
             <div className="panel-body">Site Jobs</div>
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="panel-body">
-                <div className="site-detail-current-jobs">
+          <div className="panel-body">
+            <div className="site-detail-current-jobs">
+              <div className="row">
+                <div className="col-md-12">
                   <h4>Current Site Jobs</h4>
                   <div className="panel-body">
                     {this.props.activeSiteJobs.map((job, index) =>
@@ -35,18 +36,20 @@ class SiteFtp extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-12">
-              <div className="panel-body">
-                <h4>
-                  Update/Generate Site Jobs{" "}
-                  <small>
-                    (Attention: This process cannot be reverted back and it will
-                    overwrite <strong>ALL</strong> current jobs)
-                  </small>
-                </h4>
-                <div className="panel-body">
-                  <div className="site-detail-jobs-form-wrapper">
-                    <SiteJobsForm />
+            <div className="site-detail-update-generate-jobs">
+              <div className="row">
+                <div className="col-md-12">
+                  <h4>
+                    Update/Generate Site Jobs{" "}
+                    <small>
+                      (Attention: This process cannot be reverted back and it
+                      will overwrite <strong>ALL</strong> current jobs)
+                    </small>
+                  </h4>
+                  <div className="panel-body">
+                    <div className="site-detail-jobs-form-wrapper">
+                      <SiteJobsForm />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -58,10 +61,10 @@ class SiteFtp extends Component {
           <div className="site-detail-inbound-files-header">
             <div className="panel-body">Site Inbound Files</div>
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="panel-body">
-                <div className="site-detail-current-inbound-files">
+          <div className="panel-body">
+            <div className="site-detail-current-inbound-files">
+              <div className="row">
+                <div className="col-md-12">
                   <h4>Current Site Inbound Files</h4>
                   <div className="panel-body">
                     <div className="row">
@@ -104,15 +107,52 @@ class SiteFtp extends Component {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-12">
-            <div className="site-detail-update-inbound-files">
+
+            <div className="site-detail-update-generate-inbound-files">
               <h4>Update/Generate Site FTP Configuration For Incoming Files</h4>
               <div className="site-detail-incoming-files-form-wrapper">
                 <div className="panel-body">
                   <div className="row">
                     <div className="col-md-6">
                       <SiteFilesForm />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="site-detail-ftp-notify">
+          <div className="site-detail-ftp-notify-header">
+            <div className="panel-body">Site FTP Notification</div>
+          </div>
+          <div className="panel-body">
+            <div className="site-detail-current-ftp-notify">
+              <div className="row">
+                <div className="col-md-12">
+                  <h4>Current Site FTP Notification</h4>
+                  <div className="panel-body">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <p>To do...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="site-detail-update-generate-ftp-notify">
+              <div className="row">
+                <div className="col-md-12">
+                  <h4>Setup FTP Notification</h4>
+                  <div className="site-detail-incoming-files-form-wrapper">
+                    <div className="panel-body">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <SiteFtpNotifyForm />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

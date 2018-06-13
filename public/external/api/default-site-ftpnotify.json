@@ -1,0 +1,130 @@
+{
+  "states": [
+    {
+      "name": "start",
+      "actions": {
+        "updTicket": {
+          "params": [
+            {
+              "tag": "cmd",
+              "value": ""
+            },
+            {
+              "tag": "description",
+              "value": "deliver files to client and notify"
+            }
+          ]
+        },
+        "deliver": {
+          "dest": "",
+          "file": ""
+        }
+      },
+      "return": {
+        "outcome": ""
+      },
+      "forwards": [
+        {
+          "outcome": "OK",
+          "state": "deliver"
+        }
+      ]
+    },
+    {
+      "name": "deliver",
+      "actions": {
+        "updTicket": {
+          "params": []
+        },
+        "deliver": {
+          "dest": "$(site)",
+          "file": "respfiles"
+        }
+      },
+      "return": {
+        "outcome": ""
+      },
+      "forwards": [
+        {
+          "outcome": "OK",
+          "state": "done"
+        },
+        {
+          "outcome": "EMPTY",
+          "state": "done"
+        },
+        {
+          "outcome": "ERROR",
+          "state": "err"
+        }
+      ]
+    },
+    {
+      "name": "done",
+      "actions": {
+        "updTicket": {
+          "params": []
+        },
+        "deliver": {
+          "dest": "",
+          "file": ""
+        }
+      },
+      "return": {
+        "outcome": "OK"
+      },
+      "forwards": [
+        {
+          "outcome": "OK",
+          "state": "end"
+        }
+      ]
+    },
+    {
+      "name": "err",
+      "actions": {
+        "updTicket": {
+          "params": [
+            {
+              "tag": "descr",
+              "value": "ERROR in delivery for $(site)"
+            }
+          ]
+        },
+        "deliver": {
+          "dest": "",
+          "file": ""
+        }
+      },
+      "return": {
+        "outcome": "ERROR"
+      },
+      "forwards": [
+        {
+          "outcome": "OK",
+          "state": "end"
+        }
+      ]
+    },
+    {
+      "name": "end",
+      "actions": {
+        "updTicket": {
+          "params": [
+            {
+              "tag": "status",
+              "value": "CLSD"
+            }
+          ]
+        },
+        "deliver": {
+          "dest": "",
+          "file": ""
+        }
+      },
+      "return": {
+        "outcome": ""
+      }
+    }
+  ]
+}

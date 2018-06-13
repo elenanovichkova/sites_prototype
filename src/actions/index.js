@@ -1202,3 +1202,55 @@ export function getActiveSiteInboundFiles(site) {
     });
   };
 }
+
+export function getDefaultFtpNotify() {
+  let url = `external/api/default-site-ftpnotify.json`;
+  return function(dispatch) {
+    dispatch({ type: types.REQUEST_DEFAULT_FTP_NOTIFY });
+    axios.get(url).then(response => {
+      if (response.data) {
+        dispatch({
+          type: types.RECEIVED_DEFAULT_FTP_NOTIFY,
+          payload: response.data
+        });
+      } else {
+        dispatch({
+          type: types.REQUEST_DEFAULT_FTP_NOTIFY_FAIL,
+          payload: response
+        });
+      }
+    });
+  };
+}
+
+export function updateSiteFtpNotify(values, dispatch, props) {
+  let errors = {};
+  var cloneValues = _.cloneDeep(values);
+
+  let url = `external/api/activeSiteJobs.json&param.rtype=genSiteFtpNotify&param.siteCodeNbr=${props
+    .activeSite.codenbr}JSON=JSiteFtpNotify`;
+  //let url = `${ROOT_URL}&param.rtype=newsite&JSON=JNewSite`;
+  return axios.post(url, cloneValues).then(function(response) {
+    if (
+      response &&
+      response.data &&
+      response.data.status &&
+      response.data.status.result
+    ) {
+      console.log("successfully save site");
+    } else if (
+      response &&
+      response.data &&
+      response.data.status &&
+      !response.data.status.result
+    ) {
+      throw new SubmissionError({
+        _error: response.data.status.reason
+      });
+    } else {
+      throw new SubmissionError({
+        _error: "server error, please try again later."
+      });
+    }
+  });
+}
