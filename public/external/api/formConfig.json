@@ -3934,6 +3934,70 @@
           "value": "PM"
         }
       ]
+    },
+    {
+      "name": "jobParam277rtype",
+      "label": "Encrypted",
+      "options": [
+        {
+          "id": "jobParam277rtype_0",
+          "descr": "NO",
+          "value": "genca2clear"
+        },
+        {
+          "id": "jobParam277rtype_1",
+          "descr": "YES",
+          "value": "genca2"
+        }
+      ]
+    },
+    {
+      "name": "jobParam835rtype",
+      "label": "Encrypted",
+      "options": [
+        {
+          "id": "jobParam835rtype_0",
+          "descr": "NO",
+          "value": "clear"
+        },
+        {
+          "id": "jobParam835rtype_1",
+          "descr": "YES",
+          "value": "pgp"
+        }
+      ]
+    },
+    {
+      "name": "jobParamRunFtp",
+      "label": "Run FTP",
+      "options": [
+        {
+          "id": "jobParamRunFtp_0",
+          "descr": "YES",
+          "value": "ftp"
+        },
+        {
+          "id": "jobParamRunFtp_1",
+          "descr": "NO",
+          "value": "noftp"
+        }
+      ]
+    },
+    {
+      "name": "jobParamRunNotify",
+      "label": "Run Notify",
+      "options": [
+        {
+          "id": "jobParamRunNotify_0",
+          "descr": "YES",
+          "value": "notify"
+        },
+        {
+          "id": "jobParamRunNotify_1",
+          "descr": "NO",
+          "value": "nonotify"
+        }
+      ]
     }
   ]
 }

@@ -35,30 +35,79 @@ const renderJobs = ({ fields, meta: { error, submitFailed }, formConfig }) =>
               </div>
             </div>
           </div>
-          <div className="col-md-8">
-            {index > 0
+          <div className="col-md-10">
+            {fields.get(index).name != "Assembler"
               ? <div className="row">
+                  <div className="col-xs-5">
+                    <div className="row row-time">
+                      <div className="col-xs-4 job-hour">
+                        <Field
+                          name={`${member}.schedule.timer.at.hour.hour`}
+                          label="Hour"
+                          validate={[required]}
+                          options={formConfig.hour.options}
+                          component={SelectField}
+                        />
+                      </div>
+                      <div className="col-xs-4 job-minute">
+                        <Field
+                          name={`${member}.schedule.timer.at.hour.minute`}
+                          validate={[required]}
+                          label="Minute"
+                          options={formConfig.minute.options}
+                          component={SelectField}
+                        />
+                      </div>
+                      <div className="col-xs-4 job-meridiem">
+                        <Field
+                          name={`${member}.schedule.timer.at.hour.meridiem`}
+                          validate={[required]}
+                          label="AM/PM"
+                          options={formConfig.meridiem.options}
+                          component={SelectField}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-1" />
+
+                  {fields.get(index).name === "Daily 277"
+                    ? <div className="col-xs-2">
+                        <Field
+                          name={`${member}.params.rtype`}
+                          validate={[required]}
+                          label="Encrypted"
+                          options={formConfig.jobParam277rtype.options}
+                          component={SelectField}
+                        />
+                      </div>
+                    : ""}
+                  {fields.get(index).name === "Daily 835"
+                    ? <div className="col-xs-2">
+                        <Field
+                          name={`${member}.params.rtype`}
+                          validate={[required]}
+                          label="Encrypted"
+                          options={formConfig.jobParam835rtype.options}
+                          component={SelectField}
+                        />
+                      </div>
+                    : ""}
                   <div className="col-xs-2">
                     <Field
-                      name={`${member}.schedule.timer.at.hour.hour`}
+                      name={`${member}.params.runftp`}
                       validate={[required]}
-                      options={formConfig.hour.options}
+                      label="Run FTP"
+                      options={formConfig.jobParamRunFtp.options}
                       component={SelectField}
                     />
                   </div>
                   <div className="col-xs-2">
                     <Field
-                      name={`${member}.schedule.timer.at.hour.minute`}
+                      name={`${member}.params.runnotify`}
                       validate={[required]}
-                      options={formConfig.minute.options}
-                      component={SelectField}
-                    />
-                  </div>
-                  <div className="col-xs-2">
-                    <Field
-                      name={`${member}.schedule.timer.at.hour.meridiem`}
-                      validate={[required]}
-                      options={formConfig.meridiem.options}
+                      label="Run Notify"
+                      options={formConfig.jobParamRunNotify.options}
                       component={SelectField}
                     />
                   </div>
