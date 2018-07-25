@@ -1,5 +1,6 @@
 import React from "react";
-import { Field, reduxForm, FieldArray } from "redux-form";
+import _ from "lodash";
+import { Field, reduxForm, FieldArray, change } from "redux-form";
 import {
   required,
   zip,
@@ -54,6 +55,14 @@ const SiteProfileFormAddon = props =>
           placeholder="Company name"
           type="text"
           validate={[required, minLength3, maxLength120]}
+          onChange={(event, newValue, previousValue, name) =>
+            props.handleOrgNameChange(
+              event,
+              newValue,
+              previousValue,
+              name,
+              props.updateNewSiteSyncWarnings
+            )}
           component={renderTextField}
         />
       </div>

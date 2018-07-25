@@ -15,7 +15,7 @@ const renderHorizontalSelectField = HorizontalSelectField;
 const renderCheckboxField = CheckboxField;
 
 const SiteKeyClientsFormAddon = props =>
-  <div class="site-keyclient-form-addon">
+  <div className="site-keyclient-form-addon">
     <div className="row">
       <div className="col-md-6">
         <h3 className="new-site-form-section-title new-site-form-section-title-company-info">

@@ -5,9 +5,14 @@ const TextField = ({
   label,
   type,
   placeholder,
-  meta: { asyncValidating, touched, error }
+  meta: { asyncValidating, touched, error, warning }
 }) =>
-  <div className={`form-group ${touched && error ? "has-error" : ""}`}>
+  <div
+    className={`form-group ${touched && error ? "has-error" : ""} ${touched &&
+    warning
+      ? "has-warning"
+      : ""}`}
+  >
     <label>
       {label}
     </label>
@@ -22,6 +27,12 @@ const TextField = ({
         error &&
         <span className="field-error-message">
           {error}
+        </span>}
+      {touched &&
+        warning &&
+        !error &&
+        <span className="field-warning-message">
+          {warning}
         </span>}
     </div>
   </div>;

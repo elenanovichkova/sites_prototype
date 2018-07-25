@@ -1254,3 +1254,62 @@ export function updateSiteFtpNotify(values, dispatch, props) {
     }
   });
 }
+
+/*************************************** show existing orgs */
+
+export function handleOrgNameChange(
+  event,
+  newValue,
+  previousValue,
+  name,
+  updateSyncWarnings
+) {
+  let url = "external/api/orglist.json";
+  if (
+    (newValue && newValue.length < 3) ||
+    (newValue && newValue.length > 120)
+  ) {
+    if (typeof updateSyncWarnings === "function") {
+      updateSyncWarnings({});
+    }
+    return {
+      type: types.RECEIVED_ORG,
+      payload: []
+    };
+  } else {
+    return function(dispatch) {
+      //dispatch({ type: types.REQUEST_ORG });
+      axios.get(url).then(response => {
+        if (
+          response.data &&
+          response.data.data &&
+          response.data.data.length > 0
+        ) {
+          dispatch({
+            type: types.RECEIVED_ORG,
+            payload: response.data
+          });
+          if (typeof updateSyncWarnings === "function") {
+            updateSyncWarnings({
+              receiverName:
+                "Organization with the same company name already exists in the system"
+            });
+          }
+        } else {
+          dispatch({
+            type: types.RECEIVED_ORG,
+            payload: []
+          });
+          if (typeof updateSyncWarnings === "function") {
+            updateSyncWarnings({});
+          }
+        }
+      });
+    };
+  }
+}
+
+export function newSiteWarn(values, props) {
+  console.log(props.orglist.data, values.receiverName);
+  return { receiverName: "receiver name exists" };
+}

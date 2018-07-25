@@ -797,6 +797,17 @@ const defaultSiteFtpNotifyReducer = (state = {}, action) => {
   }
 };
 
+const orglistReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.REQUEST_ORG:
+      return [];
+    case types.RECEIVED_ORG:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   siteView: siteViewReducer,
   sitesFilter: sitesFilterReducer,
@@ -840,7 +851,8 @@ const rootReducer = combineReducers({
   defaultSiteFtpJobs: defaultSiteFtpJobsReducer,
   defaultSiteFtpConfig: defaultSiteFtpConfigReducer,
   defaultSiteFtpNotify: defaultSiteFtpNotifyReducer,
-  activeSiteInboundFiles: activeSiteInboundFilesReducer
+  activeSiteInboundFiles: activeSiteInboundFilesReducer,
+  orglist: orglistReducer
 });
 
 export default rootReducer;

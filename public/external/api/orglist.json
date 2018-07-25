@@ -1,0 +1,33 @@
+{
+  "status": {
+    "code": "0",
+    "result": true,
+    "reason": "OK"
+  },
+  "data": [
+    {
+      "id": "10:194-e$Org",
+      "orgname": "TEST ORG1",
+      "fein": "123456789",
+      "address": {
+        "address1": "street 1",
+        "address2": "unit #1",
+        "city": "Concord",
+        "state": "CA",
+        "zip": "94596"
+      }
+    },
+    {
+      "id": "10:1pu-e$Org",
+      "orgname": "TEST ORG2",
+      "fein": "987654321",
+      "address": {
+        "address1": "street 2",
+        "address2": "unit #2",
+        "city": "Concord",
+        "state": "CA",
+        "zip": "94596"
+      }
+    }
+  ]
+}

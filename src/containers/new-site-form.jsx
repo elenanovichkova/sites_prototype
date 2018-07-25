@@ -3,13 +3,20 @@ import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Field, reduxForm, FieldArray, reset } from "redux-form";
+import {
+  Field,
+  reduxForm,
+  FieldArray,
+  reset,
+  updateSyncWarnings
+} from "redux-form";
 import {
   asyncValidateNewSite,
   submitNewSite,
   changeSitesView,
   selectSite,
-  fetchConfigs
+  fetchConfigs,
+  handleOrgNameChange
 } from "../actions/index.js";
 import SiteProfileFormAddon from "../components/site-profile-form-addon";
 import SiteBillQuestionnaireAddon from "../components/site-billquest-form-addon";
@@ -19,6 +26,7 @@ import SiteKeyClientsFormAddon from "../components/site-keyclients-form-addon";
 import Params from "../components/params.jsx";
 
 import validate from "../validate-new-site";
+import { newSiteWarn } from "../actions/index.js";
 
 /*const submitMyForm = data => {
   const { createRecord, resetForm } = props;
@@ -222,12 +230,22 @@ NewSiteForm = reduxForm({
 
 function mapStateToProps({
   siteTemplateData: { data: initialValues },
-  formConfig: { data: formConfig }
+  formConfig: { data: formConfig },
+  orglist
 }) {
-  return { initialValues, formConfig };
+  return { initialValues, formConfig, orglist };
+}
+
+function mapDispatchToProps(dispatch) {
+  const updateNewSiteSyncWarnings = syncWarning =>
+    updateSyncWarnings("newSiteForm", syncWarning);
+  return bindActionCreators(
+    { handleOrgNameChange, updateNewSiteSyncWarnings },
+    dispatch
+  );
 }
 
 // You have to connect() to any reducers that you wish to connect to yourself
-NewSiteForm = connect(mapStateToProps)(NewSiteForm);
+NewSiteForm = connect(mapStateToProps, mapDispatchToProps)(NewSiteForm);
 
 export default NewSiteForm;
